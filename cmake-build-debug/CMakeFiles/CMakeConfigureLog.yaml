@@ -109,8 +109,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ev4o5t"
-      binary: "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ev4o5t"
+      source: "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fvjs18"
+      binary: "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fvjs18"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
@@ -119,11 +119,28 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ev4o5t'
+        Change Dir: 'D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fvjs18'
         
-        Run Build Command(s): "D:/CLion/CLion 2025.1/bin/ninja/win/x64/ninja.exe" -v cmTC_3b14f
-        [1/2] C:\\PROGRA~1\\MIB055~1\\2022\\PROFES~1\\VC\\Tools\\MSVC\\1441~1.341\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS  /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_3b14f.dir\\CMakeCCompilerABI.c.obj /FdCMakeFiles\\cmTC_3b14f.dir\\ /FS -c "D:\\CLion\\CLion 2025.1\\bin\\cmake\\win\\x64\\share\\cmake-3.31\\Modules\\CMakeCCompilerABI.c"
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "D:\\CLion\\CLion 2025.1\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1941 --intdir=CMakeFiles\\cmTC_3b14f.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MIB055~1\\2022\\PROFES~1\\VC\\Tools\\MSVC\\1441~1.341\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_3b14f.dir\\CMakeCCompilerABI.c.obj  /out:cmTC_3b14f.exe /implib:cmTC_3b14f.lib /pdb:cmTC_3b14f.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        Run Build Command(s): "D:/CLion/CLion 2025.1/bin/cmake/win/x64/bin/cmake.exe" -E env VERBOSE=1 nmake -f Makefile /nologo cmTC_bb784\\fast
+        	"C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\nmake.exe"  -f CMakeFiles\\cmTC_bb784.dir\\build.make /nologo -L                  CMakeFiles\\cmTC_bb784.dir\\build
+        Building C object CMakeFiles/cmTC_bb784.dir/CMakeCCompilerABI.c.obj
+        	"D:\\CLion\\CLion 2025.1\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_bb784.dir\\CMakeCCompilerABI.c.obj.d --working-dir=D:\\C_C++Package\\CLionProject\\DLNU_CPP_CourseDesign\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-fvjs18 --filter-prefix="注意: 包含文件:  " -- C:\\PROGRA~1\\MIB055~1\\2022\\PROFES~1\\VC\\Tools\\MSVC\\1441~1.341\\bin\\Hostx64\\x64\\cl.exe @C:\\Users\\a1793\\AppData\\Local\\Temp\\nm97B0.tmp
+        CMakeCCompilerABI.c
+        Linking C executable cmTC_bb784.exe
+        	"D:\\CLion\\CLion 2025.1\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1941 --intdir=CMakeFiles\\cmTC_bb784.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests -- C:\\PROGRA~1\\MIB055~1\\2022\\PROFES~1\\VC\\Tools\\MSVC\\1441~1.341\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_bb784.dir\\objects1.rsp @C:\\Users\\a1793\\AppData\\Local\\Temp\\nm97EF.tmp
+        Visual Studio Incremental Link with embedded manifests
+        Create CMakeFiles\\cmTC_bb784.dir/manifest.rc
+        Create empty: CMakeFiles\\cmTC_bb784.dir/embed.manifest
+        RC Pass 1:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_bb784.dir/manifest.res CMakeFiles\\cmTC_bb784.dir/manifest.rc
+        LINK Pass 1:
+        C:\\PROGRA~1\\MIB055~1\\2022\\PROFES~1\\VC\\Tools\\MSVC\\1441~1.341\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_bb784.dir\\objects1.rsp /out:cmTC_bb784.exe /implib:cmTC_bb784.lib /pdb:D:\\C_C++Package\\CLionProject\\DLNU_CPP_CourseDesign\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-fvjs18\\cmTC_bb784.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_bb784.dir/intermediate.manifest CMakeFiles\\cmTC_bb784.dir/manifest.res
+        MT:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe /nologo /manifest CMakeFiles\\cmTC_bb784.dir/intermediate.manifest /out:CMakeFiles\\cmTC_bb784.dir/embed.manifest /notify_update
+        RC Pass 2:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_bb784.dir/manifest.res CMakeFiles\\cmTC_bb784.dir/manifest.rc
+        FINAL LINK:
+        C:\\PROGRA~1\\MIB055~1\\2022\\PROFES~1\\VC\\Tools\\MSVC\\1441~1.341\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_bb784.dir\\objects1.rsp /out:cmTC_bb784.exe /implib:cmTC_bb784.lib /pdb:D:\\C_C++Package\\CLionProject\\DLNU_CPP_CourseDesign\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-fvjs18\\cmTC_bb784.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_bb784.dir/intermediate.manifest CMakeFiles\\cmTC_bb784.dir/manifest.res
         
       exitCode: 0
   -
@@ -163,8 +180,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-6766n0"
-      binary: "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-6766n0"
+      source: "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-omtwqb"
+      binary: "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-omtwqb"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
@@ -174,11 +191,28 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-6766n0'
+        Change Dir: 'D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-omtwqb'
         
-        Run Build Command(s): "D:/CLion/CLion 2025.1/bin/ninja/win/x64/ninja.exe" -v cmTC_5a17c
-        [1/2] C:\\PROGRA~1\\MIB055~1\\2022\\PROFES~1\\VC\\Tools\\MSVC\\1441~1.341\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /EHsc  /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_5a17c.dir\\CMakeCXXCompilerABI.cpp.obj /FdCMakeFiles\\cmTC_5a17c.dir\\ /FS -c "D:\\CLion\\CLion 2025.1\\bin\\cmake\\win\\x64\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "D:\\CLion\\CLion 2025.1\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1941 --intdir=CMakeFiles\\cmTC_5a17c.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MIB055~1\\2022\\PROFES~1\\VC\\Tools\\MSVC\\1441~1.341\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_5a17c.dir\\CMakeCXXCompilerABI.cpp.obj  /out:cmTC_5a17c.exe /implib:cmTC_5a17c.lib /pdb:cmTC_5a17c.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        Run Build Command(s): "D:/CLion/CLion 2025.1/bin/cmake/win/x64/bin/cmake.exe" -E env VERBOSE=1 nmake -f Makefile /nologo cmTC_945c5\\fast
+        	"C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\nmake.exe"  -f CMakeFiles\\cmTC_945c5.dir\\build.make /nologo -L                  CMakeFiles\\cmTC_945c5.dir\\build
+        Building CXX object CMakeFiles/cmTC_945c5.dir/CMakeCXXCompilerABI.cpp.obj
+        	"D:\\CLion\\CLion 2025.1\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_945c5.dir\\CMakeCXXCompilerABI.cpp.obj.d --working-dir=D:\\C_C++Package\\CLionProject\\DLNU_CPP_CourseDesign\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-omtwqb --filter-prefix="注意: 包含文件:  " -- C:\\PROGRA~1\\MIB055~1\\2022\\PROFES~1\\VC\\Tools\\MSVC\\1441~1.341\\bin\\Hostx64\\x64\\cl.exe @C:\\Users\\a1793\\AppData\\Local\\Temp\\nm9946.tmp
+        CMakeCXXCompilerABI.cpp
+        Linking CXX executable cmTC_945c5.exe
+        	"D:\\CLion\\CLion 2025.1\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1941 --intdir=CMakeFiles\\cmTC_945c5.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests -- C:\\PROGRA~1\\MIB055~1\\2022\\PROFES~1\\VC\\Tools\\MSVC\\1441~1.341\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_945c5.dir\\objects1.rsp @C:\\Users\\a1793\\AppData\\Local\\Temp\\nm9976.tmp
+        Visual Studio Incremental Link with embedded manifests
+        Create CMakeFiles\\cmTC_945c5.dir/manifest.rc
+        Create empty: CMakeFiles\\cmTC_945c5.dir/embed.manifest
+        RC Pass 1:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_945c5.dir/manifest.res CMakeFiles\\cmTC_945c5.dir/manifest.rc
+        LINK Pass 1:
+        C:\\PROGRA~1\\MIB055~1\\2022\\PROFES~1\\VC\\Tools\\MSVC\\1441~1.341\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_945c5.dir\\objects1.rsp /out:cmTC_945c5.exe /implib:cmTC_945c5.lib /pdb:D:\\C_C++Package\\CLionProject\\DLNU_CPP_CourseDesign\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-omtwqb\\cmTC_945c5.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_945c5.dir/intermediate.manifest CMakeFiles\\cmTC_945c5.dir/manifest.res
+        MT:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe /nologo /manifest CMakeFiles\\cmTC_945c5.dir/intermediate.manifest /out:CMakeFiles\\cmTC_945c5.dir/embed.manifest /notify_update
+        RC Pass 2:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_945c5.dir/manifest.res CMakeFiles\\cmTC_945c5.dir/manifest.rc
+        FINAL LINK:
+        C:\\PROGRA~1\\MIB055~1\\2022\\PROFES~1\\VC\\Tools\\MSVC\\1441~1.341\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_945c5.dir\\objects1.rsp /out:cmTC_945c5.exe /implib:cmTC_945c5.lib /pdb:D:\\C_C++Package\\CLionProject\\DLNU_CPP_CourseDesign\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-omtwqb\\cmTC_945c5.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_945c5.dir/intermediate.manifest CMakeFiles\\cmTC_945c5.dir/manifest.res
         
       exitCode: 0
   -
