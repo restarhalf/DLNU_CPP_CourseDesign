@@ -29,7 +29,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3e4e1ff-e7a9-4dbe-9d6a-e083ec08d5d7" name="更改" comment="init">
+      <change afterPath="$PROJECT_DIR$/.vs/DLNU_CPP_CourseDesign/v17/Browse.VC.db-shm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vs/DLNU_CPP_CourseDesign/v17/Browse.VC.db-wal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/DLNU_CPP_CourseDesign/FileContentIndex/26436d26-8e96-47c6-bcb4-d479b625efbb.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/DLNU_CPP_CourseDesign/v17/Browse.VC.db" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/DLNU_CPP_CourseDesign/v17/Browse.VC.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/DLNU_CPP_CourseDesign/v17/ipch/AutoPCH/305cef584dce1ce3/MAIN.ipch" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/DLNU_CPP_CourseDesign/v17/ipch/AutoPCH/305cef584dce1ce3/MAIN.ipch" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,28 +71,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "CMake 应用程序.DLNU_CPP_CourseDesign.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.RadMigrateCodeStyle": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "RunOnceActivity.west.config.association.type.startup.service": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/main.cpp",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;CMake 应用程序.DLNU_CPP_CourseDesign.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.west.config.association.type.startup.service&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/main.cpp&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="DLNU_CPP_CourseDesign" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="DLNU_CPP_CourseDesign" TARGET_NAME="DLNU_CPP_CourseDesign" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="DLNU_CPP_CourseDesign" RUN_TARGET_NAME="DLNU_CPP_CourseDesign">
       <method v="2">
@@ -118,6 +123,8 @@
       <workItem from="1748264618745" duration="158000" />
       <workItem from="1748264796688" duration="15000" />
       <workItem from="1748265386662" duration="56000" />
+      <workItem from="1748265986113" duration="205000" />
+      <workItem from="1748266200819" duration="2000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
