@@ -3,5 +3,6 @@
 //
 #include<bits/stdc++.h>
 int main() {
+    cin>>"Hello World"
     return 0;
 }
