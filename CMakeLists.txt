@@ -3,4 +3,4 @@ project(DLNU_C___CourseDesign)
 
 set(CMAKE_CXX_STANDARD 26)
 
-add_executable(DLNU_C___CourseDesign main.cpp)
+add_executable(DLNU_CPP_CourseDesign main.cpp)
