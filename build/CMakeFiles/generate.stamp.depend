@@ -12,6 +12,7 @@ C:/Program Files/Microsoft Visual Studio/2022/Professional/Common7/IDE/CommonExt
 C:/Program Files/Microsoft Visual Studio/2022/Professional/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.29/Modules/Compiler/MSVC-C.cmake
 C:/Program Files/Microsoft Visual Studio/2022/Professional/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.29/Modules/Compiler/MSVC-CXX.cmake
 C:/Program Files/Microsoft Visual Studio/2022/Professional/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.29/Modules/Compiler/MSVC.cmake
+C:/Program Files/Microsoft Visual Studio/2022/Professional/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.29/Modules/FeatureSummary.cmake
 C:/Program Files/Microsoft Visual Studio/2022/Professional/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.29/Modules/Platform/Windows-Initialize.cmake
 C:/Program Files/Microsoft Visual Studio/2022/Professional/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.29/Modules/Platform/Windows-MSVC-C.cmake
 C:/Program Files/Microsoft Visual Studio/2022/Professional/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.29/Modules/Platform/Windows-MSVC-CXX.cmake
@@ -23,3 +24,5 @@ D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/build/CMakeFiles/3.29.5-msvc4
 D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/build/CMakeFiles/3.29.5-msvc4/CMakeCXXCompiler.cmake
 D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/build/CMakeFiles/3.29.5-msvc4/CMakeRCCompiler.cmake
 D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/build/CMakeFiles/3.29.5-msvc4/CMakeSystem.cmake
+D:/C_C++Package/c++/SDL2/cmake/sdl2-config-version.cmake
+D:/C_C++Package/c++/SDL2/cmake/sdl2-config.cmake

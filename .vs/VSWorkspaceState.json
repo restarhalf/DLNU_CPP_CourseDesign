@@ -6,8 +6,9 @@
     ]
   },
   "ExpandedNodes": [
-    ""
+    "",
+    "\\cmake-build-debug"
   ],
-  "SelectedNode": "\\main.cpp",
+  "SelectedNode": "\\CMakeLists.txt",
   "PreviewInSolutionExplorer": false
 }

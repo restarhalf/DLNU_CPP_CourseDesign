@@ -204,6 +204,12 @@ DLNU_CPP_CourseDesign_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 DLNU_CPP_CourseDesign_SOURCE_DIR:STATIC=D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign
 
+//The directory containing a CMake configuration file for SDL2.
+SDL2_DIR:PATH=D:/C_C++Package/c++/SDL2/cmake
+
+//Path to a library.
+SDL2_image:FILEPATH=SDL2_image-NOTFOUND
+
 
 ########################
 # INTERNAL cache entries

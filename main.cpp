@@ -1,8 +1,5 @@
-//
-// Created by Tang Jin-xuan Team on 2025/5/26.
-//
-#include<bits/stdc++.h>
-int main() {
-    std::cout << "Hello World!" << std::endl;
-    return 0;
+#include "ClientSide.cpp"
+
+int main(int argc, char* argv[]) {
+    return ClientMain(argc, argv);
 }

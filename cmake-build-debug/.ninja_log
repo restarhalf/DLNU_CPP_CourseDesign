@@ -1,3 +1,5 @@
 # ninja log v6
-1	369	7699701953051385	CMakeFiles/DLNU_CPP_CourseDesign.dir/main.cpp.obj	c72af5817165d27
+1	975	7700993212580857	CMakeFiles/DLNU_CPP_CourseDesign.dir/main.cpp.obj	7852777320d1b289
 369	545	7699701956732158	DLNU_CPP_CourseDesign.exe	679a82974bb5b19a
+2	203	7700994388089079	build.ninja	139f17bf2015303
+3	1078	7700994388274571	CMakeFiles/DLNU_CPP_CourseDesign.dir/main.cpp.obj	3fe49770daf8d62c

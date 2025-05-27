@@ -8,7 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/main.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/main.cpp.obj" "gcc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/main.cpp.obj.d"
+  "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/ClientSide.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/ClientSide.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/ClientSide.cpp.obj.d"
+  "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/ServerSide.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/ServerSide.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/ServerSide.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

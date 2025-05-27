@@ -1,321 +1,154 @@
-CMakeFiles/DLNU_CPP_CourseDesign.dir/main.cpp.obj: \
- D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\main.cpp \
- D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\App.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iostream \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/pstl_config.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iosfwd \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stringfwd.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/memoryfwd.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/postypes.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwchar \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/wchar.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/corecrt.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/_mingw.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_mac.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_secapi.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_off_t.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_stat64.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/exception \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception_ptr.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception_defines.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cxxabi_init_exception.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stddef.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/stddef.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/crtdefs.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/typeinfo \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/hash_bytes.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/new \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/move.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/type_traits \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/nested_exception.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/char_traits.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/localefwd.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/clocale \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/locale.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cctype \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/ctype.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ios_base.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/atomicity.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/pthread.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/errno.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/sys/types.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/process.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/corecrt_startup.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/limits.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/syslimits.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/limits.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/signal.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/pthread_signal.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/time.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/sys/timeb.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/_timeval.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/pthread_time.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/pthread_compat.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/pthread_unistd.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/atomic_word.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_classes.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/string \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/allocator.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/new_allocator.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/functexcept.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cpp_type_traits.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream_insert.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cxxabi_forced.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_iterator_base_funcs.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/concept_check.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/assertions.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_iterator_base_types.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_iterator.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/type_traits.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ptr_traits.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_function.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward/binders.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/numeric_traits.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algobase.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_pair.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/utility.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/debug.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/predefined_ops.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bit \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/refwrap.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/invoke.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/range_access.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/initializer_list \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_string.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/alloc_traits.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/alloc_traits.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_construct.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/string_view \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/functional_hash.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/string_view.tcc \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/string_conversions.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdlib \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/stdlib.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdlib.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/malloc.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mm_malloc.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_abs.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdio \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cerrno \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/charconv.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_string.tcc \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/memory_resource.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstddef \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uses_allocator.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uses_allocator_args.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tuple \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_classes.tcc \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/system_error \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdexcept \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/streambuf \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/streambuf.tcc \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwctype \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/wctype.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/streambuf_iterator.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.tcc \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_main.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_stdinc.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_config.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_platform.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/begin_code.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/close_code.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdarg.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/stdarg.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_stdarg.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/string.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdint.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/stdint.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/math.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cmath \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/math.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/specfun.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/limits \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/gamma.tcc \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/special_function_util.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/bessel_function.tcc \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/beta_function.tcc \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/ell_integral.tcc \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/exp_integral.tcc \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/hypergeometric.tcc \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/legendre_function.tcc \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/modified_bessel_func.tcc \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/poly_hermite.tcc \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/poly_laguerre.tcc \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/riemann_zeta.tcc \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_assert.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_atomic.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_audio.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_error.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_endian.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_mutex.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_thread.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_rwops.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_clipboard.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_cpuinfo.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/intrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/setjmp.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/x86intrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/x86gprintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/ia32intrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/adxintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/bmiintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/bmi2intrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/cetintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/cldemoteintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/clflushoptintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/clwbintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/clzerointrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/cmpccxaddintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/enqcmdintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/fxsrintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/lzcntintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/lwpintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/movdirintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mwaitintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mwaitxintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/pconfigintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/popcntintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/pkuintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/prfchiintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/raointintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/rdseedintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/rtmintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/serializeintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/sgxintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/tbmintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/tsxldtrkintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/uintrintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/waitpkgintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/wbnoinvdintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xsaveintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xsavecintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xsaveoptintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xsavesintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xtestintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/hresetintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/immintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mmintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xmmintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/emmintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/pmmintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/tmmintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/smmintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/wmmintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avxintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avxvnniintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avxifmaintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avxvnniint8intrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx2intrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512fintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512erintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512pfintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512cdintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vlintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512bwintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512dqintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vlbwintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vldqintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512ifmaintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512ifmavlintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vbmiintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vbmivlintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx5124fmapsintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx5124vnniwintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vpopcntdqintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vbmi2intrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vbmi2vlintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vnniintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vnnivlintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vpopcntdqvlintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512bitalgintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vp2intersectintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vp2intersectvlintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512fp16intrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512fp16vlintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/shaintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/fmaintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/f16cintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/gfniintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/vaesintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/vpclmulqdqintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512bf16vlintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512bf16intrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avxneconvertintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxtileintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxint8intrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxbf16intrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxcomplexintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/prfchwintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/keylockerintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxfp16intrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mm3dnow.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/fma4intrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/ammintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xopintrin.h \
- D:/CLion/CLion\ 2025.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/cpuid.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_events.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_video.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_pixels.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_rect.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_surface.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_blendmode.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_keyboard.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_keycode.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_scancode.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_mouse.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_joystick.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_guid.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_gamecontroller.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_sensor.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_quit.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_gesture.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_touch.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_filesystem.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_haptic.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_hidapi.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_hints.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_loadso.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_log.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_messagebox.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_metal.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_power.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_render.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_shape.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_system.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_timer.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_version.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_locale.h \
- C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/include/SDL2/SDL_misc.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/bits/stdc++.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/cassert
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/yvals_core.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/vcruntime.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/sal.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/concurrencysal.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/vadefs.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xkeycheck.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/assert.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/corecrt.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/cctype
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/ctype.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/corecrt_wctype.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/cerrno
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/errno.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/cfloat
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/float.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/ciso646
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/yvals.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/crtdbg.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/vcruntime_new_debug.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/vcruntime_new.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/crtdefs.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/use_ansi.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/iso646.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/climits
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/limits.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/clocale
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/locale.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/cmath
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/cstdlib
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/math.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/corecrt_math.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/stdlib.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/corecrt_malloc.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/corecrt_search.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/stddef.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/corecrt_wstdlib.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xtr1common
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/intrin0.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/intrin0.inl.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/type_traits
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/cstddef
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/cstdint
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/stdint.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/csetjmp
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/setjmp.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/csignal
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/signal.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/cstdarg
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/stdarg.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/cstdio
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/stdio.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/corecrt_wstdio.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/corecrt_stdio_config.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/cstring
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/string.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/corecrt_memory.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/corecrt_memcpy_s.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/vcruntime_string.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/corecrt_wstring.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/ctime
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/time.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/corecrt_wtime.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/algorithm
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/__msvc_minmax.hpp
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xmemory
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/limits
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/cwchar
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/wchar.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/corecrt_wconio.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/corecrt_wdirect.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/corecrt_wio.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/corecrt_share.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/corecrt_wprocess.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/sys/stat.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/sys/types.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/new
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/exception
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/malloc.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/vcruntime_exception.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/eh.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/corecrt_terminate.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xatomic.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xutility
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/__msvc_iter_core.hpp
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/utility
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/initializer_list
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/compare
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/concepts
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/tuple
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/bitset
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/__msvc_bit_utils.hpp
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/iosfwd
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xstring
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/__msvc_sanitizer_annotate_container.hpp
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/__msvc_string_view.hpp
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xpolymorphic_allocator.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/complex
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/sstream
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/istream
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/ostream
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/ios
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xlocnum
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/iterator
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/streambuf
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xiosbase
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/share.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/system_error
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/__msvc_system_error_abi.hpp
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/stdexcept
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xcall_once.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xerrc.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/atomic
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xatomic_wait.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xthreads.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/__msvc_threads_core.hpp
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xtimec.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xlocale
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/memory
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/typeinfo
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/vcruntime_typeinfo.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xfacet
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xlocinfo
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/__msvc_xlocinfo_types.hpp
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/string
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/ymath.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/emmintrin.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xmmintrin.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/mmintrin.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/deque
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/fstream
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/__msvc_filebuf.hpp
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/functional
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/unordered_map
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xhash
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/list
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/vector
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xbit_ops.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xnode_handle.h
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/iomanip
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xlocmon
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xloctime
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/iostream
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/locale
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xlocbuf
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xlocmes
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/map
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xtree
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/numeric
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/queue
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/set
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/stack
+C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/valarray

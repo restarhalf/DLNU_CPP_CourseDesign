@@ -1,17 +1,14 @@
 cmake_minimum_required(VERSION 3.29)
-project(DLNU_CPP_CourseDesign)
+project("DLNU_CPP_CourseDesign")
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 
-# 添加SDL2路径配置
-set(SDL2_DIR ${PROJECT_SOURCE_DIR}/SDL2-2.32.6/cmake)
-find_package(SDL2 REQUIRED)
+include_directories("D:/C_C++Package/c++/SDL2/include")
+link_directories("D:/C_C++Package/c++/SDL2/lib/x64")
 
 add_executable(DLNU_CPP_CourseDesign main.cpp
+        ClientSide.cpp
 )
 
-# 链接SDL2库
-target_link_libraries(DLNU_CPP_CourseDesign
-    PRIVATE
-    SDL2::SDL2
-)
+target_link_libraries(DLNU_CPP_CourseDesign SDL2 SDL2main)
+target_link_libraries(DLNU_CPP_CourseDesign SDL2_image SDL2_ttf SDL2_mixer)

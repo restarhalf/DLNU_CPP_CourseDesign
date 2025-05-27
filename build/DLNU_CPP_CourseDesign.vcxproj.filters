@@ -4,6 +4,9 @@
     <ClCompile Include="D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\ClientSide.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\CMakeLists.txt" />
