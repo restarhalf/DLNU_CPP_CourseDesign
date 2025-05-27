@@ -1,0 +1,3 @@
+"D:\CLion\CLion 2025.1\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\DLNU_CPP_CourseDesign.dir/objects.a
+"D:\CLion\CLion 2025.1\bin\mingw\bin\ar.exe" qc CMakeFiles\DLNU_CPP_CourseDesign.dir/objects.a @CMakeFiles\DLNU_CPP_CourseDesign.dir\objects1.rsp
+"D:\CLion\CLion 2025.1\bin\mingw\bin\g++.exe" -g -Wl,--whole-archive CMakeFiles\DLNU_CPP_CourseDesign.dir/objects.a -Wl,--no-whole-archive -o DLNU_CPP_CourseDesign.exe -Wl,--out-implib,libDLNU_CPP_CourseDesign.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\DLNU_CPP_CourseDesign.dir\linkLibs.rsp
