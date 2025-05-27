@@ -4,7 +4,7 @@
 #include<bits/stdc++.h>
 int main() {
     int a;
-    int b;
+    int bc;
     std::cin >> a;
     std::cout<<"Hello World";
     return 0;
