@@ -1,0 +1,5 @@
+ToolSet: 17.0 (local)@C:\Program Files\Microsoft Visual Studio\2022\Professional
+Ninja: 1.12.1@D:\CLion\CLion 2025.1\bin\ninja\win\x64\ninja.exe
+Options: 
+
+Options:-DCMAKE_TOOLCHAIN_FILE=C:\Users\a1793\.vcpkg-clion\vcpkg\scripts\buildsystems\vcpkg.cmake
