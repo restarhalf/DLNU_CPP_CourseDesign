@@ -24,7 +24,7 @@ public:
     //事件处理函数
     void handleEvents();
     //清理函数
-    void clean();
+    void clean() const;
     //状态更新
     void update();
     //渲染函数

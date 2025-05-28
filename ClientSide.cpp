@@ -54,7 +54,7 @@ void Game::handleEvents() {
     }
 }
 
-void Game::clean() {
+void Game::clean() const {
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
