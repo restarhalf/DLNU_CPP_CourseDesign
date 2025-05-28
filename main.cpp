@@ -1,6 +1,7 @@
 //
 //Create by Tang Team on 2025/5/26.
 //
+#include "Controller.h"
 #include"Game.h"
 #include "ServerSide.cpp"
 

@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include "Controller.h"
+#include "SDL_egl.h"
 
 Game::Game() {
     isRunning = false;
@@ -32,6 +33,13 @@ bool Game::init(const std::string &title, int width, int height, int flags) {
     } else {
         SDL_Log("Window init failed");
         isRunning = false;
+    }
+    if (!TTF_Init()) {
+        SDL_Log("SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError());
+        isRunning = false;
+    }
+    else {
+        SDL_Log("SDL_TTF initialized");
     }
     return isRunning;
 }
@@ -75,4 +83,10 @@ void Game::frameEnd() {
     if (Time < 1000 / FPS) {
         SDL_Delay(FPS - Time);
     }
+}
+SDL_Renderer *Game::getRenderer() const {
+    return renderer;
+}
+SDL_Window *Game::getWindow() const {
+    return window;
 }

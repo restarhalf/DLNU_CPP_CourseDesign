@@ -55,5 +55,9 @@ public:
     void frameStart();
 
     void frameEnd();
+
+    SDL_Renderer *getRenderer() const;
+
+    SDL_Window *getWindow() const;
 };
 #endif //CLIENTSIDE_H

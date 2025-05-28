@@ -5,10 +5,15 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 #include <SDL.h>
+#include <SDL_ttf.h>
+#include <SDL_mixer.h>
+#include <SDL_image.h>
 
 
 class Controller {
 public:
+    Controller();
+    ~Controller();
     //动作监视器
     static void event(SDL_Event &event);
 
@@ -21,6 +26,7 @@ public:
     static void MouseRelease(const SDL_Event &event);
 
     static void MouseMove(SDL_Event &event);
+
 };
 
 
