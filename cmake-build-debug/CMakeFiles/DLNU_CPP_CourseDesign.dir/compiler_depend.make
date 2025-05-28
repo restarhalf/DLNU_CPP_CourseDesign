@@ -447,6 +447,7 @@ CMakeFiles\DLNU_CPP_CourseDesign.dir\Game.cpp.obj: "C:\Program Files\Microsoft V
 CMakeFiles\DLNU_CPP_CourseDesign.dir\Game.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\__msvc_xlocinfo_types.hpp"
 CMakeFiles\DLNU_CPP_CourseDesign.dir\Game.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\clocale"
 CMakeFiles\DLNU_CPP_CourseDesign.dir\Game.cpp.obj: "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\locale.h"
+CMakeFiles\DLNU_CPP_CourseDesign.dir\Game.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\Controller.h
 
 
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ServerSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\ServerSide.cpp

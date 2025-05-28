@@ -161,7 +161,6 @@ D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/SDL2/include/begin_code.h
 D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/SDL2/include/close_code.h
 D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/SDL2/include/SDL_version.h
 D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/SDL2/include/begin_code.h
-D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/SDL2/include/close_code.h
 D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/SDL2/include/SDL_locale.h
 D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/SDL2/include/begin_code.h
 D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/SDL2/include/close_code.h
@@ -267,4 +266,5 @@ C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.3
 C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xlocinfo
 C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/__msvc_xlocinfo_types.hpp
 C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/clocale
+C:/Program Files (x86)/Windows Kits/10/include/10.0.22621.0/ucrt/locale.h
 D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/Controller.h

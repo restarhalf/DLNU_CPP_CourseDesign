@@ -3,27 +3,30 @@
 //
 
 #include "Controller.h"
+
 void Controller::event(SDL_Event &event) {
     switch (event.type) {
-            case SDL_KEYDOWN:
+        case SDL_KEYDOWN:
             KeyboardPress(event);
             break;
-            case SDL_KEYUP:
+        case SDL_KEYUP:
             KeyboardRelease(event);
             break;
-            case SDL_MOUSEBUTTONDOWN:
+        case SDL_MOUSEBUTTONDOWN:
             MousePress(event);
             break;
-            case SDL_MOUSEBUTTONUP:
+        case SDL_MOUSEBUTTONUP:
             MouseRelease(event);
             break;
-            case SDL_MOUSEMOTION:
+        case SDL_MOUSEMOTION:
             MouseMove(event);
             break;
+        default:
+            break;
     }
 }
 
-void Controller::KeyboardPress(SDL_Event &event) {
+void Controller::KeyboardPress(const SDL_Event &event) {
     switch (event.key.keysym.sym) {
         case SDLK_w:
             break;
@@ -33,6 +36,14 @@ void Controller::KeyboardPress(SDL_Event &event) {
             break;
         case SDLK_d:
             break;
+        case SDLK_UP:
+            break;
+        case SDLK_LEFT:
+            break;
+        case SDLK_RIGHT:
+            break;
+        case SDLK_DOWN:
+            break;
         case SDLK_SPACE:
             break;
         default:
@@ -40,7 +51,7 @@ void Controller::KeyboardPress(SDL_Event &event) {
     }
 }
 
-void Controller::KeyboardRelease(SDL_Event &event) {
+void Controller::KeyboardRelease(const SDL_Event &event) {
     switch (event.key.keysym.sym) {
         case SDLK_w:
             break;
@@ -50,6 +61,14 @@ void Controller::KeyboardRelease(SDL_Event &event) {
             break;
         case SDLK_d:
             break;
+        case SDLK_UP:
+            break;
+        case SDLK_LEFT:
+            break;
+        case SDLK_RIGHT:
+            break;
+        case SDLK_DOWN:
+            break;
         case SDLK_SPACE:
             break;
         default:
@@ -57,7 +76,7 @@ void Controller::KeyboardRelease(SDL_Event &event) {
     }
 }
 
-void Controller::MousePress(SDL_Event &event) {
+void Controller::MousePress(const SDL_Event &event) {
     switch (event.button.button) {
         case SDL_BUTTON_LEFT:
             break;
@@ -70,7 +89,7 @@ void Controller::MousePress(SDL_Event &event) {
     }
 }
 
-void Controller::MouseRelease(SDL_Event &event) {
+void Controller::MouseRelease(const SDL_Event &event) {
     switch (event.button.button) {
         case SDL_BUTTON_LEFT:
             break;
@@ -84,4 +103,7 @@ void Controller::MouseRelease(SDL_Event &event) {
 }
 
 void Controller::MouseMove(SDL_Event &event) {
+    auto mouseX = event.motion.x;
+    auto mouseY = event.motion.y;
+    //fish->setPosition(mouseX, mouseY);
 };
