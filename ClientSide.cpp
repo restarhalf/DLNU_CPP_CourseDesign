@@ -64,13 +64,24 @@ void Game::clean() {
 void Game::update() {
 }
 
-void Game::render() {
+void Game::render() const {
     SDL_SetRenderDrawColor(renderer, 1000, 1000, 1000, 1000);
     SDL_RenderClear(renderer);
     SDL_RenderPresent(renderer);
 }
 
-bool Game::running(){
+bool Game::running() const{
     return isRunning;
+}
+
+void Game::frameStart() {
+    Start = SDL_GetTicks();
+}
+
+void Game::frameEnd() {
+    Time = SDL_GetTicks() - Start;
+    if (Time < 1000 / FPS) {
+        SDL_Delay(FPS - Time);
+    }
 }
 

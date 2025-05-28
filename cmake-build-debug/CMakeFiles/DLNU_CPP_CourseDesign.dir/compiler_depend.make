@@ -267,6 +267,7 @@ CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Micro
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\memory"
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\typeinfo"
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\vcruntime_typeinfo.h"
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\xfacet"
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\xlocinfo"
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\__msvc_xlocinfo_types.hpp"
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\clocale"
@@ -352,7 +353,6 @@ CMakeFiles\DLNU_CPP_CourseDesign.dir\main.cpp.obj: D:\C_C++Package\CLionProject\
 CMakeFiles\DLNU_CPP_CourseDesign.dir\main.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
 CMakeFiles\DLNU_CPP_CourseDesign.dir\main.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
 CMakeFiles\DLNU_CPP_CourseDesign.dir\main.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_cpuinfo.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\main.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
 CMakeFiles\DLNU_CPP_CourseDesign.dir\main.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
 CMakeFiles\DLNU_CPP_CourseDesign.dir\main.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_events.h
 CMakeFiles\DLNU_CPP_CourseDesign.dir\main.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_video.h
@@ -530,6 +530,8 @@ D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_hints.h:
 D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h:
 
 D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_config.h:
+
+"C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\xfacet":
 
 D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\ClientSide.cpp:
 

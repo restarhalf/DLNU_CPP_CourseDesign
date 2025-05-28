@@ -7,9 +7,11 @@ int main(int argc, char* args[]) {
     Game game;
     game.init("Game", 800, 600, 0);
     while (game.running()) {
+        game.frameStart();
         game.handleEvents();
         game.update();
         game.render();
+        game.frameEnd();
     }
     return 0;
 }

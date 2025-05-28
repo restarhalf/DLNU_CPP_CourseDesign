@@ -31,6 +31,19 @@
   <component name="ChangeListManager">
     <list default="true" id="b1aacb67-911d-45ae-8a3f-ffc8107ca7a8" name="更改" comment="init">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientSide.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ClientSide.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientSide.h" beforeDir="false" afterPath="$PROJECT_DIR$/ClientSide.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/ClientSide.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/ClientSide.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/compiler_depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/compiler_depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/compiler_depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/main.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/vc140.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/vc140.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.ilk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/vc140.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/vc140.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +187,7 @@
       <workItem from="1748416074467" duration="35000" />
       <workItem from="1748416134535" duration="9000" />
       <workItem from="1748417811751" duration="1863000" />
-      <workItem from="1748419731972" duration="3331000" />
+      <workItem from="1748419731972" duration="4838000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -296,7 +309,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748422724279</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="init">
+      <option name="closed" value="true" />
+      <created>1748423161357</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1748423161357</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -6,6 +6,8 @@
 #include<SDL.h>
 #include<string>
 class Game {
+//-----------------------------------------------------//
+//窗口部分
 private:
     //窗口
     SDL_Window* window;
@@ -26,9 +28,21 @@ public:
     //状态更新
     void update();
     //渲染函数
-    void render();
+    void render() const;
     //运行状态判断器
-    bool running();
+    bool running() const;
+//-----------------------------------------------------//
+//帧率部分
+private:
+    //帧率//后面那个60是帧率
+    const float FPS=1000/60.f;
+    //初始时间
+    Uint32 Start=0;
+    //经历的时间
+    Uint32 Time=0;
+public:
+    void frameStart();
+    void frameEnd();
 };
 
 #endif //CLIENTSIDE_H
