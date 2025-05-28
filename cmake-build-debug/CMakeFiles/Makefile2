@@ -74,12 +74,12 @@ clean: CMakeFiles\DLNU_CPP_CourseDesign.dir\clean
 CMakeFiles\DLNU_CPP_CourseDesign.dir\all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug\CMakeFiles --progress-num=1,2,3 "Built target DLNU_CPP_CourseDesign"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4 "Built target DLNU_CPP_CourseDesign"
 .PHONY : CMakeFiles\DLNU_CPP_CourseDesign.dir\all
 
 # Build rule for subdir invocation for target.
 CMakeFiles\DLNU_CPP_CourseDesign.dir\rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug\CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug\CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\all
 	$(CMAKE_COMMAND) -E cmake_progress_start D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles\DLNU_CPP_CourseDesign.dir\rule
@@ -91,7 +91,7 @@ DLNU_CPP_CourseDesign: CMakeFiles\DLNU_CPP_CourseDesign.dir\rule
 # codegen rule for target.
 CMakeFiles\DLNU_CPP_CourseDesign.dir\codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug\CMakeFiles --progress-num=1,2,3 "Finished codegen for target DLNU_CPP_CourseDesign"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4 "Finished codegen for target DLNU_CPP_CourseDesign"
 .PHONY : CMakeFiles\DLNU_CPP_CourseDesign.dir\codegen
 
 # clean rule for target.

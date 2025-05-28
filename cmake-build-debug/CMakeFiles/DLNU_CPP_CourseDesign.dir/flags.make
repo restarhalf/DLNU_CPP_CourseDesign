@@ -4,7 +4,7 @@
 # compile CXX with C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/bin/Hostx64/x64/cl.exe
 CXX_DEFINES = 
 
-CXX_INCLUDES = -ID:\C_C++Package\c++\SDL2\include
+CXX_INCLUDES = -ID:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include
 
 CXX_FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -std:c++20 -MDd -Zi
 

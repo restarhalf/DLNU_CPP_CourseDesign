@@ -3,12 +3,17 @@ project("DLNU_CPP_CourseDesign")
 
 set(CMAKE_CXX_STANDARD 20)
 
-include_directories("D:/C_C++Package/c++/SDL2/include")
-link_directories("D:/C_C++Package/c++/SDL2/lib/x64")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/SDL2/include")
+link_directories("${CMAKE_CURRENT_SOURCE_DIR}/SDL2/lib/x64")
 
 add_executable(DLNU_CPP_CourseDesign main.cpp
         ClientSide.cpp
+        ServerSide.cpp
 )
-
-target_link_libraries(DLNU_CPP_CourseDesign SDL2 SDL2main)
-target_link_libraries(DLNU_CPP_CourseDesign SDL2_image SDL2_ttf SDL2_mixer)
+target_link_libraries(DLNU_CPP_CourseDesign 
+    SDL2
+        SDL2main
+    SDL2_image
+    SDL2_ttf
+    SDL2_mixer
+)

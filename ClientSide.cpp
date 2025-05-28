@@ -6,7 +6,7 @@
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include <SDL_mixer.h>
-int main(int argc, char* args[]) {
+int main(int argc, char* argv[]) {
     if(SDL_Init(SDL_INIT_VIDEO) < 0) {
         std::cerr << "SDL初始化失败: " << SDL_GetError() << std::endl;
         return 1;
@@ -23,7 +23,7 @@ int main(int argc, char* args[]) {
     }
 
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-    
+
     bool running = true;
     while(running) {
         SDL_Event event;

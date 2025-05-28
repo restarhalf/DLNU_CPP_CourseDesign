@@ -98,7 +98,6 @@ CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Micro
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\iosfwd"
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\xstring"
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\__msvc_sanitizer_annotate_container.hpp"
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\__msvc_string_view.hpp"
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\xpolymorphic_allocator.h"
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\complex"
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\sstream"
@@ -156,33 +155,33 @@ CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Micro
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\set"
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\stack"
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\valarray"
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_main.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_stdinc.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_config.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_platform.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_main.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_stdinc.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_config.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_platform.h
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\shared\winapifamily.h"
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\shared\winpackagefamily.h"
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_config_windows.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_config_windows.h
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\um\winsdkver.h"
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\shared\sdkddkver.h"
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_assert.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_atomic.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_audio.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_error.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_endian.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_assert.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_atomic.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_audio.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_error.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_endian.h
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\intrin.h"
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\immintrin.h"
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\wmmintrin.h"
@@ -192,137 +191,145 @@ CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Micro
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\pmmintrin.h"
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\zmmintrin.h"
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\ammintrin.h"
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_mutex.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_thread.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_mutex.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_thread.h
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\process.h"
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\corecrt_startup.h"
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\math.h"
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\vcruntime_startup.h"
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_rwops.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_clipboard.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_cpuinfo.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_events.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_video.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_pixels.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_rect.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_surface.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_blendmode.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_keyboard.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_keycode.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_scancode.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_mouse.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_joystick.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_guid.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_gamecontroller.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_sensor.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_quit.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_gesture.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_touch.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_filesystem.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_haptic.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_hidapi.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_hints.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_loadso.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_log.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_messagebox.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_metal.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_power.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_render.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_shape.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_system.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_timer.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_version.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_locale.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_misc.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_image.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_ttf.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\SDL_mixer.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\begin_code.h
-CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\c++\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_rwops.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_clipboard.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_cpuinfo.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_events.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_video.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_pixels.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_rect.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_surface.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_blendmode.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_keyboard.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_keycode.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_scancode.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_mouse.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_joystick.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_guid.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_gamecontroller.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_sensor.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_quit.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_gesture.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_touch.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_filesystem.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_haptic.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_hidapi.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_hints.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_loadso.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_log.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_messagebox.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_metal.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_power.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_render.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_shape.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_system.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_timer.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_version.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_locale.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_misc.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_image.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_ttf.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_mixer.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h
+
+
+CMakeFiles\DLNU_CPP_CourseDesign.dir\ServerSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\ServerSide.cpp
+
+
+CMakeFiles\DLNU_CPP_CourseDesign.dir\main.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\main.cpp
 
 
 
 "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\string.h":
+
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_rect.h:
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\xfacet":
 
@@ -350,7 +357,11 @@ D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\ClientSide.cpp:
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\concurrencysal.h":
 
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_version.h:
+
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\xkeycheck.h":
+
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL.h:
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\ciso646":
 
@@ -396,8 +407,6 @@ D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\ClientSide.cpp:
 
 "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\float.h":
 
-D:\C_C++Package\c++\SDL2\include\SDL_gamecontroller.h:
-
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\yvals.h":
 
 "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\crtdbg.h":
@@ -424,9 +433,9 @@ D:\C_C++Package\c++\SDL2\include\SDL_gamecontroller.h:
 
 "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\locale.h":
 
-D:\C_C++Package\c++\SDL2\include\SDL_hidapi.h:
-
 "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\math.h":
+
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_hints.h:
 
 "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\corecrt_math.h":
 
@@ -482,8 +491,6 @@ D:\C_C++Package\c++\SDL2\include\SDL_hidapi.h:
 
 "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\corecrt_wtime.h":
 
-D:\C_C++Package\c++\SDL2\include\SDL_hints.h:
-
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\xloctime":
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\algorithm":
@@ -508,9 +515,9 @@ D:\C_C++Package\c++\SDL2\include\SDL_hints.h:
 
 "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\corecrt_wio.h":
 
-"C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\corecrt_share.h":
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_rwops.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_sensor.h:
+"C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\corecrt_share.h":
 
 "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\sys\stat.h":
 
@@ -519,6 +526,8 @@ D:\C_C++Package\c++\SDL2\include\SDL_sensor.h:
 "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\sys\types.h":
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\exception":
+
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_timer.h:
 
 "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\malloc.h":
 
@@ -530,8 +539,6 @@ D:\C_C++Package\c++\SDL2\include\SDL_sensor.h:
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\xutility":
 
-D:\C_C++Package\c++\SDL2\include\SDL_mouse.h:
-
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\__msvc_iter_core.hpp":
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\xlocinfo":
@@ -542,9 +549,13 @@ D:\C_C++Package\c++\SDL2\include\SDL_mouse.h:
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\concepts":
 
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_endian.h:
+
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\tuple":
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\bitset":
+
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_misc.h:
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\__msvc_bit_utils.hpp":
 
@@ -552,11 +563,9 @@ D:\C_C++Package\c++\SDL2\include\SDL_mouse.h:
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\xstring":
 
-D:\C_C++Package\c++\SDL2\include\SDL_keyboard.h:
-
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\__msvc_sanitizer_annotate_container.hpp":
 
-"C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\__msvc_string_view.hpp":
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_cpuinfo.h:
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\sstream":
 
@@ -588,11 +597,7 @@ D:\C_C++Package\c++\SDL2\include\SDL_keyboard.h:
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\xatomic_wait.h":
 
-D:\C_C++Package\c++\SDL2\include\SDL_joystick.h:
-
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\__msvc_threads_core.hpp":
-
-D:\C_C++Package\c++\SDL2\include\SDL.h:
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\xtimec.h":
 
@@ -609,6 +614,8 @@ D:\C_C++Package\c++\SDL2\include\SDL.h:
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\ymath.h":
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\emmintrin.h":
+
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_platform.h:
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\xmmintrin.h":
 
@@ -644,7 +651,7 @@ D:\C_C++Package\c++\SDL2\include\SDL.h:
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\xlocmes":
 
-D:\C_C++Package\c++\SDL2\include\SDL_quit.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\main.cpp:
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\map":
 
@@ -654,39 +661,39 @@ D:\C_C++Package\c++\SDL2\include\SDL_quit.h:
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\valarray":
 
-D:\C_C++Package\c++\SDL2\include\SDL_main.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_main.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_stdinc.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_stdinc.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_config.h:
-
-D:\C_C++Package\c++\SDL2\include\SDL_platform.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_config.h:
 
 "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\shared\winapifamily.h":
 
-D:\C_C++Package\c++\SDL2\include\begin_code.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\begin_code.h:
 
-D:\C_C++Package\c++\SDL2\include\close_code.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\close_code.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_config_windows.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_config_windows.h:
 
 "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\um\winsdkver.h":
 
 "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\shared\sdkddkver.h":
 
-D:\C_C++Package\c++\SDL2\include\SDL_assert.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_assert.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_atomic.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_atomic.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_audio.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_ttf.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_error.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_audio.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_endian.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_error.h:
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\intrin.h":
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\immintrin.h":
+
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_events.h:
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\nmmintrin.h":
 
@@ -694,19 +701,15 @@ D:\C_C++Package\c++\SDL2\include\SDL_endian.h:
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\tmmintrin.h":
 
-D:\C_C++Package\c++\SDL2\include\SDL_filesystem.h:
-
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\pmmintrin.h":
-
-D:\C_C++Package\c++\SDL2\include\SDL_events.h:
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\zmmintrin.h":
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\ammintrin.h":
 
-D:\C_C++Package\c++\SDL2\include\SDL_mutex.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_mutex.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_thread.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_thread.h:
 
 "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt\process.h":
 
@@ -714,60 +717,64 @@ D:\C_C++Package\c++\SDL2\include\SDL_thread.h:
 
 "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.41.34120\include\vcruntime_startup.h":
 
-D:\C_C++Package\c++\SDL2\include\SDL_rwops.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_clipboard.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_clipboard.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_haptic.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_cpuinfo.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_video.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_video.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_pixels.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_pixels.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_surface.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_rect.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_blendmode.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_surface.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_keyboard.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_blendmode.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_keycode.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_keycode.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_scancode.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_scancode.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_mouse.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_guid.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_joystick.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_gesture.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_guid.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_touch.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_gamecontroller.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_haptic.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_sensor.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_loadso.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_quit.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_log.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_gesture.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_messagebox.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_touch.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_metal.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_filesystem.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_power.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_hidapi.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_render.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_loadso.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_shape.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_log.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_system.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_messagebox.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_timer.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_metal.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_version.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_power.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_locale.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_render.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_misc.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_shape.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_image.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_system.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_ttf.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_locale.h:
 
-D:\C_C++Package\c++\SDL2\include\SDL_mixer.h:
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_image.h:
+
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\SDL2\include\SDL_mixer.h:
+
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\ServerSide.cpp:

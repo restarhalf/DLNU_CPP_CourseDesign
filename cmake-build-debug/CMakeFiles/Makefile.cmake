@@ -7,15 +7,6 @@ set(CMAKE_DEPENDS_GENERATOR "NMake Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/share/sdl2/SDL2Config.cmake"
-  "C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/share/sdl2/SDL2ConfigVersion.cmake"
-  "C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/share/sdl2/SDL2Targets-debug.cmake"
-  "C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/share/sdl2/SDL2Targets-release.cmake"
-  "C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/share/sdl2/SDL2Targets.cmake"
-  "C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/share/sdl2/SDL2mainTargets-debug.cmake"
-  "C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/share/sdl2/SDL2mainTargets-release.cmake"
-  "C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/share/sdl2/SDL2mainTargets.cmake"
-  "C:/Users/a1793/.vcpkg-clion/vcpkg/installed/x64-windows/share/sdl2/sdlfind.cmake"
   "C:/Users/a1793/.vcpkg-clion/vcpkg/scripts/buildsystems/vcpkg.cmake"
   "D:/CLion/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeCInformation.cmake"
   "D:/CLion/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeCXXInformation.cmake"
@@ -31,7 +22,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "D:/CLion/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/Compiler/MSVC-C.cmake"
   "D:/CLion/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/Compiler/MSVC-CXX.cmake"
   "D:/CLion/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/Compiler/MSVC.cmake"
-  "D:/CLion/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/FeatureSummary.cmake"
   "D:/CLion/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/Internal/CMakeCLinkerInformation.cmake"
   "D:/CLion/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/Internal/CMakeCXXLinkerInformation.cmake"
   "D:/CLion/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/Internal/CMakeCommonLinkerInformation.cmake"
