@@ -1,45 +1,76 @@
 //
 // Created by restarhalf on 2025/5/28.
 //
-#include<bits/stdc++.h>
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
-#include <SDL_mixer.h>
-int main(int argc, char* argv[]) {
-    if(SDL_Init(SDL_INIT_VIDEO) < 0) {
-        std::cerr << "SDL初始化失败: " << SDL_GetError() << std::endl;
-        return 1;
-    }
+#include "ClientSide.h"
 
-    SDL_Window* window = SDL_CreateWindow("SDL窗口",
-        SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-        800, 600, SDL_WINDOW_SHOWN);
+#include <iostream>
 
-    if(!window) {
-        std::cerr << "窗口创建失败: " << SDL_GetError() << std::endl;
-        SDL_Quit();
-        return 1;
-    }
+Game::Game() {
+    isRunning = false;
+    renderer = nullptr;
+    window = nullptr;
+}
 
-    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+Game::~Game() {
+    clean();
+}
 
-    bool running = true;
-    while(running) {
-        SDL_Event event;
-        while(SDL_PollEvent(&event)) {
-            if(event.type == SDL_QUIT) {
-                running = false;
-            }
+bool Game::init(const std::string& title, int width, int height, int flags) {
+    if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
+        SDL_Log("Window init success");
+        window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
+        if(window) {
+            SDL_Log("Window created");
         }
-
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-        SDL_RenderClear(renderer);
-        SDL_RenderPresent(renderer);
+        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+        if(renderer) {
+            SDL_Log("Renderer created");
+        }
+        isRunning = true;
     }
+    else
+    {
+        SDL_Log("Window init failed");
+        isRunning= false;
+    }
+    return isRunning;
+}
 
+void Game::handleEvents() {
+    SDL_Event event;
+    while (SDL_PollEvent(&event)) {
+        switch (event.type) {
+            case SDL_QUIT:
+                isRunning = false;
+                break;
+            case SDL_KEYDOWN:
+                if (event.key.keysym.sym == SDLK_ESCAPE) {
+                    isRunning = false;
+                }
+                break;
+
+
+        }
+    }
+}
+
+void Game::clean() {
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
-    return 0;
+    SDL_Log("Game cleaned");
 }
+
+void Game::update() {
+}
+
+void Game::render() {
+    SDL_SetRenderDrawColor(renderer, 1000, 1000, 1000, 1000);
+    SDL_RenderClear(renderer);
+    SDL_RenderPresent(renderer);
+}
+
+bool Game::running(){
+    return isRunning;
+}
+

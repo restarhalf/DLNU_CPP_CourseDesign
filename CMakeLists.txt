@@ -9,6 +9,7 @@ link_directories("${CMAKE_CURRENT_SOURCE_DIR}/SDL2/lib/x64")
 add_executable(DLNU_CPP_CourseDesign main.cpp
         ClientSide.cpp
         ServerSide.cpp
+        ClientSide.h
 )
 target_link_libraries(DLNU_CPP_CourseDesign 
     SDL2

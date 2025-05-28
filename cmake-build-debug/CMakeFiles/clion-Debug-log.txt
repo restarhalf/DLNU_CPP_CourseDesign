@@ -1,4 +1,0 @@
-"D:\CLion\CLion 2025.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE=C:\Users\a1793\.vcpkg-clion\vcpkg\scripts\buildsystems\vcpkg.cmake -S D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign -B D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug
--- Configuring done (0.0s)
--- Generating done (0.0s)
--- Build files have been written to: D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/cmake-build-debug
