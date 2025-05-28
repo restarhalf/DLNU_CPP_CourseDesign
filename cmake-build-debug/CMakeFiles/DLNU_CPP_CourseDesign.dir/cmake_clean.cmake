@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/DLNU_CPP_CourseDesign.dir/ClientSide.cpp.obj"
-  "CMakeFiles/DLNU_CPP_CourseDesign.dir/ClientSide.cpp.obj.d"
+  "CMakeFiles/DLNU_CPP_CourseDesign.dir/Controller.cpp.obj"
+  "CMakeFiles/DLNU_CPP_CourseDesign.dir/Controller.cpp.obj.d"
+  "CMakeFiles/DLNU_CPP_CourseDesign.dir/Game.cpp.obj"
+  "CMakeFiles/DLNU_CPP_CourseDesign.dir/Game.cpp.obj.d"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/ServerSide.cpp.obj"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/ServerSide.cpp.obj.d"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/main.cpp.obj"

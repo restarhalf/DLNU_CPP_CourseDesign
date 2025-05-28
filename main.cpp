@@ -1,7 +1,7 @@
 //
 //Create by Tang Team on 2025/5/26.
 //
-#include"ClientSide.h"
+#include"Game.h"
 #include "ServerSide.cpp"
 int main(int argc, char* args[]) {
     Game game;

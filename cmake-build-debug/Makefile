@@ -118,29 +118,53 @@ DLNU_CPP_CourseDesign\fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\build
 .PHONY : DLNU_CPP_CourseDesign\fast
 
-ClientSide.obj: ClientSide.cpp.obj
-.PHONY : ClientSide.obj
+Controller.obj: Controller.cpp.obj
+.PHONY : Controller.obj
 
 # target to build an object file
-ClientSide.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.obj
-.PHONY : ClientSide.cpp.obj
+Controller.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Controller.cpp.obj
+.PHONY : Controller.cpp.obj
 
-ClientSide.i: ClientSide.cpp.i
-.PHONY : ClientSide.i
+Controller.i: Controller.cpp.i
+.PHONY : Controller.i
 
 # target to preprocess a source file
-ClientSide.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.i
-.PHONY : ClientSide.cpp.i
+Controller.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Controller.cpp.i
+.PHONY : Controller.cpp.i
 
-ClientSide.s: ClientSide.cpp.s
-.PHONY : ClientSide.s
+Controller.s: Controller.cpp.s
+.PHONY : Controller.s
 
 # target to generate assembly for a file
-ClientSide.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\ClientSide.cpp.s
-.PHONY : ClientSide.cpp.s
+Controller.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Controller.cpp.s
+.PHONY : Controller.cpp.s
+
+Game.obj: Game.cpp.obj
+.PHONY : Game.obj
+
+# target to build an object file
+Game.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Game.cpp.obj
+.PHONY : Game.cpp.obj
+
+Game.i: Game.cpp.i
+.PHONY : Game.i
+
+# target to preprocess a source file
+Game.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Game.cpp.i
+.PHONY : Game.cpp.i
+
+Game.s: Game.cpp.s
+.PHONY : Game.s
+
+# target to generate assembly for a file
+Game.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Game.cpp.s
+.PHONY : Game.cpp.s
 
 ServerSide.obj: ServerSide.cpp.obj
 .PHONY : ServerSide.obj
@@ -199,9 +223,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... DLNU_CPP_CourseDesign
-	@echo ... ClientSide.obj
-	@echo ... ClientSide.i
-	@echo ... ClientSide.s
+	@echo ... Controller.obj
+	@echo ... Controller.i
+	@echo ... Controller.s
+	@echo ... Game.obj
+	@echo ... Game.i
+	@echo ... Game.s
 	@echo ... ServerSide.obj
 	@echo ... ServerSide.i
 	@echo ... ServerSide.s

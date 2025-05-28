@@ -1,9 +1,11 @@
 //
 // Created by restarhalf on 2025/5/28.
 //
-#include "ClientSide.h"
+#include "Game.h"
 
 #include <iostream>
+
+#include "Controller.h"
 
 Game::Game() {
     isRunning = false;
@@ -39,18 +41,10 @@ bool Game::init(const std::string& title, int width, int height, int flags) {
 void Game::handleEvents() {
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
-        switch (event.type) {
-            case SDL_QUIT:
-                isRunning = false;
-                break;
-            case SDL_KEYDOWN:
-                if (event.key.keysym.sym == SDLK_ESCAPE) {
-                    isRunning = false;
-                }
-                break;
-
-
+        if (event.type == SDL_QUIT) {
+            isRunning = false;
         }
+        Controller::event(event);
     }
 }
 

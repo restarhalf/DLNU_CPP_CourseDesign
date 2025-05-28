@@ -1,4 +1,4 @@
-D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/ClientSide.h
+D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/Game.h
 D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/SDL2/include/SDL.h
 D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/SDL2/include/SDL_main.h
 D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/SDL2/include/SDL_stdinc.h
