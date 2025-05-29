@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include "Controller.h"
+#include "SDL_egl.h"
 
 Game::Game() {
     isRunning = false;
@@ -17,23 +18,24 @@ Game::~Game() {
     clean();
 }
 
-bool Game::init(const std::string &title, int width, int height, int flags) {
+bool Game::init(const std::string& title, int width, int height, int flags) {
     if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
         SDL_Log("Window init success");
         window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
-        if (window) {
+        if(window) {
             SDL_Log("Window created");
         }
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-        if (renderer) {
+        if(renderer) {
             SDL_Log("Renderer created");
         }
         isRunning = true;
-    } else {
-        SDL_Log("Window init failed");
-        isRunning = false;
     }
-    TTF_Font *font = TTF_OpenFont("MSYH.ttf", 28);
+    else
+    {
+        SDL_Log("Window init failed");
+        isRunning= false;
+    }
     if (!TTF_Init()) {
         SDL_Log("SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError());
         isRunning = false;
@@ -70,7 +72,7 @@ void Game::render() const {
     SDL_RenderPresent(renderer);
 }
 
-bool Game::running() const {
+bool Game::running() const{
     return isRunning;
 }
 
@@ -84,9 +86,13 @@ void Game::frameEnd() {
         SDL_Delay(FPS - Time);
     }
 }
+<<<<<<< HEAD
 SDL_Renderer *Game::getRenderer() const {
     return renderer;
 }
 SDL_Window *Game::getWindow() const {
     return window;
 }
+=======
+
+>>>>>>> parent of 796e7ae (GUI update)
