@@ -166,6 +166,30 @@ Game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Game.cpp.s
 .PHONY : Game.cpp.s
 
+Renderer.obj: Renderer.cpp.obj
+.PHONY : Renderer.obj
+
+# target to build an object file
+Renderer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Renderer.cpp.obj
+.PHONY : Renderer.cpp.obj
+
+Renderer.i: Renderer.cpp.i
+.PHONY : Renderer.i
+
+# target to preprocess a source file
+Renderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Renderer.cpp.i
+.PHONY : Renderer.cpp.i
+
+Renderer.s: Renderer.cpp.s
+.PHONY : Renderer.s
+
+# target to generate assembly for a file
+Renderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Renderer.cpp.s
+.PHONY : Renderer.cpp.s
+
 ServerSide.obj: ServerSide.cpp.obj
 .PHONY : ServerSide.obj
 
@@ -214,6 +238,30 @@ Text.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Text.cpp.s
 .PHONY : Text.cpp.s
 
+Window.obj: Window.cpp.obj
+.PHONY : Window.obj
+
+# target to build an object file
+Window.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Window.cpp.obj
+.PHONY : Window.cpp.obj
+
+Window.i: Window.cpp.i
+.PHONY : Window.i
+
+# target to preprocess a source file
+Window.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Window.cpp.i
+.PHONY : Window.cpp.i
+
+Window.s: Window.cpp.s
+.PHONY : Window.s
+
+# target to generate assembly for a file
+Window.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Window.cpp.s
+.PHONY : Window.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -253,12 +301,18 @@ help:
 	@echo ... Game.obj
 	@echo ... Game.i
 	@echo ... Game.s
+	@echo ... Renderer.obj
+	@echo ... Renderer.i
+	@echo ... Renderer.s
 	@echo ... ServerSide.obj
 	@echo ... ServerSide.i
 	@echo ... ServerSide.s
 	@echo ... Text.obj
 	@echo ... Text.i
 	@echo ... Text.s
+	@echo ... Window.obj
+	@echo ... Window.i
+	@echo ... Window.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

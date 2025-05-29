@@ -15,7 +15,7 @@ public:
     Controller();
     ~Controller();
     //动作监视器
-    void event(const SDL_Event &event);
+    void event(SDL_Event &event);
 
     void KeyboardPress(const SDL_Event &event);
 

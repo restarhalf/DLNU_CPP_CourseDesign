@@ -3,20 +3,21 @@
 //
 #ifndef CLIENTSIDE_H
 #define CLIENTSIDE_H
-#include<SDL.h>
-#include<SDL_ttf.h>
-#include<SDL_mixer.h>
-#include<SDL_image.h>
+#include "Window.h"
+#include "Renderer.h"
+#include <SDL_ttf.h>
+#include <SDL_mixer.h>
+#include <SDL_image.h>
 #include<string>
 
 class Game {
     //-----------------------------------------------------//
     //窗口部分
 private:
-    //窗口
-    SDL_Window *window;
-    //渲染器
-    SDL_Renderer *renderer;
+    // 窗口管理
+    Window* window;
+    // 渲染器管理
+    Renderer* renderer;
     //是否运行判断器
     bool isRunning;
 
@@ -28,7 +29,7 @@ public:
     ~Game();
 
     //初始化函数
-    bool init(const std::string &title, int width, int height, int flags);
+    bool init(std::string title, int width, int height, int flags);
 
     //事件处理函数
     void handleEvents();
@@ -44,12 +45,6 @@ public:
 
     //运行状态判断器
     [[nodiscard]] bool running() const;
-
-    //Render重载
-    void render_reload() const;
-
-    void render_clear() const;
-
     //-----------------------------------------------------//
     //帧率部分
 private:
@@ -67,16 +62,16 @@ public:
 
     void frameEnd();
 
-    [[nodiscard]] SDL_Renderer *getRenderer() const;
+    Renderer *getRenderer() const;
 
-    [[nodiscard]] SDL_Window *getWindow() const;
+    Window *getWindow() const;
 
-    [[nodiscard]] TTF_Font *getFont() const;
+    TTF_Font *getFont() const;
 
-    void setRenderer(SDL_Renderer *renderer);
+    void setRenderer(Renderer *renderer);
 
-    void setWindow(SDL_Window *window);
+    void setWindow(Window *window);
 
-    void setFont(SDL_Renderer *renderer, const std::string &fontPath, int fontSize);
+    void setFont(Renderer *renderer, const std::string &fontPath, int fontSize);
 };
 #endif //CLIENTSIDE_H

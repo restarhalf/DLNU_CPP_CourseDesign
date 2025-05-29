@@ -13,6 +13,10 @@ add_executable(DLNU_CPP_CourseDesign main.cpp
         Controller.h
         Text.cpp
         Text.h
+        Window.cpp
+        Window.h
+        Renderer.cpp
+        Renderer.h
         ServerSide.cpp
 )
 target_link_libraries(DLNU_CPP_CourseDesign 
