@@ -11,28 +11,23 @@
 
 
 class Controller {
-
-    Controller();
-
-    ~Controller();
 public:
     Controller();
     ~Controller();
     //动作监视器
     static void event(SDL_Event &event);
 
-    static void KeyboardPress(SDL_Event &event);
+    static void KeyboardPress(const SDL_Event &event);
 
-    static void KeyboardRelease(SDL_Event &event);
+    static void KeyboardRelease(const SDL_Event &event);
 
-    static void MousePress(SDL_Event &event);
+    static void MousePress(const SDL_Event &event);
 
-    static void MouseRelease(SDL_Event &event);
+    static void MouseRelease(const SDL_Event &event);
 
     static void MouseMove(SDL_Event &event);
 
 };
-
 
 
 #endif //CONTROLLER_H
