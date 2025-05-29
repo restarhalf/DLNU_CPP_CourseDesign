@@ -6,7 +6,6 @@
 #include <iostream>
 
 #include "Controller.h"
-#include "SDL_egl.h"
 
 Game::Game() {
     isRunning = false;
@@ -34,6 +33,7 @@ bool Game::init(const std::string &title, int width, int height, int flags) {
         SDL_Log("Window init failed");
         isRunning = false;
     }
+    TTF_Font *font = TTF_OpenFont("MSYH.ttf", 28);
     if (!TTF_Init()) {
         SDL_Log("SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError());
         isRunning = false;
