@@ -25,7 +25,7 @@ bool Game::init(const std::string &title, int width, int height, int flags) {
         if (window) {
             SDL_Log("Window created");
         }
-        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
         if (renderer) {
             SDL_Log("Renderer created");
         }
@@ -34,9 +34,12 @@ bool Game::init(const std::string &title, int width, int height, int flags) {
         SDL_Log("Window init failed");
         isRunning = false;
     }
-    if (!TTF_Init()) {
+    TTF_Init();
+    font = TTF_OpenFont("MSYH.ttf", 24);
+    if (font == nullptr) {
         SDL_Log("SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError());
         isRunning = false;
+        return false;
     }
     else {
         SDL_Log("SDL_TTF initialized");
@@ -47,10 +50,11 @@ bool Game::init(const std::string &title, int width, int height, int flags) {
 void Game::handleEvents() {
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
-        if (event.type == SDL_QUIT) {
+        if (event.type == SDL_QUIT || event.key.keysym.sym == SDLK_ESCAPE) {
             isRunning = false;
         }
-        Controller::event(event);
+        Controller controller;
+        controller.event(event);
     }
 }
 
@@ -74,6 +78,14 @@ bool Game::running() const {
     return isRunning;
 }
 
+void Game::render_reload() const {
+    SDL_RenderPresent(renderer);
+}
+
+void Game::render_clear() const {
+    SDL_RenderClear(renderer);
+}
+
 void Game::frameStart() {
     Start = SDL_GetTicks();
 }
@@ -89,4 +101,20 @@ SDL_Renderer *Game::getRenderer() const {
 }
 SDL_Window *Game::getWindow() const {
     return window;
+}
+
+TTF_Font *Game::getFont() const {
+    return font;
+}
+
+void Game::setRenderer(SDL_Renderer *renderer) {
+    this->renderer = renderer;
+}
+
+void Game::setWindow(SDL_Window *window) {
+    this->window = window;
+}
+
+void Game::setFont(SDL_Renderer *renderer, const std::string &fontPath, int fontSize) {
+    font = TTF_OpenFont(fontPath.c_str(), fontSize);
 }

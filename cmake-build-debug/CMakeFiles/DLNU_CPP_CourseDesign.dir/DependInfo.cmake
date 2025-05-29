@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/Controller.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Controller.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Controller.cpp.obj.d"
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/Game.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Game.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Game.cpp.obj.d"
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/ServerSide.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/ServerSide.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/ServerSide.cpp.obj.d"
+  "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/Text.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Text.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Text.cpp.obj.d"
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/main.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/main.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/main.cpp.obj.d"
   )
 

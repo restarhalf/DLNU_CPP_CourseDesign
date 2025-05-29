@@ -8,10 +8,12 @@ link_directories("${CMAKE_CURRENT_SOURCE_DIR}/SDL2/lib/x64")
 
 add_executable(DLNU_CPP_CourseDesign main.cpp
         game.cpp
-        ServerSide.cpp
         game.h
         Controller.cpp
         Controller.h
+        Text.cpp
+        Text.h
+        ServerSide.cpp
 )
 target_link_libraries(DLNU_CPP_CourseDesign 
     SDL2

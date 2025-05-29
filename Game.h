@@ -4,6 +4,9 @@
 #ifndef CLIENTSIDE_H
 #define CLIENTSIDE_H
 #include<SDL.h>
+#include<SDL_ttf.h>
+#include<SDL_mixer.h>
+#include<SDL_image.h>
 #include<string>
 
 class Game {
@@ -18,6 +21,7 @@ private:
     bool isRunning;
 
 public:
+
     //构造函数和析构函数
     Game();
 
@@ -39,7 +43,12 @@ public:
     void render() const;
 
     //运行状态判断器
-    bool running() const;
+    [[nodiscard]] bool running() const;
+
+    //Render重载
+    void render_reload() const;
+
+    void render_clear() const;
 
     //-----------------------------------------------------//
     //帧率部分
@@ -50,14 +59,24 @@ private:
     Uint32 Start = 0;
     //经历的时间
     Uint32 Time = 0;
+    //字体
+    TTF_Font *font;
 
 public:
     void frameStart();
 
     void frameEnd();
 
-    SDL_Renderer *getRenderer() const;
+    [[nodiscard]] SDL_Renderer *getRenderer() const;
 
-    SDL_Window *getWindow() const;
+    [[nodiscard]] SDL_Window *getWindow() const;
+
+    [[nodiscard]] TTF_Font *getFont() const;
+
+    void setRenderer(SDL_Renderer *renderer);
+
+    void setWindow(SDL_Window *window);
+
+    void setFont(SDL_Renderer *renderer, const std::string &fontPath, int fontSize);
 };
 #endif //CLIENTSIDE_H

@@ -190,6 +190,30 @@ ServerSide.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\ServerSide.cpp.s
 .PHONY : ServerSide.cpp.s
 
+Text.obj: Text.cpp.obj
+.PHONY : Text.obj
+
+# target to build an object file
+Text.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Text.cpp.obj
+.PHONY : Text.cpp.obj
+
+Text.i: Text.cpp.i
+.PHONY : Text.i
+
+# target to preprocess a source file
+Text.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Text.cpp.i
+.PHONY : Text.cpp.i
+
+Text.s: Text.cpp.s
+.PHONY : Text.s
+
+# target to generate assembly for a file
+Text.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Text.cpp.s
+.PHONY : Text.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -232,6 +256,9 @@ help:
 	@echo ... ServerSide.obj
 	@echo ... ServerSide.i
 	@echo ... ServerSide.s
+	@echo ... Text.obj
+	@echo ... Text.i
+	@echo ... Text.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

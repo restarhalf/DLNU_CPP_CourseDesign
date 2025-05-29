@@ -1,4 +1,4 @@
-//
+﻿//
 // Created by restarhalf on 2025/5/28.
 //
 
@@ -15,17 +15,17 @@ public:
     Controller();
     ~Controller();
     //动作监视器
-    static void event(SDL_Event &event);
+    void event(const SDL_Event &event);
 
-    static void KeyboardPress(const SDL_Event &event);
+    void KeyboardPress(const SDL_Event &event);
 
-    static void KeyboardRelease(const SDL_Event &event);
+    void KeyboardRelease(const SDL_Event &event);
 
-    static void MousePress(const SDL_Event &event);
+    void MousePress(const SDL_Event &event);
 
-    static void MouseRelease(const SDL_Event &event);
+    void MouseRelease(const SDL_Event &event);
 
-    static void MouseMove(SDL_Event &event);
+    void MouseMove(const SDL_Event &event);
 
 };
 

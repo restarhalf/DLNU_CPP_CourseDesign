@@ -12,7 +12,7 @@ Controller::Controller() {
 Controller::~Controller() {
 }
 
-void Controller::event(SDL_Event &event) {
+void Controller::event(const SDL_Event &event) {
     switch (event.type) {
         case SDL_KEYDOWN:
             KeyboardPress(event);
@@ -110,7 +110,7 @@ void Controller::MouseRelease(const SDL_Event &event) {
     }
 }
 
-void Controller::MouseMove(SDL_Event &event) {
+void Controller::MouseMove(const SDL_Event &event) {
     auto mouseX = event.motion.x;
     auto mouseY = event.motion.y;
     //fish->setPosition(mouseX, mouseY);
