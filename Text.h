@@ -8,7 +8,7 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <string>
-
+#include "Renderer.h"
 
 
 class Text{
@@ -23,8 +23,8 @@ public:
 
 
     //绘制文字
-SDL_Renderer *drawText(SDL_Renderer *render, TTF_Font *font, const std::string &text, SDL_Rect rect,
-                              SDL_Color color);
+    Renderer *drawText(Renderer *render, TTF_Font *font, const std::string &text, SDL_Rect rect,
+                       SDL_Color color);
 
 };
 

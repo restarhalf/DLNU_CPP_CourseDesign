@@ -4,47 +4,65 @@
 #include "Game.h"
 
 #include <iostream>
+#include <utility>
 
 #include "Controller.h"
 #include "SDL_egl.h"
 
-Game::Game() {
-    isRunning = false;
-    renderer = nullptr;
-    window = nullptr;
+Game::Game(): window(nullptr), renderer(nullptr), isRunning(false), font(nullptr) {
 }
 
 Game::~Game() {
     clean();
 }
 
-bool Game::init(const std::string &title, int width, int height, int flags) {
-    if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
-        SDL_Log("Window init success");
-        window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
-        if (window) {
-            SDL_Log("Window created");
+bool Game::init(std::string title, int width, int height, int flags) {
+
+        if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+            SDL_Log("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
+            isRunning = false;
+            return false;
         }
-        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-        if (renderer) {
-            SDL_Log("Renderer created");
+        else {
+            SDL_Log("SDL initialized");
+            isRunning = true;
         }
-        isRunning = true;
-    } else {
-        SDL_Log("Window init failed");
-        isRunning = false;
+    try {
+        window = new Window(std::move(title), width, height);
     }
-    TTF_Init();
-    font = TTF_OpenFont("MSYH.ttf", 24);
-    if (font == nullptr) {
-        SDL_Log("SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError());
+    catch (const std::runtime_error &e) {
+        SDL_Log("Window could not be created! SDL_Error: %s\n", e.what());
         isRunning = false;
         return false;
     }
-    else {
-        SDL_Log("SDL_TTF initialized");
+    try {
+        renderer = new Renderer(window,true);
+
+
     }
-    return isRunning;
+    catch (const std::runtime_error &e) {
+        SDL_Log("Renderer could not be created! SDL_Error: %s\n", e.what());
+        if (window) {
+            delete window;
+            window = nullptr;
+        }
+        isRunning = false;
+        return false;
+    }
+
+        isRunning = true;
+        TTF_Init();
+        font = TTF_OpenFont("MSYH.ttf", 24);
+        if (font == nullptr) {
+            SDL_Log("SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError());
+            isRunning = false;
+            return false;
+        }
+        else {
+            SDL_Log("SDL_TTF initialized");
+        }
+        return isRunning;
+
 }
 
 void Game::handleEvents() {
@@ -53,14 +71,14 @@ void Game::handleEvents() {
         if (event.type == SDL_QUIT || event.key.keysym.sym == SDLK_ESCAPE) {
             isRunning = false;
         }
-        Controller controller;
+        auto controller=Controller();
         controller.event(event);
     }
 }
 
 void Game::clean() const {
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
+    delete renderer;
+    delete window;
     SDL_Quit();
     SDL_Log("Game cleaned");
 }
@@ -69,21 +87,15 @@ void Game::update() {
 }
 
 void Game::render() const {
-    SDL_SetRenderDrawColor(renderer, 1000, 1000, 1000, 1000);
-    SDL_RenderClear(renderer);
-    SDL_RenderPresent(renderer);
+    if (renderer) {
+        renderer->clear();
+        renderer->present();
+    }
+
 }
 
 bool Game::running() const {
     return isRunning;
-}
-
-void Game::render_reload() const {
-    SDL_RenderPresent(renderer);
-}
-
-void Game::render_clear() const {
-    SDL_RenderClear(renderer);
 }
 
 void Game::frameStart() {
@@ -96,10 +108,10 @@ void Game::frameEnd() {
         SDL_Delay(FPS - Time);
     }
 }
-SDL_Renderer *Game::getRenderer() const {
+Renderer* Game::getRenderer() const {
     return renderer;
 }
-SDL_Window *Game::getWindow() const {
+Window *Game::getWindow() const {
     return window;
 }
 
@@ -107,14 +119,14 @@ TTF_Font *Game::getFont() const {
     return font;
 }
 
-void Game::setRenderer(SDL_Renderer *renderer) {
+void Game::setRenderer(Renderer *renderer) {
     this->renderer = renderer;
 }
 
-void Game::setWindow(SDL_Window *window) {
+void Game::setWindow(Window *window) {
     this->window = window;
 }
 
-void Game::setFont(SDL_Renderer *renderer, const std::string &fontPath, int fontSize) {
+void Game::setFont(Renderer* renderer, const std::string &fontPath, int fontSize) {
     font = TTF_OpenFont(fontPath.c_str(), fontSize);
 }

@@ -12,7 +12,7 @@ Controller::Controller() {
 Controller::~Controller() {
 }
 
-void Controller::event(const SDL_Event &event) {
+void Controller::event(SDL_Event &event) {
     switch (event.type) {
         case SDL_KEYDOWN:
             KeyboardPress(event);

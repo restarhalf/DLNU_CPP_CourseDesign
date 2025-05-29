@@ -7,10 +7,16 @@ CMakeFiles\DLNU_CPP_CourseDesign.dir\Controller.cpp.obj: D:\C_C++Package\CLionPr
 CMakeFiles\DLNU_CPP_CourseDesign.dir\Game.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\Game.cpp
 
 
+CMakeFiles\DLNU_CPP_CourseDesign.dir\Renderer.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\Renderer.cpp
+
+
 CMakeFiles\DLNU_CPP_CourseDesign.dir\ServerSide.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\ServerSide.cpp
 
 
 CMakeFiles\DLNU_CPP_CourseDesign.dir\Text.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\Text.cpp
+
+
+CMakeFiles\DLNU_CPP_CourseDesign.dir\Window.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\Window.cpp
 
 
 CMakeFiles\DLNU_CPP_CourseDesign.dir\main.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\main.cpp
@@ -21,8 +27,12 @@ D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\Controller.cpp:
 
 D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\Game.cpp:
 
-D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\ServerSide.cpp:
-
 D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\Text.cpp:
+
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\Renderer.cpp:
+
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\Window.cpp:
+
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\ServerSide.cpp:
 
 D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\main.cpp:
