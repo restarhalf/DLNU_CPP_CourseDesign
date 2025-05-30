@@ -21,9 +21,7 @@ int main(int argc, char *argv[]) {
         Text text;
         game.setRenderer(text.drawText(game.getRenderer(), game.getFont(), "Hello World", {100, 100, 100, 100},
                                        {107, 21, 21, 255}));
-        if () {
 
-        }
         game.getRenderer()->present();
 
         Image image("1.png", game.getRenderer());
