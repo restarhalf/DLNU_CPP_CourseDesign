@@ -60,8 +60,7 @@ extern "C" {
 struct _SDL_GameController;
 typedef struct _SDL_GameController SDL_GameController;
 
-typedef enum SDL_GameControllerType
-{
+typedef enum SDL_GameControllerType {
     SDL_CONTROLLER_TYPE_UNKNOWN = 0,
     SDL_CONTROLLER_TYPE_XBOX360,
     SDL_CONTROLLER_TYPE_XBOXONE,
@@ -79,8 +78,7 @@ typedef enum SDL_GameControllerType
     SDL_CONTROLLER_TYPE_MAX
 } SDL_GameControllerType;
 
-typedef enum SDL_GameControllerBindType
-{
+typedef enum SDL_GameControllerBindType {
     SDL_CONTROLLER_BINDTYPE_NONE = 0,
     SDL_CONTROLLER_BINDTYPE_BUTTON,
     SDL_CONTROLLER_BINDTYPE_AXIS,
@@ -90,19 +88,18 @@ typedef enum SDL_GameControllerBindType
 /**
  * Get the SDL joystick layer binding for this controller button/axis mapping
  */
-typedef struct SDL_GameControllerButtonBind
-{
+typedef struct SDL_GameControllerButtonBind {
     SDL_GameControllerBindType bindType;
-    union
-    {
+
+    union {
         int button;
         int axis;
+
         struct {
             int hat;
             int hat_mask;
         } hat;
     } value;
-
 } SDL_GameControllerButtonBind;
 
 
@@ -170,7 +167,7 @@ typedef struct SDL_GameControllerButtonBind
  * \sa SDL_GameControllerMappingForGUID
  * \sa SDL_CONTROLLERDEVICEADDED
  */
-extern DECLSPEC int SDLCALL SDL_GameControllerAddMappingsFromRW(SDL_RWops * rw, int freerw);
+extern DECLSPEC int SDLCALL SDL_GameControllerAddMappingsFromRW(SDL_RWops *rw, int freerw);
 
 /**
  * Load a set of mappings from a file, filtered by the current
@@ -212,7 +209,7 @@ extern DECLSPEC int SDLCALL SDL_GameControllerAddMappingsFromRW(SDL_RWops * rw, 
  * \sa SDL_GameControllerMappingForGUID
  * \sa SDL_CONTROLLERDEVICEADDED
  */
-extern DECLSPEC int SDLCALL SDL_GameControllerAddMapping(const char* mappingString);
+extern DECLSPEC int SDLCALL SDL_GameControllerAddMapping(const char *mappingString);
 
 /**
  * Get the number of mappings installed.
@@ -632,8 +629,7 @@ extern DECLSPEC void SDLCALL SDL_GameControllerUpdate(void);
  * not the same range that will be reported by the lower-level
  * SDL_GetJoystickAxis().
  */
-typedef enum SDL_GameControllerAxis
-{
+typedef enum SDL_GameControllerAxis {
     SDL_CONTROLLER_AXIS_INVALID = -1,
     SDL_CONTROLLER_AXIS_LEFTX,
     SDL_CONTROLLER_AXIS_LEFTY,
@@ -680,7 +676,7 @@ extern DECLSPEC SDL_GameControllerAxis SDLCALL SDL_GameControllerGetAxisFromStri
  *
  * \sa SDL_GameControllerGetAxisFromString
  */
-extern DECLSPEC const char* SDLCALL SDL_GameControllerGetStringForAxis(SDL_GameControllerAxis axis);
+extern DECLSPEC const char * SDLCALL SDL_GameControllerGetStringForAxis(SDL_GameControllerAxis axis);
 
 /**
  * Get the SDL joystick layer binding for a controller axis mapping.
@@ -741,8 +737,7 @@ SDL_GameControllerGetAxis(SDL_GameController *gamecontroller, SDL_GameController
 /**
  * The list of buttons available from a controller
  */
-typedef enum SDL_GameControllerButton
-{
+typedef enum SDL_GameControllerButton {
     SDL_CONTROLLER_BUTTON_INVALID = -1,
     SDL_CONTROLLER_BUTTON_A,
     SDL_CONTROLLER_BUTTON_B,
@@ -759,11 +754,12 @@ typedef enum SDL_GameControllerButton
     SDL_CONTROLLER_BUTTON_DPAD_DOWN,
     SDL_CONTROLLER_BUTTON_DPAD_LEFT,
     SDL_CONTROLLER_BUTTON_DPAD_RIGHT,
-    SDL_CONTROLLER_BUTTON_MISC1,    /* Xbox Series X share button, PS5 microphone button, Nintendo Switch Pro capture button, Amazon Luna microphone button */
-    SDL_CONTROLLER_BUTTON_PADDLE1,  /* Xbox Elite paddle P1 (upper left, facing the back) */
-    SDL_CONTROLLER_BUTTON_PADDLE2,  /* Xbox Elite paddle P3 (upper right, facing the back) */
-    SDL_CONTROLLER_BUTTON_PADDLE3,  /* Xbox Elite paddle P2 (lower left, facing the back) */
-    SDL_CONTROLLER_BUTTON_PADDLE4,  /* Xbox Elite paddle P4 (lower right, facing the back) */
+    SDL_CONTROLLER_BUTTON_MISC1,
+    /* Xbox Series X share button, PS5 microphone button, Nintendo Switch Pro capture button, Amazon Luna microphone button */
+    SDL_CONTROLLER_BUTTON_PADDLE1, /* Xbox Elite paddle P1 (upper left, facing the back) */
+    SDL_CONTROLLER_BUTTON_PADDLE2, /* Xbox Elite paddle P3 (upper right, facing the back) */
+    SDL_CONTROLLER_BUTTON_PADDLE3, /* Xbox Elite paddle P2 (lower left, facing the back) */
+    SDL_CONTROLLER_BUTTON_PADDLE4, /* Xbox Elite paddle P4 (lower right, facing the back) */
     SDL_CONTROLLER_BUTTON_TOUCHPAD, /* PS4/PS5 touchpad button */
     SDL_CONTROLLER_BUTTON_MAX
 } SDL_GameControllerButton;
@@ -798,7 +794,7 @@ extern DECLSPEC SDL_GameControllerButton SDLCALL SDL_GameControllerGetButtonFrom
  *
  * \sa SDL_GameControllerGetButtonFromString
  */
-extern DECLSPEC const char* SDLCALL SDL_GameControllerGetStringForButton(SDL_GameControllerButton button);
+extern DECLSPEC const char * SDLCALL SDL_GameControllerGetStringForButton(SDL_GameControllerButton button);
 
 /**
  * Get the SDL joystick layer binding for a controller button mapping.
@@ -867,7 +863,9 @@ extern DECLSPEC int SDLCALL SDL_GameControllerGetNumTouchpadFingers(SDL_GameCont
  *
  * \since This function is available since SDL 2.0.14.
  */
-extern DECLSPEC int SDLCALL SDL_GameControllerGetTouchpadFinger(SDL_GameController *gamecontroller, int touchpad, int finger, Uint8 *state, float *x, float *y, float *pressure);
+extern DECLSPEC int SDLCALL SDL_GameControllerGetTouchpadFinger(SDL_GameController *gamecontroller, int touchpad,
+                                                                int finger, Uint8 *state, float *x, float *y,
+                                                                float *pressure);
 
 /**
  * Return whether a game controller has a particular sensor.
@@ -890,7 +888,8 @@ extern DECLSPEC SDL_bool SDLCALL SDL_GameControllerHasSensor(SDL_GameController 
  *
  * \since This function is available since SDL 2.0.14.
  */
-extern DECLSPEC int SDLCALL SDL_GameControllerSetSensorEnabled(SDL_GameController *gamecontroller, SDL_SensorType type, SDL_bool enabled);
+extern DECLSPEC int SDLCALL SDL_GameControllerSetSensorEnabled(SDL_GameController *gamecontroller, SDL_SensorType type,
+                                                               SDL_bool enabled);
 
 /**
  * Query whether sensor data reporting is enabled for a game controller.
@@ -901,7 +900,8 @@ extern DECLSPEC int SDLCALL SDL_GameControllerSetSensorEnabled(SDL_GameControlle
  *
  * \since This function is available since SDL 2.0.14.
  */
-extern DECLSPEC SDL_bool SDLCALL SDL_GameControllerIsSensorEnabled(SDL_GameController *gamecontroller, SDL_SensorType type);
+extern DECLSPEC SDL_bool SDLCALL SDL_GameControllerIsSensorEnabled(SDL_GameController *gamecontroller,
+                                                                   SDL_SensorType type);
 
 /**
  * Get the data rate (number of events per second) of a game controller
@@ -913,7 +913,8 @@ extern DECLSPEC SDL_bool SDLCALL SDL_GameControllerIsSensorEnabled(SDL_GameContr
  *
  * \since This function is available since SDL 2.0.16.
  */
-extern DECLSPEC float SDLCALL SDL_GameControllerGetSensorDataRate(SDL_GameController *gamecontroller, SDL_SensorType type);
+extern DECLSPEC float SDLCALL SDL_GameControllerGetSensorDataRate(SDL_GameController *gamecontroller,
+                                                                  SDL_SensorType type);
 
 /**
  * Get the current state of a game controller sensor.
@@ -929,7 +930,8 @@ extern DECLSPEC float SDLCALL SDL_GameControllerGetSensorDataRate(SDL_GameContro
  *
  * \since This function is available since SDL 2.0.14.
  */
-extern DECLSPEC int SDLCALL SDL_GameControllerGetSensorData(SDL_GameController *gamecontroller, SDL_SensorType type, float *data, int num_values);
+extern DECLSPEC int SDLCALL SDL_GameControllerGetSensorData(SDL_GameController *gamecontroller, SDL_SensorType type,
+                                                            float *data, int num_values);
 
 /**
  * Get the current state of a game controller sensor with the timestamp of the
@@ -948,7 +950,8 @@ extern DECLSPEC int SDLCALL SDL_GameControllerGetSensorData(SDL_GameController *
  *
  * \since This function is available since SDL 2.26.0.
  */
-extern DECLSPEC int SDLCALL SDL_GameControllerGetSensorDataWithTimestamp(SDL_GameController *gamecontroller, SDL_SensorType type, Uint64 *timestamp, float *data, int num_values);
+extern DECLSPEC int SDLCALL SDL_GameControllerGetSensorDataWithTimestamp(
+    SDL_GameController *gamecontroller, SDL_SensorType type, Uint64 *timestamp, float *data, int num_values);
 
 /**
  * Start a rumble effect on a game controller.
@@ -968,7 +971,8 @@ extern DECLSPEC int SDLCALL SDL_GameControllerGetSensorDataWithTimestamp(SDL_Gam
  *
  * \sa SDL_GameControllerHasRumble
  */
-extern DECLSPEC int SDLCALL SDL_GameControllerRumble(SDL_GameController *gamecontroller, Uint16 low_frequency_rumble, Uint16 high_frequency_rumble, Uint32 duration_ms);
+extern DECLSPEC int SDLCALL SDL_GameControllerRumble(SDL_GameController *gamecontroller, Uint16 low_frequency_rumble,
+                                                     Uint16 high_frequency_rumble, Uint32 duration_ms);
 
 /**
  * Start a rumble effect in the game controller's triggers.
@@ -993,7 +997,8 @@ extern DECLSPEC int SDLCALL SDL_GameControllerRumble(SDL_GameController *gamecon
  *
  * \sa SDL_GameControllerHasRumbleTriggers
  */
-extern DECLSPEC int SDLCALL SDL_GameControllerRumbleTriggers(SDL_GameController *gamecontroller, Uint16 left_rumble, Uint16 right_rumble, Uint32 duration_ms);
+extern DECLSPEC int SDLCALL SDL_GameControllerRumbleTriggers(SDL_GameController *gamecontroller, Uint16 left_rumble,
+                                                             Uint16 right_rumble, Uint32 duration_ms);
 
 /**
  * Query whether a game controller has an LED.
@@ -1043,7 +1048,8 @@ extern DECLSPEC SDL_bool SDLCALL SDL_GameControllerHasRumbleTriggers(SDL_GameCon
  *
  * \since This function is available since SDL 2.0.14.
  */
-extern DECLSPEC int SDLCALL SDL_GameControllerSetLED(SDL_GameController *gamecontroller, Uint8 red, Uint8 green, Uint8 blue);
+extern DECLSPEC int SDLCALL SDL_GameControllerSetLED(SDL_GameController *gamecontroller, Uint8 red, Uint8 green,
+                                                     Uint8 blue);
 
 /**
  * Send a controller specific effect packet
@@ -1056,7 +1062,8 @@ extern DECLSPEC int SDLCALL SDL_GameControllerSetLED(SDL_GameController *gamecon
  *
  * \since This function is available since SDL 2.0.16.
  */
-extern DECLSPEC int SDLCALL SDL_GameControllerSendEffect(SDL_GameController *gamecontroller, const void *data, int size);
+extern DECLSPEC int SDLCALL
+SDL_GameControllerSendEffect(SDL_GameController *gamecontroller, const void *data, int size);
 
 /**
  * Close a game controller previously opened with SDL_GameControllerOpen().
@@ -1082,7 +1089,8 @@ extern DECLSPEC void SDLCALL SDL_GameControllerClose(SDL_GameController *gamecon
  *
  * \sa SDL_GameControllerGetAppleSFSymbolsNameForAxis
  */
-extern DECLSPEC const char* SDLCALL SDL_GameControllerGetAppleSFSymbolsNameForButton(SDL_GameController *gamecontroller, SDL_GameControllerButton button);
+extern DECLSPEC const char * SDLCALL SDL_GameControllerGetAppleSFSymbolsNameForButton(
+    SDL_GameController *gamecontroller, SDL_GameControllerButton button);
 
 /**
  * Return the sfSymbolsName for a given axis on a game controller on Apple
@@ -1096,7 +1104,8 @@ extern DECLSPEC const char* SDLCALL SDL_GameControllerGetAppleSFSymbolsNameForBu
  *
  * \sa SDL_GameControllerGetAppleSFSymbolsNameForButton
  */
-extern DECLSPEC const char* SDLCALL SDL_GameControllerGetAppleSFSymbolsNameForAxis(SDL_GameController *gamecontroller, SDL_GameControllerAxis axis);
+extern DECLSPEC const char * SDLCALL SDL_GameControllerGetAppleSFSymbolsNameForAxis(
+    SDL_GameController *gamecontroller, SDL_GameControllerAxis axis);
 
 
 /* Ends C function definitions when using C++ */

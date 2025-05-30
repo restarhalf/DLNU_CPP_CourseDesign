@@ -67,7 +67,7 @@ typedef void (*SDLTest_TestCaseSetUpFp)(void *arg);
 typedef int (*SDLTest_TestCaseFp)(void *arg);
 
 /* !< Function pointer to a test case teardown function (run after every test) */
-typedef void  (*SDLTest_TestCaseTearDownFp)(void *arg);
+typedef void (*SDLTest_TestCaseTearDownFp)(void *arg);
 
 /*
  * Holds information about a single test case.
@@ -120,7 +120,8 @@ char *SDLTest_GenerateRunSeed(const int length);
  *
  * \returns the test run result: 0 when all tests passed, 1 if any tests failed.
  */
-int SDLTest_RunSuites(SDLTest_TestSuiteReference *testSuites[], const char *userRunSeed, Uint64 userExecKey, const char *filter, int testIterations);
+int SDLTest_RunSuites(SDLTest_TestSuiteReference * testSuites[], const char *userRunSeed, Uint64 userExecKey,
+ const char *filter, int testIterations);
 
 
 /* Ends C function definitions when using C++ */

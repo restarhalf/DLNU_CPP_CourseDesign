@@ -92,14 +92,13 @@ extern DECLSPEC const SDL_version * SDLCALL IMG_Linked_Version(void);
 /**
  * Initialization flags
  */
-typedef enum IMG_InitFlags
-{
-    IMG_INIT_JPG    = 0x00000001,
-    IMG_INIT_PNG    = 0x00000002,
-    IMG_INIT_TIF    = 0x00000004,
-    IMG_INIT_WEBP   = 0x00000008,
-    IMG_INIT_JXL    = 0x00000010,
-    IMG_INIT_AVIF   = 0x00000020
+typedef enum IMG_InitFlags {
+    IMG_INIT_JPG = 0x00000001,
+    IMG_INIT_PNG = 0x00000002,
+    IMG_INIT_TIF = 0x00000004,
+    IMG_INIT_WEBP = 0x00000008,
+    IMG_INIT_JXL = 0x00000010,
+    IMG_INIT_AVIF = 0x00000020
 } IMG_InitFlags;
 
 /**
@@ -347,7 +346,7 @@ extern DECLSPEC SDL_Surface * SDLCALL IMG_Load(const char *file);
  */
 extern DECLSPEC SDL_Surface * SDLCALL IMG_Load_RW(SDL_RWops *src, int freesrc);
 
-#if SDL_VERSION_ATLEAST(2,0,0)
+#if SDL_VERSION_ATLEAST(2, 0, 0)
 
 /**
  * Load an image from a filesystem path into a GPU texture.
@@ -485,7 +484,8 @@ extern DECLSPEC SDL_Texture * SDLCALL IMG_LoadTexture_RW(SDL_Renderer *renderer,
  * \sa IMG_LoadTexture_RW
  * \sa SDL_DestroyTexture
  */
-extern DECLSPEC SDL_Texture * SDLCALL IMG_LoadTextureTyped_RW(SDL_Renderer *renderer, SDL_RWops *src, int freesrc, const char *type);
+extern DECLSPEC SDL_Texture * SDLCALL IMG_LoadTextureTyped_RW(SDL_Renderer *renderer, SDL_RWops *src, int freesrc,
+                                                              const char *type);
 #endif /* SDL 2.0 */
 
 /**
@@ -2043,12 +2043,11 @@ extern DECLSPEC int SDLCALL IMG_SaveJPG_RW(SDL_Surface *surface, SDL_RWops *dst,
  *
  * Currently only animated GIFs are supported.
  */
-typedef struct IMG_Animation
-{
-	int w, h;
-	int count;
-	SDL_Surface **frames;
-	int *delays;
+typedef struct IMG_Animation {
+    int w, h;
+    int count;
+    SDL_Surface **frames;
+    int *delays;
 } IMG_Animation;
 
 /**

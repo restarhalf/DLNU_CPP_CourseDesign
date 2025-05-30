@@ -40,8 +40,7 @@
  * The values in this enumeration are based on the USB usage page standard:
  * https://www.usb.org/sites/default/files/documents/hut1_12v2.pdf
  */
-typedef enum SDL_Scancode
-{
+typedef enum SDL_Scancode {
     SDL_SCANCODE_UNKNOWN = 0,
 
     /**
@@ -225,23 +224,23 @@ typedef enum SDL_Scancode
     SDL_SCANCODE_F23 = 114,
     SDL_SCANCODE_F24 = 115,
     SDL_SCANCODE_EXECUTE = 116,
-    SDL_SCANCODE_HELP = 117,    /**< AL Integrated Help Center */
-    SDL_SCANCODE_MENU = 118,    /**< Menu (show menu) */
+    SDL_SCANCODE_HELP = 117, /**< AL Integrated Help Center */
+    SDL_SCANCODE_MENU = 118, /**< Menu (show menu) */
     SDL_SCANCODE_SELECT = 119,
-    SDL_SCANCODE_STOP = 120,    /**< AC Stop */
-    SDL_SCANCODE_AGAIN = 121,   /**< AC Redo/Repeat */
-    SDL_SCANCODE_UNDO = 122,    /**< AC Undo */
-    SDL_SCANCODE_CUT = 123,     /**< AC Cut */
-    SDL_SCANCODE_COPY = 124,    /**< AC Copy */
-    SDL_SCANCODE_PASTE = 125,   /**< AC Paste */
-    SDL_SCANCODE_FIND = 126,    /**< AC Find */
+    SDL_SCANCODE_STOP = 120, /**< AC Stop */
+    SDL_SCANCODE_AGAIN = 121, /**< AC Redo/Repeat */
+    SDL_SCANCODE_UNDO = 122, /**< AC Undo */
+    SDL_SCANCODE_CUT = 123, /**< AC Cut */
+    SDL_SCANCODE_COPY = 124, /**< AC Copy */
+    SDL_SCANCODE_PASTE = 125, /**< AC Paste */
+    SDL_SCANCODE_FIND = 126, /**< AC Find */
     SDL_SCANCODE_MUTE = 127,
     SDL_SCANCODE_VOLUMEUP = 128,
     SDL_SCANCODE_VOLUMEDOWN = 129,
-/* not sure whether there's a reason to enable these */
-/*     SDL_SCANCODE_LOCKINGCAPSLOCK = 130,  */
-/*     SDL_SCANCODE_LOCKINGNUMLOCK = 131, */
-/*     SDL_SCANCODE_LOCKINGSCROLLLOCK = 132, */
+    /* not sure whether there's a reason to enable these */
+    /*     SDL_SCANCODE_LOCKINGCAPSLOCK = 130,  */
+    /*     SDL_SCANCODE_LOCKINGNUMLOCK = 131, */
+    /*     SDL_SCANCODE_LOCKINGSCROLLLOCK = 132, */
     SDL_SCANCODE_KP_COMMA = 133,
     SDL_SCANCODE_KP_EQUALSAS400 = 134,
 
@@ -265,9 +264,9 @@ typedef enum SDL_Scancode
     SDL_SCANCODE_LANG8 = 151, /**< reserved */
     SDL_SCANCODE_LANG9 = 152, /**< reserved */
 
-    SDL_SCANCODE_ALTERASE = 153,    /**< Erase-Eaze */
+    SDL_SCANCODE_ALTERASE = 153, /**< Erase-Eaze */
     SDL_SCANCODE_SYSREQ = 154,
-    SDL_SCANCODE_CANCEL = 155,      /**< AC Cancel */
+    SDL_SCANCODE_CANCEL = 155, /**< AC Cancel */
     SDL_SCANCODE_CLEAR = 156,
     SDL_SCANCODE_PRIOR = 157,
     SDL_SCANCODE_RETURN2 = 158,
@@ -334,12 +333,12 @@ typedef enum SDL_Scancode
     SDL_SCANCODE_RALT = 230, /**< alt gr, option */
     SDL_SCANCODE_RGUI = 231, /**< windows, command (apple), meta */
 
-    SDL_SCANCODE_MODE = 257,    /**< I'm not sure if this is really not covered
+    SDL_SCANCODE_MODE = 257, /**< I'm not sure if this is really not covered
                                  *   by any of the above, but since there's a
                                  *   special KMOD_MODE for it I'm adding it here
                                  */
 
-    /* @} *//* Usage page 0x07 */
+    /* @} */ /* Usage page 0x07 */
 
     /**
      *  \name Usage page 0x0C
@@ -359,19 +358,19 @@ typedef enum SDL_Scancode
     SDL_SCANCODE_AUDIOPLAY = 261,
     SDL_SCANCODE_AUDIOMUTE = 262,
     SDL_SCANCODE_MEDIASELECT = 263,
-    SDL_SCANCODE_WWW = 264,             /**< AL Internet Browser */
+    SDL_SCANCODE_WWW = 264, /**< AL Internet Browser */
     SDL_SCANCODE_MAIL = 265,
-    SDL_SCANCODE_CALCULATOR = 266,      /**< AL Calculator */
+    SDL_SCANCODE_CALCULATOR = 266, /**< AL Calculator */
     SDL_SCANCODE_COMPUTER = 267,
-    SDL_SCANCODE_AC_SEARCH = 268,       /**< AC Search */
-    SDL_SCANCODE_AC_HOME = 269,         /**< AC Home */
-    SDL_SCANCODE_AC_BACK = 270,         /**< AC Back */
-    SDL_SCANCODE_AC_FORWARD = 271,      /**< AC Forward */
-    SDL_SCANCODE_AC_STOP = 272,         /**< AC Stop */
-    SDL_SCANCODE_AC_REFRESH = 273,      /**< AC Refresh */
-    SDL_SCANCODE_AC_BOOKMARKS = 274,    /**< AC Bookmarks */
+    SDL_SCANCODE_AC_SEARCH = 268, /**< AC Search */
+    SDL_SCANCODE_AC_HOME = 269, /**< AC Home */
+    SDL_SCANCODE_AC_BACK = 270, /**< AC Back */
+    SDL_SCANCODE_AC_FORWARD = 271, /**< AC Forward */
+    SDL_SCANCODE_AC_STOP = 272, /**< AC Stop */
+    SDL_SCANCODE_AC_REFRESH = 273, /**< AC Refresh */
+    SDL_SCANCODE_AC_BOOKMARKS = 274, /**< AC Bookmarks */
 
-    /* @} *//* Usage page 0x0C */
+    /* @} */ /* Usage page 0x0C */
 
     /**
      *  \name Walther keys
@@ -388,12 +387,12 @@ typedef enum SDL_Scancode
     SDL_SCANCODE_KBDILLUMDOWN = 279,
     SDL_SCANCODE_KBDILLUMUP = 280,
     SDL_SCANCODE_EJECT = 281,
-    SDL_SCANCODE_SLEEP = 282,           /**< SC System Sleep */
+    SDL_SCANCODE_SLEEP = 282, /**< SC System Sleep */
 
     SDL_SCANCODE_APP1 = 283,
     SDL_SCANCODE_APP2 = 284,
 
-    /* @} *//* Walther keys */
+    /* @} */ /* Walther keys */
 
     /**
      *  \name Usage page 0x0C (additional media keys)
@@ -405,7 +404,7 @@ typedef enum SDL_Scancode
     SDL_SCANCODE_AUDIOREWIND = 285,
     SDL_SCANCODE_AUDIOFASTFORWARD = 286,
 
-    /* @} *//* Usage page 0x0C (additional media keys) */
+    /* @} */ /* Usage page 0x0C (additional media keys) */
 
     /**
      *  \name Mobile keys
@@ -425,7 +424,7 @@ typedef enum SDL_Scancode
     SDL_SCANCODE_CALL = 289, /**< Used for accepting phone calls. */
     SDL_SCANCODE_ENDCALL = 290, /**< Used for rejecting phone calls. */
 
-    /* @} *//* Mobile keys */
+    /* @} */ /* Mobile keys */
 
     /* Add any other keys here. */
 

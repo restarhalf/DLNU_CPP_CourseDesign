@@ -262,7 +262,7 @@ extern "C" {
  *
  * \since This function is available since SDL 2.0.0.
  */
-extern DECLSPEC const char * SDLCALL SDL_GetPlatform (void);
+extern DECLSPEC const char * SDLCALL SDL_GetPlatform(void);
 
 /* Ends C function definitions when using C++ */
 #ifdef __cplusplus

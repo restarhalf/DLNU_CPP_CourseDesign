@@ -166,6 +166,30 @@ Game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Game.cpp.s
 .PHONY : Game.cpp.s
 
+Image.obj: Image.cpp.obj
+.PHONY : Image.obj
+
+# target to build an object file
+Image.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Image.cpp.obj
+.PHONY : Image.cpp.obj
+
+Image.i: Image.cpp.i
+.PHONY : Image.i
+
+# target to preprocess a source file
+Image.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Image.cpp.i
+.PHONY : Image.cpp.i
+
+Image.s: Image.cpp.s
+.PHONY : Image.s
+
+# target to generate assembly for a file
+Image.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Image.cpp.s
+.PHONY : Image.cpp.s
+
 Renderer.obj: Renderer.cpp.obj
 .PHONY : Renderer.obj
 
@@ -301,6 +325,9 @@ help:
 	@echo ... Game.obj
 	@echo ... Game.i
 	@echo ... Game.s
+	@echo ... Image.obj
+	@echo ... Image.i
+	@echo ... Image.s
 	@echo ... Renderer.obj
 	@echo ... Renderer.i
 	@echo ... Renderer.s

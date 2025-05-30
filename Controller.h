@@ -9,25 +9,27 @@
 #include <SDL_mixer.h>
 #include <SDL_image.h>
 
+namespace lyt {
+    class Controller {
+    public:
+        Controller();
 
-class Controller {
-public:
-    Controller();
-    ~Controller();
-    //动作监视器
-    void event(SDL_Event &event);
+        ~Controller();
 
-    void KeyboardPress(const SDL_Event &event);
+        //动作监视器
+        void event(SDL_Event &event);
 
-    void KeyboardRelease(const SDL_Event &event);
+        void KeyboardPress(const SDL_Event &event);
 
-    void MousePress(const SDL_Event &event);
+        void KeyboardRelease(const SDL_Event &event);
 
-    void MouseRelease(const SDL_Event &event);
+        void MousePress(const SDL_Event &event);
 
-    void MouseMove(const SDL_Event &event);
+        void MouseRelease(const SDL_Event &event);
 
-};
+        void MouseMove(const SDL_Event &event);
+    };
+}
 
 
 #endif //CONTROLLER_H

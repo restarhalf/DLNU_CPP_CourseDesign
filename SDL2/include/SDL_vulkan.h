@@ -185,7 +185,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_Vulkan_GetInstanceExtensions(SDL_Window *wi
  */
 extern DECLSPEC SDL_bool SDLCALL SDL_Vulkan_CreateSurface(SDL_Window *window,
                                                           VkInstance instance,
-                                                          VkSurfaceKHR* surface);
+                                                          VkSurfaceKHR *surface);
 
 /**
  * Get the size of the window's underlying drawable dimensions in pixels.
@@ -205,10 +205,10 @@ extern DECLSPEC SDL_bool SDLCALL SDL_Vulkan_CreateSurface(SDL_Window *window,
  * \sa SDL_CreateWindow
  * \sa SDL_Vulkan_CreateSurface
  */
-extern DECLSPEC void SDLCALL SDL_Vulkan_GetDrawableSize(SDL_Window * window,
+extern DECLSPEC void SDLCALL SDL_Vulkan_GetDrawableSize(SDL_Window *window,
                                                         int *w, int *h);
 
-/* @} *//* Vulkan support functions */
+/* @} */ /* Vulkan support functions */
 
 /* Ends C function definitions when using C++ */
 #ifdef __cplusplus

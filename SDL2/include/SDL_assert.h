@@ -49,8 +49,9 @@ assert can have unique static variables associated with it.
 
 #if defined(_MSC_VER)
 /* Don't include intrin.h here because it contains C++ code */
-    extern void __cdecl __debugbreak(void);
-    #define SDL_TriggerBreakpoint() __debugbreak()
+extern void __cdecl __debugbreak(void);
+
+#define SDL_TriggerBreakpoint() __debugbreak()
 #elif _SDL_HAS_BUILTIN(__builtin_debugtrap)
     #define SDL_TriggerBreakpoint() __builtin_debugtrap()
 #elif ( (!defined(__NACL__)) && ((defined(__GNUC__) || defined(__clang__)) && (defined(__i386__) || defined(__x86_64__))) )
@@ -58,6 +59,7 @@ assert can have unique static variables associated with it.
 #elif (defined(__GNUC__) || defined(__clang__)) && defined(__riscv)
     #define SDL_TriggerBreakpoint() __asm__ __volatile__ ( "ebreak\n\t" )
 #elif ( defined(__APPLE__) && (defined(__arm64__) || defined(__aarch64__)) )  /* this might work on other ARM targets, but this is a known quantity... */
+
     #define SDL_TriggerBreakpoint() __asm__ __volatile__ ( "brk #22\n\t" )
 #elif defined(__APPLE__) && defined(__arm__)
     #define SDL_TriggerBreakpoint() __asm__ __volatile__ ( "bkpt #22\n\t" )
@@ -109,17 +111,15 @@ disable assertions.
 #define SDL_disabled_assert(condition) \
     do { (void) sizeof ((condition)); } while (SDL_NULL_WHILE_LOOP_CONDITION)
 
-typedef enum
-{
-    SDL_ASSERTION_RETRY,  /**< Retry the assert immediately. */
-    SDL_ASSERTION_BREAK,  /**< Make the debugger trigger a breakpoint. */
-    SDL_ASSERTION_ABORT,  /**< Terminate the program. */
-    SDL_ASSERTION_IGNORE,  /**< Ignore the assert. */
-    SDL_ASSERTION_ALWAYS_IGNORE  /**< Ignore the assert from now on. */
+typedef enum {
+    SDL_ASSERTION_RETRY, /**< Retry the assert immediately. */
+    SDL_ASSERTION_BREAK, /**< Make the debugger trigger a breakpoint. */
+    SDL_ASSERTION_ABORT, /**< Terminate the program. */
+    SDL_ASSERTION_IGNORE, /**< Ignore the assert. */
+    SDL_ASSERTION_ALWAYS_IGNORE /**< Ignore the assert from now on. */
 } SDL_AssertState;
 
-typedef struct SDL_AssertData
-{
+typedef struct SDL_AssertData {
     int always_ignore;
     unsigned int trigger_count;
     const char *condition;
@@ -198,7 +198,7 @@ extern DECLSPEC SDL_AssertState SDLCALL SDL_ReportAssertion(SDL_AssertData *,
  * \returns an SDL_AssertState value indicating how to handle the failure.
  */
 typedef SDL_AssertState (SDLCALL *SDL_AssertionHandler)(
-                                 const SDL_AssertData* data, void* userdata);
+    const SDL_AssertData *data, void *userdata);
 
 /**
  * Set an application-defined assertion handler.
@@ -222,8 +222,8 @@ typedef SDL_AssertState (SDLCALL *SDL_AssertionHandler)(
  * \sa SDL_GetAssertionHandler
  */
 extern DECLSPEC void SDLCALL SDL_SetAssertionHandler(
-                                            SDL_AssertionHandler handler,
-                                            void *userdata);
+    SDL_AssertionHandler handler,
+    void *userdata);
 
 /**
  * Get the default assertion handler.

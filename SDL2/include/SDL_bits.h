@@ -63,8 +63,7 @@ extern __inline int _SDL_bsr_watcom(Uint32);
  * \returns the index of the most significant bit of x, or -1 if x is 0.
  */
 SDL_FORCE_INLINE int
-SDL_MostSignificantBitIndex32(Uint32 x)
-{
+SDL_MostSignificantBitIndex32(Uint32 x) {
 #if defined(__GNUC__) && (__GNUC__ >= 4 || (__GNUC__ == 3 && __GNUC_MINOR__ >= 4))
     /* Count Leading Zeroes builtin in GCC.
      * http://gcc.gnu.org/onlinedocs/gcc-4.3.4/gcc/Other-Builtins.html
@@ -113,8 +112,7 @@ SDL_MostSignificantBitIndex32(Uint32 x)
 }
 
 SDL_FORCE_INLINE SDL_bool
-SDL_HasExactlyOneBitSet32(Uint32 x)
-{
+SDL_HasExactlyOneBitSet32(Uint32 x) {
     if (x && !(x & (x - 1))) {
         return SDL_TRUE;
     }

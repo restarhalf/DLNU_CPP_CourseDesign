@@ -342,8 +342,7 @@ SDL_Swap64(Uint64 x)
  * \sa SDL_SwapFloatLE
  */
 SDL_FORCE_INLINE float
-SDL_SwapFloat(float x)
-{
+SDL_SwapFloat(float x) {
     union {
         float f;
         Uint32 ui32;
@@ -383,7 +382,7 @@ SDL_SwapFloat(float x)
 #define SDL_SwapBE64(X)     (X)
 #define SDL_SwapFloatBE(X)  (X)
 #endif
-/* @} *//* Swap to native */
+/* @} */ /* Swap to native */
 
 /* Ends C function definitions when using C++ */
 #ifdef __cplusplus
