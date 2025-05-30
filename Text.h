@@ -10,24 +10,24 @@
 #include <string>
 #include "Renderer.h"
 
+namespace lyt {
+    class Text {
+    private:
+        //字体
+        SDL_Texture *texture;
 
-class Text{
-private:
-    //字体
-     SDL_Texture *texture;
+    public:
+        //构造函数和析构函数
+        Text();
 
-public:
-    //构造函数和析构函数
-    Text();
-    ~Text();
+        ~Text();
 
 
-    //绘制文字
-    Renderer *drawText(Renderer *render, TTF_Font *font, const std::string &text, SDL_Rect rect,
-                       SDL_Color color);
-
-};
-
+        //绘制文字
+        Renderer *drawText(Renderer *render, TTF_Font *font, const std::string &text, SDL_Rect rect,
+                           SDL_Color color);
+    };
+}
 
 
 #endif //TEXT_H

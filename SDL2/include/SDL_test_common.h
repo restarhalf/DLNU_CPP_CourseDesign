@@ -52,8 +52,7 @@
 #define VERBOSE_AUDIO   0x00000010
 #define VERBOSE_MOTION  0x00000020
 
-typedef struct
-{
+typedef struct {
     /* SDL init flags */
     char **argv;
     Uint32 flags;
@@ -118,7 +117,6 @@ typedef struct
 
     /* Additional fields added in 2.0.18 */
     SDL_Rect confine;
-
 } SDLTest_CommonState;
 
 #include "begin_code.h"
@@ -147,7 +145,7 @@ SDLTest_CommonState *SDLTest_CommonCreateState(char **argv, Uint32 flags);
  *
  * \returns the number of arguments processed (i.e. 1 for --fullscreen, 2 for --video [videodriver], or -1 on error.
  */
-int SDLTest_CommonArg(SDLTest_CommonState * state, int index);
+int SDLTest_CommonArg(SDLTest_CommonState *state, int index);
 
 
 /*
@@ -162,7 +160,7 @@ int SDLTest_CommonArg(SDLTest_CommonState * state, int index);
  * \param argv0 argv[0], as passed to main/SDL_main.
  * \param options an array of strings for application specific options. The last element of the array should be NULL.
  */
-void SDLTest_CommonLogUsage(SDLTest_CommonState * state, const char *argv0, const char **options);
+void SDLTest_CommonLogUsage(SDLTest_CommonState *state, const char *argv0, const char **options);
 
 /*
  * \brief Returns common usage information
@@ -175,7 +173,7 @@ void SDLTest_CommonLogUsage(SDLTest_CommonState * state, const char *argv0, cons
  * \param state The common state describing the test window to create.
  * \returns a string with usage information
  */
-const char *SDLTest_CommonUsage(SDLTest_CommonState * state);
+const char *SDLTest_CommonUsage(SDLTest_CommonState *state);
 
 /*
  * \brief Open test window.
@@ -184,7 +182,7 @@ const char *SDLTest_CommonUsage(SDLTest_CommonState * state);
  *
  * \returns SDL_TRUE if initialization succeeded, false otherwise
  */
-SDL_bool SDLTest_CommonInit(SDLTest_CommonState * state);
+SDL_bool SDLTest_CommonInit(SDLTest_CommonState *state);
 
 /*
  * \brief Easy argument handling when test app doesn't need any custom args.
@@ -195,7 +193,7 @@ SDL_bool SDLTest_CommonInit(SDLTest_CommonState * state);
  *
  * \returns SDL_FALSE if app should quit, true otherwise.
  */
-SDL_bool SDLTest_CommonDefaultArgs(SDLTest_CommonState * state, const int argc, char **argv);
+SDL_bool SDLTest_CommonDefaultArgs(SDLTest_CommonState *state, const int argc, char **argv);
 
 /*
  * \brief Common event handler for test windows.
@@ -205,7 +203,7 @@ SDL_bool SDLTest_CommonDefaultArgs(SDLTest_CommonState * state, const int argc, 
  * \param done Flag indicating we are done.
  *
  */
-void SDLTest_CommonEvent(SDLTest_CommonState * state, SDL_Event * event, int *done);
+void SDLTest_CommonEvent(SDLTest_CommonState *state, SDL_Event *event, int *done);
 
 /*
  * \brief Close test window.
@@ -213,7 +211,7 @@ void SDLTest_CommonEvent(SDLTest_CommonState * state, SDL_Event * event, int *do
  * \param state The common state used to create test window.
  *
  */
-void SDLTest_CommonQuit(SDLTest_CommonState * state);
+void SDLTest_CommonQuit(SDLTest_CommonState *state);
 
 /*
  * \brief Draws various window information (position, size, etc.) to the renderer.
@@ -223,7 +221,7 @@ void SDLTest_CommonQuit(SDLTest_CommonState * state);
  * \param usedHeight Returns the height used, so the caller can draw more below.
  *
  */
-void SDLTest_CommonDrawWindowInfo(SDL_Renderer * renderer, SDL_Window * window, int * usedHeight);
+void SDLTest_CommonDrawWindowInfo(SDL_Renderer *renderer, SDL_Window *window, int *usedHeight);
 
 /* Ends C function definitions when using C++ */
 #ifdef __cplusplus

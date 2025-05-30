@@ -154,7 +154,7 @@ extern DECLSPEC void SDLCALL SDL_Delay(Uint32 ms);
  * in, the periodic alarm continues, otherwise a new alarm is scheduled. If
  * the callback returns 0, the periodic alarm is cancelled.
  */
-typedef Uint32 (SDLCALL * SDL_TimerCallback) (Uint32 interval, void *param);
+typedef Uint32 (SDLCALL *SDL_TimerCallback)(Uint32 interval, void *param);
 
 /**
  * Definition of the timer ID type.

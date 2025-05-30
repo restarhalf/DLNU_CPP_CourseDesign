@@ -111,16 +111,15 @@ typedef Sint32 SDL_SensorID;
  *
  * \sa SDL_GetDisplayOrientation
  */
-typedef enum SDL_SensorType
-{
-    SDL_SENSOR_INVALID = -1,    /**< Returned for an invalid sensor */
-    SDL_SENSOR_UNKNOWN,         /**< Unknown sensor type */
-    SDL_SENSOR_ACCEL,           /**< Accelerometer */
-    SDL_SENSOR_GYRO,            /**< Gyroscope */
-    SDL_SENSOR_ACCEL_L,         /**< Accelerometer for left Joy-Con controller and Wii nunchuk */
-    SDL_SENSOR_GYRO_L,          /**< Gyroscope for left Joy-Con controller */
-    SDL_SENSOR_ACCEL_R,         /**< Accelerometer for right Joy-Con controller */
-    SDL_SENSOR_GYRO_R           /**< Gyroscope for right Joy-Con controller */
+typedef enum SDL_SensorType {
+    SDL_SENSOR_INVALID = -1, /**< Returned for an invalid sensor */
+    SDL_SENSOR_UNKNOWN, /**< Unknown sensor type */
+    SDL_SENSOR_ACCEL, /**< Accelerometer */
+    SDL_SENSOR_GYRO, /**< Gyroscope */
+    SDL_SENSOR_ACCEL_L, /**< Accelerometer for left Joy-Con controller and Wii nunchuk */
+    SDL_SENSOR_GYRO_L, /**< Gyroscope for left Joy-Con controller */
+    SDL_SENSOR_ACCEL_R, /**< Accelerometer for right Joy-Con controller */
+    SDL_SENSOR_GYRO_R /**< Gyroscope for right Joy-Con controller */
 } SDL_SensorType;
 
 /**
@@ -148,6 +147,7 @@ typedef enum SDL_SensorType
  * \since This function is available since SDL 2.0.14.
  */
 extern DECLSPEC void SDLCALL SDL_LockSensors(void);
+
 extern DECLSPEC void SDLCALL SDL_UnlockSensors(void);
 
 /**
@@ -291,7 +291,8 @@ extern DECLSPEC int SDLCALL SDL_SensorGetData(SDL_Sensor *sensor, float *data, i
  *
  * \since This function is available since SDL 2.26.0.
  */
-extern DECLSPEC int SDLCALL SDL_SensorGetDataWithTimestamp(SDL_Sensor *sensor, Uint64 *timestamp, float *data, int num_values);
+extern DECLSPEC int SDLCALL SDL_SensorGetDataWithTimestamp(SDL_Sensor *sensor, Uint64 *timestamp, float *data,
+                                                           int num_values);
 
 /**
  * Close a sensor previously opened with SDL_SensorOpen().
@@ -320,6 +321,7 @@ extern DECLSPEC void SDLCALL SDL_SensorUpdate(void);
 #ifdef __cplusplus
 /* *INDENT-OFF* */
 }
+
 /* *INDENT-ON* */
 #endif
 #include "close_code.h"

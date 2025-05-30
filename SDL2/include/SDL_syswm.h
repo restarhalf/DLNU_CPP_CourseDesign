@@ -132,8 +132,7 @@ extern "C" {
 /**
  * These are the various supported windowing subsystems
  */
-typedef enum SDL_SYSWM_TYPE
-{
+typedef enum SDL_SYSWM_TYPE {
     SDL_SYSWM_UNKNOWN,
     SDL_SYSWM_WINDOWS,
     SDL_SYSWM_X11,
@@ -141,7 +140,7 @@ typedef enum SDL_SYSWM_TYPE
     SDL_SYSWM_COCOA,
     SDL_SYSWM_UIKIT,
     SDL_SYSWM_WAYLAND,
-    SDL_SYSWM_MIR,  /* no longer available, left for API/ABI compatibility. Remove in 2.1! */
+    SDL_SYSWM_MIR, /* no longer available, left for API/ABI compatibility. Remove in 2.1! */
     SDL_SYSWM_WINRT,
     SDL_SYSWM_ANDROID,
     SDL_SYSWM_VIVANTE,
@@ -154,18 +153,17 @@ typedef enum SDL_SYSWM_TYPE
 /**
  * The custom event structure.
  */
-struct SDL_SysWMmsg
-{
+struct SDL_SysWMmsg {
     SDL_version version;
     SDL_SYSWM_TYPE subsystem;
-    union
-    {
+
+    union {
 #if defined(SDL_VIDEO_DRIVER_WINDOWS)
         struct {
-            HWND hwnd;                  /**< The window for the message */
-            UINT msg;                   /**< The type of message */
-            WPARAM wParam;              /**< WORD message parameter */
-            LPARAM lParam;              /**< LONG message parameter */
+            HWND hwnd; /**< The window for the message */
+            UINT msg; /**< The type of message */
+            WPARAM wParam; /**< WORD message parameter */
+            LPARAM lParam; /**< LONG message parameter */
         } win;
 #endif
 #if defined(SDL_VIDEO_DRIVER_X11)
@@ -223,18 +221,16 @@ struct SDL_SysWMmsg
  * When this structure is returned, it holds information about which low level
  * system it is using, and will be one of SDL_SYSWM_TYPE.
  */
-struct SDL_SysWMinfo
-{
+struct SDL_SysWMinfo {
     SDL_version version;
     SDL_SYSWM_TYPE subsystem;
-    union
-    {
+
+    union {
 #if defined(SDL_VIDEO_DRIVER_WINDOWS)
-        struct
-        {
-            HWND window;                /**< The window handle */
-            HDC hdc;                    /**< The window device context */
-            HINSTANCE hinstance;        /**< The instance handle */
+        struct {
+            HWND window; /**< The window handle */
+            HDC hdc; /**< The window device context */
+            HINSTANCE hinstance; /**< The instance handle */
         } win;
 #endif
 #if defined(SDL_VIDEO_DRIVER_WINRT)
@@ -262,11 +258,11 @@ struct SDL_SysWMinfo
         struct
         {
 #if defined(__OBJC__) && defined(__has_feature)
-        #if __has_feature(objc_arc)
+#if __has_feature(objc_arc)
             NSWindow __unsafe_unretained *window; /**< The Cocoa window */
-        #else
+#else
             NSWindow *window;                     /**< The Cocoa window */
-        #endif
+#endif
 #else
             NSWindow *window;                     /**< The Cocoa window */
 #endif
@@ -276,11 +272,11 @@ struct SDL_SysWMinfo
         struct
         {
 #if defined(__OBJC__) && defined(__has_feature)
-        #if __has_feature(objc_arc)
+#if __has_feature(objc_arc)
             UIWindow __unsafe_unretained *window; /**< The UIKit window */
-        #else
+#else
             UIWindow *window;                     /**< The UIKit window */
-        #endif
+#endif
 #else
             UIWindow *window;                     /**< The UIKit window */
 #endif
@@ -371,8 +367,8 @@ typedef struct SDL_SysWMinfo SDL_SysWMinfo;
  *
  * \since This function is available since SDL 2.0.0.
  */
-extern DECLSPEC SDL_bool SDLCALL SDL_GetWindowWMInfo(SDL_Window * window,
-                                                     SDL_SysWMinfo * info);
+extern DECLSPEC SDL_bool SDLCALL SDL_GetWindowWMInfo(SDL_Window *window,
+                                                     SDL_SysWMinfo *info);
 
 
 /* Ends C function definitions when using C++ */

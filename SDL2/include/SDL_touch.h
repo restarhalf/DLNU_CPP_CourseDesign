@@ -41,16 +41,14 @@ extern "C" {
 typedef Sint64 SDL_TouchID;
 typedef Sint64 SDL_FingerID;
 
-typedef enum
-{
+typedef enum {
     SDL_TOUCH_DEVICE_INVALID = -1,
-    SDL_TOUCH_DEVICE_DIRECT,            /* touch screen with window-relative coordinates */
+    SDL_TOUCH_DEVICE_DIRECT, /* touch screen with window-relative coordinates */
     SDL_TOUCH_DEVICE_INDIRECT_ABSOLUTE, /* trackpad with absolute device coordinates */
-    SDL_TOUCH_DEVICE_INDIRECT_RELATIVE  /* trackpad with screen cursor-relative coordinates */
+    SDL_TOUCH_DEVICE_INDIRECT_RELATIVE /* trackpad with screen cursor-relative coordinates */
 } SDL_TouchDeviceType;
 
-typedef struct SDL_Finger
-{
+typedef struct SDL_Finger {
     SDL_FingerID id;
     float x;
     float y;
@@ -101,7 +99,7 @@ extern DECLSPEC SDL_TouchID SDLCALL SDL_GetTouchDevice(int index);
  *
  * \since This function is available since SDL 2.0.22.
  */
-extern DECLSPEC const char* SDLCALL SDL_GetTouchName(int index);
+extern DECLSPEC const char * SDLCALL SDL_GetTouchName(int index);
 
 /**
  * Get the type of the given touch device.

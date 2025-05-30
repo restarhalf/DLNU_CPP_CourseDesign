@@ -87,7 +87,7 @@ typedef enum SDL_ThreadPriority {
  * \param data what was passed as `data` to SDL_CreateThread().
  * \returns a value that can be reported through SDL_WaitThread().
  */
-typedef int (SDLCALL * SDL_ThreadFunction) (void *data);
+typedef int (SDLCALL *SDL_ThreadFunction)(void *data);
 
 
 #if (defined(__WIN32__) || defined(__GDK__)) && !defined(__WINRT__)
@@ -113,10 +113,11 @@ typedef int (SDLCALL * SDL_ThreadFunction) (void *data);
  */
 #define SDL_PASSED_BEGINTHREAD_ENDTHREAD
 
-typedef uintptr_t (__cdecl * pfnSDL_CurrentBeginThread)
-                   (void *, unsigned, unsigned (__stdcall *func)(void *),
-                    void * /*arg*/, unsigned, unsigned * /* threadID */);
-typedef void (__cdecl * pfnSDL_CurrentEndThread) (unsigned code);
+typedef uintptr_t (__cdecl *pfnSDL_CurrentBeginThread)
+(void *, unsigned, unsigned (__stdcall *func)(void *),
+ void * /*arg*/, unsigned, unsigned * /* threadID */);
+
+typedef void (__cdecl *pfnSDL_CurrentEndThread)(unsigned code);
 
 #ifndef SDL_beginthread
 #define SDL_beginthread _beginthreadex
@@ -132,9 +133,9 @@ SDL_CreateThread(SDL_ThreadFunction fn, const char *name, void *data,
 
 extern DECLSPEC SDL_Thread *SDLCALL
 SDL_CreateThreadWithStackSize(SDL_ThreadFunction fn,
-                 const char *name, const size_t stacksize, void *data,
-                 pfnSDL_CurrentBeginThread pfnBeginThread,
-                 pfnSDL_CurrentEndThread pfnEndThread);
+                              const char *name, const size_t stacksize, void *data,
+                              pfnSDL_CurrentBeginThread pfnBeginThread,
+                              pfnSDL_CurrentEndThread pfnEndThread);
 
 
 #if defined(SDL_CreateThread) && SDL_DYNAMIC_API
@@ -306,7 +307,7 @@ extern DECLSPEC SDL_threadID SDLCALL SDL_ThreadID(void);
  *
  * \sa SDL_ThreadID
  */
-extern DECLSPEC SDL_threadID SDLCALL SDL_GetThreadID(SDL_Thread * thread);
+extern DECLSPEC SDL_threadID SDLCALL SDL_GetThreadID(SDL_Thread *thread);
 
 /**
  * Set the priority for the current thread.
@@ -356,7 +357,7 @@ extern DECLSPEC int SDLCALL SDL_SetThreadPriority(SDL_ThreadPriority priority);
  * \sa SDL_CreateThread
  * \sa SDL_DetachThread
  */
-extern DECLSPEC void SDLCALL SDL_WaitThread(SDL_Thread * thread, int *status);
+extern DECLSPEC void SDLCALL SDL_WaitThread(SDL_Thread *thread, int *status);
 
 /**
  * Let a thread clean up on exit without intervention.
@@ -392,7 +393,7 @@ extern DECLSPEC void SDLCALL SDL_WaitThread(SDL_Thread * thread, int *status);
  * \sa SDL_CreateThread
  * \sa SDL_WaitThread
  */
-extern DECLSPEC void SDLCALL SDL_DetachThread(SDL_Thread * thread);
+extern DECLSPEC void SDLCALL SDL_DetachThread(SDL_Thread *thread);
 
 /**
  * Create a piece of thread-local storage.
@@ -423,7 +424,7 @@ extern DECLSPEC SDL_TLSID SDLCALL SDL_TLSCreate(void);
  */
 extern DECLSPEC void * SDLCALL SDL_TLSGet(SDL_TLSID id);
 
-typedef void (SDLCALL *SDL_TLSDestructorCallback)(void*);
+typedef void (SDLCALL *SDL_TLSDestructorCallback)(void *);
 
 /**
  * Set the current thread's value associated with a thread local storage ID.

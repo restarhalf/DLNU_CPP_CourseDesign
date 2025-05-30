@@ -40,10 +40,9 @@ extern "C" {
 #endif
 
 
-typedef struct SDL_Locale
-{
-    const char *language;  /**< A language name, like "en" for English. */
-    const char *country;  /**< A country, like "US" for America. Can be NULL. */
+typedef struct SDL_Locale {
+    const char *language; /**< A language name, like "en" for English. */
+    const char *country; /**< A country, like "US" for America. Can be NULL. */
 } SDL_Locale;
 
 /**
@@ -94,6 +93,7 @@ extern DECLSPEC SDL_Locale * SDLCALL SDL_GetPreferredLocales(void);
 #ifdef __cplusplus
 /* *INDENT-OFF* */
 }
+
 /* *INDENT-ON* */
 #endif
 #include "close_code.h"

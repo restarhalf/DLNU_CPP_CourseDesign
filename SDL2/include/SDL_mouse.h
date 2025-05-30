@@ -38,35 +38,33 @@
 extern "C" {
 #endif
 
-typedef struct SDL_Cursor SDL_Cursor;   /**< Implementation dependent */
+typedef struct SDL_Cursor SDL_Cursor; /**< Implementation dependent */
 
 /**
  * Cursor types for SDL_CreateSystemCursor().
  */
-typedef enum SDL_SystemCursor
-{
-    SDL_SYSTEM_CURSOR_ARROW,     /**< Arrow */
-    SDL_SYSTEM_CURSOR_IBEAM,     /**< I-beam */
-    SDL_SYSTEM_CURSOR_WAIT,      /**< Wait */
+typedef enum SDL_SystemCursor {
+    SDL_SYSTEM_CURSOR_ARROW, /**< Arrow */
+    SDL_SYSTEM_CURSOR_IBEAM, /**< I-beam */
+    SDL_SYSTEM_CURSOR_WAIT, /**< Wait */
     SDL_SYSTEM_CURSOR_CROSSHAIR, /**< Crosshair */
     SDL_SYSTEM_CURSOR_WAITARROW, /**< Small wait cursor (or Wait if not available) */
-    SDL_SYSTEM_CURSOR_SIZENWSE,  /**< Double arrow pointing northwest and southeast */
-    SDL_SYSTEM_CURSOR_SIZENESW,  /**< Double arrow pointing northeast and southwest */
-    SDL_SYSTEM_CURSOR_SIZEWE,    /**< Double arrow pointing west and east */
-    SDL_SYSTEM_CURSOR_SIZENS,    /**< Double arrow pointing north and south */
-    SDL_SYSTEM_CURSOR_SIZEALL,   /**< Four pointed arrow pointing north, south, east, and west */
-    SDL_SYSTEM_CURSOR_NO,        /**< Slashed circle or crossbones */
-    SDL_SYSTEM_CURSOR_HAND,      /**< Hand */
+    SDL_SYSTEM_CURSOR_SIZENWSE, /**< Double arrow pointing northwest and southeast */
+    SDL_SYSTEM_CURSOR_SIZENESW, /**< Double arrow pointing northeast and southwest */
+    SDL_SYSTEM_CURSOR_SIZEWE, /**< Double arrow pointing west and east */
+    SDL_SYSTEM_CURSOR_SIZENS, /**< Double arrow pointing north and south */
+    SDL_SYSTEM_CURSOR_SIZEALL, /**< Four pointed arrow pointing north, south, east, and west */
+    SDL_SYSTEM_CURSOR_NO, /**< Slashed circle or crossbones */
+    SDL_SYSTEM_CURSOR_HAND, /**< Hand */
     SDL_NUM_SYSTEM_CURSORS
 } SDL_SystemCursor;
 
 /**
  * Scroll direction types for the Scroll event
  */
-typedef enum SDL_MouseWheelDirection
-{
-    SDL_MOUSEWHEEL_NORMAL,    /**< The scroll direction is normal */
-    SDL_MOUSEWHEEL_FLIPPED    /**< The scroll direction is flipped / natural */
+typedef enum SDL_MouseWheelDirection {
+    SDL_MOUSEWHEEL_NORMAL, /**< The scroll direction is normal */
+    SDL_MOUSEWHEEL_FLIPPED /**< The scroll direction is flipped / natural */
 } SDL_MouseWheelDirection;
 
 /* Function prototypes */
@@ -170,7 +168,7 @@ extern DECLSPEC Uint32 SDLCALL SDL_GetRelativeMouseState(int *x, int *y);
  *
  * \sa SDL_WarpMouseGlobal
  */
-extern DECLSPEC void SDLCALL SDL_WarpMouseInWindow(SDL_Window * window,
+extern DECLSPEC void SDLCALL SDL_WarpMouseInWindow(SDL_Window *window,
                                                    int x, int y);
 
 /**
@@ -314,8 +312,8 @@ extern DECLSPEC SDL_bool SDLCALL SDL_GetRelativeMouseMode(void);
  * \sa SDL_SetCursor
  * \sa SDL_ShowCursor
  */
-extern DECLSPEC SDL_Cursor *SDLCALL SDL_CreateCursor(const Uint8 * data,
-                                                     const Uint8 * mask,
+extern DECLSPEC SDL_Cursor *SDLCALL SDL_CreateCursor(const Uint8 *data,
+                                                     const Uint8 *mask,
                                                      int w, int h, int hot_x,
                                                      int hot_y);
 
@@ -366,7 +364,7 @@ extern DECLSPEC SDL_Cursor *SDLCALL SDL_CreateSystemCursor(SDL_SystemCursor id);
  * \sa SDL_GetCursor
  * \sa SDL_ShowCursor
  */
-extern DECLSPEC void SDLCALL SDL_SetCursor(SDL_Cursor * cursor);
+extern DECLSPEC void SDLCALL SDL_SetCursor(SDL_Cursor *cursor);
 
 /**
  * Get the active cursor.
@@ -410,7 +408,7 @@ extern DECLSPEC SDL_Cursor *SDLCALL SDL_GetDefaultCursor(void);
  * \sa SDL_CreateCursor
  * \sa SDL_CreateSystemCursor
  */
-extern DECLSPEC void SDLCALL SDL_FreeCursor(SDL_Cursor * cursor);
+extern DECLSPEC void SDLCALL SDL_FreeCursor(SDL_Cursor *cursor);
 
 /**
  * Toggle whether or not the cursor is shown.

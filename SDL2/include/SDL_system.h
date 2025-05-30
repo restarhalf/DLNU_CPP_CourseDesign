@@ -42,8 +42,9 @@ extern "C" {
 
 /* Platform specific functions for Windows */
 #if defined(__WIN32__) || defined(__GDK__)
-	
-typedef void (SDLCALL * SDL_WindowsMessageHook)(void *userdata, void *hWnd, unsigned int message, Uint64 wParam, Sint64 lParam);
+
+typedef void (SDLCALL *SDL_WindowsMessageHook)(void *userdata, void *hWnd, unsigned int message, Uint64 wParam,
+                                               Sint64 lParam);
 
 /**
  * Set a callback for every Windows message, run before TranslateMessage().
@@ -72,7 +73,7 @@ extern DECLSPEC void SDLCALL SDL_SetWindowsMessageHook(SDL_WindowsMessageHook ca
  *
  * \since This function is available since SDL 2.0.1.
  */
-extern DECLSPEC int SDLCALL SDL_Direct3D9GetAdapterIndex( int displayIndex );
+extern DECLSPEC int SDLCALL SDL_Direct3D9GetAdapterIndex(int displayIndex);
 
 typedef struct IDirect3DDevice9 IDirect3DDevice9;
 
@@ -88,7 +89,7 @@ typedef struct IDirect3DDevice9 IDirect3DDevice9;
  *
  * \since This function is available since SDL 2.0.1.
  */
-extern DECLSPEC IDirect3DDevice9* SDLCALL SDL_RenderGetD3D9Device(SDL_Renderer * renderer);
+extern DECLSPEC IDirect3DDevice9 * SDLCALL SDL_RenderGetD3D9Device(SDL_Renderer *renderer);
 
 typedef struct ID3D11Device ID3D11Device;
 
@@ -104,7 +105,7 @@ typedef struct ID3D11Device ID3D11Device;
  *
  * \since This function is available since SDL 2.0.16.
  */
-extern DECLSPEC ID3D11Device* SDLCALL SDL_RenderGetD3D11Device(SDL_Renderer * renderer);
+extern DECLSPEC ID3D11Device * SDLCALL SDL_RenderGetD3D11Device(SDL_Renderer *renderer);
 
 #endif /* defined(__WIN32__) || defined(__WINGDK__) */
 
@@ -124,7 +125,7 @@ typedef struct ID3D12Device ID3D12Device;
  *
  * \since This function is available since SDL 2.24.0.
  */
-extern DECLSPEC ID3D12Device* SDLCALL SDL_RenderGetD3D12Device(SDL_Renderer* renderer);
+extern DECLSPEC ID3D12Device * SDLCALL SDL_RenderGetD3D12Device(SDL_Renderer *renderer);
 
 #endif /* defined(__WIN32__) || defined(__GDK__) */
 
@@ -148,7 +149,7 @@ extern DECLSPEC ID3D12Device* SDLCALL SDL_RenderGetD3D12Device(SDL_Renderer* ren
  *
  * \since This function is available since SDL 2.0.2.
  */
-extern DECLSPEC SDL_bool SDLCALL SDL_DXGIGetOutputInfo( int displayIndex, int *adapterIndex, int *outputIndex );
+extern DECLSPEC SDL_bool SDLCALL SDL_DXGIGetOutputInfo(int displayIndex, int *adapterIndex, int *outputIndex);
 
 #endif /* defined(__WIN32__) || defined(__WINGDK__) */
 
@@ -184,7 +185,7 @@ extern DECLSPEC int SDLCALL SDL_LinuxSetThreadPriority(Sint64 threadID, int prio
 extern DECLSPEC int SDLCALL SDL_LinuxSetThreadPriorityAndPolicy(Sint64 threadID, int sdlPriority, int schedPolicy);
  
 #endif /* __LINUX__ */
-	
+
 /* Platform specific functions for iOS */
 #ifdef __IPHONEOS__
 
@@ -586,10 +587,15 @@ extern DECLSPEC SDL_bool SDLCALL SDL_IsTablet(void);
 
 /* Functions used by iOS application delegates to notify SDL about state changes */
 extern DECLSPEC void SDLCALL SDL_OnApplicationWillTerminate(void);
+
 extern DECLSPEC void SDLCALL SDL_OnApplicationDidReceiveMemoryWarning(void);
+
 extern DECLSPEC void SDLCALL SDL_OnApplicationWillResignActive(void);
+
 extern DECLSPEC void SDLCALL SDL_OnApplicationDidEnterBackground(void);
+
 extern DECLSPEC void SDLCALL SDL_OnApplicationWillEnterForeground(void);
+
 extern DECLSPEC void SDLCALL SDL_OnApplicationDidBecomeActive(void);
 #ifdef __IPHONEOS__
 extern DECLSPEC void SDLCALL SDL_OnApplicationDidChangeStatusBarOrientation(void);

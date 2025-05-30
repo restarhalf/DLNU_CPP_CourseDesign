@@ -23,8 +23,8 @@
 # if defined(__GNUC__)
 #  define SIMULATE_ID "GNU"
 # endif
-  /* __INTEL_COMPILER = VRP prior to 2021, and then VVVV for 2021 and later,
-     except that a few beta releases use the old format with V=2021.  */
+/* __INTEL_COMPILER = VRP prior to 2021, and then VVVV for 2021 and later,
+   except that a few beta releases use the old format with V=2021.  */
 # if __INTEL_COMPILER < 2021 || __INTEL_COMPILER == 202110 || __INTEL_COMPILER == 202111
 #  define COMPILER_VERSION_MAJOR DEC(__INTEL_COMPILER/100)
 #  define COMPILER_VERSION_MINOR DEC(__INTEL_COMPILER/10 % 10)
@@ -376,12 +376,12 @@
 
 #elif defined(_MSC_VER)
 # define COMPILER_ID "MSVC"
-  /* _MSC_VER = VVRR */
+/* _MSC_VER = VVRR */
 # define COMPILER_VERSION_MAJOR DEC(_MSC_VER / 100)
 # define COMPILER_VERSION_MINOR DEC(_MSC_VER % 100)
 # if defined(_MSC_FULL_VER)
 #  if _MSC_VER >= 1400
-    /* _MSC_FULL_VER = VVRRPPPPP */
+/* _MSC_FULL_VER = VVRRPPPPP */
 #   define COMPILER_VERSION_PATCH DEC(_MSC_FULL_VER % 100000)
 #  else
     /* _MSC_FULL_VER = VVRRPPPP */
@@ -431,7 +431,7 @@
    getting matched.  Store it in a pointer rather than an array
    because some compilers will just produce instructions to fill the
    array rather than assigning a pointer to a static array.  */
-char const* info_compiler = "INFO" ":" "compiler[" COMPILER_ID "]";
+char const *info_compiler = "INFO" ":" "compiler[" COMPILER_ID "]";
 #ifdef SIMULATE_ID
 char const* info_simulate = "INFO" ":" "simulate[" SIMULATE_ID "]";
 #endif
@@ -753,19 +753,20 @@ char const* info_version = "INFO" ":" "compiler_version[" COMPILER_VERSION "]";
 /* Construct a string literal encoding the version number components. */
 #elif defined(COMPILER_VERSION_MAJOR)
 char const info_version[] = {
-  'I', 'N', 'F', 'O', ':',
-  'c','o','m','p','i','l','e','r','_','v','e','r','s','i','o','n','[',
-  COMPILER_VERSION_MAJOR,
+    'I', 'N', 'F', 'O', ':',
+    'c', 'o', 'm', 'p', 'i', 'l', 'e', 'r', '_', 'v', 'e', 'r', 's', 'i', 'o', 'n', '[',
+    COMPILER_VERSION_MAJOR,
 # ifdef COMPILER_VERSION_MINOR
-  '.', COMPILER_VERSION_MINOR,
+    '.', COMPILER_VERSION_MINOR,
 #  ifdef COMPILER_VERSION_PATCH
-   '.', COMPILER_VERSION_PATCH,
+    '.', COMPILER_VERSION_PATCH,
 #   ifdef COMPILER_VERSION_TWEAK
     '.', COMPILER_VERSION_TWEAK,
 #   endif
 #  endif
 # endif
-  ']','\0'};
+    ']', '\0'
+};
 #endif
 
 /* Construct a string literal encoding the internal version number. */
@@ -801,9 +802,8 @@ char const info_simulate_version[] = {
    getting matched.  Store it in a pointer rather than an array
    because some compilers will just produce instructions to fill the
    array rather than assigning a pointer to a static array.  */
-char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";
-char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";
-
+char const *info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";
+char const *info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";
 
 
 #if defined(__INTEL_COMPILER) && defined(_MSVC_LANG) && _MSVC_LANG < 201403L
@@ -822,11 +822,11 @@ char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";
 #  define CXX_STD __cplusplus
 #endif
 
-const char* info_language_standard_default = "INFO" ":" "standard_default["
+const char *info_language_standard_default = "INFO" ":" "standard_default["
 #if CXX_STD > 202002L
   "23"
 #elif CXX_STD > 201703L
-  "20"
+        "20"
 #elif CXX_STD >= 201703L
   "17"
 #elif CXX_STD >= 201402L
@@ -836,28 +836,27 @@ const char* info_language_standard_default = "INFO" ":" "standard_default["
 #else
   "98"
 #endif
-"]";
+        "]";
 
-const char* info_language_extensions_default = "INFO" ":" "extensions_default["
+const char *info_language_extensions_default = "INFO" ":" "extensions_default["
 #if (defined(__clang__) || defined(__GNUC__) || defined(__xlC__) ||           \
      defined(__TI_COMPILER_VERSION__)) &&                                     \
   !defined(__STRICT_ANSI__)
   "ON"
 #else
-  "OFF"
+        "OFF"
 #endif
-"]";
+        "]";
 
 /*--------------------------------------------------------------------------*/
 
-int main(int argc, char* argv[])
-{
-  int require = 0;
-  require += info_compiler[argc];
-  require += info_platform[argc];
-  require += info_arch[argc];
+int main(int argc, char *argv[]) {
+    int require = 0;
+    require += info_compiler[argc];
+    require += info_platform[argc];
+    require += info_arch[argc];
 #ifdef COMPILER_VERSION_MAJOR
-  require += info_version[argc];
+    require += info_version[argc];
 #endif
 #ifdef COMPILER_VERSION_INTERNAL
   require += info_version_internal[argc];
@@ -871,8 +870,8 @@ int main(int argc, char* argv[])
 #if defined(__CRAYXT_COMPUTE_LINUX_TARGET)
   require += info_cray[argc];
 #endif
-  require += info_language_standard_default[argc];
-  require += info_language_extensions_default[argc];
-  (void)argv;
-  return require;
+    require += info_language_standard_default[argc];
+    require += info_language_extensions_default[argc];
+    (void) argv;
+    return require;
 }

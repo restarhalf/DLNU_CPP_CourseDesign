@@ -33,7 +33,7 @@
 #ifdef __LP64__
     #define SIZEOF_VOIDP 8
 #else
-    #define SIZEOF_VOIDP 4
+#define SIZEOF_VOIDP 4
 #endif
 
 /* Useful headers */

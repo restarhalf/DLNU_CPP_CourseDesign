@@ -128,7 +128,7 @@ extern DECLSPEC void SDLCALL SDL_AtomicLock(SDL_SpinLock *lock);
  */
 extern DECLSPEC void SDLCALL SDL_AtomicUnlock(SDL_SpinLock *lock);
 
-/* @} *//* SDL AtomicLock */
+/* @} */ /* SDL AtomicLock */
 
 
 /**
@@ -172,6 +172,7 @@ extern __inline void SDL_CompilerBarrier(void);
  * \since This function is available since SDL 2.0.6.
  */
 extern DECLSPEC void SDLCALL SDL_MemoryBarrierReleaseFunction(void);
+
 extern DECLSPEC void SDLCALL SDL_MemoryBarrierAcquireFunction(void);
 
 #if defined(__GNUC__) && (defined(__powerpc__) || defined(__ppc__))
@@ -236,7 +237,8 @@ typedef void (*SDL_KernelMemoryBarrierFunc)();
 #elif (defined(__powerpc__) || defined(__powerpc64__))
     #define SDL_CPUPauseInstruction() __asm__ __volatile__("or 27,27,27");
 #elif defined(_MSC_VER) && (defined(_M_IX86) || defined(_M_X64))
-    #define SDL_CPUPauseInstruction() _mm_pause()  /* this is actually "rep nop" and not a SIMD instruction. No inline asm in MSVC x86-64! */
+#define SDL_CPUPauseInstruction() _mm_pause()  /* this is actually "rep nop" and not a SIMD instruction. No inline asm in MSVC x86-64! */
+
 #elif defined(_MSC_VER) && (defined(_M_ARM) || defined(_M_ARM64))
     #define SDL_CPUPauseInstruction() __yield()
 #elif defined(__WATCOMC__) && defined(__386__)
@@ -378,7 +380,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_AtomicCASPtr(void **a, void *oldval, void *
  * \sa SDL_AtomicCASPtr
  * \sa SDL_AtomicGetPtr
  */
-extern DECLSPEC void* SDLCALL SDL_AtomicSetPtr(void **a, void* v);
+extern DECLSPEC void * SDLCALL SDL_AtomicSetPtr(void **a, void *v);
 
 /**
  * Get the value of a pointer atomically.
@@ -394,7 +396,7 @@ extern DECLSPEC void* SDLCALL SDL_AtomicSetPtr(void **a, void* v);
  * \sa SDL_AtomicCASPtr
  * \sa SDL_AtomicSetPtr
  */
-extern DECLSPEC void* SDLCALL SDL_AtomicGetPtr(void **a);
+extern DECLSPEC void * SDLCALL SDL_AtomicGetPtr(void **a);
 
 /* Ends C function definitions when using C++ */
 #ifdef __cplusplus

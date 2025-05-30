@@ -3125,8 +3125,7 @@ extern "C" {
 /**
  * An enumeration of hint priorities
  */
-typedef enum SDL_HintPriority
-{
+typedef enum SDL_HintPriority {
     SDL_HINT_DEFAULT,
     SDL_HINT_NORMAL,
     SDL_HINT_OVERRIDE

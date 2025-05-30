@@ -17,6 +17,8 @@ add_executable(DLNU_CPP_CourseDesign main.cpp
         Window.h
         Renderer.cpp
         Renderer.h
+        Image.cpp
+        Image.h
         ServerSide.cpp
 )
 target_link_libraries(DLNU_CPP_CourseDesign 

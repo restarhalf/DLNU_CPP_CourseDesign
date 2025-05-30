@@ -106,15 +106,14 @@ extern DECLSPEC const SDL_version * SDLCALL Mix_Linked_Version(void);
 /**
  * Initialization flags
  */
-typedef enum MIX_InitFlags
-{
-    MIX_INIT_FLAC   = 0x00000001,
-    MIX_INIT_MOD    = 0x00000002,
-    MIX_INIT_MP3    = 0x00000008,
-    MIX_INIT_OGG    = 0x00000010,
-    MIX_INIT_MID    = 0x00000020,
-    MIX_INIT_OPUS   = 0x00000040,
-    MIX_INIT_WAVPACK= 0x00000080
+typedef enum MIX_InitFlags {
+    MIX_INIT_FLAC = 0x00000001,
+    MIX_INIT_MOD = 0x00000002,
+    MIX_INIT_MP3 = 0x00000008,
+    MIX_INIT_OGG = 0x00000010,
+    MIX_INIT_MID = 0x00000020,
+    MIX_INIT_OPUS = 0x00000040,
+    MIX_INIT_WAVPACK = 0x00000080
 } MIX_InitFlags;
 
 /**
@@ -232,7 +231,7 @@ typedef struct Mix_Chunk {
     int allocated;
     Uint8 *abuf;
     Uint32 alen;
-    Uint8 volume;       /* Per-sample volume, 0-128 */
+    Uint8 volume; /* Per-sample volume, 0-128 */
 } Mix_Chunk;
 
 /**
@@ -460,7 +459,8 @@ extern DECLSPEC int SDLCALL Mix_OpenAudio(int frequency, Uint16 format, int chan
  * \sa Mix_CloseDevice
  * \sa Mix_QuerySpec
  */
-extern DECLSPEC int SDLCALL Mix_OpenAudioDevice(int frequency, Uint16 format, int channels, int chunksize, const char* device, int allowed_changes);
+extern DECLSPEC int SDLCALL Mix_OpenAudioDevice(int frequency, Uint16 format, int channels, int chunksize,
+                                                const char *device, int allowed_changes);
 
 /**
  * Suspend or resume the whole audio output.
@@ -1602,7 +1602,6 @@ extern DECLSPEC int SDLCALL Mix_SetReverseStereo(int channel, int flip);
 /* end of effects API. */
 
 
-
 /**
  * Reserve the first channels for the application.
  *
@@ -2676,9 +2675,9 @@ extern DECLSPEC int SDLCALL Mix_SetSoundFonts(const char *paths);
  *
  * \since This function is available since SDL_mixer 2.0.0.
  */
-extern DECLSPEC const char* SDLCALL Mix_GetSoundFonts(void);
+extern DECLSPEC const char * SDLCALL Mix_GetSoundFonts(void);
 
-typedef int (SDLCALL *Mix_EachSoundFontCallback)(const char*, void*);
+typedef int (SDLCALL *Mix_EachSoundFontCallback)(const char *, void *);
 
 /**
  * Iterate SoundFonts paths to use by supported MIDI backends.
@@ -2738,7 +2737,7 @@ extern DECLSPEC int SDLCALL Mix_SetTimidityCfg(const char *path);
  *
  * \sa Mix_SetTimidityCfg
  */
-extern DECLSPEC const char* SDLCALL Mix_GetTimidityCfg(void);
+extern DECLSPEC const char * SDLCALL Mix_GetTimidityCfg(void);
 
 /**
  * Get the Mix_Chunk currently associated with a mixer channel.
