@@ -29,10 +29,10 @@
  * a recent version of the Windows 10 SDK. */
 
 /* GDK only supports 64-bit */
-# define SIZEOF_VOIDP 8
+#define SIZEOF_VOIDP 8
 
 #ifdef __clang__
-# define HAVE_GCC_ATOMICS 1
+#define HAVE_GCC_ATOMICS 1
 #endif
 
 #define HAVE_DDRAW_H 1
@@ -53,9 +53,9 @@
 #if (defined(_M_IX86) || defined(_M_X64) || defined(_M_AMD64)) && (defined(_MSC_VER) && _MSC_VER >= 1600)
 #define HAVE_IMMINTRIN_H 1
 #elif defined(__has_include) && (defined(__i386__) || defined(__x86_64))
-# if __has_include(<immintrin.h>)
-#   define HAVE_IMMINTRIN_H 1
-# endif
+#if __has_include(<immintrin.h>)
+#define HAVE_IMMINTRIN_H 1
+#endif
 #endif
 
 /* This is disabled by default to avoid C runtime dependencies and manifest requirements */
@@ -108,39 +108,39 @@
 #define HAVE__WCSICMP 1
 #define HAVE__WCSNICMP 1
 #define HAVE__WCSDUP 1
-#define HAVE_ACOS   1
-#define HAVE_ASIN   1
-#define HAVE_ATAN   1
-#define HAVE_ATAN2  1
-#define HAVE_CEIL   1
-#define HAVE_COS    1
-#define HAVE_EXP    1
-#define HAVE_FABS   1
-#define HAVE_FLOOR  1
-#define HAVE_FMOD   1
-#define HAVE_LOG    1
-#define HAVE_LOG10  1
-#define HAVE_POW    1
-#define HAVE_SIN    1
-#define HAVE_SQRT   1
-#define HAVE_TAN    1
-#define HAVE_ACOSF  1
-#define HAVE_ASINF  1
-#define HAVE_ATANF  1
+#define HAVE_ACOS 1
+#define HAVE_ASIN 1
+#define HAVE_ATAN 1
+#define HAVE_ATAN2 1
+#define HAVE_CEIL 1
+#define HAVE_COS 1
+#define HAVE_EXP 1
+#define HAVE_FABS 1
+#define HAVE_FLOOR 1
+#define HAVE_FMOD 1
+#define HAVE_LOG 1
+#define HAVE_LOG10 1
+#define HAVE_POW 1
+#define HAVE_SIN 1
+#define HAVE_SQRT 1
+#define HAVE_TAN 1
+#define HAVE_ACOSF 1
+#define HAVE_ASINF 1
+#define HAVE_ATANF 1
 #define HAVE_ATAN2F 1
-#define HAVE_CEILF  1
+#define HAVE_CEILF 1
 #define HAVE__COPYSIGN 1
-#define HAVE_COSF   1
-#define HAVE_EXPF   1
-#define HAVE_FABSF  1
+#define HAVE_COSF 1
+#define HAVE_EXPF 1
+#define HAVE_FABSF 1
 #define HAVE_FLOORF 1
-#define HAVE_FMODF  1
-#define HAVE_LOGF   1
+#define HAVE_FMODF 1
+#define HAVE_LOGF 1
 #define HAVE_LOG10F 1
-#define HAVE_POWF   1
-#define HAVE_SINF   1
-#define HAVE_SQRTF  1
-#define HAVE_TANF   1
+#define HAVE_POWF 1
+#define HAVE_SINF 1
+#define HAVE_SQRTF 1
+#define HAVE_TANF 1
 #if defined(_MSC_VER)
 /* These functions were added with the VC++ 2013 C runtime library */
 #define HAVE_STRTOLL 1
@@ -152,7 +152,7 @@
 #define HAVE_ROUNDF 1
 #define HAVE_SCALBN 1
 #define HAVE_SCALBNF 1
-#define HAVE_TRUNC  1
+#define HAVE_TRUNC 1
 #define HAVE_TRUNCF 1
 #define HAVE__FSEEKI64 1
 #ifdef _USE_MATH_DEFINES
@@ -162,9 +162,9 @@
 #define HAVE_M_PI 1
 #endif
 #else
-#define HAVE_STDARG_H   1
-#define HAVE_STDDEF_H   1
-#define HAVE_STDINT_H   1
+#define HAVE_STDARG_H 1
+#define HAVE_STDDEF_H 1
+#define HAVE_STDINT_H 1
 #endif
 
 /* Enable various audio drivers */
@@ -172,71 +172,71 @@
 #define SDL_AUDIO_DRIVER_WASAPI 1
 #endif
 #define SDL_AUDIO_DRIVER_DSOUND 1
-#define SDL_AUDIO_DRIVER_WINMM  1
-#define SDL_AUDIO_DRIVER_DISK   1
-#define SDL_AUDIO_DRIVER_DUMMY  1
+#define SDL_AUDIO_DRIVER_WINMM 1
+#define SDL_AUDIO_DRIVER_DISK 1
+#define SDL_AUDIO_DRIVER_DUMMY 1
 
 /* Enable various input drivers */
 #define SDL_JOYSTICK_DINPUT 1
 #define SDL_JOYSTICK_HIDAPI 1
-#define SDL_JOYSTICK_RAWINPUT   1
-#define SDL_JOYSTICK_VIRTUAL    1
+#define SDL_JOYSTICK_RAWINPUT 1
+#define SDL_JOYSTICK_VIRTUAL 1
 #ifdef HAVE_WINDOWS_GAMING_INPUT_H
-#define SDL_JOYSTICK_WGI    1
+#define SDL_JOYSTICK_WGI 1
 #endif
 #define SDL_JOYSTICK_XINPUT 1
-#define SDL_HAPTIC_DINPUT   1
-#define SDL_HAPTIC_XINPUT   1
+#define SDL_HAPTIC_DINPUT 1
+#define SDL_HAPTIC_XINPUT 1
 
 /* Enable the sensor driver */
 #ifdef HAVE_SENSORSAPI_H
-#define SDL_SENSOR_WINDOWS  1
+#define SDL_SENSOR_WINDOWS 1
 #else
-#define SDL_SENSOR_DUMMY    1
+#define SDL_SENSOR_DUMMY 1
 #endif
 
 /* Enable various shared object loading systems */
-#define SDL_LOADSO_WINDOWS  1
+#define SDL_LOADSO_WINDOWS 1
 
 /* Enable various threading systems */
 #define SDL_THREAD_GENERIC_COND_SUFFIX 1
-#define SDL_THREAD_WINDOWS  1
+#define SDL_THREAD_WINDOWS 1
 
 /* Enable various timer systems */
-#define SDL_TIMER_WINDOWS   1
+#define SDL_TIMER_WINDOWS 1
 
 /* Enable various video drivers */
-#define SDL_VIDEO_DRIVER_DUMMY  1
-#define SDL_VIDEO_DRIVER_WINDOWS    1
+#define SDL_VIDEO_DRIVER_DUMMY 1
+#define SDL_VIDEO_DRIVER_WINDOWS 1
 
 #ifndef SDL_VIDEO_RENDER_D3D
-#define SDL_VIDEO_RENDER_D3D    1
+#define SDL_VIDEO_RENDER_D3D 1
 #endif
 #if !defined(SDL_VIDEO_RENDER_D3D11) && defined(HAVE_D3D11_H)
-#define SDL_VIDEO_RENDER_D3D11  1
+#define SDL_VIDEO_RENDER_D3D11 1
 #endif
 #if !defined(SDL_VIDEO_RENDER_D3D12) && defined(HAVE_D3D12_H)
-#define SDL_VIDEO_RENDER_D3D12  1
+#define SDL_VIDEO_RENDER_D3D12 1
 #endif
 
 /* Enable OpenGL support */
 #ifndef SDL_VIDEO_OPENGL
-#define SDL_VIDEO_OPENGL    1
+#define SDL_VIDEO_OPENGL 1
 #endif
 #ifndef SDL_VIDEO_OPENGL_WGL
-#define SDL_VIDEO_OPENGL_WGL    1
+#define SDL_VIDEO_OPENGL_WGL 1
 #endif
 #ifndef SDL_VIDEO_RENDER_OGL
-#define SDL_VIDEO_RENDER_OGL    1
+#define SDL_VIDEO_RENDER_OGL 1
 #endif
 #ifndef SDL_VIDEO_RENDER_OGL_ES2
-#define SDL_VIDEO_RENDER_OGL_ES2    1
+#define SDL_VIDEO_RENDER_OGL_ES2 1
 #endif
 #ifndef SDL_VIDEO_OPENGL_ES2
-#define SDL_VIDEO_OPENGL_ES2    1
+#define SDL_VIDEO_OPENGL_ES2 1
 #endif
 #ifndef SDL_VIDEO_OPENGL_EGL
-#define SDL_VIDEO_OPENGL_EGL    1
+#define SDL_VIDEO_OPENGL_EGL 1
 #endif
 
 /* Enable Vulkan support */
@@ -246,7 +246,7 @@
 #define SDL_POWER_WINDOWS 1
 
 /* Enable filesystem support */
-#define SDL_FILESYSTEM_WINDOWS  1
+#define SDL_FILESYSTEM_WINDOWS 1
 
 #endif /* SDL_config_wingdk_h_ */
 

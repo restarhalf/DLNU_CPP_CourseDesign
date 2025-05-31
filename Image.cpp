@@ -1,10 +1,10 @@
 #include "Image.h"
+
 #include <SDL_image.h>
 #include <stdexcept>
 
 namespace lyt {
-    Image::Image() {
-    }
+    Image::Image() {}
 
     Image::~Image() {
         if (texture) SDL_DestroyTexture(texture);
@@ -35,4 +35,4 @@ namespace lyt {
         SDL_SetTextureBlendMode(texture, blendMode);
         SDL_SetTextureAlphaMod(texture, alpha);
     }
-}
+}  // namespace lyt

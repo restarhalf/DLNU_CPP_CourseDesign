@@ -177,12 +177,9 @@ typedef enum SDL_BlendFactor {
  * \sa SDL_SetTextureBlendMode
  * \sa SDL_GetTextureBlendMode
  */
-extern DECLSPEC SDL_BlendMode SDLCALL SDL_ComposeCustomBlendMode(SDL_BlendFactor srcColorFactor,
-                                                                 SDL_BlendFactor dstColorFactor,
-                                                                 SDL_BlendOperation colorOperation,
-                                                                 SDL_BlendFactor srcAlphaFactor,
-                                                                 SDL_BlendFactor dstAlphaFactor,
-                                                                 SDL_BlendOperation alphaOperation);
+extern DECLSPEC SDL_BlendMode SDLCALL SDL_ComposeCustomBlendMode(
+        SDL_BlendFactor srcColorFactor, SDL_BlendFactor dstColorFactor, SDL_BlendOperation colorOperation,
+        SDL_BlendFactor srcAlphaFactor, SDL_BlendFactor dstAlphaFactor, SDL_BlendOperation alphaOperation);
 
 /* Ends C function definitions when using C++ */
 #ifdef __cplusplus

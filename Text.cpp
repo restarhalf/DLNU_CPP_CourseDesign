@@ -5,71 +5,42 @@
 #include "Text.h"
 
 namespace lyt {
-    Text::Text() : texture(nullptr) {
-    }
+    Text::Text() : texture(nullptr) {}
 
     Text::~Text() {
         if (texture) SDL_DestroyTexture(texture);
     }
 
-    SDL_Texture *Text::get_texture() const {
-        return texture;
-    }
+    SDL_Texture *Text::getTexture() const { return texture; }
 
-    void Text::set_texture(SDL_Texture *const texture) {
-        this->texture = texture;
-    }
+    void Text::setTexture(SDL_Texture *const texture) { this->texture = texture; }
 
-    SDL_Rect Text::get_rect() const {
-        return rect;
-    }
+    SDL_Rect Text::getRect() const { return rect; }
 
-    void Text::set_rect(const SDL_Rect &rect) {
-        this->rect = rect;
-    }
+    void Text::setRect(const SDL_Rect &rect) { this->rect = rect; }
 
-    SDL_Color Text::get_color() const {
-        return color;
-    }
+    SDL_Color Text::getColor() const { return color; }
 
-    void Text::set_color(const SDL_Color &color) {
-        this->color = color;
-    }
+    void Text::setColor(const SDL_Color &color) { this->color = color; }
 
-    TTF_Font *Text::get_font() const {
-        return font;
-    }
+    TTF_Font *Text::getFont() const { return font; }
 
-    void Text::set_font(TTF_Font *const font) {
-        this->font = font;
-    }
+    void Text::setFont(TTF_Font *const font) { this->font = font; }
 
-    SDL_Surface *Text::get_surface() const {
-        return surface;
-    }
+    SDL_Surface *Text::getSurface() const { return surface; }
 
-    void Text::set_surface(SDL_Surface *const surface) {
-        this->surface = surface;
-    }
+    void Text::setSurface(SDL_Surface *const surface) { this->surface = surface; }
 
-    SDL_BlendMode Text::get_blend_mode() const {
-        return blendMode;
-    }
+    SDL_BlendMode Text::getBlendmode() const { return blendMode; }
 
-    void Text::set_blend_mode(const SDL_BlendMode blend_mode) {
-        blendMode = blend_mode;
-    }
+    void Text::setBlendmode(const SDL_BlendMode blend_mode) { blendMode = blend_mode; }
 
-    std::string Text::get_text() const {
-        return text;
-    }
+    std::string Text::getText() const { return text; }
 
-    void Text::set_text(const std::string &text) {
-        this->text = text;
-    }
+    void Text::setText(const std::string &text) { this->text = text; }
 
-    void Text::set_All(Renderer *render, SDL_Rect rect, SDL_Color color, TTF_Font *font, SDL_BlendMode blendMode,
-                       std::string text, Uint8 alpha) {
+    void Text::setAll(Renderer *render, SDL_Rect rect, SDL_Color color, TTF_Font *font, SDL_BlendMode blendMode,
+                      const std::string &text, Uint8 alpha) {
         this->rect = rect;
         this->color = color;
         this->font = font;
@@ -110,4 +81,4 @@ namespace lyt {
         renderer->copy(texture, nullptr, &rect);
         SDL_FreeSurface(surface);
     }
-}
+}  // namespace lyt

@@ -1,6 +1,7 @@
 #ifndef RENDER_H
 #define RENDER_H
 #include <SDL.h>
+
 #include "Window.h"
 
 namespace lyt {
@@ -20,11 +21,11 @@ namespace lyt {
 
         int copy(SDL_Texture *texture, SDL_Rect *src, SDL_Rect *dst) const;
 
-        SDL_Renderer *get() const { return renderer_; }
+        [[nodiscard]] SDL_Renderer *get() const { return renderer_; }
 
     private:
         SDL_Renderer *renderer_ = nullptr;
     };
-}
+}  // namespace lyt
 
-#endif //RENDER_H
+#endif  // RENDER_H

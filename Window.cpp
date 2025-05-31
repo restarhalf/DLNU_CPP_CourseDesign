@@ -1,24 +1,16 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 #include "Window.h"
+
 #include <stdexcept>
 
 namespace lyt {
-    Window::Window(): width_(0), height_(0), event_() {
-        window_ = nullptr;
-    }
+    Window::Window() : width_(0), height_(0), event_() { window_ = nullptr; }
 
-    Window::Window(SDL_Window *window): width_(0), height_(0), event_() {
-        window_ = window;
-    }
+    Window::Window(SDL_Window *window) : width_(0), height_(0), event_() { window_ = window; }
 
-    Window::Window(std::string title, int width, int height)
-        : width_(width), height_(height), event_() {
-        window_ = SDL_CreateWindow(title.c_str(),
-                                   SDL_WINDOWPOS_CENTERED,
-                                   SDL_WINDOWPOS_CENTERED,
-                                   width,
-                                   height,
+    Window::Window(std::string title, int width, int height) : width_(width), height_(height), event_() {
+        window_ = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height,
                                    SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
 
         if (!window_) {
@@ -37,13 +29,12 @@ namespace lyt {
             if (event_.type == SDL_QUIT) {
                 // 需要后续在Game类中处理退出逻辑
             }
-            if (event_.type == SDL_WINDOWEVENT &&
-                event_.window.event == SDL_WINDOWEVENT_RESIZED) {
+            if (event_.type == SDL_WINDOWEVENT && event_.window.event == SDL_WINDOWEVENT_RESIZED) {
                 width_ = event_.window.data1;
                 height_ = event_.window.data2;
             }
         }
     }
-}
+}  // namespace lyt
 
-#endif //WINDOW_H
+#endif  // WINDOW_H

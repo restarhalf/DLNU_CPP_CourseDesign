@@ -4,16 +4,17 @@
 
 #ifndef TEXT_H
 #define TEXT_H
-#include <SDL_egl.h>
 #include <SDL.h>
+#include <SDL_egl.h>
 #include <SDL_ttf.h>
 #include <string>
+
 #include "Renderer.h"
 
 namespace lyt {
     class Text {
     private:
-        //字体
+        // 字体
         SDL_Texture *texture;
         SDL_Rect rect;
         SDL_Color color;
@@ -25,48 +26,46 @@ namespace lyt {
         Renderer *renderer;
 
     public:
-        //构造函数和析构函数
+        // 构造函数和析构函数
         Text();
 
         ~Text();
 
-        [[nodiscard]] SDL_Texture *get_texture() const;
+        [[nodiscard]] SDL_Texture *getTexture() const;
 
-        void set_texture(SDL_Texture *const texture);
+        void setTexture(SDL_Texture *texture);
 
-        [[nodiscard]] SDL_Rect get_rect() const;
+        [[nodiscard]] SDL_Rect getRect() const;
 
-        void set_rect(const SDL_Rect &rect);
+        void setRect(const SDL_Rect &rect);
 
-        [[nodiscard]] SDL_Color get_color() const;
+        [[nodiscard]] SDL_Color getColor() const;
 
-        void set_color(const SDL_Color &color);
+        void setColor(const SDL_Color &color);
 
-        [[nodiscard]] TTF_Font *get_font() const;
+        [[nodiscard]] TTF_Font *getFont() const;
 
-        void set_font(TTF_Font *const font);
+        void setFont(TTF_Font *font);
 
-        [[nodiscard]] SDL_Surface *get_surface() const;
+        [[nodiscard]] SDL_Surface *getSurface() const;
 
-        void set_surface(SDL_Surface *const surface);
+        void setSurface(SDL_Surface *surface);
 
-        [[nodiscard]] SDL_BlendMode get_blend_mode() const;
+        [[nodiscard]] SDL_BlendMode getBlendmode() const;
 
-        void set_blend_mode(const SDL_BlendMode blend_mode);
+        void setBlendmode(SDL_BlendMode BlendMode);
 
-        [[nodiscard]] std::string get_text() const;
+        [[nodiscard]] std::string getText() const;
 
-        void set_text(const std::string &text);
+        void setText(const std::string &text);
 
-        void set_All(Renderer *render, SDL_Rect rect, SDL_Color color, TTF_Font *font, SDL_BlendMode
-                     blendMode, std::string text, Uint8 alpha);
-
+        void setAll(Renderer *render, SDL_Rect rect, SDL_Color color, TTF_Font *font, SDL_BlendMode blendMode,
+                    const std::string &text, Uint8 alpha);
         void flush();
-
-        //绘制文字
+        // 绘制文字
         void draw();
     };
-}
+}  // namespace lyt
 
 
-#endif //TEXT_H
+#endif  // TEXT_H

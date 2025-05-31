@@ -39,7 +39,6 @@
 #define SDL_log_h_
 
 #include "SDL_stdinc.h"
-
 #include "begin_code.h"
 /* Set up for C function definitions, even when using C++ */
 #ifdef __cplusplus
@@ -131,8 +130,7 @@ extern DECLSPEC void SDLCALL SDL_LogSetAllPriority(SDL_LogPriority priority);
  * \sa SDL_LogGetPriority
  * \sa SDL_LogSetAllPriority
  */
-extern DECLSPEC void SDLCALL SDL_LogSetPriority(int category,
-                                                SDL_LogPriority priority);
+extern DECLSPEC void SDLCALL SDL_LogSetPriority(int category, SDL_LogPriority priority);
 
 /**
  * Get the priority of a particular log category.
@@ -199,7 +197,7 @@ extern DECLSPEC void SDLCALL SDL_Log(SDL_PRINTF_FORMAT_STRING const char *fmt, .
  * \sa SDL_LogWarn
  */
 extern DECLSPEC void SDLCALL SDL_LogVerbose(int category, SDL_PRINTF_FORMAT_STRING const char *fmt, ...)
-SDL_PRINTF_VARARG_FUNC(2);
+        SDL_PRINTF_VARARG_FUNC(2);
 
 /**
  * Log a message with SDL_LOG_PRIORITY_DEBUG.
@@ -221,7 +219,7 @@ SDL_PRINTF_VARARG_FUNC(2);
  * \sa SDL_LogWarn
  */
 extern DECLSPEC void SDLCALL SDL_LogDebug(int category, SDL_PRINTF_FORMAT_STRING const char *fmt, ...)
-SDL_PRINTF_VARARG_FUNC(2);
+        SDL_PRINTF_VARARG_FUNC(2);
 
 /**
  * Log a message with SDL_LOG_PRIORITY_INFO.
@@ -243,7 +241,7 @@ SDL_PRINTF_VARARG_FUNC(2);
  * \sa SDL_LogWarn
  */
 extern DECLSPEC void SDLCALL SDL_LogInfo(int category, SDL_PRINTF_FORMAT_STRING const char *fmt, ...)
-SDL_PRINTF_VARARG_FUNC(2);
+        SDL_PRINTF_VARARG_FUNC(2);
 
 /**
  * Log a message with SDL_LOG_PRIORITY_WARN.
@@ -265,7 +263,7 @@ SDL_PRINTF_VARARG_FUNC(2);
  * \sa SDL_LogVerbose
  */
 extern DECLSPEC void SDLCALL SDL_LogWarn(int category, SDL_PRINTF_FORMAT_STRING const char *fmt, ...)
-SDL_PRINTF_VARARG_FUNC(2);
+        SDL_PRINTF_VARARG_FUNC(2);
 
 /**
  * Log a message with SDL_LOG_PRIORITY_ERROR.
@@ -287,7 +285,7 @@ SDL_PRINTF_VARARG_FUNC(2);
  * \sa SDL_LogWarn
  */
 extern DECLSPEC void SDLCALL SDL_LogError(int category, SDL_PRINTF_FORMAT_STRING const char *fmt, ...)
-SDL_PRINTF_VARARG_FUNC(2);
+        SDL_PRINTF_VARARG_FUNC(2);
 
 /**
  * Log a message with SDL_LOG_PRIORITY_CRITICAL.
@@ -309,7 +307,7 @@ SDL_PRINTF_VARARG_FUNC(2);
  * \sa SDL_LogWarn
  */
 extern DECLSPEC void SDLCALL SDL_LogCritical(int category, SDL_PRINTF_FORMAT_STRING const char *fmt, ...)
-SDL_PRINTF_VARARG_FUNC(2);
+        SDL_PRINTF_VARARG_FUNC(2);
 
 /**
  * Log a message with the specified category and priority.
@@ -331,8 +329,7 @@ SDL_PRINTF_VARARG_FUNC(2);
  * \sa SDL_LogVerbose
  * \sa SDL_LogWarn
  */
-extern DECLSPEC void SDLCALL SDL_LogMessage(int category,
-                                            SDL_LogPriority priority,
+extern DECLSPEC void SDLCALL SDL_LogMessage(int category, SDL_LogPriority priority,
                                             SDL_PRINTF_FORMAT_STRING const char *fmt, ...) SDL_PRINTF_VARARG_FUNC(3);
 
 /**
@@ -354,10 +351,9 @@ extern DECLSPEC void SDLCALL SDL_LogMessage(int category,
  * \sa SDL_LogVerbose
  * \sa SDL_LogWarn
  */
-extern DECLSPEC void SDLCALL SDL_LogMessageV(int category,
-                                             SDL_LogPriority priority,
-                                             SDL_PRINTF_FORMAT_STRING const char *fmt,
-                                             va_list ap) SDL_PRINTF_VARARG_FUNCV(3);
+extern DECLSPEC void SDLCALL SDL_LogMessageV(int category, SDL_LogPriority priority,
+                                             SDL_PRINTF_FORMAT_STRING const char *fmt, va_list ap)
+        SDL_PRINTF_VARARG_FUNCV(3);
 
 /**
  * The prototype for the log output callback function.
@@ -370,8 +366,8 @@ extern DECLSPEC void SDLCALL SDL_LogMessageV(int category,
  * \param priority the priority of the message.
  * \param message the message being output.
  */
-typedef void (SDLCALL *SDL_LogOutputFunction)(void *userdata, int category, SDL_LogPriority priority,
-                                              const char *message);
+typedef void(SDLCALL *SDL_LogOutputFunction)(void *userdata, int category, SDL_LogPriority priority,
+                                             const char *message);
 
 /**
  * Get the current log output function.

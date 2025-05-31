@@ -6,7 +6,6 @@
 
 #include "Renderer.h"
 #include "Text.h"
-#include <SDL_image.h>
 
 namespace lyt {
     class Image {
@@ -29,5 +28,5 @@ namespace lyt {
         void setImage(const std::string &filePath, Renderer *renderer, SDL_Rect rect, SDL_BlendMode blendMode,
                       Uint8 alpha);
     };
-}
-#endif //IMAGE_H
+}  // namespace lyt
+#endif  // IMAGE_H

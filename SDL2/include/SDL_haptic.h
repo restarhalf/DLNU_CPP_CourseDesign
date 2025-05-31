@@ -109,10 +109,9 @@
 #ifndef SDL_haptic_h_
 #define SDL_haptic_h_
 
-#include "SDL_stdinc.h"
 #include "SDL_error.h"
 #include "SDL_joystick.h"
-
+#include "SDL_stdinc.h"
 #include "begin_code.h"
 /* Set up for C function definitions, even when using C++ */
 #ifdef __cplusplus
@@ -162,7 +161,7 @@ typedef struct _SDL_Haptic SDL_Haptic;
  *
  * \sa SDL_HapticCondition
  */
-#define SDL_HAPTIC_CONSTANT   (1u<<0)
+#define SDL_HAPTIC_CONSTANT (1u << 0)
 
 /**
  * Sine wave effect supported.
@@ -171,7 +170,7 @@ typedef struct _SDL_Haptic SDL_Haptic;
  *
  * \sa SDL_HapticPeriodic
  */
-#define SDL_HAPTIC_SINE       (1u<<1)
+#define SDL_HAPTIC_SINE (1u << 1)
 
 /**
  * Left/Right effect supported.
@@ -180,7 +179,7 @@ typedef struct _SDL_Haptic SDL_Haptic;
  *
  * \sa SDL_HapticLeftRight
  */
-#define SDL_HAPTIC_LEFTRIGHT     (1u<<2)
+#define SDL_HAPTIC_LEFTRIGHT (1u << 2)
 
 /* !!! FIXME: put this back when we have more bits in 2.1 */
 /* #define SDL_HAPTIC_SQUARE     (1<<2) */
@@ -192,7 +191,7 @@ typedef struct _SDL_Haptic SDL_Haptic;
  *
  * \sa SDL_HapticPeriodic
  */
-#define SDL_HAPTIC_TRIANGLE   (1u<<3)
+#define SDL_HAPTIC_TRIANGLE (1u << 3)
 
 /**
  * Sawtoothup wave effect supported.
@@ -201,7 +200,7 @@ typedef struct _SDL_Haptic SDL_Haptic;
  *
  * \sa SDL_HapticPeriodic
  */
-#define SDL_HAPTIC_SAWTOOTHUP (1u<<4)
+#define SDL_HAPTIC_SAWTOOTHUP (1u << 4)
 
 /**
  * Sawtoothdown wave effect supported.
@@ -210,7 +209,7 @@ typedef struct _SDL_Haptic SDL_Haptic;
  *
  * \sa SDL_HapticPeriodic
  */
-#define SDL_HAPTIC_SAWTOOTHDOWN (1u<<5)
+#define SDL_HAPTIC_SAWTOOTHDOWN (1u << 5)
 
 /**
  * Ramp effect supported.
@@ -219,7 +218,7 @@ typedef struct _SDL_Haptic SDL_Haptic;
  *
  * \sa SDL_HapticRamp
  */
-#define SDL_HAPTIC_RAMP       (1u<<6)
+#define SDL_HAPTIC_RAMP (1u << 6)
 
 /**
  * Spring effect supported - uses axes position.
@@ -229,7 +228,7 @@ typedef struct _SDL_Haptic SDL_Haptic;
  *
  * \sa SDL_HapticCondition
  */
-#define SDL_HAPTIC_SPRING     (1u<<7)
+#define SDL_HAPTIC_SPRING (1u << 7)
 
 /**
  * Damper effect supported - uses axes velocity.
@@ -239,7 +238,7 @@ typedef struct _SDL_Haptic SDL_Haptic;
  *
  * \sa SDL_HapticCondition
  */
-#define SDL_HAPTIC_DAMPER     (1u<<8)
+#define SDL_HAPTIC_DAMPER (1u << 8)
 
 /**
  * Inertia effect supported - uses axes acceleration.
@@ -249,7 +248,7 @@ typedef struct _SDL_Haptic SDL_Haptic;
  *
  * \sa SDL_HapticCondition
  */
-#define SDL_HAPTIC_INERTIA    (1u<<9)
+#define SDL_HAPTIC_INERTIA (1u << 9)
 
 /**
  * Friction effect supported - uses axes movement.
@@ -259,14 +258,14 @@ typedef struct _SDL_Haptic SDL_Haptic;
  *
  * \sa SDL_HapticCondition
  */
-#define SDL_HAPTIC_FRICTION   (1u<<10)
+#define SDL_HAPTIC_FRICTION (1u << 10)
 
 /**
  * Custom effect is supported.
  *
  * User defined custom haptic effect.
  */
-#define SDL_HAPTIC_CUSTOM     (1u<<11)
+#define SDL_HAPTIC_CUSTOM (1u << 11)
 
 /* @} */ /* Haptic effects */
 
@@ -279,7 +278,7 @@ typedef struct _SDL_Haptic SDL_Haptic;
  *
  * \sa SDL_HapticSetGain
  */
-#define SDL_HAPTIC_GAIN       (1u<<12)
+#define SDL_HAPTIC_GAIN (1u << 12)
 
 /**
  * Device can set autocenter.
@@ -288,7 +287,7 @@ typedef struct _SDL_Haptic SDL_Haptic;
  *
  * \sa SDL_HapticSetAutocenter
  */
-#define SDL_HAPTIC_AUTOCENTER (1u<<13)
+#define SDL_HAPTIC_AUTOCENTER (1u << 13)
 
 /**
  * Device can be queried for effect status.
@@ -297,7 +296,7 @@ typedef struct _SDL_Haptic SDL_Haptic;
  *
  * \sa SDL_HapticGetEffectStatus
  */
-#define SDL_HAPTIC_STATUS     (1u<<14)
+#define SDL_HAPTIC_STATUS (1u << 14)
 
 /**
  * Device can be paused.
@@ -307,7 +306,7 @@ typedef struct _SDL_Haptic SDL_Haptic;
  * \sa SDL_HapticPause
  * \sa SDL_HapticUnpause
  */
-#define SDL_HAPTIC_PAUSE      (1u<<15)
+#define SDL_HAPTIC_PAUSE (1u << 15)
 
 
 /**
@@ -320,21 +319,21 @@ typedef struct _SDL_Haptic SDL_Haptic;
  *
  * \sa SDL_HapticDirection
  */
-#define SDL_HAPTIC_POLAR      0
+#define SDL_HAPTIC_POLAR 0
 
 /**
  * Uses cartesian coordinates for the direction.
  *
  * \sa SDL_HapticDirection
  */
-#define SDL_HAPTIC_CARTESIAN  1
+#define SDL_HAPTIC_CARTESIAN 1
 
 /**
  * Uses spherical coordinates for the direction.
  *
  * \sa SDL_HapticDirection
  */
-#define SDL_HAPTIC_SPHERICAL  2
+#define SDL_HAPTIC_SPHERICAL 2
 
 /**
  * Use this value to play an effect on the steering wheel axis.
@@ -359,7 +358,7 @@ typedef struct _SDL_Haptic SDL_Haptic;
  *
  * \sa SDL_HapticRunEffect
  */
-#define SDL_HAPTIC_INFINITY   4294967295U
+#define SDL_HAPTIC_INFINITY 4294967295U
 
 
 /**
@@ -967,8 +966,7 @@ extern DECLSPEC int SDLCALL SDL_JoystickIsHaptic(SDL_Joystick *joystick);
  * \sa SDL_HapticOpen
  * \sa SDL_JoystickIsHaptic
  */
-extern DECLSPEC SDL_Haptic *SDLCALL SDL_HapticOpenFromJoystick(SDL_Joystick *
-    joystick);
+extern DECLSPEC SDL_Haptic *SDLCALL SDL_HapticOpenFromJoystick(SDL_Joystick *joystick);
 
 /**
  * Close a haptic device previously opened with SDL_HapticOpen().
@@ -1059,9 +1057,7 @@ extern DECLSPEC int SDLCALL SDL_HapticNumAxes(SDL_Haptic *haptic);
  * \sa SDL_HapticNewEffect
  * \sa SDL_HapticQuery
  */
-extern DECLSPEC int SDLCALL SDL_HapticEffectSupported(SDL_Haptic *haptic,
-                                                      SDL_HapticEffect *
-                                                      effect);
+extern DECLSPEC int SDLCALL SDL_HapticEffectSupported(SDL_Haptic *haptic, SDL_HapticEffect *effect);
 
 /**
  * Create a new haptic effect on a specified device.
@@ -1078,8 +1074,7 @@ extern DECLSPEC int SDLCALL SDL_HapticEffectSupported(SDL_Haptic *haptic,
  * \sa SDL_HapticRunEffect
  * \sa SDL_HapticUpdateEffect
  */
-extern DECLSPEC int SDLCALL SDL_HapticNewEffect(SDL_Haptic *haptic,
-                                                SDL_HapticEffect *effect);
+extern DECLSPEC int SDLCALL SDL_HapticNewEffect(SDL_Haptic *haptic, SDL_HapticEffect *effect);
 
 /**
  * Update the properties of an effect.
@@ -1102,9 +1097,7 @@ extern DECLSPEC int SDLCALL SDL_HapticNewEffect(SDL_Haptic *haptic,
  * \sa SDL_HapticNewEffect
  * \sa SDL_HapticRunEffect
  */
-extern DECLSPEC int SDLCALL SDL_HapticUpdateEffect(SDL_Haptic *haptic,
-                                                   int effect,
-                                                   SDL_HapticEffect *data);
+extern DECLSPEC int SDLCALL SDL_HapticUpdateEffect(SDL_Haptic *haptic, int effect, SDL_HapticEffect *data);
 
 /**
  * Run the haptic effect on its associated haptic device.
@@ -1128,9 +1121,7 @@ extern DECLSPEC int SDLCALL SDL_HapticUpdateEffect(SDL_Haptic *haptic,
  * \sa SDL_HapticGetEffectStatus
  * \sa SDL_HapticStopEffect
  */
-extern DECLSPEC int SDLCALL SDL_HapticRunEffect(SDL_Haptic *haptic,
-                                                int effect,
-                                                Uint32 iterations);
+extern DECLSPEC int SDLCALL SDL_HapticRunEffect(SDL_Haptic *haptic, int effect, Uint32 iterations);
 
 /**
  * Stop the haptic effect on its associated haptic device.
@@ -1147,8 +1138,7 @@ extern DECLSPEC int SDLCALL SDL_HapticRunEffect(SDL_Haptic *haptic,
  * \sa SDL_HapticDestroyEffect
  * \sa SDL_HapticRunEffect
  */
-extern DECLSPEC int SDLCALL SDL_HapticStopEffect(SDL_Haptic *haptic,
-                                                 int effect);
+extern DECLSPEC int SDLCALL SDL_HapticStopEffect(SDL_Haptic *haptic, int effect);
 
 /**
  * Destroy a haptic effect on the device.
@@ -1163,8 +1153,7 @@ extern DECLSPEC int SDLCALL SDL_HapticStopEffect(SDL_Haptic *haptic,
  *
  * \sa SDL_HapticNewEffect
  */
-extern DECLSPEC void SDLCALL SDL_HapticDestroyEffect(SDL_Haptic *haptic,
-                                                     int effect);
+extern DECLSPEC void SDLCALL SDL_HapticDestroyEffect(SDL_Haptic *haptic, int effect);
 
 /**
  * Get the status of the current effect on the specified haptic device.
@@ -1181,8 +1170,7 @@ extern DECLSPEC void SDLCALL SDL_HapticDestroyEffect(SDL_Haptic *haptic,
  * \sa SDL_HapticRunEffect
  * \sa SDL_HapticStopEffect
  */
-extern DECLSPEC int SDLCALL SDL_HapticGetEffectStatus(SDL_Haptic *haptic,
-                                                      int effect);
+extern DECLSPEC int SDLCALL SDL_HapticGetEffectStatus(SDL_Haptic *haptic, int effect);
 
 /**
  * Set the global gain of the specified haptic device.
@@ -1223,8 +1211,7 @@ extern DECLSPEC int SDLCALL SDL_HapticSetGain(SDL_Haptic *haptic, int gain);
  *
  * \sa SDL_HapticQuery
  */
-extern DECLSPEC int SDLCALL SDL_HapticSetAutocenter(SDL_Haptic *haptic,
-                                                    int autocenter);
+extern DECLSPEC int SDLCALL SDL_HapticSetAutocenter(SDL_Haptic *haptic, int autocenter);
 
 /**
  * Pause a haptic device.

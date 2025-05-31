@@ -30,7 +30,6 @@
 #define SDL_metal_h_
 
 #include "SDL_video.h"
-
 #include "begin_code.h"
 /* Set up for C function definitions, even when using C++ */
 #ifdef __cplusplus
@@ -100,8 +99,7 @@ extern DECLSPEC void *SDLCALL SDL_Metal_GetLayer(SDL_MetalView view);
  * \sa SDL_GetWindowSize
  * \sa SDL_CreateWindow
  */
-extern DECLSPEC void SDLCALL SDL_Metal_GetDrawableSize(SDL_Window *window, int *w,
-                                                       int *h);
+extern DECLSPEC void SDLCALL SDL_Metal_GetDrawableSize(SDL_Window *window, int *w, int *h);
 
 /* @} */ /* Metal support functions */
 

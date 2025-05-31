@@ -28,11 +28,10 @@
 #ifndef SDL_keyboard_h_
 #define SDL_keyboard_h_
 
-#include "SDL_stdinc.h"
 #include "SDL_error.h"
 #include "SDL_keycode.h"
+#include "SDL_stdinc.h"
 #include "SDL_video.h"
-
 #include "begin_code.h"
 /* Set up for C function definitions, even when using C++ */
 #ifdef __cplusplus
@@ -61,7 +60,7 @@ typedef struct SDL_Keysym {
  *
  * \since This function is available since SDL 2.0.0.
  */
-extern DECLSPEC SDL_Window * SDLCALL SDL_GetKeyboardFocus(void);
+extern DECLSPEC SDL_Window *SDLCALL SDL_GetKeyboardFocus(void);
 
 /**
  * Get a snapshot of the current state of the keyboard.

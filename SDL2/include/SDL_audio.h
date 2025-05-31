@@ -30,13 +30,12 @@
 #ifndef SDL_audio_h_
 #define SDL_audio_h_
 
-#include "SDL_stdinc.h"
-#include "SDL_error.h"
 #include "SDL_endian.h"
+#include "SDL_error.h"
 #include "SDL_mutex.h"
-#include "SDL_thread.h"
 #include "SDL_rwops.h"
-
+#include "SDL_stdinc.h"
+#include "SDL_thread.h"
 #include "begin_code.h"
 /* Set up for C function definitions, even when using C++ */
 #ifdef __cplusplus
@@ -70,17 +69,17 @@ typedef Uint16 SDL_AudioFormat;
  */
 /* @{ */
 
-#define SDL_AUDIO_MASK_BITSIZE       (0xFF)
-#define SDL_AUDIO_MASK_DATATYPE      (1<<8)
-#define SDL_AUDIO_MASK_ENDIAN        (1<<12)
-#define SDL_AUDIO_MASK_SIGNED        (1<<15)
-#define SDL_AUDIO_BITSIZE(x)         (x & SDL_AUDIO_MASK_BITSIZE)
-#define SDL_AUDIO_ISFLOAT(x)         (x & SDL_AUDIO_MASK_DATATYPE)
-#define SDL_AUDIO_ISBIGENDIAN(x)     (x & SDL_AUDIO_MASK_ENDIAN)
-#define SDL_AUDIO_ISSIGNED(x)        (x & SDL_AUDIO_MASK_SIGNED)
-#define SDL_AUDIO_ISINT(x)           (!SDL_AUDIO_ISFLOAT(x))
-#define SDL_AUDIO_ISLITTLEENDIAN(x)  (!SDL_AUDIO_ISBIGENDIAN(x))
-#define SDL_AUDIO_ISUNSIGNED(x)      (!SDL_AUDIO_ISSIGNED(x))
+#define SDL_AUDIO_MASK_BITSIZE (0xFF)
+#define SDL_AUDIO_MASK_DATATYPE (1 << 8)
+#define SDL_AUDIO_MASK_ENDIAN (1 << 12)
+#define SDL_AUDIO_MASK_SIGNED (1 << 15)
+#define SDL_AUDIO_BITSIZE(x) (x & SDL_AUDIO_MASK_BITSIZE)
+#define SDL_AUDIO_ISFLOAT(x) (x & SDL_AUDIO_MASK_DATATYPE)
+#define SDL_AUDIO_ISBIGENDIAN(x) (x & SDL_AUDIO_MASK_ENDIAN)
+#define SDL_AUDIO_ISSIGNED(x) (x & SDL_AUDIO_MASK_SIGNED)
+#define SDL_AUDIO_ISINT(x) (!SDL_AUDIO_ISFLOAT(x))
+#define SDL_AUDIO_ISLITTLEENDIAN(x) (!SDL_AUDIO_ISBIGENDIAN(x))
+#define SDL_AUDIO_ISUNSIGNED(x) (!SDL_AUDIO_ISSIGNED(x))
 
 /**
  *  \name Audio format flags
@@ -88,32 +87,32 @@ typedef Uint16 SDL_AudioFormat;
  *  Defaults to LSB byte order.
  */
 /* @{ */
-#define AUDIO_U8        0x0008  /**< Unsigned 8-bit samples */
-#define AUDIO_S8        0x8008  /**< Signed 8-bit samples */
-#define AUDIO_U16LSB    0x0010  /**< Unsigned 16-bit samples */
-#define AUDIO_S16LSB    0x8010  /**< Signed 16-bit samples */
-#define AUDIO_U16MSB    0x1010  /**< As above, but big-endian byte order */
-#define AUDIO_S16MSB    0x9010  /**< As above, but big-endian byte order */
-#define AUDIO_U16       AUDIO_U16LSB
-#define AUDIO_S16       AUDIO_S16LSB
+#define AUDIO_U8 0x0008 /**< Unsigned 8-bit samples */
+#define AUDIO_S8 0x8008 /**< Signed 8-bit samples */
+#define AUDIO_U16LSB 0x0010 /**< Unsigned 16-bit samples */
+#define AUDIO_S16LSB 0x8010 /**< Signed 16-bit samples */
+#define AUDIO_U16MSB 0x1010 /**< As above, but big-endian byte order */
+#define AUDIO_S16MSB 0x9010 /**< As above, but big-endian byte order */
+#define AUDIO_U16 AUDIO_U16LSB
+#define AUDIO_S16 AUDIO_S16LSB
 /* @} */
 
 /**
  *  \name int32 support
  */
 /* @{ */
-#define AUDIO_S32LSB    0x8020  /**< 32-bit integer samples */
-#define AUDIO_S32MSB    0x9020  /**< As above, but big-endian byte order */
-#define AUDIO_S32       AUDIO_S32LSB
+#define AUDIO_S32LSB 0x8020 /**< 32-bit integer samples */
+#define AUDIO_S32MSB 0x9020 /**< As above, but big-endian byte order */
+#define AUDIO_S32 AUDIO_S32LSB
 /* @} */
 
 /**
  *  \name float32 support
  */
 /* @{ */
-#define AUDIO_F32LSB    0x8120  /**< 32-bit floating point samples */
-#define AUDIO_F32MSB    0x9120  /**< As above, but big-endian byte order */
-#define AUDIO_F32       AUDIO_F32LSB
+#define AUDIO_F32LSB 0x8120 /**< 32-bit floating point samples */
+#define AUDIO_F32MSB 0x9120 /**< As above, but big-endian byte order */
+#define AUDIO_F32 AUDIO_F32LSB
 /* @} */
 
 /**
@@ -121,15 +120,15 @@ typedef Uint16 SDL_AudioFormat;
  */
 /* @{ */
 #if SDL_BYTEORDER == SDL_LIL_ENDIAN
-#define AUDIO_U16SYS    AUDIO_U16LSB
-#define AUDIO_S16SYS    AUDIO_S16LSB
-#define AUDIO_S32SYS    AUDIO_S32LSB
-#define AUDIO_F32SYS    AUDIO_F32LSB
+#define AUDIO_U16SYS AUDIO_U16LSB
+#define AUDIO_S16SYS AUDIO_S16LSB
+#define AUDIO_S32SYS AUDIO_S32LSB
+#define AUDIO_F32SYS AUDIO_F32LSB
 #else
-#define AUDIO_U16SYS    AUDIO_U16MSB
-#define AUDIO_S16SYS    AUDIO_S16MSB
-#define AUDIO_S32SYS    AUDIO_S32MSB
-#define AUDIO_F32SYS    AUDIO_F32MSB
+#define AUDIO_U16SYS AUDIO_U16MSB
+#define AUDIO_S16SYS AUDIO_S16MSB
+#define AUDIO_S32SYS AUDIO_S32MSB
+#define AUDIO_F32SYS AUDIO_F32MSB
 #endif
 /* @} */
 
@@ -139,11 +138,13 @@ typedef Uint16 SDL_AudioFormat;
  *  Which audio format changes are allowed when opening a device.
  */
 /* @{ */
-#define SDL_AUDIO_ALLOW_FREQUENCY_CHANGE    0x00000001
-#define SDL_AUDIO_ALLOW_FORMAT_CHANGE       0x00000002
-#define SDL_AUDIO_ALLOW_CHANNELS_CHANGE     0x00000004
-#define SDL_AUDIO_ALLOW_SAMPLES_CHANGE      0x00000008
-#define SDL_AUDIO_ALLOW_ANY_CHANGE          (SDL_AUDIO_ALLOW_FREQUENCY_CHANGE|SDL_AUDIO_ALLOW_FORMAT_CHANGE|SDL_AUDIO_ALLOW_CHANNELS_CHANGE|SDL_AUDIO_ALLOW_SAMPLES_CHANGE)
+#define SDL_AUDIO_ALLOW_FREQUENCY_CHANGE 0x00000001
+#define SDL_AUDIO_ALLOW_FORMAT_CHANGE 0x00000002
+#define SDL_AUDIO_ALLOW_CHANNELS_CHANGE 0x00000004
+#define SDL_AUDIO_ALLOW_SAMPLES_CHANGE 0x00000008
+#define SDL_AUDIO_ALLOW_ANY_CHANGE                                                                        \
+    (SDL_AUDIO_ALLOW_FREQUENCY_CHANGE | SDL_AUDIO_ALLOW_FORMAT_CHANGE | SDL_AUDIO_ALLOW_CHANNELS_CHANGE | \
+     SDL_AUDIO_ALLOW_SAMPLES_CHANGE)
 /* @} */
 
 /* @} */ /* Audio flags */
@@ -156,8 +157,7 @@ typedef Uint16 SDL_AudioFormat;
  * \param stream A pointer to the audio data buffer.
  * \param len Length of **stream** in bytes.
  */
-typedef void (SDLCALL *SDL_AudioCallback)(void *userdata, Uint8 *stream,
-                                          int len);
+typedef void(SDLCALL *SDL_AudioCallback)(void *userdata, Uint8 *stream, int len);
 
 /**
  * The calculated values in this structure are calculated by SDL_OpenAudio().
@@ -189,8 +189,7 @@ typedef struct SDL_AudioSpec {
 
 struct SDL_AudioCVT;
 
-typedef void (SDLCALL *SDL_AudioFilter)(struct SDL_AudioCVT *cvt,
-                                        SDL_AudioFormat format);
+typedef void(SDLCALL *SDL_AudioFilter)(struct SDL_AudioCVT *cvt, SDL_AudioFormat format);
 
 /**
  * Upper limit of filters in SDL_AudioCVT
@@ -402,8 +401,7 @@ extern DECLSPEC const char *SDLCALL SDL_GetCurrentAudioDriver(void);
  * \sa SDL_PauseAudio
  * \sa SDL_UnlockAudio
  */
-extern DECLSPEC int SDLCALL SDL_OpenAudio(SDL_AudioSpec *desired,
-                                          SDL_AudioSpec *obtained);
+extern DECLSPEC int SDLCALL SDL_OpenAudio(SDL_AudioSpec *desired, SDL_AudioSpec *obtained);
 
 /**
  * SDL Audio Device IDs.
@@ -487,8 +485,7 @@ extern DECLSPEC int SDLCALL SDL_GetNumAudioDevices(int iscapture);
  * \sa SDL_GetNumAudioDevices
  * \sa SDL_GetDefaultAudioInfo
  */
-extern DECLSPEC const char *SDLCALL SDL_GetAudioDeviceName(int index,
-                                                           int iscapture);
+extern DECLSPEC const char *SDLCALL SDL_GetAudioDeviceName(int index, int iscapture);
 
 /**
  * Get the preferred audio format of a specific audio device.
@@ -513,9 +510,7 @@ extern DECLSPEC const char *SDLCALL SDL_GetAudioDeviceName(int index,
  * \sa SDL_GetNumAudioDevices
  * \sa SDL_GetDefaultAudioInfo
  */
-extern DECLSPEC int SDLCALL SDL_GetAudioDeviceSpec(int index,
-                                                   int iscapture,
-                                                   SDL_AudioSpec *spec);
+extern DECLSPEC int SDLCALL SDL_GetAudioDeviceSpec(int index, int iscapture, SDL_AudioSpec *spec);
 
 
 /**
@@ -548,9 +543,7 @@ extern DECLSPEC int SDLCALL SDL_GetAudioDeviceSpec(int index,
  * \sa SDL_GetAudioDeviceSpec
  * \sa SDL_OpenAudioDevice
  */
-extern DECLSPEC int SDLCALL SDL_GetDefaultAudioInfo(char **name,
-                                                    SDL_AudioSpec *spec,
-                                                    int iscapture);
+extern DECLSPEC int SDLCALL SDL_GetDefaultAudioInfo(char **name, SDL_AudioSpec *spec, int iscapture);
 
 
 /**
@@ -664,12 +657,9 @@ extern DECLSPEC int SDLCALL SDL_GetDefaultAudioInfo(char **name,
  * \sa SDL_PauseAudioDevice
  * \sa SDL_UnlockAudioDevice
  */
-extern DECLSPEC SDL_AudioDeviceID SDLCALL SDL_OpenAudioDevice(
-    const char *device,
-    int iscapture,
-    const SDL_AudioSpec *desired,
-    SDL_AudioSpec *obtained,
-    int allowed_changes);
+extern DECLSPEC SDL_AudioDeviceID SDLCALL SDL_OpenAudioDevice(const char *device, int iscapture,
+                                                              const SDL_AudioSpec *desired, SDL_AudioSpec *obtained,
+                                                              int allowed_changes);
 
 
 /**
@@ -678,11 +668,7 @@ extern DECLSPEC SDL_AudioDeviceID SDLCALL SDL_OpenAudioDevice(
  *  Get the current audio state.
  */
 /* @{ */
-typedef enum {
-    SDL_AUDIO_STOPPED = 0,
-    SDL_AUDIO_PLAYING,
-    SDL_AUDIO_PAUSED
-} SDL_AudioStatus;
+typedef enum { SDL_AUDIO_STOPPED = 0, SDL_AUDIO_PLAYING, SDL_AUDIO_PAUSED } SDL_AudioStatus;
 
 /**
  * This function is a legacy means of querying the audio device.
@@ -779,8 +765,7 @@ extern DECLSPEC void SDLCALL SDL_PauseAudio(int pause_on);
  *
  * \sa SDL_LockAudioDevice
  */
-extern DECLSPEC void SDLCALL SDL_PauseAudioDevice(SDL_AudioDeviceID dev,
-                                                  int pause_on);
+extern DECLSPEC void SDLCALL SDL_PauseAudioDevice(SDL_AudioDeviceID dev, int pause_on);
 
 /* @} */ /* Pause audio functions */
 
@@ -865,11 +850,8 @@ extern DECLSPEC void SDLCALL SDL_PauseAudioDevice(SDL_AudioDeviceID dev,
  * \sa SDL_FreeWAV
  * \sa SDL_LoadWAV
  */
-extern DECLSPEC SDL_AudioSpec *SDLCALL SDL_LoadWAV_RW(SDL_RWops *src,
-                                                      int freesrc,
-                                                      SDL_AudioSpec *spec,
-                                                      Uint8 **audio_buf,
-                                                      Uint32 *audio_len);
+extern DECLSPEC SDL_AudioSpec *SDLCALL SDL_LoadWAV_RW(SDL_RWops *src, int freesrc, SDL_AudioSpec *spec,
+                                                      Uint8 **audio_buf, Uint32 *audio_len);
 
 /**
  * Loads a WAV from a file.
@@ -877,7 +859,7 @@ extern DECLSPEC SDL_AudioSpec *SDLCALL SDL_LoadWAV_RW(SDL_RWops *src,
  * Compatibility convenience function.
  */
 #define SDL_LoadWAV(file, spec, audio_buf, audio_len) \
-    SDL_LoadWAV_RW(SDL_RWFromFile(file, "rb"),1, spec,audio_buf,audio_len)
+    SDL_LoadWAV_RW(SDL_RWFromFile(file, "rb"), 1, spec, audio_buf, audio_len)
 
 /**
  * Free data previously allocated with SDL_LoadWAV() or SDL_LoadWAV_RW().
@@ -929,12 +911,8 @@ extern DECLSPEC void SDLCALL SDL_FreeWAV(Uint8 *audio_buf);
  *
  * \sa SDL_ConvertAudio
  */
-extern DECLSPEC int SDLCALL SDL_BuildAudioCVT(SDL_AudioCVT *cvt,
-                                              SDL_AudioFormat src_format,
-                                              Uint8 src_channels,
-                                              int src_rate,
-                                              SDL_AudioFormat dst_format,
-                                              Uint8 dst_channels,
+extern DECLSPEC int SDLCALL SDL_BuildAudioCVT(SDL_AudioCVT *cvt, SDL_AudioFormat src_format, Uint8 src_channels,
+                                              int src_rate, SDL_AudioFormat dst_format, Uint8 dst_channels,
                                               int dst_rate);
 
 /**
@@ -1008,12 +986,9 @@ typedef struct _SDL_AudioStream SDL_AudioStream;
  * \sa SDL_AudioStreamClear
  * \sa SDL_FreeAudioStream
  */
-extern DECLSPEC SDL_AudioStream * SDLCALL SDL_NewAudioStream(const SDL_AudioFormat src_format,
-                                                             const Uint8 src_channels,
-                                                             const int src_rate,
-                                                             const SDL_AudioFormat dst_format,
-                                                             const Uint8 dst_channels,
-                                                             const int dst_rate);
+extern DECLSPEC SDL_AudioStream *SDLCALL SDL_NewAudioStream(const SDL_AudioFormat src_format, const Uint8 src_channels,
+                                                            const int src_rate, const SDL_AudioFormat dst_format,
+                                                            const Uint8 dst_channels, const int dst_rate);
 
 /**
  * Add data to be converted/resampled to the stream.
@@ -1145,8 +1120,7 @@ extern DECLSPEC void SDLCALL SDL_FreeAudioStream(SDL_AudioStream *stream);
  *
  * \sa SDL_MixAudioFormat
  */
-extern DECLSPEC void SDLCALL SDL_MixAudio(Uint8 *dst, const Uint8 *src,
-                                          Uint32 len, int volume);
+extern DECLSPEC void SDLCALL SDL_MixAudio(Uint8 *dst, const Uint8 *src, Uint32 len, int volume);
 
 /**
  * Mix audio data in a specified format.
@@ -1178,10 +1152,8 @@ extern DECLSPEC void SDLCALL SDL_MixAudio(Uint8 *dst, const Uint8 *src,
  *
  * \since This function is available since SDL 2.0.0.
  */
-extern DECLSPEC void SDLCALL SDL_MixAudioFormat(Uint8 *dst,
-                                                const Uint8 *src,
-                                                SDL_AudioFormat format,
-                                                Uint32 len, int volume);
+extern DECLSPEC void SDLCALL SDL_MixAudioFormat(Uint8 *dst, const Uint8 *src, SDL_AudioFormat format, Uint32 len,
+                                                int volume);
 
 /**
  * Queue more audio on non-callback devices.

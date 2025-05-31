@@ -48,16 +48,16 @@ extern "C" {
 /* Definition shared by all CRC routines */
 
 #ifndef CrcUint32
-#define CrcUint32  unsigned int
+#define CrcUint32 unsigned int
 #endif
 #ifndef CrcUint8
-#define CrcUint8   unsigned char
+#define CrcUint8 unsigned char
 #endif
 
 #ifdef ORIGINAL_METHOD
- #define CRC32_POLY 0x04c11db7   /* AUTODIN II, Ethernet, & FDDI */
+#define CRC32_POLY 0x04c11db7 /* AUTODIN II, Ethernet, & FDDI */
 #else
-#define CRC32_POLY 0xEDB88320   /* Perl String::CRC32 compatible */
+#define CRC32_POLY 0xEDB88320 /* Perl String::CRC32 compatible */
 #endif
 
 /*
@@ -110,7 +110,7 @@ int SDLTest_Crc32CalcBuffer(SDLTest_Crc32Context *crcContext, CrcUint8 *inBuf, C
  *
  * \returns 0 for OK, -1 on error
  *
-*/
+ */
 
 int SDLTest_Crc32Done(SDLTest_Crc32Context *crcContext);
 

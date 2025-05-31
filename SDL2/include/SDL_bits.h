@@ -29,7 +29,6 @@
 #define SDL_bits_h_
 
 #include "SDL_stdinc.h"
-
 #include "begin_code.h"
 /* Set up for C function definitions, even when using C++ */
 #ifdef __cplusplus
@@ -49,11 +48,7 @@ extern "C" {
  */
 #if defined(__WATCOMC__) && defined(__386__)
 extern __inline int _SDL_bsr_watcom(Uint32);
-#pragma aux _SDL_bsr_watcom = \
-    "bsr eax, eax" \
-    parm [eax] nomemory \
-    value [eax] \
-    modify exact [eax] nomemory;
+#pragma aux _SDL_bsr_watcom = "bsr eax, eax" parm[eax] nomemory value[eax] modify exact[eax] nomemory;
 #endif
 
 /**
@@ -62,8 +57,7 @@ extern __inline int _SDL_bsr_watcom(Uint32);
  * \param x the number to find the MSB of.
  * \returns the index of the most significant bit of x, or -1 if x is 0.
  */
-SDL_FORCE_INLINE int
-SDL_MostSignificantBitIndex32(Uint32 x) {
+SDL_FORCE_INLINE int SDL_MostSignificantBitIndex32(Uint32 x) {
 #if defined(__GNUC__) && (__GNUC__ >= 4 || (__GNUC__ == 3 && __GNUC_MINOR__ >= 4))
     /* Count Leading Zeroes builtin in GCC.
      * http://gcc.gnu.org/onlinedocs/gcc-4.3.4/gcc/Other-Builtins.html
@@ -89,7 +83,7 @@ SDL_MostSignificantBitIndex32(Uint32 x) {
      * http://graphics.stanford.edu/~seander/bithacks.html#IntegerLog
      */
     const Uint32 b[] = {0x2, 0xC, 0xF0, 0xFF00, 0xFFFF0000};
-    const int    S[] = {1, 2, 4, 8, 16};
+    const int S[] = {1, 2, 4, 8, 16};
 
     int msbIndex = 0;
     int i;
@@ -98,10 +92,8 @@ SDL_MostSignificantBitIndex32(Uint32 x) {
         return -1;
     }
 
-    for (i = 4; i >= 0; i--)
-    {
-        if (x & b[i])
-        {
+    for (i = 4; i >= 0; i--) {
+        if (x & b[i]) {
             x >>= S[i];
             msbIndex |= S[i];
         }
@@ -111,8 +103,7 @@ SDL_MostSignificantBitIndex32(Uint32 x) {
 #endif
 }
 
-SDL_FORCE_INLINE SDL_bool
-SDL_HasExactlyOneBitSet32(Uint32 x) {
+SDL_FORCE_INLINE SDL_bool SDL_HasExactlyOneBitSet32(Uint32 x) {
     if (x && !(x & (x - 1))) {
         return SDL_TRUE;
     }

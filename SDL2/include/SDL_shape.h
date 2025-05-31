@@ -22,12 +22,11 @@
 #ifndef SDL_shape_h_
 #define SDL_shape_h_
 
-#include "SDL_stdinc.h"
 #include "SDL_pixels.h"
 #include "SDL_rect.h"
+#include "SDL_stdinc.h"
 #include "SDL_surface.h"
 #include "SDL_video.h"
-
 #include "begin_code.h"
 /* Set up for C function definitions, even when using C++ */
 #ifdef __cplusplus
@@ -66,8 +65,8 @@ extern "C" {
  *
  * \sa SDL_DestroyWindow
  */
-extern DECLSPEC SDL_Window * SDLCALL SDL_CreateShapedWindow(const char *title, unsigned int x, unsigned int y,
-                                                            unsigned int w, unsigned int h, Uint32 flags);
+extern DECLSPEC SDL_Window *SDLCALL SDL_CreateShapedWindow(const char *title, unsigned int x, unsigned int y,
+                                                           unsigned int w, unsigned int h, Uint32 flags);
 
 /**
  * Return whether the given window is a shaped window.
@@ -94,7 +93,8 @@ typedef enum {
     ShapeModeColorKey
 } WindowShapeMode;
 
-#define SDL_SHAPEMODEALPHA(mode) (mode == ShapeModeDefault || mode == ShapeModeBinarizeAlpha || mode == ShapeModeReverseBinarizeAlpha)
+#define SDL_SHAPEMODEALPHA(mode) \
+    (mode == ShapeModeDefault || mode == ShapeModeBinarizeAlpha || mode == ShapeModeReverseBinarizeAlpha)
 
 /** \brief A union containing parameters for shaped windows. */
 typedef union {

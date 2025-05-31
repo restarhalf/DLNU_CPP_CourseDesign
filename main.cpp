@@ -1,9 +1,10 @@
 //
-//Create by Tang Team on 2025/5/26.
+// Create by Tang Team on 2025/5/26.
 //
+#include <bits/stdc++.h>
 #include <random>
 #include <ranges>
-#include <bits/stdc++.h>
+
 #include "Controller.h"
 #include "Game.h"
 #include "Image.h"
@@ -18,12 +19,11 @@ int main(int argc, char *argv[]) {
     Image image;
     int w = 0, h = 0, x = 0, y = 0, x1 = 0, y1 = 0;
     Text text;
-
     while (game.running()) {
         game.frameStart();
         game.getRenderer()->clear();
-        text.set_All(game.getRenderer(), {x1, y1, 150, 30}, {0, 0, 0, 0}, game.getFont(), SDL_BLENDMODE_BLEND,
-                     "按F1切换鼠标移动或键盘移动", 155);
+        text.setAll(game.getRenderer(), {x1, y1, 150, 30}, {0, 0, 0, 0}, game.getFont(), SDL_BLENDMODE_BLEND,
+                    "按F1切换鼠标移动或键盘移动", 155);
         image.setImage("1.png", game.getRenderer(), {x, y, 200, 200}, SDL_BLENDMODE_BLEND, 155);
         text.draw();
         image.draw();
