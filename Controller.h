@@ -8,6 +8,7 @@
 namespace lyt {
     class Controller {
         bool isMousetoMove{false};
+        bool isKeytoMove{true};
     public:
         Controller();
 
