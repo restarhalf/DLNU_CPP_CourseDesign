@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/Button.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Button.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Button.cpp.obj.d"
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/Controller.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Controller.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Controller.cpp.obj.d"
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/Game.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Game.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Game.cpp.obj.d"
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/Image.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Image.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Image.cpp.obj.d"

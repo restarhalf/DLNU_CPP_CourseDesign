@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/DLNU_CPP_CourseDesign.dir/Button.cpp.obj"
+  "CMakeFiles/DLNU_CPP_CourseDesign.dir/Button.cpp.obj.d"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/Controller.cpp.obj"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/Controller.cpp.obj.d"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/Game.cpp.obj"

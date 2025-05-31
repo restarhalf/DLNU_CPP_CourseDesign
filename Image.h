@@ -9,23 +9,25 @@
 #include <SDL_image.h>
 
 namespace lyt {
-    class Image :public Text{
+    class Image {
         SDL_Texture *texture = nullptr;
-    public:
+        SDL_Surface *surface = nullptr;
+        SDL_Rect rect;
+        SDL_Color color;
+        std::string filePath;
+        Renderer *renderer;
+        SDL_BlendMode blendMode = SDL_BLENDMODE_BLEND;
+        Uint8 alpha = 255;
 
+    public:
         Image();
 
         ~Image();
 
-        int getWidth() const;
+        void draw();
 
-        int getHeight() const;
-
-        void drawImage(const char *filePath, Renderer *renderer,SDL_Rect rect);
-    private:
-
-
-        void createTexture(SDL_Surface *surface, Renderer *renderer);
+        void setImage(const std::string &filePath, Renderer *renderer, SDL_Rect rect, SDL_BlendMode blendMode,
+                      Uint8 alpha);
     };
 }
 #endif //IMAGE_H

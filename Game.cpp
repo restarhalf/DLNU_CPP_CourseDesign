@@ -48,20 +48,20 @@ namespace lyt {
         isRunning = true;
 
 
-        if (TTF_Init()==-1) {
+        if (TTF_Init() == -1) {
             SDL_Log("SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError());
             isRunning = false;
             return false;
         } else {
             SDL_Log("SDL_TTF initialized");
-        }font = TTF_OpenFont("MSYH.ttf", 720);
+        }
+        font = TTF_OpenFont("MSYH.ttf", 720);
         IMG_Init(IMG_INIT_PNG);
         if (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG) {
             SDL_Log("SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError());
             isRunning = false;
             return false;
-        }
-        else {
+        } else {
             SDL_Log("IMG initialized");
         }
         return isRunning;
@@ -108,7 +108,7 @@ namespace lyt {
 
     void Game::frameEnd() {
         Time = SDL_GetTicks() - Start;
-        if (Time-static_cast<Uint32>(FPS) < 0 ) {
+        if (Time - static_cast<Uint32>(FPS) < 0) {
             SDL_Delay(static_cast<Uint32>(FPS) - Time);
         }
     }
@@ -139,7 +139,5 @@ namespace lyt {
 
     void Game::setFont(Renderer *renderer, const std::string &fontPath, int fontSize) {
         font = TTF_OpenFont(fontPath.c_str(), fontSize);
-
-}
-
+    }
 }

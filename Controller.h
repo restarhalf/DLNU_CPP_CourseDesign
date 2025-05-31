@@ -5,10 +5,12 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 #include <SDL.h>
+
 namespace lyt {
     class Controller {
         bool isMousetoMove{false};
         bool isKeytoMove{true};
+
     public:
         Controller();
 
@@ -16,8 +18,8 @@ namespace lyt {
 
         //动作监视器
         void event(SDL_Event &event, int &x, int &y);
-    private:
 
+    private:
         void KeyboardPress(const SDL_Event &event, int &x, int &y);
 
         void KeyboardRelease(const SDL_Event &event, int &x, int &y);

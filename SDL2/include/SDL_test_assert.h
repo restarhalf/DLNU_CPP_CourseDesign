@@ -59,9 +59,11 @@ extern "C" {
  * \param assertDescription Message to log with the assert describing it.
  */
 void SDLTest_Assert(int assertCondition, SDL_PRINTF_FORMAT_STRING constchar *assertDescription, ...)
+
 SDL_PRINTF_VARARG_FUNC
 
 (
+
 2
 );
 
@@ -74,9 +76,11 @@ SDL_PRINTF_VARARG_FUNC
  * \returns the assertCondition so it can be used to externally to break execution flow if desired.
  */
 int SDLTest_AssertCheck(int assertCondition, SDL_PRINTF_FORMAT_STRING constchar *assertDescription, ...)
+
 SDL_PRINTF_VARARG_FUNC
 
 (
+
 2
 );
 

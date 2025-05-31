@@ -945,12 +945,15 @@ GL_APICALL void GL_APIENTRY glUniform4i(GLint location, GLint v0, GLint v1, GLin
 GL_APICALL void GL_APIENTRY glUniform4iv(GLint location, GLsizei count, const GLint *value);
 
 GL_APICALL void GL_APIENTRY
+
 glUniformMatrix2fv(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
 
 GL_APICALL void GL_APIENTRY
+
 glUniformMatrix3fv(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
 
 GL_APICALL void GL_APIENTRY
+
 glUniformMatrix4fv(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
 
 GL_APICALL void GL_APIENTRY glUseProgram(GLuint program);

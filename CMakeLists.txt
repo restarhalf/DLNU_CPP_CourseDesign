@@ -20,6 +20,8 @@ add_executable(DLNU_CPP_CourseDesign main.cpp
         Image.cpp
         Image.h
         ServerSide.cpp
+        Button.cpp
+        Button.h
 )
 target_link_libraries(DLNU_CPP_CourseDesign 
     SDL2

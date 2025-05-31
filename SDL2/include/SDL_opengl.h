@@ -80,11 +80,13 @@
 #    define GLAPI __declspec(dllexport)
 #  elif (defined(_MSC_VER) || defined(__MINGW32__)) && defined(_DLL) /* tag specifying we're building for DLL runtime support */
 
+
 #    define GLAPI __declspec(dllimport)
 #  else /* for use with static link lib build of Win32 edition only */
 #    define GLAPI extern
 #  endif /* _STATIC_MESA support */
 #  if defined(__MINGW32__) && defined(GL_NO_STDCALL) || defined(UNDER_CE)  /* The generated DLLs by MingW with STDCALL are not compatible with the ones done by Microsoft's compilers */
+
 
 #    define GLAPIENTRY 
 #  else
