@@ -4,6 +4,8 @@
 
 #include "Button.h"
 
+#include <iostream>
+
 namespace lyt {
     bool Button::isButtonClicked() const {
         if (isClicked) {
@@ -13,24 +15,27 @@ namespace lyt {
         }
     }
 
-    void Button::draw(Renderer *renderer) {
-        SDL_RenderFillRect(renderer->get(), &rect);
+    void Button::draw() {
+        SDL_SetRenderDrawColor(renderer->get(), buttonColor.r, buttonColor.g, buttonColor.b, buttonColor.a);
+        SDL_RenderFillRect(this->renderer->get(), &rect);
+        SDL_SetRenderDrawBlendMode(renderer->get(), blendMode);
+        SDL_SetTextureAlphaMod(texture, alpha);
+        SDL_SetRenderDrawColor(renderer->get(), 0, 0, 0, 225);
         renderer->copy(texture, nullptr, &rect);
         text.draw();
     }
 
-    void Button::handleEvent(const SDL_Event &event) {
+    void Button::handleEvent(SDL_Event &event) {
         if (event.type == SDL_MOUSEBUTTONDOWN) {
             if (event.button.button == SDL_BUTTON_LEFT) {
                 int mouseX, mouseY;
-                SDL_GetMouseState(&mouseX, &mouseY);
+                // SDL_GetMouseState(&mouseX, &mouseY);
+                mouseX = event.button.x;
+                mouseY = event.button.y;
                 if (mouseX >= rect.x && mouseX <= rect.x + rect.w && mouseY >= rect.y && mouseY <= rect.y + rect.h) {
                     isClicked = true;
+                    std::cout << "Button clicked at (" << mouseX << ", " << mouseY << ")" << std::endl;
                 }
-            }
-        } else if (event.type == SDL_MOUSEBUTTONUP) {
-            if (event.button.button == SDL_BUTTON_LEFT) {
-                isClicked = false;  // 重置点击状态
             }
         }
     }
@@ -40,18 +45,23 @@ namespace lyt {
         rect.y = y;
         rect.w = w;
         rect.h = h;
-        buttonColor = color;  // 设置按钮颜色
-        isClicked = false;  // 重置点击状态
+        buttonColor = color; // 设置按钮颜色
+        isClicked = false; // 重置点击状态
     }
 
     void Button::setButton(SDL_Rect rect, SDL_Color color) {
         this->rect = rect;
-        buttonColor = color;  // 设置按钮颜色
-        isClicked = false;  // 重置点击状态
+        buttonColor = color; // 设置按钮颜色
+        isClicked = false; // 重置点击状态
     }
 
     void Button::setText(const std::string &text, TTF_Font *font, SDL_Color color, Renderer *renderer,
                          SDL_BlendMode blendMode = SDL_BLENDMODE_BLEND, Uint8 alpha = 255) {
+        this->font = font;
+        this->textColor = color;
+        this->renderer = renderer;
+        this->blendMode = blendMode;
+        this->alpha = alpha;
         this->text.setAll(renderer, rect, color, font, blendMode, text, alpha);
     }
-}  // namespace lyt
+} // namespace lyt

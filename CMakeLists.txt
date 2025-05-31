@@ -23,10 +23,10 @@ add_executable(DLNU_CPP_CourseDesign main.cpp
         Button.cpp
         Button.h
 )
-target_link_libraries(DLNU_CPP_CourseDesign 
-    SDL2
-    SDL2main
-    SDL2_image
-    SDL2_ttf
-    SDL2_mixer
+target_link_libraries(DLNU_CPP_CourseDesign
+        SDL2
+        SDL2main
+        SDL2_image
+        SDL2_ttf
+        SDL2_mixer
 )

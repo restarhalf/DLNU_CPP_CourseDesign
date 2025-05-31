@@ -65,14 +65,12 @@ namespace lyt {
         return isRunning;
     }
 
-    void Game::handleEvents(int &x, int &y) {
-        SDL_Event event;
-        while (SDL_PollEvent(&event)) {
-            if (event.type == SDL_QUIT || event.key.keysym.sym == SDLK_ESCAPE) {
-                isRunning = false;
-            }
-            controller.event(event, x, y);
+    void Game::handleEvent(SDL_Event &event, int &x, int &y) {
+        if (event.type == SDL_QUIT || event.key.keysym.sym == SDLK_ESCAPE) {
+            isRunning = false;
         }
+
+        controller.event(event, x, y);
     }
 
     void Game::clean() const {

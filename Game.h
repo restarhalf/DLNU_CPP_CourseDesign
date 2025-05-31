@@ -40,7 +40,7 @@ namespace lyt {
         bool init(std::string title, int width, int height, int flags);
 
         // 事件处理函数
-        void handleEvents(int &x, int &y);
+        void handleEvent(SDL_Event &event, int &x, int &y);
 
         // 清理函数
         void clean() const;

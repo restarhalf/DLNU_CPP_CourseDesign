@@ -5,7 +5,7 @@
 #include <random>
 #include <ranges>
 
-#include "Controller.h"
+#include "Button.h"
 #include "Game.h"
 #include "Image.h"
 #include "ServerSide.cpp"
@@ -14,6 +14,7 @@ using namespace lyt;
 
 int main(int argc, char *argv[]) {
     Game game;
+    Button button;
     game.init("Game", 800, 600, 0);
     SDL_SetWindowIcon(game.getWindow()->get(), IMG_Load("1.png"));
     Image image;
@@ -22,13 +23,21 @@ int main(int argc, char *argv[]) {
     while (game.running()) {
         game.frameStart();
         game.getRenderer()->clear();
+        button.setButton(400, 400, 200, 50, {255, 0, 0, 255});
+        button.setText("按钮", game.getFont(), {255, 255, 255, 255}, game.getRenderer(), SDL_BLENDMODE_BLEND, 155);
         text.setAll(game.getRenderer(), {x1, y1, 150, 30}, {0, 0, 0, 0}, game.getFont(), SDL_BLENDMODE_BLEND,
                     "按F1切换鼠标移动或键盘移动", 155);
         image.setImage("1.png", game.getRenderer(), {x, y, 200, 200}, SDL_BLENDMODE_BLEND, 155);
         text.draw();
         image.draw();
+        button.draw();
         game.getRenderer()->present();
-        game.handleEvents(x, y);
+        SDL_Event TODO;
+        while (SDL_PollEvent(&TODO)) {
+            game.handleEvent(TODO, x, y);
+            button.handleEvent(TODO);
+        }
+
         game.frameEnd();
     }
 
