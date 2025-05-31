@@ -30,6 +30,10 @@ namespace lyt {
         TTF_Font *font = nullptr;
         // 整个字
         Text text;
+        // 渲染器
+        Renderer *renderer = nullptr;
+        // 透明度
+        Uint8 alpha = 255;
 
     public:
         Button() = default;
@@ -38,9 +42,9 @@ namespace lyt {
 
         bool isButtonClicked() const;
 
-        void draw(Renderer *renderer);
+        void draw();
 
-        void handleEvent(const SDL_Event &event);
+        void handleEvent(SDL_Event &event);
 
         void setButton(int x, int y, int w, int h, SDL_Color color);
 
