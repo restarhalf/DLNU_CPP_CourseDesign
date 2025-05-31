@@ -14,9 +14,17 @@ namespace lyt {
     }
 
     void Controller::event(SDL_Event &event,int &x,int &y) {
+
+
         switch (event.type) {
             case SDL_KEYDOWN:
+                if ( isKeytoMove)
                 KeyboardPress(event, x, y);
+                if ( event.key.keysym.sym == SDLK_F1) {
+                    isMousetoMove = !isMousetoMove;
+                    isKeytoMove = ! isKeytoMove;
+                    std::cout<< "isMousetoMove:"<<isMousetoMove<<std::endl;
+                }
                 break;
             case SDL_KEYUP:
                 KeyboardRelease(event, x, y);
@@ -67,10 +75,6 @@ namespace lyt {
                 y++;
                 break;
             case SDLK_SPACE:
-                break;
-            case SDLK_F1:
-                isMousetoMove = !isMousetoMove;
-                std::cout<< "isMousetoMove:"<<isMousetoMove<<std::endl;
                 break;
             default:
                 break;

@@ -11,6 +11,7 @@
 #include<bits/stdc++.h>
 #include<string>
 
+#include "Controller.h"
 #include "Image.h"
 
 namespace lyt {
@@ -26,6 +27,8 @@ namespace lyt {
         Image *image{};
         //是否运行判断器
         bool isRunning;
+        //控制器
+        Controller controller;
 
     public:
         //构造函数和析构函数

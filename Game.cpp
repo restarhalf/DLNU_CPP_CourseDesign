@@ -73,7 +73,6 @@ namespace lyt {
             if (event.type == SDL_QUIT || event.key.keysym.sym == SDLK_ESCAPE) {
                 isRunning = false;
             }
-            auto controller = Controller();
             controller.event(event, x, y);
         }
     }

@@ -19,15 +19,11 @@ int main(int argc, char *argv[]) {
     // 在循环外创建图片和文本对象
     Image image;
     int w=0,h=0, x=0,y=0, x1=0,y1=0;
-    std::random_device rd;
-    std::random_device rd1;
-    std::random_device rd2;
-    std::random_device rd3;
     Text text;
 
     while (game.running()) {
         game.frameStart();
-        game.handleEvents(x1, y1);
+
         // 清屏
         game.getRenderer()->clear();
 
@@ -35,11 +31,11 @@ int main(int argc, char *argv[]) {
 
         image.drawImage("1.png", game.getRenderer(),{x,y,200,200});
         // 渲染文本
-        text.drawText(game.getRenderer(), game.getFont(), "Hello World", {x1, y1, 300, 100}, {0, 0, 0, 255});
-        SDL_SetTextureAlphaMod(text.getTexture(), 100);
+        text.drawText(game.getRenderer(), game.getFont(), "按F1切换鼠标移动或键盘移动", {x1, y1, 150, 30}, {0, 0, 0, 255});
+        SDL_SetTextureAlphaMod(text.getTexture(), 225);
         // 呈现渲染的内容
         game.getRenderer()->present();
-
+        game.handleEvents(x, y);
         game.frameEnd();
     }
 
