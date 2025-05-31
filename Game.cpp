@@ -2,7 +2,7 @@
 // Created by restarhalf on 2025/5/28.
 //
 #include "Game.h"
-#include <iostream>
+
 #include <utility>
 #include "Controller.h"
 #include "SDL_egl.h"
@@ -46,26 +46,35 @@ namespace lyt {
         }
 
         isRunning = true;
-        TTF_Init();
-        font = TTF_OpenFont("MSYH.ttf", 24);
-        if (font == nullptr) {
+
+
+        if (TTF_Init()==-1) {
             SDL_Log("SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError());
             isRunning = false;
             return false;
         } else {
             SDL_Log("SDL_TTF initialized");
+        }font = TTF_OpenFont("MSYH.ttf", 720);
+        IMG_Init(IMG_INIT_PNG);
+        if (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG) {
+            SDL_Log("SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError());
+            isRunning = false;
+            return false;
+        }
+        else {
+            SDL_Log("IMG initialized");
         }
         return isRunning;
     }
 
-    void Game::handleEvents() {
+    void Game::handleEvents(int &x, int &y) {
         SDL_Event event;
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT || event.key.keysym.sym == SDLK_ESCAPE) {
                 isRunning = false;
             }
             auto controller = Controller();
-            controller.event(event);
+            controller.event(event, x, y);
         }
     }
 
@@ -76,7 +85,11 @@ namespace lyt {
         SDL_Log("Game cleaned");
     }
 
-    void Game::update() {
+    void Game::update() const {
+        if (renderer) {
+            renderer->clear();
+            renderer->present();
+        }
     }
 
     void Game::render() const {
@@ -96,8 +109,8 @@ namespace lyt {
 
     void Game::frameEnd() {
         Time = SDL_GetTicks() - Start;
-        if (Time < 1000 / FPS) {
-            SDL_Delay(FPS - Time);
+        if (Time-static_cast<Uint32>(FPS) < 0 ) {
+            SDL_Delay(static_cast<Uint32>(FPS) - Time);
         }
     }
 
@@ -127,5 +140,7 @@ namespace lyt {
 
     void Game::setFont(Renderer *renderer, const std::string &fontPath, int fontSize) {
         font = TTF_OpenFont(fontPath.c_str(), fontSize);
-    }
+
+}
+
 }

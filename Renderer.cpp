@@ -14,7 +14,7 @@ namespace lyt {
         Uint32 flags = SDL_RENDERER_ACCELERATED;
         if (vsync) flags |= SDL_RENDERER_PRESENTVSYNC;
 
-        renderer_ = SDL_CreateRenderer(const_cast<SDL_Window *>(window->get()), -1, SDL_RENDERER_ACCELERATED);
+        renderer_ = SDL_CreateRenderer(const_cast<SDL_Window *>(window->get()), -1, flags);
         if (!renderer_) {
             throw std::runtime_error(SDL_GetError());
         }
@@ -33,7 +33,6 @@ namespace lyt {
     }
 
     void Renderer::present() const {
-        std::cout << "Renderer present" << std::endl;
         SDL_RenderPresent(renderer_);
     }
 
