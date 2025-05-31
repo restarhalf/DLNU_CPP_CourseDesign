@@ -24,14 +24,13 @@ namespace lyt {
             if (event.button.button == SDL_BUTTON_LEFT) {
                 int mouseX, mouseY;
                 SDL_GetMouseState(&mouseX, &mouseY);
-                if (mouseX >= rect.x && mouseX <= rect.x + rect.w &&
-                    mouseY >= rect.y && mouseY <= rect.y + rect.h) {
+                if (mouseX >= rect.x && mouseX <= rect.x + rect.w && mouseY >= rect.y && mouseY <= rect.y + rect.h) {
                     isClicked = true;
                 }
             }
         } else if (event.type == SDL_MOUSEBUTTONUP) {
             if (event.button.button == SDL_BUTTON_LEFT) {
-                isClicked = false; // 重置点击状态
+                isClicked = false;  // 重置点击状态
             }
         }
     }
@@ -41,18 +40,18 @@ namespace lyt {
         rect.y = y;
         rect.w = w;
         rect.h = h;
-        buttonColor = color; // 设置按钮颜色
-        isClicked = false; // 重置点击状态
+        buttonColor = color;  // 设置按钮颜色
+        isClicked = false;  // 重置点击状态
     }
 
     void Button::setButton(SDL_Rect rect, SDL_Color color) {
         this->rect = rect;
-        buttonColor = color; // 设置按钮颜色
-        isClicked = false; // 重置点击状态
+        buttonColor = color;  // 设置按钮颜色
+        isClicked = false;  // 重置点击状态
     }
 
     void Button::setText(const std::string &text, TTF_Font *font, SDL_Color color, Renderer *renderer,
                          SDL_BlendMode blendMode = SDL_BLENDMODE_BLEND, Uint8 alpha = 255) {
-        this->text.set_All(renderer, rect, color, font, blendMode, text, alpha);
+        this->text.setAll(renderer, rect, color, font, blendMode, text, alpha);
     }
-} // lyt
+}  // namespace lyt

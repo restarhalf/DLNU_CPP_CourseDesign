@@ -1,15 +1,12 @@
 #include "Renderer.h"
-#include <stdexcept>
+
 #include <bits/stdc++.h>
+#include <stdexcept>
 
 namespace lyt {
-    Renderer::Renderer(SDL_Renderer *renderer) {
-        renderer_ = renderer;
-    }
+    Renderer::Renderer(SDL_Renderer *renderer) { renderer_ = renderer; }
 
-    Renderer::Renderer() {
-        renderer_ = nullptr;
-    };
+    Renderer::Renderer() { renderer_ = nullptr; };
 
     Renderer::Renderer(const Window *window, bool vsync) {
         Uint32 flags = SDL_RENDERER_ACCELERATED;
@@ -29,15 +26,11 @@ namespace lyt {
         }
     }
 
-    void Renderer::clear() const {
-        SDL_RenderClear(renderer_);
-    }
+    void Renderer::clear() const { SDL_RenderClear(renderer_); }
 
-    void Renderer::present() const {
-        SDL_RenderPresent(renderer_);
-    }
+    void Renderer::present() const { SDL_RenderPresent(renderer_); }
 
     int Renderer::copy(SDL_Texture *texture, SDL_Rect *src, SDL_Rect *dst) const {
         return SDL_RenderCopy(renderer_, texture, src, dst);
     }
-}
+}  // namespace lyt

@@ -28,9 +28,8 @@
 #ifndef SDL_sensor_h_
 #define SDL_sensor_h_
 
-#include "SDL_stdinc.h"
 #include "SDL_error.h"
-
+#include "SDL_stdinc.h"
 #include "begin_code.h"
 /* Set up for C function definitions, even when using C++ */
 #ifdef __cplusplus
@@ -130,7 +129,7 @@ typedef enum SDL_SensorType {
  * rest will have an value of SDL_STANDARD_GRAVITY away from the center of the
  * earth, which is a positive Y value.
  */
-#define SDL_STANDARD_GRAVITY    9.80665f
+#define SDL_STANDARD_GRAVITY 9.80665f
 
 /* Function prototypes */
 

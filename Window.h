@@ -25,4 +25,4 @@ namespace lyt {
         int height_;
         SDL_Event event_;
     };
-}
+}  // namespace lyt

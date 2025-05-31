@@ -81,13 +81,13 @@
 #define SDL_MAIN_NEEDED
 
 /* We need to export SDL_main so it can be launched from Java */
-#define SDLMAIN_DECLSPEC    DECLSPEC
+#define SDLMAIN_DECLSPEC DECLSPEC
 
 #elif defined(__NACL__)
 /* On NACL we use ppapi_simple to set up the application helper code,
-   then wait for the first PSE_INSTANCE_DIDCHANGEVIEW event before 
+   then wait for the first PSE_INSTANCE_DIDCHANGEVIEW event before
    starting the user main function.
-   All user code is run in a separate thread by ppapi_simple, thus 
+   All user code is run in a separate thread by ppapi_simple, thus
    allowing for blocking io to take place via nacl_io
 */
 #define SDL_MAIN_NEEDED
@@ -105,8 +105,8 @@
 #define SDL_MAIN_AVAILABLE
 
 #define SDL_PS2_SKIP_IOP_RESET() \
-   void reset_IOP(); \
-   void reset_IOP() {}
+    void reset_IOP();            \
+    void reset_IOP() {}
 
 #elif defined(__3DS__)
 /*
@@ -140,7 +140,7 @@
  */
 
 #if defined(SDL_MAIN_NEEDED) || defined(SDL_MAIN_AVAILABLE)
-#define main    SDL_main
+#define main SDL_main
 #endif
 
 #include "begin_code.h"
@@ -230,7 +230,7 @@ extern DECLSPEC void SDLCALL SDL_UnregisterApp(void);
  *
  * \since This function is available since SDL 2.0.3.
  */
-extern DECLSPEC int SDLCALL SDL_WinRTRunApp(SDL_main_func mainFunction, void * reserved);
+extern DECLSPEC int SDLCALL SDL_WinRTRunApp(SDL_main_func mainFunction, void *reserved);
 
 #endif /* __WINRT__ */
 

@@ -3,52 +3,52 @@
 //
 #ifndef CLIENTSIDE_H
 #define CLIENTSIDE_H
-#include "Window.h"
-#include "Renderer.h"
-#include <SDL_ttf.h>
-#include <SDL_mixer.h>
 #include <SDL_image.h>
-#include<bits/stdc++.h>
-#include<string>
+#include <SDL_mixer.h>
+#include <SDL_ttf.h>
+#include <bits/stdc++.h>
+#include <string>
 
 #include "Controller.h"
 #include "Image.h"
+#include "Renderer.h"
+#include "Window.h"
 
 namespace lyt {
     class Game {
         //-----------------------------------------------------//
-        //窗口部分
+        // 窗口部分
     private:
         // 窗口管理
         Window *window;
         // 渲染器管理
         Renderer *renderer;
-        //图片管理
+        // 图片管理
         Image *image{};
-        //是否运行判断器
+        // 是否运行判断器
         bool isRunning;
-        //控制器
+        // 控制器
         Controller controller;
 
     public:
-        //构造函数和析构函数
+        // 构造函数和析构函数
         Game();
 
         ~Game();
 
-        //初始化函数
+        // 初始化函数
         bool init(std::string title, int width, int height, int flags);
 
-        //事件处理函数
+        // 事件处理函数
         void handleEvents(int &x, int &y);
 
-        //清理函数
+        // 清理函数
         void clean() const;
 
-        //状态更新
+        // 状态更新
         void update() const;
 
-        //渲染函数
+        // 渲染函数
         void render() const;
 
         Renderer *getRenderer() const;
@@ -61,22 +61,22 @@ namespace lyt {
 
         void setWindow(Window *window);
 
-        void setFont(Renderer *renderer, const std::string &fontPath, int fontSize);
+        void setFont(const std::string &fontPath, int fontSize);
 
-        //运行状态判断器
+        // 运行状态判断器
         [[nodiscard]] bool running() const;
 
         //-----------------------------------------------------//
-        //帧率部分
+        // 帧率部分
     private:
-        //帧率//后面那个60是帧率
-        float FPS = 1000 / 60.f; // 60 FPS
+        // 帧率//后面那个60是帧率
+        float FPS = 1000 / 60.f;  // 60 FPS
         Uint32 rendererFlags = SDL_RENDERER_PRESENTVSYNC;
-        //初始时间
+        // 初始时间
         Uint32 Start = 0;
-        //经历的时间
+        // 经历的时间
         Uint32 Time = 0;
-        //字体
+        // 字体
         TTF_Font *font;
 
     public:
@@ -86,6 +86,6 @@ namespace lyt {
 
         void setFps(float fps);
     };
-}
+}  // namespace lyt
 
-#endif //CLIENTSIDE_H
+#endif  // CLIENTSIDE_H

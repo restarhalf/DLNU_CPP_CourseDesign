@@ -28,8 +28,8 @@
  * Header for the SDL thread management routines.
  */
 
-#include "SDL_stdinc.h"
 #include "SDL_error.h"
+#include "SDL_stdinc.h"
 
 /* Thread synchronization primitives */
 #include "SDL_atomic.h"
@@ -87,7 +87,7 @@ typedef enum SDL_ThreadPriority {
  * \param data what was passed as `data` to SDL_CreateThread().
  * \returns a value that can be reported through SDL_WaitThread().
  */
-typedef int (SDLCALL *SDL_ThreadFunction)(void *data);
+typedef int(SDLCALL *SDL_ThreadFunction)(void *data);
 
 
 #if (defined(__WIN32__) || defined(__GDK__)) && !defined(__WINRT__)
@@ -113,11 +113,10 @@ typedef int (SDLCALL *SDL_ThreadFunction)(void *data);
  */
 #define SDL_PASSED_BEGINTHREAD_ENDTHREAD
 
-typedef uintptr_t (__cdecl *pfnSDL_CurrentBeginThread)
-(void *, unsigned, unsigned (__stdcall *func)(void *),
- void * /*arg*/, unsigned, unsigned * /* threadID */);
+typedef uintptr_t(__cdecl *pfnSDL_CurrentBeginThread)(void *, unsigned, unsigned(__stdcall *func)(void *),
+                                                      void * /*arg*/, unsigned, unsigned * /* threadID */);
 
-typedef void (__cdecl *pfnSDL_CurrentEndThread)(unsigned code);
+typedef void(__cdecl *pfnSDL_CurrentEndThread)(unsigned code);
 
 #ifndef SDL_beginthread
 #define SDL_beginthread _beginthreadex
@@ -126,26 +125,32 @@ typedef void (__cdecl *pfnSDL_CurrentEndThread)(unsigned code);
 #define SDL_endthread _endthreadex
 #endif
 
-extern DECLSPEC SDL_Thread *SDLCALL
-SDL_CreateThread(SDL_ThreadFunction fn, const char *name, void *data,
-                 pfnSDL_CurrentBeginThread pfnBeginThread,
-                 pfnSDL_CurrentEndThread pfnEndThread);
+extern DECLSPEC SDL_Thread *SDLCALL SDL_CreateThread(SDL_ThreadFunction fn, const char *name, void *data,
+                                                     pfnSDL_CurrentBeginThread pfnBeginThread,
+                                                     pfnSDL_CurrentEndThread pfnEndThread);
 
-extern DECLSPEC SDL_Thread *SDLCALL
-SDL_CreateThreadWithStackSize(SDL_ThreadFunction fn,
-                              const char *name, const size_t stacksize, void *data,
-                              pfnSDL_CurrentBeginThread pfnBeginThread,
-                              pfnSDL_CurrentEndThread pfnEndThread);
+extern DECLSPEC SDL_Thread *SDLCALL SDL_CreateThreadWithStackSize(SDL_ThreadFunction fn, const char *name,
+                                                                  const size_t stacksize, void *data,
+                                                                  pfnSDL_CurrentBeginThread pfnBeginThread,
+                                                                  pfnSDL_CurrentEndThread pfnEndThread);
 
 
 #if defined(SDL_CreateThread) && SDL_DYNAMIC_API
 #undef SDL_CreateThread
-#define SDL_CreateThread(fn, name, data) SDL_CreateThread_REAL(fn, name, data, (pfnSDL_CurrentBeginThread)SDL_beginthread, (pfnSDL_CurrentEndThread)SDL_endthread)
+#define SDL_CreateThread(fn, name, data)                                               \
+    SDL_CreateThread_REAL(fn, name, data, (pfnSDL_CurrentBeginThread) SDL_beginthread, \
+                          (pfnSDL_CurrentEndThread) SDL_endthread)
 #undef SDL_CreateThreadWithStackSize
-#define SDL_CreateThreadWithStackSize(fn, name, stacksize, data) SDL_CreateThreadWithStackSize_REAL(fn, name, stacksize, data, (pfnSDL_CurrentBeginThread)SDL_beginthread, (pfnSDL_CurrentEndThread)SDL_endthread)
+#define SDL_CreateThreadWithStackSize(fn, name, stacksize, data)                                               \
+    SDL_CreateThreadWithStackSize_REAL(fn, name, stacksize, data, (pfnSDL_CurrentBeginThread) SDL_beginthread, \
+                                       (pfnSDL_CurrentEndThread) SDL_endthread)
 #else
-#define SDL_CreateThread(fn, name, data) SDL_CreateThread(fn, name, data, (pfnSDL_CurrentBeginThread)SDL_beginthread, (pfnSDL_CurrentEndThread)SDL_endthread)
-#define SDL_CreateThreadWithStackSize(fn, name, stacksize, data) SDL_CreateThreadWithStackSize(fn, name, stacksize, data, (pfnSDL_CurrentBeginThread)SDL_beginthread, (pfnSDL_CurrentEndThread)SDL_endthread)
+#define SDL_CreateThread(fn, name, data)                                          \
+    SDL_CreateThread(fn, name, data, (pfnSDL_CurrentBeginThread) SDL_beginthread, \
+                     (pfnSDL_CurrentEndThread) SDL_endthread)
+#define SDL_CreateThreadWithStackSize(fn, name, stacksize, data)                                          \
+    SDL_CreateThreadWithStackSize(fn, name, stacksize, data, (pfnSDL_CurrentBeginThread) SDL_beginthread, \
+                                  (pfnSDL_CurrentEndThread) SDL_endthread)
 #endif
 
 #elif defined(__OS2__)
@@ -165,23 +170,30 @@ typedef void (*pfnSDL_CurrentEndThread)(void);
 #define SDL_endthread _endthread
 #endif
 
-extern DECLSPEC SDL_Thread *SDLCALL
-SDL_CreateThread(SDL_ThreadFunction fn, const char *name, void *data,
-                 pfnSDL_CurrentBeginThread pfnBeginThread,
-                 pfnSDL_CurrentEndThread pfnEndThread);
-extern DECLSPEC SDL_Thread *SDLCALL
-SDL_CreateThreadWithStackSize(SDL_ThreadFunction fn, const char *name, const size_t stacksize, void *data,
-                 pfnSDL_CurrentBeginThread pfnBeginThread,
-                 pfnSDL_CurrentEndThread pfnEndThread);
+extern DECLSPEC SDL_Thread *SDLCALL SDL_CreateThread(SDL_ThreadFunction fn, const char *name, void *data,
+                                                     pfnSDL_CurrentBeginThread pfnBeginThread,
+                                                     pfnSDL_CurrentEndThread pfnEndThread);
+extern DECLSPEC SDL_Thread *SDLCALL SDL_CreateThreadWithStackSize(SDL_ThreadFunction fn, const char *name,
+                                                                  const size_t stacksize, void *data,
+                                                                  pfnSDL_CurrentBeginThread pfnBeginThread,
+                                                                  pfnSDL_CurrentEndThread pfnEndThread);
 
 #if defined(SDL_CreateThread) && SDL_DYNAMIC_API
 #undef SDL_CreateThread
-#define SDL_CreateThread(fn, name, data) SDL_CreateThread_REAL(fn, name, data, (pfnSDL_CurrentBeginThread)SDL_beginthread, (pfnSDL_CurrentEndThread)SDL_endthread)
+#define SDL_CreateThread(fn, name, data)                                               \
+    SDL_CreateThread_REAL(fn, name, data, (pfnSDL_CurrentBeginThread) SDL_beginthread, \
+                          (pfnSDL_CurrentEndThread) SDL_endthread)
 #undef SDL_CreateThreadWithStackSize
-#define SDL_CreateThreadWithStackSize(fn, name, stacksize, data) SDL_CreateThreadWithStackSize_REAL(fn, name, stacksize, data, (pfnSDL_CurrentBeginThread)SDL_beginthread, (pfnSDL_CurrentEndThread)SDL_endthread)
+#define SDL_CreateThreadWithStackSize(fn, name, stacksize, data)                                               \
+    SDL_CreateThreadWithStackSize_REAL(fn, name, stacksize, data, (pfnSDL_CurrentBeginThread) SDL_beginthread, \
+                                       (pfnSDL_CurrentEndThread) SDL_endthread)
 #else
-#define SDL_CreateThread(fn, name, data) SDL_CreateThread(fn, name, data, (pfnSDL_CurrentBeginThread)SDL_beginthread, (pfnSDL_CurrentEndThread)SDL_endthread)
-#define SDL_CreateThreadWithStackSize(fn, name, stacksize, data) SDL_CreateThreadWithStackSize(fn, name, stacksize, data, (pfnSDL_CurrentBeginThread)SDL_beginthread, (pfnSDL_CurrentEndThread)SDL_endthread)
+#define SDL_CreateThread(fn, name, data)                                          \
+    SDL_CreateThread(fn, name, data, (pfnSDL_CurrentBeginThread) SDL_beginthread, \
+                     (pfnSDL_CurrentEndThread) SDL_endthread)
+#define SDL_CreateThreadWithStackSize(fn, name, stacksize, data)                                          \
+    SDL_CreateThreadWithStackSize(fn, name, stacksize, data, (pfnSDL_CurrentBeginThread) SDL_beginthread, \
+                                  (pfnSDL_CurrentEndThread) SDL_endthread)
 #endif
 
 #else
@@ -207,8 +219,7 @@ SDL_CreateThreadWithStackSize(SDL_ThreadFunction fn, const char *name, const siz
  * \sa SDL_CreateThreadWithStackSize
  * \sa SDL_WaitThread
  */
-extern DECLSPEC SDL_Thread *SDLCALL
-SDL_CreateThread(SDL_ThreadFunction fn, const char *name, void *data);
+extern DECLSPEC SDL_Thread *SDLCALL SDL_CreateThread(SDL_ThreadFunction fn, const char *name, void *data);
 
 /**
  * Create a new thread with a specific stack size.
@@ -253,8 +264,8 @@ SDL_CreateThread(SDL_ThreadFunction fn, const char *name, void *data);
  *
  * \sa SDL_WaitThread
  */
-extern DECLSPEC SDL_Thread *SDLCALL
-SDL_CreateThreadWithStackSize(SDL_ThreadFunction fn, const char *name, const size_t stacksize, void *data);
+extern DECLSPEC SDL_Thread *SDLCALL SDL_CreateThreadWithStackSize(SDL_ThreadFunction fn, const char *name,
+                                                                  const size_t stacksize, void *data);
 
 #endif
 
@@ -422,9 +433,9 @@ extern DECLSPEC SDL_TLSID SDLCALL SDL_TLSCreate(void);
  * \sa SDL_TLSCreate
  * \sa SDL_TLSSet
  */
-extern DECLSPEC void * SDLCALL SDL_TLSGet(SDL_TLSID id);
+extern DECLSPEC void *SDLCALL SDL_TLSGet(SDL_TLSID id);
 
-typedef void (SDLCALL *SDL_TLSDestructorCallback)(void *);
+typedef void(SDLCALL *SDL_TLSDestructorCallback)(void *);
 
 /**
  * Set the current thread's value associated with a thread local storage ID.

@@ -31,9 +31,8 @@
 #ifndef SDL_guid_h_
 #define SDL_guid_h_
 
-#include "SDL_stdinc.h"
 #include "SDL_error.h"
-
+#include "SDL_stdinc.h"
 #include "begin_code.h"
 /* Set up for C function definitions, even when using C++ */
 #ifdef __cplusplus

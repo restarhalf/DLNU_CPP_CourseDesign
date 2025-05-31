@@ -7,17 +7,14 @@
 #include "Game.h"
 
 namespace lyt {
-    Controller::Controller() {
-    }
+    Controller::Controller() {}
 
-    Controller::~Controller() {
-    }
+    Controller::~Controller() {}
 
     void Controller::event(SDL_Event &event, int &x, int &y) {
         switch (event.type) {
             case SDL_KEYDOWN:
-                if (isKeytoMove)
-                    KeyboardPress(event, x, y);
+                if (isKeytoMove) KeyboardPress(event, x, y);
                 if (event.key.keysym.sym == SDLK_F1) {
                     isMousetoMove = !isMousetoMove;
                     isKeytoMove = !isKeytoMove;
@@ -34,8 +31,7 @@ namespace lyt {
                 MouseRelease(event);
                 break;
             case SDL_MOUSEMOTION:
-                if (isMousetoMove)
-                    MouseMove(event, x, y);
+                if (isMousetoMove) MouseMove(event, x, y);
                 break;
             default:
                 break;
@@ -143,4 +139,4 @@ namespace lyt {
         y = event.motion.y;
         SDL_Log("Mouse moved to (%d, %d)", x, y);
     }
-}
+}  // namespace lyt

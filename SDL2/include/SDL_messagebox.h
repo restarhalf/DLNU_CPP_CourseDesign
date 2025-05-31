@@ -23,8 +23,7 @@
 #define SDL_messagebox_h_
 
 #include "SDL_stdinc.h"
-#include "SDL_video.h"      /* For SDL_Window */
-
+#include "SDL_video.h" /* For SDL_Window */
 #include "begin_code.h"
 /* Set up for C function definitions, even when using C++ */
 #ifdef __cplusplus

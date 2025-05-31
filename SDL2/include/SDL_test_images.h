@@ -37,7 +37,6 @@
 #define SDL_test_images_h_
 
 #include "SDL.h"
-
 #include "begin_code.h"
 /* Set up for C function definitions, even when using C++ */
 #ifdef __cplusplus

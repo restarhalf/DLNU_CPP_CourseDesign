@@ -28,17 +28,16 @@
 #ifndef SDL_events_h_
 #define SDL_events_h_
 
-#include "SDL_stdinc.h"
 #include "SDL_error.h"
-#include "SDL_video.h"
+#include "SDL_gamecontroller.h"
+#include "SDL_gesture.h"
+#include "SDL_joystick.h"
 #include "SDL_keyboard.h"
 #include "SDL_mouse.h"
-#include "SDL_joystick.h"
-#include "SDL_gamecontroller.h"
 #include "SDL_quit.h"
-#include "SDL_gesture.h"
+#include "SDL_stdinc.h"
 #include "SDL_touch.h"
-
+#include "SDL_video.h"
 #include "begin_code.h"
 /* Set up for C function definitions, even when using C++ */
 #ifdef __cplusplus
@@ -46,7 +45,7 @@ extern "C" {
 #endif
 
 /* General keyboard/mouse state definitions */
-#define SDL_RELEASED    0
+#define SDL_RELEASED 0
 #define SDL_PRESSED 1
 
 /**
@@ -327,11 +326,14 @@ typedef struct SDL_MouseWheelEvent {
     Sint32 x; /**< The amount scrolled horizontally, positive to the right and negative to the left */
     Sint32 y; /**< The amount scrolled vertically, positive away from the user and negative toward the user */
     Uint32 direction;
-    /**< Set to one of the SDL_MOUSEWHEEL_* defines. When FLIPPED the values in X and Y will be opposite. Multiply by -1 to change them back */
+    /**< Set to one of the SDL_MOUSEWHEEL_* defines. When FLIPPED the values in X and Y will be opposite. Multiply by -1
+     * to change them back */
     float preciseX;
-    /**< The amount scrolled horizontally, positive to the right and negative to the left, with float precision (added in 2.0.18) */
+    /**< The amount scrolled horizontally, positive to the right and negative to the left, with float precision (added
+     * in 2.0.18) */
     float preciseY;
-    /**< The amount scrolled vertically, positive away from the user and negative toward the user, with float precision (added in 2.0.18) */
+    /**< The amount scrolled vertically, positive away from the user and negative toward the user, with float precision
+     * (added in 2.0.18) */
     Sint32 mouseX; /**< X coordinate, relative to window (added in 2.26.0) */
     Sint32 mouseY; /**< Y coordinate, relative to window (added in 2.26.0) */
 } SDL_MouseWheelEvent;
@@ -375,12 +377,12 @@ typedef struct SDL_JoyHatEvent {
     SDL_JoystickID which; /**< The joystick instance id */
     Uint8 hat; /**< The joystick hat index */
     Uint8 value; /**< The hat position value.
-                         *   \sa SDL_HAT_LEFTUP SDL_HAT_UP SDL_HAT_RIGHTUP
-                         *   \sa SDL_HAT_LEFT SDL_HAT_CENTERED SDL_HAT_RIGHT
-                         *   \sa SDL_HAT_LEFTDOWN SDL_HAT_DOWN SDL_HAT_RIGHTDOWN
-                         *
-                         *   Note that zero means the POV is centered.
-                         */
+                  *   \sa SDL_HAT_LEFTUP SDL_HAT_UP SDL_HAT_RIGHTUP
+                  *   \sa SDL_HAT_LEFT SDL_HAT_CENTERED SDL_HAT_RIGHT
+                  *   \sa SDL_HAT_LEFTDOWN SDL_HAT_DOWN SDL_HAT_RIGHTDOWN
+                  *
+                  *   Note that zero means the POV is centered.
+                  */
     Uint8 padding1;
     Uint8 padding2;
 } SDL_JoyHatEvent;
@@ -463,7 +465,8 @@ typedef struct SDL_ControllerButtonEvent {
  */
 typedef struct SDL_ControllerDeviceEvent {
     Uint32 type;
-    /**< SDL_CONTROLLERDEVICEADDED, SDL_CONTROLLERDEVICEREMOVED, SDL_CONTROLLERDEVICEREMAPPED, or SDL_CONTROLLERSTEAMHANDLEUPDATED */
+    /**< SDL_CONTROLLERDEVICEADDED, SDL_CONTROLLERDEVICEREMOVED, SDL_CONTROLLERDEVICEREMAPPED, or
+     * SDL_CONTROLLERSTEAMHANDLEUPDATED */
     Uint32 timestamp; /**< In milliseconds, populated using SDL_GetTicks() */
     Sint32 which; /**< The joystick device index for the ADDED event, instance id for the REMOVED or REMAPPED event */
 } SDL_ControllerDeviceEvent;
@@ -502,7 +505,8 @@ typedef struct SDL_AudioDeviceEvent {
     Uint32 type; /**< SDL_AUDIODEVICEADDED, or SDL_AUDIODEVICEREMOVED */
     Uint32 timestamp; /**< In milliseconds, populated using SDL_GetTicks() */
     Uint32 which;
-    /**< The audio device index for the ADDED event (valid until next SDL_GetNumAudioDevices() call), SDL_AudioDeviceID for the REMOVED event */
+    /**< The audio device index for the ADDED event (valid until next SDL_GetNumAudioDevices() call), SDL_AudioDeviceID
+     * for the REMOVED event */
     Uint8 iscapture; /**< zero if an output device, non-zero if a capture device. */
     Uint8 padding1;
     Uint8 padding2;
@@ -678,7 +682,7 @@ typedef union SDL_Event {
 } SDL_Event;
 
 /* Make sure we haven't broken binary compatibility */
-SDL_COMPILE_TIME_ASSERT(SDL_Event, sizeof(SDL_Event) == sizeof(((SDL_Event *)NULL)->padding));
+SDL_COMPILE_TIME_ASSERT(SDL_Event, sizeof(SDL_Event) == sizeof(((SDL_Event *) NULL)->padding));
 
 
 /* Function prototypes */
@@ -708,11 +712,7 @@ SDL_COMPILE_TIME_ASSERT(SDL_Event, sizeof(SDL_Event) == sizeof(((SDL_Event *)NUL
 extern DECLSPEC void SDLCALL SDL_PumpEvents(void);
 
 /* @{ */
-typedef enum SDL_eventaction {
-    SDL_ADDEVENT,
-    SDL_PEEKEVENT,
-    SDL_GETEVENT
-} SDL_eventaction;
+typedef enum SDL_eventaction { SDL_ADDEVENT, SDL_PEEKEVENT, SDL_GETEVENT } SDL_eventaction;
 
 /**
  * Check the event queue for messages and optionally return them.
@@ -752,9 +752,8 @@ typedef enum SDL_eventaction {
  * \sa SDL_PumpEvents
  * \sa SDL_PushEvent
  */
-extern DECLSPEC int SDLCALL SDL_PeepEvents(SDL_Event *events, int numevents,
-                                           SDL_eventaction action,
-                                           Uint32 minType, Uint32 maxType);
+extern DECLSPEC int SDLCALL SDL_PeepEvents(SDL_Event *events, int numevents, SDL_eventaction action, Uint32 minType,
+                                           Uint32 maxType);
 
 /* @} */
 
@@ -933,8 +932,7 @@ extern DECLSPEC int SDLCALL SDL_WaitEvent(SDL_Event *event);
  * \sa SDL_PumpEvents
  * \sa SDL_WaitEvent
  */
-extern DECLSPEC int SDLCALL SDL_WaitEventTimeout(SDL_Event *event,
-                                                 int timeout);
+extern DECLSPEC int SDLCALL SDL_WaitEventTimeout(SDL_Event *event, int timeout);
 
 /**
  * Add an event to the event queue.
@@ -982,7 +980,7 @@ extern DECLSPEC int SDLCALL SDL_PushEvent(SDL_Event *event);
  * \sa SDL_SetEventFilter
  * \sa SDL_AddEventWatch
  */
-typedef int (SDLCALL *SDL_EventFilter)(void *userdata, SDL_Event *event);
+typedef int(SDLCALL *SDL_EventFilter)(void *userdata, SDL_Event *event);
 
 /**
  * Set up a filter to process all events before they change internal state and
@@ -1026,8 +1024,7 @@ typedef int (SDLCALL *SDL_EventFilter)(void *userdata, SDL_Event *event);
  * \sa SDL_PeepEvents
  * \sa SDL_PushEvent
  */
-extern DECLSPEC void SDLCALL SDL_SetEventFilter(SDL_EventFilter filter,
-                                                void *userdata);
+extern DECLSPEC void SDLCALL SDL_SetEventFilter(SDL_EventFilter filter, void *userdata);
 
 /**
  * Query the current event filter.
@@ -1044,8 +1041,7 @@ extern DECLSPEC void SDLCALL SDL_SetEventFilter(SDL_EventFilter filter,
  *
  * \sa SDL_SetEventFilter
  */
-extern DECLSPEC SDL_bool SDLCALL SDL_GetEventFilter(SDL_EventFilter *filter,
-                                                    void **userdata);
+extern DECLSPEC SDL_bool SDLCALL SDL_GetEventFilter(SDL_EventFilter *filter, void **userdata);
 
 /**
  * Add a callback to be triggered when an event is added to the event queue.
@@ -1073,8 +1069,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_GetEventFilter(SDL_EventFilter *filter,
  * \sa SDL_DelEventWatch
  * \sa SDL_SetEventFilter
  */
-extern DECLSPEC void SDLCALL SDL_AddEventWatch(SDL_EventFilter filter,
-                                               void *userdata);
+extern DECLSPEC void SDLCALL SDL_AddEventWatch(SDL_EventFilter filter, void *userdata);
 
 /**
  * Remove an event watch callback added with SDL_AddEventWatch().
@@ -1089,8 +1084,7 @@ extern DECLSPEC void SDLCALL SDL_AddEventWatch(SDL_EventFilter filter,
  *
  * \sa SDL_AddEventWatch
  */
-extern DECLSPEC void SDLCALL SDL_DelEventWatch(SDL_EventFilter filter,
-                                               void *userdata);
+extern DECLSPEC void SDLCALL SDL_DelEventWatch(SDL_EventFilter filter, void *userdata);
 
 /**
  * Run a specific filter function on the current event queue, removing any
@@ -1108,14 +1102,13 @@ extern DECLSPEC void SDLCALL SDL_DelEventWatch(SDL_EventFilter filter,
  * \sa SDL_GetEventFilter
  * \sa SDL_SetEventFilter
  */
-extern DECLSPEC void SDLCALL SDL_FilterEvents(SDL_EventFilter filter,
-                                              void *userdata);
+extern DECLSPEC void SDLCALL SDL_FilterEvents(SDL_EventFilter filter, void *userdata);
 
 /* @{ */
-#define SDL_QUERY   -1
-#define SDL_IGNORE   0
-#define SDL_DISABLE  0
-#define SDL_ENABLE   1
+#define SDL_QUERY -1
+#define SDL_IGNORE 0
+#define SDL_DISABLE 0
+#define SDL_ENABLE 1
 
 /**
  * Set the state of processing events by type.

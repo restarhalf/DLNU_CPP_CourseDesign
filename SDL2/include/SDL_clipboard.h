@@ -29,7 +29,6 @@
 #define SDL_clipboard_h_
 
 #include "SDL_stdinc.h"
-
 #include "begin_code.h"
 /* Set up for C function definitions, even when using C++ */
 #ifdef __cplusplus
@@ -68,7 +67,7 @@ extern DECLSPEC int SDLCALL SDL_SetClipboardText(const char *text);
  * \sa SDL_HasClipboardText
  * \sa SDL_SetClipboardText
  */
-extern DECLSPEC char * SDLCALL SDL_GetClipboardText(void);
+extern DECLSPEC char *SDLCALL SDL_GetClipboardText(void);
 
 /**
  * Query whether the clipboard exists and contains a non-empty text string.
@@ -113,7 +112,7 @@ extern DECLSPEC int SDLCALL SDL_SetPrimarySelectionText(const char *text);
  * \sa SDL_HasPrimarySelectionText
  * \sa SDL_SetPrimarySelectionText
  */
-extern DECLSPEC char * SDLCALL SDL_GetPrimarySelectionText(void);
+extern DECLSPEC char *SDLCALL SDL_GetPrimarySelectionText(void);
 
 /**
  * Query whether the primary selection exists and contains a non-empty text

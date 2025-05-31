@@ -16,7 +16,7 @@ namespace lyt {
 
         ~Controller();
 
-        //动作监视器
+        // 动作监视器
         void event(SDL_Event &event, int &x, int &y);
 
     private:
@@ -30,7 +30,7 @@ namespace lyt {
 
         void MouseMove(const SDL_Event &event, int &x, int &y);
     };
-}
+}  // namespace lyt
 
 
-#endif //CONTROLLER_H
+#endif  // CONTROLLER_H

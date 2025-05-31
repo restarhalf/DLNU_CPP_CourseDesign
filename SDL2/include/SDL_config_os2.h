@@ -31,14 +31,14 @@
 #define SDL_AUDIO_DRIVER_DISK 1
 #define SDL_AUDIO_DRIVER_OS2 1
 
-#define SDL_POWER_DISABLED  1
+#define SDL_POWER_DISABLED 1
 #define SDL_HAPTIC_DISABLED 1
 
 #define SDL_SENSOR_DUMMY 1
 #define SDL_VIDEO_DRIVER_DUMMY 1
 #define SDL_VIDEO_DRIVER_OS2 1
 #define SDL_JOYSTICK_OS2 1
-#ifndef HAVE_LIBUSB_H  /* see Makefile */
+#ifndef HAVE_LIBUSB_H /* see Makefile */
 #define SDL_HIDAPI_DISABLED 1
 /*#undef SDL_JOYSTICK_HIDAPI */
 #else
@@ -154,7 +154,7 @@
 #define HAVE_STRICMP 1
 #define HAVE_STRCASECMP 1
 #define HAVE_STRNCASECMP 1
-#define HAVE_SSCANF  1
+#define HAVE_SSCANF 1
 #define HAVE_VSSCANF 1
 #define HAVE_SNPRINTF 1
 #define HAVE_VSNPRINTF 1

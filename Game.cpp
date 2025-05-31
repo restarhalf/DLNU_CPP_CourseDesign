@@ -4,16 +4,14 @@
 #include "Game.h"
 
 #include <utility>
+
 #include "Controller.h"
 #include "SDL_egl.h"
 
 namespace lyt {
-    Game::Game(): window(nullptr), renderer(nullptr), isRunning(false), font(nullptr) {
-    }
+    Game::Game() : window(nullptr), renderer(nullptr), isRunning(false), font(nullptr) {}
 
-    Game::~Game() {
-        clean();
-    }
+    Game::~Game() { clean(); }
 
     bool Game::init(std::string title, int width, int height, int flags) {
         if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
@@ -98,13 +96,9 @@ namespace lyt {
         }
     }
 
-    bool Game::running() const {
-        return isRunning;
-    }
+    bool Game::running() const { return isRunning; }
 
-    void Game::frameStart() {
-        Start = SDL_GetTicks();
-    }
+    void Game::frameStart() { Start = SDL_GetTicks(); }
 
     void Game::frameEnd() {
         Time = SDL_GetTicks() - Start;
@@ -113,31 +107,17 @@ namespace lyt {
         }
     }
 
-    void Game::setFps(const float fps) {
-        FPS = 1000.f / fps;
-    }
+    void Game::setFps(const float fps) { FPS = 1000.f / fps; }
 
-    Renderer *Game::getRenderer() const {
-        return renderer;
-    }
+    Renderer *Game::getRenderer() const { return renderer; }
 
-    Window *Game::getWindow() const {
-        return window;
-    }
+    Window *Game::getWindow() const { return window; }
 
-    TTF_Font *Game::getFont() const {
-        return font;
-    }
+    TTF_Font *Game::getFont() const { return font; }
 
-    void Game::setRenderer(Renderer *renderer) {
-        this->renderer = renderer;
-    }
+    void Game::setRenderer(Renderer *renderer) { this->renderer = renderer; }
 
-    void Game::setWindow(Window *window) {
-        this->window = window;
-    }
+    void Game::setWindow(Window *window) { this->window = window; }
 
-    void Game::setFont(Renderer *renderer, const std::string &fontPath, int fontSize) {
-        font = TTF_OpenFont(fontPath.c_str(), fontSize);
-    }
-}
+    void Game::setFont(const std::string &fontPath, int fontSize) { font = TTF_OpenFont(fontPath.c_str(), fontSize); }
+}  // namespace lyt

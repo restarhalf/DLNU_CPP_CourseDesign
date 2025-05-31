@@ -45,12 +45,12 @@ extern "C" {
 /*
  * \brief Fails the assert.
  */
-#define ASSERT_FAIL     0
+#define ASSERT_FAIL 0
 
 /*
  * \brief Passes the assert.
  */
-#define ASSERT_PASS     1
+#define ASSERT_PASS 1
 
 /*
  * \brief Assert that logs and break execution flow on failures.
@@ -60,12 +60,11 @@ extern "C" {
  */
 void SDLTest_Assert(int assertCondition, SDL_PRINTF_FORMAT_STRING constchar *assertDescription, ...)
 
-SDL_PRINTF_VARARG_FUNC
+        SDL_PRINTF_VARARG_FUNC
 
-(
+        (
 
-2
-);
+                2);
 
 /*
  * \brief Assert for test cases that logs but does not break execution flow on failures. Updates assertion counters.
@@ -77,12 +76,11 @@ SDL_PRINTF_VARARG_FUNC
  */
 int SDLTest_AssertCheck(int assertCondition, SDL_PRINTF_FORMAT_STRING constchar *assertDescription, ...)
 
-SDL_PRINTF_VARARG_FUNC
+        SDL_PRINTF_VARARG_FUNC
 
-(
+        (
 
-2
-);
+                2);
 
 /*
  * \brief Explicitly pass without checking an assertion condition. Updates assertion counter.
