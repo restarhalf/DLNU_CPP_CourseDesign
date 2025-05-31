@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "DLNU_CPP_CourseDesign.dir\\Debug\\main.obj",
+            "outputs": [
+                "D:\\C_C++Package\\CLionProject\\DLNU_CPP_CourseDesign\\build\\DLNU_CPP_CourseDesign.dir\\Debug\\vc143.pdb",
+                "DLNU_CPP_CourseDesign.dir\\Debug\\"
+            ],
+            "requires": []
+        }
+    ]
+}
