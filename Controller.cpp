@@ -13,17 +13,15 @@ namespace lyt {
     Controller::~Controller() {
     }
 
-    void Controller::event(SDL_Event &event,int &x,int &y) {
-
-
+    void Controller::event(SDL_Event &event, int &x, int &y) {
         switch (event.type) {
             case SDL_KEYDOWN:
-                if ( isKeytoMove)
-                KeyboardPress(event, x, y);
-                if ( event.key.keysym.sym == SDLK_F1) {
+                if (isKeytoMove)
+                    KeyboardPress(event, x, y);
+                if (event.key.keysym.sym == SDLK_F1) {
                     isMousetoMove = !isMousetoMove;
-                    isKeytoMove = ! isKeytoMove;
-                    std::cout<< "isMousetoMove:"<<isMousetoMove<<std::endl;
+                    isKeytoMove = !isKeytoMove;
+                    std::cout << "isMousetoMove:" << isMousetoMove << std::endl;
                 }
                 break;
             case SDL_KEYUP:
@@ -37,14 +35,14 @@ namespace lyt {
                 break;
             case SDL_MOUSEMOTION:
                 if (isMousetoMove)
-                MouseMove(event, x, y);
+                    MouseMove(event, x, y);
                 break;
             default:
                 break;
         }
     }
 
-    void Controller::KeyboardPress(const SDL_Event &event,int &x,int &y) {
+    void Controller::KeyboardPress(const SDL_Event &event, int &x, int &y) {
         switch (event.key.keysym.sym) {
             case SDLK_w:
                 SDL_Log("w");
@@ -81,7 +79,7 @@ namespace lyt {
         }
     }
 
-    void Controller::KeyboardRelease(const SDL_Event &event,int& x,int& y) {
+    void Controller::KeyboardRelease(const SDL_Event &event, int &x, int &y) {
         switch (event.key.keysym.sym) {
             case SDLK_w:
                 y--;
@@ -140,7 +138,7 @@ namespace lyt {
         }
     }
 
-    void Controller::MouseMove(const SDL_Event &event,int &x,int &y) {
+    void Controller::MouseMove(const SDL_Event &event, int &x, int &y) {
         x = event.motion.x;
         y = event.motion.y;
         SDL_Log("Mouse moved to (%d, %d)", x, y);

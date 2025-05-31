@@ -15,25 +15,18 @@ int main(int argc, char *argv[]) {
     Game game;
     game.init("Game", 800, 600, 0);
     SDL_SetWindowIcon(game.getWindow()->get(), IMG_Load("1.png"));
-
-    // 在循环外创建图片和文本对象
     Image image;
-    int w=0,h=0, x=0,y=0, x1=0,y1=0;
+    int w = 0, h = 0, x = 0, y = 0, x1 = 0, y1 = 0;
     Text text;
 
     while (game.running()) {
         game.frameStart();
-
-        // 清屏
         game.getRenderer()->clear();
-
-        // 渲染图片
-
-        image.drawImage("1.png", game.getRenderer(),{x,y,200,200});
-        // 渲染文本
-        text.drawText(game.getRenderer(), game.getFont(), "按F1切换鼠标移动或键盘移动", {x1, y1, 150, 30}, {0, 0, 0, 255});
-        SDL_SetTextureAlphaMod(text.getTexture(), 225);
-        // 呈现渲染的内容
+        text.set_All(game.getRenderer(), {x1, y1, 150, 30}, {0, 0, 0, 0}, game.getFont(), SDL_BLENDMODE_BLEND,
+                     "按F1切换鼠标移动或键盘移动", 155);
+        image.setImage("1.png", game.getRenderer(), {x, y, 200, 200}, SDL_BLENDMODE_BLEND, 155);
+        text.draw();
+        image.draw();
         game.getRenderer()->present();
         game.handleEvents(x, y);
         game.frameEnd();

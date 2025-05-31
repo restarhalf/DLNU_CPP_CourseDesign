@@ -1,6 +1,7 @@
 #include "Renderer.h"
 #include <stdexcept>
 #include <bits/stdc++.h>
+
 namespace lyt {
     Renderer::Renderer(SDL_Renderer *renderer) {
         renderer_ = renderer;

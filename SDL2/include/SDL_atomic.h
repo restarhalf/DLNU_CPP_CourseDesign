@@ -239,6 +239,7 @@ typedef void (*SDL_KernelMemoryBarrierFunc)();
 #elif defined(_MSC_VER) && (defined(_M_IX86) || defined(_M_X64))
 #define SDL_CPUPauseInstruction() _mm_pause()  /* this is actually "rep nop" and not a SIMD instruction. No inline asm in MSVC x86-64! */
 
+
 #elif defined(_MSC_VER) && (defined(_M_ARM) || defined(_M_ARM64))
     #define SDL_CPUPauseInstruction() __yield()
 #elif defined(__WATCOMC__) && defined(__386__)

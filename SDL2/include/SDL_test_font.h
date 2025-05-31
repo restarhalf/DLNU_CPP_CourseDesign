@@ -117,7 +117,9 @@ void SDLTest_TextWindowDisplay(SDLTest_TextWindow * textwin, SDL_Renderer * rend
  *  \since This function is available since SDL 2.24.0
  */
 void SDLTest_TextWindowAddText(SDLTest_TextWindow * textwin, SDL_PRINTF_FORMAT_STRING const char *fmt, ...)
-        SDL_PRINTF_VARARG_FUNC(2);
+SDL_PRINTF_VARARG_FUNC (
+2
+);
 
 /*
  *  \brief Add text to a multi-line text output window

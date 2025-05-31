@@ -71,10 +71,9 @@ namespace lyt {
     private:
         //帧率//后面那个60是帧率
         float FPS = 1000 / 60.f; // 60 FPS
-    Uint32 rendererFlags = SDL_RENDERER_PRESENTVSYNC;
+        Uint32 rendererFlags = SDL_RENDERER_PRESENTVSYNC;
         //初始时间
         Uint32 Start = 0;
-
         //经历的时间
         Uint32 Time = 0;
         //字体
