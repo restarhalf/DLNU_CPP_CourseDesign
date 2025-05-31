@@ -5,29 +5,27 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 #include <SDL.h>
-#include <SDL_ttf.h>
-#include <SDL_mixer.h>
-#include <SDL_image.h>
-
 namespace lyt {
     class Controller {
+        bool isMousetoMove{false};
     public:
         Controller();
 
         ~Controller();
 
         //动作监视器
-        void event(SDL_Event &event);
+        void event(SDL_Event &event, int &x, int &y);
+    private:
 
-        void KeyboardPress(const SDL_Event &event);
+        void KeyboardPress(const SDL_Event &event, int &x, int &y);
 
-        void KeyboardRelease(const SDL_Event &event);
+        void KeyboardRelease(const SDL_Event &event, int &x, int &y);
 
         void MousePress(const SDL_Event &event);
 
         void MouseRelease(const SDL_Event &event);
 
-        void MouseMove(const SDL_Event &event);
+        void MouseMove(const SDL_Event &event, int &x, int &y);
     };
 }
 

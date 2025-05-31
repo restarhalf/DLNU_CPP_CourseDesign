@@ -8,7 +8,10 @@
 #include <SDL_ttf.h>
 #include <SDL_mixer.h>
 #include <SDL_image.h>
+#include<bits/stdc++.h>
 #include<string>
+
+#include "Image.h"
 
 namespace lyt {
     class Game {
@@ -19,6 +22,8 @@ namespace lyt {
         Window *window;
         // 渲染器管理
         Renderer *renderer;
+        //图片管理
+        Image *image{};
         //是否运行判断器
         bool isRunning;
 
@@ -32,13 +37,13 @@ namespace lyt {
         bool init(std::string title, int width, int height, int flags);
 
         //事件处理函数
-        void handleEvents();
+        void handleEvents(int &x, int &y);
 
         //清理函数
         void clean() const;
 
         //状态更新
-        void update();
+        void update() const;
 
         //渲染函数
         void render() const;
@@ -62,9 +67,11 @@ namespace lyt {
         //帧率部分
     private:
         //帧率//后面那个60是帧率
-        float FPS = 1000 / 165.f;
+        float FPS = 1000 / 60.f; // 60 FPS
+    Uint32 rendererFlags = SDL_RENDERER_PRESENTVSYNC;
         //初始时间
         Uint32 Start = 0;
+
         //经历的时间
         Uint32 Time = 0;
         //字体

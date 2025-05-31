@@ -3,33 +3,31 @@
 #include <stdexcept>
 
 namespace lyt {
-    Image::Image(const char *filePath, Renderer *renderer) : renderer(renderer) {
-        loadImage(filePath);
+
+    Image::Image(){
     }
 
     Image::~Image() {
         if (texture) SDL_DestroyTexture(texture);
+        IMG_Quit();
     }
 
-    void Image::loadImage(const char *filePath) {
-        SDL_Surface *surface = IMG_Load(filePath);
+    void Image::drawImage(const char *filePath,Renderer * renderer, SDL_Rect dst) {
+        SDL_Surface *surface = IMG_Load_RW(SDL_RWFromFile(filePath, "rb"), 1);
         if (surface == NULL) {
             throw std::runtime_error("Failed to load image: " + std::string(SDL_GetError()));
         }
-        createTexture(surface);
+        createTexture(surface, renderer);
+        renderer->copy(texture,nullptr,&dst);
         SDL_FreeSurface(surface);
     }
 
-    void Image::createTexture(SDL_Surface *surface) {
+    void Image::createTexture(SDL_Surface *surface,Renderer * renderer) {
         if (texture) SDL_DestroyTexture(texture);
         texture = SDL_CreateTextureFromSurface(renderer->get(), surface);
         if (!texture) {
             throw std::runtime_error(SDL_GetError());
         }
-    }
-
-    SDL_Texture *Image::getTexture() const {
-        return texture;
     }
 
     int Image::getWidth() const {

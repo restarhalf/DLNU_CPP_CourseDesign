@@ -24,8 +24,13 @@ namespace lyt {
 
 
         //绘制文字
-        Renderer *drawText(Renderer *render, TTF_Font *font, const std::string &text, SDL_Rect rect,
+        void drawText(Renderer *render, TTF_Font *font, const std::string &text, SDL_Rect rect,
                            SDL_Color color);
+        //设置texture
+        void setTexture(SDL_BlendMode a);
+
+        //获取texture
+        SDL_Texture *getTexture() const;
     };
 }
 

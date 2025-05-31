@@ -13,13 +13,13 @@ namespace lyt {
     Controller::~Controller() {
     }
 
-    void Controller::event(SDL_Event &event) {
+    void Controller::event(SDL_Event &event,int &x,int &y) {
         switch (event.type) {
             case SDL_KEYDOWN:
-                KeyboardPress(event);
+                KeyboardPress(event, x, y);
                 break;
             case SDL_KEYUP:
-                KeyboardRelease(event);
+                KeyboardRelease(event, x, y);
                 break;
             case SDL_MOUSEBUTTONDOWN:
                 MousePress(event);
@@ -28,55 +28,80 @@ namespace lyt {
                 MouseRelease(event);
                 break;
             case SDL_MOUSEMOTION:
-                MouseMove(event);
+                if (isMousetoMove)
+                MouseMove(event, x, y);
                 break;
             default:
                 break;
         }
     }
 
-    void Controller::KeyboardPress(const SDL_Event &event) {
+    void Controller::KeyboardPress(const SDL_Event &event,int &x,int &y) {
         switch (event.key.keysym.sym) {
             case SDLK_w:
+                SDL_Log("w");
+                y--;
                 break;
             case SDLK_s:
+                SDL_Log("s");
+                y++;
                 break;
             case SDLK_a:
+                SDL_Log("a");
+                x--;
                 break;
             case SDLK_d:
+                SDL_Log("d");
+                x++;
                 break;
             case SDLK_UP:
+                y--;
                 break;
             case SDLK_LEFT:
+                x--;
                 break;
             case SDLK_RIGHT:
+                x++;
                 break;
             case SDLK_DOWN:
+                y++;
                 break;
             case SDLK_SPACE:
                 break;
+            case SDLK_F1:
+                isMousetoMove = !isMousetoMove;
+                std::cout<< "isMousetoMove:"<<isMousetoMove<<std::endl;
+                break;
             default:
                 break;
         }
     }
 
-    void Controller::KeyboardRelease(const SDL_Event &event) {
+    void Controller::KeyboardRelease(const SDL_Event &event,int& x,int& y) {
         switch (event.key.keysym.sym) {
             case SDLK_w:
+                y--;
                 break;
             case SDLK_s:
+                y++;
                 break;
             case SDLK_a:
+                x--;
                 break;
             case SDLK_d:
+                x++;
                 break;
             case SDLK_UP:
+                y--;
                 break;
             case SDLK_LEFT:
+                x--;
                 break;
             case SDLK_RIGHT:
+                x++;
                 break;
             case SDLK_DOWN:
+                y++;
                 break;
             case SDLK_SPACE:
                 break;
@@ -111,9 +136,9 @@ namespace lyt {
         }
     }
 
-    void Controller::MouseMove(const SDL_Event &event) {
-        auto mouseX = event.motion.x;
-        auto mouseY = event.motion.y;
-        //fish->setPosition(mouseX, mouseY);
+    void Controller::MouseMove(const SDL_Event &event,int &x,int &y) {
+        x = event.motion.x;
+        y = event.motion.y;
+        SDL_Log("Mouse moved to (%d, %d)", x, y);
     }
 }
