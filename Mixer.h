@@ -5,12 +5,13 @@
 #ifndef MIXER_H
 #define MIXER_H
 
-namespace lyt {
+namespace lyt
+{
 
-class Mixer {
+    class Mixer
+    {
+    };
 
-};
+}  // namespace lyt
 
-} // lyt
-
-#endif //MIXER_H
+#endif  // MIXER_H

@@ -11,12 +11,12 @@ namespace lyt
 {
     class Image
     {
-        SDL_Texture  *texture = nullptr;
-        SDL_Surface  *surface = nullptr;
+        SDL_Texture*  texture = nullptr;
+        SDL_Surface*  surface = nullptr;
         SDL_Rect      rect;
         SDL_Color     color;
         std::string   filePath;
-        Renderer     *renderer;
+        Renderer*     renderer;
         SDL_BlendMode blendMode = SDL_BLENDMODE_BLEND;
         Uint8         alpha     = 255;
 

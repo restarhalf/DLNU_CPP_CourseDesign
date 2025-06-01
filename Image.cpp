@@ -22,12 +22,12 @@ namespace lyt
     void Image::setImage(const std::string& filePath, Renderer* renderer, SDL_Rect rect, SDL_BlendMode blendMode,
                          Uint8 alpha)
     {
-        this->rect           = rect;
-        this->blendMode      = blendMode;
-        this->alpha          = alpha;
-        this->filePath       = filePath;
-        this->renderer       = renderer;
-        surface = IMG_Load(filePath.c_str());
+        this->rect      = rect;
+        this->blendMode = blendMode;
+        this->alpha     = alpha;
+        this->filePath  = filePath;
+        this->renderer  = renderer;
+        surface         = IMG_Load(filePath.c_str());
         if (surface == nullptr)
         {
             throw std::runtime_error("Failed to load image: " + std::string(SDL_GetError()));
@@ -50,7 +50,15 @@ namespace lyt
     Renderer*     Image::getRenderer() const { return renderer; }
     void          Image::setRenderer(Renderer* renderer) { this->renderer = renderer; }
     SDL_BlendMode Image::getBlendmode() const { return blendMode; }
-    void          Image::setBlendmode(SDL_BlendMode blend_mode) { blendMode = blend_mode; SDL_SetTextureBlendMode(texture, blend_mode);}
-    Uint8         Image::getAlpha() const { return alpha; }
-    void          Image::setAlpha(Uint8 alpha) { this->alpha = alpha; SDL_SetTextureAlphaMod(texture, alpha);}
+    void          Image::setBlendmode(SDL_BlendMode blend_mode)
+    {
+        blendMode = blend_mode;
+        SDL_SetTextureBlendMode(texture, blend_mode);
+    }
+    Uint8 Image::getAlpha() const { return alpha; }
+    void  Image::setAlpha(Uint8 alpha)
+    {
+        this->alpha = alpha;
+        SDL_SetTextureAlphaMod(texture, alpha);
+    }
 }  // namespace lyt

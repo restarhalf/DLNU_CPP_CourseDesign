@@ -4,5 +4,6 @@
 
 #include "Mixer.h"
 
-namespace lyt {
-} // lyt
+namespace lyt
+{
+}  // namespace lyt

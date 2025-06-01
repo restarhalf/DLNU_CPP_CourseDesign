@@ -8,7 +8,7 @@ namespace lyt
 {
     Window::Window() : width_(0), height_(0), event_() { window_ = nullptr; }
 
-    Window::Window(SDL_Window *window) : width_(0), height_(0), event_() { window_ = window; }
+    Window::Window(SDL_Window* window) : width_(0), height_(0), event_() { window_ = window; }
 
     Window::Window(const std::string& title, int width, int height) : width_(width), height_(height), event_()
     {
