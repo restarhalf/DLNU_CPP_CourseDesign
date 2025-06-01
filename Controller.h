@@ -5,7 +5,6 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 #include <SDL.h>
-
 namespace lyt
 {
     class Controller

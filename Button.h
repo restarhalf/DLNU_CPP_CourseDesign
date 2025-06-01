@@ -18,7 +18,7 @@ namespace lyt
         // 按钮矩形区域
         SDL_Rect rect;
         // 按钮是否被点击
-        bool isClicked=false;
+        bool isClicked = false;
         // 纹理
         SDL_Texture *texture = nullptr;
         // surface

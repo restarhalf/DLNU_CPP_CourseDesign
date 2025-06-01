@@ -27,11 +27,13 @@ int main(int argc, char *argv[])
         game.frameStart();
         game.getRenderer()->clear();
         SDL_GetWindowSize(game.getWindow()->get(), &w, &h);
-        login.setButtonwithImage("3.png", game.getRenderer(), {w/3-100, h/2+70,230,230}, SDL_BLENDMODE_BLEND, 255);
-        exit.setButtonwithImage("2.png", game.getRenderer(), {w/3*2-100, h/2+70,230,230}, SDL_BLENDMODE_BLEND, 255);
+        login.setButtonwithImage("3.png", game.getRenderer(), {w / 3 - 100, h / 2 + 70, 230, 230}, SDL_BLENDMODE_BLEND,
+                                 255);
+        exit.setButtonwithImage("2.png", game.getRenderer(), {w / 3 * 2 - 100, h / 2 + 70, 230, 230},
+                                SDL_BLENDMODE_BLEND, 255);
         text.setAll(game.getRenderer(), {x1, y1, 150, 30}, {0, 0, 0, 0}, game.getFont(), SDL_BLENDMODE_BLEND,
                     "按F1切换鼠标移动或键盘移动", 155);
-        image.setImage("1.jpg", game.getRenderer(), {0,0,w,h}, SDL_BLENDMODE_BLEND, 255);
+        image.setImage("1.jpg", game.getRenderer(), {0, 0, w, h}, SDL_BLENDMODE_BLEND, 255);
         text.draw();
         image.draw();
         login.drawwithImage();

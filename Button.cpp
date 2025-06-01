@@ -117,12 +117,11 @@ namespace lyt
         else if (event.type == SDL_MOUSEMOTION)
         {
             // 鼠标移动时检查是否在按钮区域内
-            if (event.motion.x >= rect.x && event.motion.x <= rect.x + rect.w &&
-                event.motion.y >= rect.y && event.motion.y <= rect.y + rect.h)
+            if (event.motion.x >= rect.x && event.motion.x <= rect.x + rect.w && event.motion.y >= rect.y &&
+                event.motion.y <= rect.y + rect.h)
             {
-              // 如果之前点击了按钮，鼠标移入时恢复点击状态
-              if (!isClicked)
-              image.setAlpha(alpha * 0.6);
+                // 如果之前点击了按钮，鼠标移入时恢复点击状态
+                if (!isClicked) image.setAlpha(alpha * 0.6);
             }
             else
             {

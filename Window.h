@@ -11,7 +11,7 @@ namespace lyt
 
         Window(SDL_Window *window);
 
-        Window(const std::string& title, int width, int height);
+        Window(const std::string &title, int width, int height);
 
         ~Window();
 

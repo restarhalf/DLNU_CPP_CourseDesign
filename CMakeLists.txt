@@ -24,6 +24,7 @@ add_executable(DLNU_CPP_CourseDesign main.cpp
         Button.h
         Mixer.cpp
         Mixer.h
+        SDL2/include/All.h
 )
 target_link_libraries(DLNU_CPP_CourseDesign
         SDL2
