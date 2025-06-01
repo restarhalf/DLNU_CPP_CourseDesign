@@ -69,8 +69,7 @@ namespace lyt
             SDL_Log("SDL_TTF initialized");
         }
         font = TTF_OpenFont("MSYH.ttf", 720);
-        IMG_Init(IMG_INIT_PNG);
-        if (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG)
+        if (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG && IMG_Init(IMG_INIT_JPG) != IMG_INIT_JPG)
         {
             SDL_Log("SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError());
             isRunning = false;
@@ -92,12 +91,15 @@ namespace lyt
         controller.event(event, x, y);
     }
 
-    void Game::clean() const
+    void Game::clean()
     {
         delete renderer;
         delete window;
         SDL_Quit();
+        IMG_Quit();
+        TTF_Quit();
         SDL_Log("Game cleaned");
+        exit(0);
     }
 
     void Game::update() const

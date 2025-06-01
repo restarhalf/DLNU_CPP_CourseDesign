@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/Controller.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Controller.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Controller.cpp.obj.d"
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/Game.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Game.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Game.cpp.obj.d"
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/Image.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Image.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Image.cpp.obj.d"
+  "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/Mixer.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Mixer.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Mixer.cpp.obj.d"
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/Renderer.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Renderer.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Renderer.cpp.obj.d"
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/ServerSide.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/ServerSide.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/ServerSide.cpp.obj.d"
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/Text.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Text.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/Text.cpp.obj.d"

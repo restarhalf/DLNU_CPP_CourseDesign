@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/Game.cpp.obj.d"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/Image.cpp.obj"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/Image.cpp.obj.d"
+  "CMakeFiles/DLNU_CPP_CourseDesign.dir/Mixer.cpp.obj"
+  "CMakeFiles/DLNU_CPP_CourseDesign.dir/Mixer.cpp.obj.d"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/Renderer.cpp.obj"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/Renderer.cpp.obj.d"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/ServerSide.cpp.obj"

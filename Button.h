@@ -4,6 +4,7 @@
 
 #ifndef BUTTON_H
 #define BUTTON_H
+#include "Image.h"
 #include "Renderer.h"
 #include "SDL.h"
 #include "SDL_ttf.h"
@@ -17,7 +18,7 @@ namespace lyt
         // 按钮矩形区域
         SDL_Rect rect;
         // 按钮是否被点击
-        bool isClicked;
+        bool isClicked=false;
         // 纹理
         SDL_Texture *texture = nullptr;
         // surface
@@ -36,15 +37,21 @@ namespace lyt
         Renderer *renderer = nullptr;
         // 透明度
         Uint8 alpha = 255;
+        // 图片
+        std::string filePath;
+        Image       image;
+
 
     public:
         Button() = default;
 
         ~Button() = default;
 
-        bool isButtonClicked() const;
+        [[nodiscard]] bool isButtonClicked() const;
 
         void draw();
+
+        void drawwithImage();
 
         void handleEvent(SDL_Event &event);
 
@@ -54,6 +61,8 @@ namespace lyt
 
         void setText(const std::string &text, TTF_Font *font, SDL_Color color, Renderer *renderer,
                      SDL_BlendMode blendMode, Uint8 alpha);
+        void setButtonwithImage(const std::string &filePath, Renderer *renderer, SDL_Rect rect,
+                                SDL_BlendMode blendMode = SDL_BLENDMODE_BLEND, Uint8 alpha = 255);
     };
 }  // namespace lyt
 

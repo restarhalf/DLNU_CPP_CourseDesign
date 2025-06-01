@@ -214,6 +214,30 @@ Image.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Image.cpp.s
 .PHONY : Image.cpp.s
 
+Mixer.obj: Mixer.cpp.obj
+.PHONY : Mixer.obj
+
+# target to build an object file
+Mixer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Mixer.cpp.obj
+.PHONY : Mixer.cpp.obj
+
+Mixer.i: Mixer.cpp.i
+.PHONY : Mixer.i
+
+# target to preprocess a source file
+Mixer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Mixer.cpp.i
+.PHONY : Mixer.cpp.i
+
+Mixer.s: Mixer.cpp.s
+.PHONY : Mixer.s
+
+# target to generate assembly for a file
+Mixer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Mixer.cpp.s
+.PHONY : Mixer.cpp.s
+
 Renderer.obj: Renderer.cpp.obj
 .PHONY : Renderer.obj
 
@@ -355,6 +379,9 @@ help:
 	@echo ... Image.obj
 	@echo ... Image.i
 	@echo ... Image.s
+	@echo ... Mixer.obj
+	@echo ... Mixer.i
+	@echo ... Mixer.s
 	@echo ... Renderer.obj
 	@echo ... Renderer.i
 	@echo ... Renderer.s
