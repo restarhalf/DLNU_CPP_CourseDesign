@@ -4,12 +4,16 @@
 #include "Game.h"
 namespace lyt
 {
+    // 默认构造函数，初始化基本属性
     Game::Game() : window(nullptr), renderer(nullptr), isRunning(false) {}
 
+    // 析构函数，清理游戏资源
     Game::~Game() { clean(); }
 
+    // 初始化游戏环境和事件
     bool Game::init(std::string title, int width, int height, int flags)
     {
+        // 初始化SDL所有子系统
         if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
         {
             SDL_Log("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
@@ -21,6 +25,8 @@ namespace lyt
             SDL_Log("SDL initialized");
             isRunning = true;
         }
+
+        // 创建游戏窗口
         try
         {
             window = new Window(std::move(title), width, height);
@@ -32,6 +38,8 @@ namespace lyt
             isRunning = false;
             return false;
         }
+
+        // 创建渲染器
         try
         {
             renderer = new Renderer(window, true);
@@ -51,7 +59,7 @@ namespace lyt
 
         isRunning = true;
 
-
+        // 初始化TTF字体系统
         if (TTF_Init() == -1)
         {
             SDL_Log("SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError());
@@ -62,6 +70,8 @@ namespace lyt
         {
             SDL_Log("SDL_TTF initialized");
         }
+
+        // 初始化图像系统
         if (IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG) == 0)
         {
             SDL_Log("SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError());
@@ -72,6 +82,8 @@ namespace lyt
         {
             SDL_Log("IMG initialized");
         }
+
+        // 初始化音频系统
         if (Mix_Init(MIX_INIT_MP3 | MIX_INIT_FLAC) == 0)
         {
             SDL_Log("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
@@ -85,16 +97,20 @@ namespace lyt
         return isRunning;
     }
 
+    // 处理游戏事件
     void Game::handleEvent(SDL_Event &event, int &x, int &y)
     {
+        // 检查退出事件（窗口关闭或ESC键）
         if (event.type == SDL_QUIT || event.key.keysym.sym == SDLK_ESCAPE)
         {
             clean();
         }
+        // 处理控制器事件和窗口事件
         controller.event(event, x, y);
         window->handleEvents(event);
     }
 
+    // 清理游戏资源
     void Game::clean()
     {
         delete renderer;
@@ -106,6 +122,7 @@ namespace lyt
         exit(0);
     }
 
+    // 更新游戏状态
     void Game::update() const
     {
         if (renderer)
@@ -115,6 +132,7 @@ namespace lyt
         }
     }
 
+    // 渲染游戏画面
     void Game::render() const
     {
         if (renderer)
@@ -124,10 +142,13 @@ namespace lyt
         }
     }
 
+    // 检查游戏是否正在运行
     bool Game::running() const { return isRunning; }
 
+    // 开始帧计时
     void Game::frameStart() { Start = SDL_GetTicks(); }
 
+    // 结束帧计时并控制帧率
     void Game::frameEnd()
     {
         Time = SDL_GetTicks() - Start;
@@ -137,13 +158,12 @@ namespace lyt
         }
     }
 
+    // 设置游戏帧率
     void Game::setFps(const float fps) { FPS = 1000.f / fps; }
 
+    // Getters and setters
     Renderer *Game::getRenderer() const { return renderer; }
-
     Window *Game::getWindow() const { return window; }
-
     void Game::setRenderer(Renderer *renderer) { this->renderer = renderer; }
-
     void Game::setWindow(Window *window) { this->window = window; }
 }  // namespace lyt

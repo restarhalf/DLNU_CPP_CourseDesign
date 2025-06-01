@@ -15,68 +15,89 @@
 
 namespace lyt
 {
+    /**
+     * @brief 游戏类，负责管理游戏的主要功能和生命周期
+     */
     class Game
     {
-        //-----------------------------------------------------//
-        // 窗口部分
     private:
-        // 窗口管理
-        Window *window;
-        // 渲染器管理
-        Renderer *renderer;
-        // 是否运行判断器
-        bool isRunning;
-        // 控制器
-        Controller controller;
+        // 窗口部分
+        Window* window;      ///< 游戏窗口指针
+        Renderer* renderer;  ///< 渲染器指针
+        bool isRunning;     ///< 游戏运行状态标志
+        Controller controller; ///< 控制器对象
+
+        // 帧率控制部分
+        float FPS = 1000 / 165.f;  ///< 帧率（默认165FPS）
+        Uint32 rendererFlags = SDL_RENDERER_PRESENTVSYNC;  ///< 渲染器标志
+        Uint32 Start = 0;    ///< 帧开始时间
+        Uint32 Time = 0;     ///< 帧经过的时间
 
     public:
-        // 构造函数和析构函数
+        /**
+         * @brief 默认构造函数
+         */
         Game();
 
+        /**
+         * @brief 析构函数，负责清理游戏资源
+         */
         ~Game();
 
-        // 初始化函数
+        /**
+         * @brief 初始化游戏
+         * @param title 窗口标题
+         * @param width 窗口宽度
+         * @param height 窗口高度
+         * @param flags SDL初始化标志
+         * @return 初始化是否成功
+         */
         bool init(std::string title, int width, int height, int flags);
 
-        // 事件处理函数
-        void handleEvent(SDL_Event &event, int &x, int &y);
+        /**
+         * @brief 处理游戏事件
+         * @param event SDL事件对象
+         * @param x 鼠标x坐标
+         * @param y 鼠标y坐标
+         */
+        void handleEvent(SDL_Event& event, int& x, int& y);
 
-        // 清理函数
+        /**
+         * @brief 清理游戏资源
+         */
         void clean();
 
-        // 状态更新
+        /**
+         * @brief 更新游戏状态
+         */
         void update() const;
 
-        // 渲染函数
+        /**
+         * @brief 渲染游戏画面
+         */
         void render() const;
 
-        Renderer *getRenderer() const;
-
-        Window *getWindow() const;
-
-        void setRenderer(Renderer *renderer);
-
-        void setWindow(Window *window);
-
-        // 运行状态判断器
+        // Getters and setters
+        Renderer* getRenderer() const;
+        Window* getWindow() const;
+        void setRenderer(Renderer* renderer);
+        void setWindow(Window* window);
         [[nodiscard]] bool running() const;
 
-        //-----------------------------------------------------//
-        // 帧率部分
-    private:
-        // 帧率//后面那个60是帧率
-        float  FPS           = 1000 / 165.f;  // 60 FPS
-        Uint32 rendererFlags = SDL_RENDERER_PRESENTVSYNC;
-        // 初始时间
-        Uint32 Start = 0;
-        // 经历的时间
-        Uint32 Time = 0;
-
-    public:
+        /**
+         * @brief 开始帧计时
+         */
         void frameStart();
 
+        /**
+         * @brief 结束帧计时并进行帧率控制
+         */
         void frameEnd();
 
+        /**
+         * @brief 设置目标帧率
+         * @param fps 目标帧率
+         */
         void setFps(float fps);
     };
 }  // namespace lyt
