@@ -4,10 +4,12 @@
 
 #include "Text.h"
 
-namespace lyt {
+namespace lyt
+{
     Text::Text() : texture(nullptr) {}
 
-    Text::~Text() {
+    Text::~Text()
+    {
         if (texture) SDL_DestroyTexture(texture);
     }
 
@@ -40,44 +42,51 @@ namespace lyt {
     void Text::setText(const std::string &text) { this->text = text; }
 
     void Text::setAll(Renderer *render, SDL_Rect rect, SDL_Color color, TTF_Font *font, SDL_BlendMode blendMode,
-                      const std::string &text, Uint8 alpha) {
-        this->rect = rect;
-        this->color = color;
-        this->font = font;
+                      const std::string &text, Uint8 alpha)
+    {
+        this->rect      = rect;
+        this->color     = color;
+        this->font      = font;
         this->blendMode = blendMode;
-        this->text = text;
-        this->alpha = alpha;
-        renderer = render;
+        this->text      = text;
+        this->alpha     = alpha;
+        renderer        = render;
         if (texture) SDL_DestroyTexture(texture);
         surface = TTF_RenderUTF8_Blended(font, text.c_str(), color);
-        if (!surface) {
+        if (!surface)
+        {
             SDL_Log("Failed to create surface: %s", SDL_GetError());
         }
         texture = SDL_CreateTextureFromSurface(render->get(), surface);
         SDL_SetTextureBlendMode(texture, this->blendMode);
         SDL_SetTextureAlphaMod(texture, this->alpha);
-        if (!texture) {
+        if (!texture)
+        {
             SDL_Log("Failed to create texture: %s", SDL_GetError());
             SDL_FreeSurface(surface);
         }
     }
 
-    void Text::flush() {
+    void Text::flush()
+    {
         if (texture) SDL_DestroyTexture(texture);
         surface = TTF_RenderUTF8_Blended(font, text.c_str(), color);
-        if (!surface) {
+        if (!surface)
+        {
             SDL_Log("Failed to create surface: %s", SDL_GetError());
         }
         texture = SDL_CreateTextureFromSurface(renderer->get(), surface);
         SDL_SetTextureBlendMode(texture, this->blendMode);
         SDL_SetTextureAlphaMod(texture, this->alpha);
-        if (!texture) {
+        if (!texture)
+        {
             SDL_Log("Failed to create texture: %s", SDL_GetError());
             SDL_FreeSurface(surface);
         }
     }
 
-    void Text::draw() {
+    void Text::draw()
+    {
         renderer->copy(texture, nullptr, &rect);
         SDL_FreeSurface(surface);
     }

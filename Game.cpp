@@ -8,34 +8,46 @@
 #include "Controller.h"
 #include "SDL_egl.h"
 
-namespace lyt {
+namespace lyt
+{
     Game::Game() : window(nullptr), renderer(nullptr), isRunning(false), font(nullptr) {}
 
     Game::~Game() { clean(); }
 
-    bool Game::init(std::string title, int width, int height, int flags) {
-        if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+    bool Game::init(std::string title, int width, int height, int flags)
+    {
+        if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
+        {
             SDL_Log("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
             isRunning = false;
             return false;
-        } else {
+        }
+        else
+        {
             SDL_Log("SDL initialized");
             isRunning = true;
         }
-        try {
+        try
+        {
             window = new Window(std::move(title), width, height);
             SDL_Log("Window created");
-        } catch (const std::runtime_error &e) {
+        }
+        catch (const std::runtime_error &e)
+        {
             SDL_Log("Window could not be created! SDL_Error: %s\n", e.what());
             isRunning = false;
             return false;
         }
-        try {
+        try
+        {
             renderer = new Renderer(window, true);
             SDL_Log("Renderer created");
-        } catch (const std::runtime_error &e) {
+        }
+        catch (const std::runtime_error &e)
+        {
             SDL_Log("Renderer could not be created! SDL_Error: %s\n", e.what());
-            if (window) {
+            if (window)
+            {
                 delete window;
                 window = nullptr;
             }
@@ -46,49 +58,61 @@ namespace lyt {
         isRunning = true;
 
 
-        if (TTF_Init() == -1) {
+        if (TTF_Init() == -1)
+        {
             SDL_Log("SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError());
             isRunning = false;
             return false;
-        } else {
+        }
+        else
+        {
             SDL_Log("SDL_TTF initialized");
         }
         font = TTF_OpenFont("MSYH.ttf", 720);
         IMG_Init(IMG_INIT_PNG);
-        if (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG) {
+        if (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG)
+        {
             SDL_Log("SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError());
             isRunning = false;
             return false;
-        } else {
+        }
+        else
+        {
             SDL_Log("IMG initialized");
         }
         return isRunning;
     }
 
-    void Game::handleEvent(SDL_Event &event, int &x, int &y) {
-        if (event.type == SDL_QUIT || event.key.keysym.sym == SDLK_ESCAPE) {
+    void Game::handleEvent(SDL_Event &event, int &x, int &y)
+    {
+        if (event.type == SDL_QUIT || event.key.keysym.sym == SDLK_ESCAPE)
+        {
             isRunning = false;
         }
-
         controller.event(event, x, y);
     }
 
-    void Game::clean() const {
+    void Game::clean() const
+    {
         delete renderer;
         delete window;
         SDL_Quit();
         SDL_Log("Game cleaned");
     }
 
-    void Game::update() const {
-        if (renderer) {
+    void Game::update() const
+    {
+        if (renderer)
+        {
             renderer->clear();
             renderer->present();
         }
     }
 
-    void Game::render() const {
-        if (renderer) {
+    void Game::render() const
+    {
+        if (renderer)
+        {
             renderer->clear();
             renderer->present();
         }
@@ -98,9 +122,11 @@ namespace lyt {
 
     void Game::frameStart() { Start = SDL_GetTicks(); }
 
-    void Game::frameEnd() {
+    void Game::frameEnd()
+    {
         Time = SDL_GetTicks() - Start;
-        if (Time - static_cast<Uint32>(FPS) < 0) {
+        if (Time - static_cast<Uint32>(FPS) < 0)
+        {
             SDL_Delay(static_cast<Uint32>(FPS) - Time);
         }
     }

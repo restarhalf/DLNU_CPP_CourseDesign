@@ -4,8 +4,10 @@
 
 #include "Window.h"
 
-namespace lyt {
-    class Renderer {
+namespace lyt
+{
+    class Renderer
+    {
     public:
         Renderer();
 

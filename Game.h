@@ -14,8 +14,10 @@
 #include "Renderer.h"
 #include "Window.h"
 
-namespace lyt {
-    class Game {
+namespace lyt
+{
+    class Game
+    {
         //-----------------------------------------------------//
         // 窗口部分
     private:
@@ -70,7 +72,7 @@ namespace lyt {
         // 帧率部分
     private:
         // 帧率//后面那个60是帧率
-        float FPS = 1000 / 60.f;  // 60 FPS
+        float  FPS           = 1000 / 60.f;  // 60 FPS
         Uint32 rendererFlags = SDL_RENDERER_PRESENTVSYNC;
         // 初始时间
         Uint32 Start = 0;

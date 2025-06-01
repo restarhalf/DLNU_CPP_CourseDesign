@@ -12,15 +12,17 @@
 #include "Text.h"
 using namespace lyt;
 
-int main(int argc, char *argv[]) {
-    Game game;
+int main(int argc, char *argv[])
+{
+    Game   game;
     Button button;
     game.init("Game", 800, 600, 0);
     SDL_SetWindowIcon(game.getWindow()->get(), IMG_Load("1.png"));
     Image image;
-    int w = 0, h = 0, x = 0, y = 0, x1 = 0, y1 = 0;
-    Text text;
-    while (game.running()) {
+    int   w = 0, h = 0, x = 0, y = 0, x1 = 0, y1 = 0;
+    Text  text;
+    while (game.running())
+    {
         game.frameStart();
         game.getRenderer()->clear();
         button.setButton(400, 400, 200, 50, {255, 0, 0, 255});
@@ -33,7 +35,8 @@ int main(int argc, char *argv[]) {
         button.draw();
         game.getRenderer()->present();
         SDL_Event TODO;
-        while (SDL_PollEvent(&TODO)) {
+        while (SDL_PollEvent(&TODO))
+        {
             game.handleEvent(TODO, x, y);
             button.handleEvent(TODO);
         }

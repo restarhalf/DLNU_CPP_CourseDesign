@@ -11,19 +11,21 @@
 
 #include "Renderer.h"
 
-namespace lyt {
-    class Text {
+namespace lyt
+{
+    class Text
+    {
     private:
         // 字体
-        SDL_Texture *texture;
-        SDL_Rect rect;
-        SDL_Color color;
-        TTF_Font *font;
-        SDL_Surface *surface;
+        SDL_Texture  *texture;
+        SDL_Rect      rect;
+        SDL_Color     color;
+        TTF_Font     *font;
+        SDL_Surface  *surface;
         SDL_BlendMode blendMode;
-        Uint8 alpha;
-        std::string text;
-        Renderer *renderer;
+        Uint8         alpha;
+        std::string   text;
+        Renderer     *renderer;
 
     public:
         // 构造函数和析构函数

@@ -6,8 +6,10 @@
 #define CONTROLLER_H
 #include <SDL.h>
 
-namespace lyt {
-    class Controller {
+namespace lyt
+{
+    class Controller
+    {
         bool isMousetoMove{false};
         bool isKeytoMove{true};
 

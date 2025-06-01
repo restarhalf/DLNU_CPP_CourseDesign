@@ -281,7 +281,7 @@ SDL_FORCE_INLINE Uint64 SDL_Swap64(Uint64 x) {
     lo = SDL_static_cast(Uint32, x & 0xFFFFFFFF);
     x >>= 32;
     hi = SDL_static_cast(Uint32, x & 0xFFFFFFFF);
-    x = SDL_Swap32(lo);
+    x  = SDL_Swap32(lo);
     x <<= 32;
     x |= SDL_Swap32(hi);
     return (x);
@@ -303,7 +303,7 @@ SDL_FORCE_INLINE float SDL_SwapFloat(float x) {
         float f;
         Uint32 ui32;
     } swapper;
-    swapper.f = x;
+    swapper.f    = x;
     swapper.ui32 = SDL_Swap32(swapper.ui32);
     return swapper.f;
 }
