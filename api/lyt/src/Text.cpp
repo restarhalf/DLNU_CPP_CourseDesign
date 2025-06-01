@@ -11,6 +11,9 @@ namespace lyt
     Text::~Text()
     {
         if (texture) SDL_DestroyTexture(texture);
+        if (surface) SDL_FreeSurface(surface);
+        if (font) TTF_CloseFont(font);
+
     }
 
     SDL_Texture *Text::getTexture() const { return texture; }
@@ -88,6 +91,5 @@ namespace lyt
     void Text::draw()
     {
         renderer->copy(texture, nullptr, &rect);
-        SDL_FreeSurface(surface);
     }
 }  // namespace lyt

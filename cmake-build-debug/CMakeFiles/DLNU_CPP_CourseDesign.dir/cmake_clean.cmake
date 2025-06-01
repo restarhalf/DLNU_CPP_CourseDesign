@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/Music.cpp.obj"
-  "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/Music.cpp.obj.d"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Button.cpp.obj"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Button.cpp.obj.d"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Controller.cpp.obj"
@@ -9,8 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Game.cpp.obj.d"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Image.cpp.obj"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Image.cpp.obj.d"
-  "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Mixer.cpp.obj"
-  "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Mixer.cpp.obj.d"
+  "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Music.cpp.obj"
+  "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Music.cpp.obj.d"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Renderer.cpp.obj"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Renderer.cpp.obj.d"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Text.cpp.obj"

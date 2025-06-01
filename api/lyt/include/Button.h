@@ -4,10 +4,10 @@
 
 #ifndef BUTTON_H
 #define BUTTON_H
+#include <Image.h>
+#include <Renderer.h>
 #include <SDL.h>
 #include <Text.h>
-#include <Renderer.h>
-#include <Image.h>
 namespace lyt
 {
     class Button
@@ -17,6 +17,10 @@ namespace lyt
         SDL_Rect rect;
         // 按钮是否被点击
         bool isClicked = false;
+        // 按钮是否被按下
+        bool isPressed = false;
+        // 按钮是否被释放
+        bool isReleased = true;
         // 纹理
         SDL_Texture *texture = nullptr;
         // surface
@@ -46,7 +50,8 @@ namespace lyt
         ~Button() = default;
 
         [[nodiscard]] bool isButtonClicked() const;
-
+        [[nodiscard]] bool isButtonReleased() const;
+        [[nodiscard]] bool isButtonPressed() const;
         void draw();
 
         void drawwithImage();

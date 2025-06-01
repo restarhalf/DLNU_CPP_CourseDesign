@@ -81,24 +81,24 @@ CMakeFiles\DLNU_CPP_CourseDesign.dir\main.cpp.s: cmake_force
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\DLNU_CPP_CourseDesign.dir\main.cpp.s /c D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\main.cpp
 <<
 
-CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\Music.cpp.obj: CMakeFiles\DLNU_CPP_CourseDesign.dir\flags.make
-CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\Music.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\Music.cpp
-CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\Music.cpp.obj: CMakeFiles\DLNU_CPP_CourseDesign.dir\compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/Music.cpp.obj"
-	$(CMAKE_COMMAND) -E cmake_cl_compile_depends --dep-file=CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\Music.cpp.obj.d --working-dir=D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug --filter-prefix="注意: 包含文件:  " -- C:\PROGRA~1\MIB055~1\2022\PROFES~1\VC\Tools\MSVC\1441~1.341\bin\Hostx64\x64\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /showIncludes /FoCMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\Music.cpp.obj /FdCMakeFiles\DLNU_CPP_CourseDesign.dir\ /FS -c D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\Music.cpp
+CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Music.cpp.obj: CMakeFiles\DLNU_CPP_CourseDesign.dir\flags.make
+CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Music.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\src\Music.cpp
+CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Music.cpp.obj: CMakeFiles\DLNU_CPP_CourseDesign.dir\compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Music.cpp.obj"
+	$(CMAKE_COMMAND) -E cmake_cl_compile_depends --dep-file=CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Music.cpp.obj.d --working-dir=D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug --filter-prefix="注意: 包含文件:  " -- C:\PROGRA~1\MIB055~1\2022\PROFES~1\VC\Tools\MSVC\1441~1.341\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /showIncludes /FoCMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Music.cpp.obj /FdCMakeFiles\DLNU_CPP_CourseDesign.dir\ /FS -c D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\src\Music.cpp
 <<
 
-CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\Music.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/Music.cpp.i"
-	C:\PROGRA~1\MIB055~1\2022\PROFES~1\VC\Tools\MSVC\1441~1.341\bin\Hostx64\x64\cl.exe > CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\Music.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\Music.cpp
+CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Music.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Music.cpp.i"
+	C:\PROGRA~1\MIB055~1\2022\PROFES~1\VC\Tools\MSVC\1441~1.341\bin\Hostx64\x64\cl.exe > CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Music.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\src\Music.cpp
 <<
 
-CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\Music.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/Music.cpp.s"
+CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Music.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Music.cpp.s"
 	C:\PROGRA~1\MIB055~1\2022\PROFES~1\VC\Tools\MSVC\1441~1.341\bin\Hostx64\x64\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\Music.cpp.s /c D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\Music.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Music.cpp.s /c D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\src\Music.cpp
 <<
 
 CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Button.cpp.obj: CMakeFiles\DLNU_CPP_CourseDesign.dir\flags.make
@@ -201,30 +201,10 @@ CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Window.cpp.s: cmake_force
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Window.cpp.s /c D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\src\Window.cpp
 <<
 
-CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Mixer.cpp.obj: CMakeFiles\DLNU_CPP_CourseDesign.dir\flags.make
-CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Mixer.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\src\Mixer.cpp
-CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Mixer.cpp.obj: CMakeFiles\DLNU_CPP_CourseDesign.dir\compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Mixer.cpp.obj"
-	$(CMAKE_COMMAND) -E cmake_cl_compile_depends --dep-file=CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Mixer.cpp.obj.d --working-dir=D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug --filter-prefix="注意: 包含文件:  " -- C:\PROGRA~1\MIB055~1\2022\PROFES~1\VC\Tools\MSVC\1441~1.341\bin\Hostx64\x64\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /showIncludes /FoCMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Mixer.cpp.obj /FdCMakeFiles\DLNU_CPP_CourseDesign.dir\ /FS -c D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\src\Mixer.cpp
-<<
-
-CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Mixer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Mixer.cpp.i"
-	C:\PROGRA~1\MIB055~1\2022\PROFES~1\VC\Tools\MSVC\1441~1.341\bin\Hostx64\x64\cl.exe > CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Mixer.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\src\Mixer.cpp
-<<
-
-CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Mixer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Mixer.cpp.s"
-	C:\PROGRA~1\MIB055~1\2022\PROFES~1\VC\Tools\MSVC\1441~1.341\bin\Hostx64\x64\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Mixer.cpp.s /c D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\src\Mixer.cpp
-<<
-
 CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Renderer.cpp.obj: CMakeFiles\DLNU_CPP_CourseDesign.dir\flags.make
 CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Renderer.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\src\Renderer.cpp
 CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Renderer.cpp.obj: CMakeFiles\DLNU_CPP_CourseDesign.dir\compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Renderer.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Renderer.cpp.obj"
 	$(CMAKE_COMMAND) -E cmake_cl_compile_depends --dep-file=CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Renderer.cpp.obj.d --working-dir=D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug --filter-prefix="注意: 包含文件:  " -- C:\PROGRA~1\MIB055~1\2022\PROFES~1\VC\Tools\MSVC\1441~1.341\bin\Hostx64\x64\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /showIncludes /FoCMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Renderer.cpp.obj /FdCMakeFiles\DLNU_CPP_CourseDesign.dir\ /FS -c D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\src\Renderer.cpp
 <<
@@ -244,7 +224,7 @@ CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Renderer.cpp.s: cmake_force
 CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Controller.cpp.obj: CMakeFiles\DLNU_CPP_CourseDesign.dir\flags.make
 CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Controller.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\src\Controller.cpp
 CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Controller.cpp.obj: CMakeFiles\DLNU_CPP_CourseDesign.dir\compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Controller.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Controller.cpp.obj"
 	$(CMAKE_COMMAND) -E cmake_cl_compile_depends --dep-file=CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Controller.cpp.obj.d --working-dir=D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug --filter-prefix="注意: 包含文件:  " -- C:\PROGRA~1\MIB055~1\2022\PROFES~1\VC\Tools\MSVC\1441~1.341\bin\Hostx64\x64\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /showIncludes /FoCMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Controller.cpp.obj /FdCMakeFiles\DLNU_CPP_CourseDesign.dir\ /FS -c D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\src\Controller.cpp
 <<
@@ -264,13 +244,12 @@ CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Controller.cpp.s: cmake_force
 # Object files for target DLNU_CPP_CourseDesign
 DLNU_CPP_CourseDesign_OBJECTS = \
 "CMakeFiles\DLNU_CPP_CourseDesign.dir\main.cpp.obj" \
-"CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\Music.cpp.obj" \
+"CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Music.cpp.obj" \
 "CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Button.cpp.obj" \
 "CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Game.cpp.obj" \
 "CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Image.cpp.obj" \
 "CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Text.cpp.obj" \
 "CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Window.cpp.obj" \
-"CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Mixer.cpp.obj" \
 "CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Renderer.cpp.obj" \
 "CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Controller.cpp.obj"
 
@@ -278,18 +257,17 @@ DLNU_CPP_CourseDesign_OBJECTS = \
 DLNU_CPP_CourseDesign_EXTERNAL_OBJECTS =
 
 DLNU_CPP_CourseDesign.exe: CMakeFiles\DLNU_CPP_CourseDesign.dir\main.cpp.obj
-DLNU_CPP_CourseDesign.exe: CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\Music.cpp.obj
+DLNU_CPP_CourseDesign.exe: CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Music.cpp.obj
 DLNU_CPP_CourseDesign.exe: CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Button.cpp.obj
 DLNU_CPP_CourseDesign.exe: CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Game.cpp.obj
 DLNU_CPP_CourseDesign.exe: CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Image.cpp.obj
 DLNU_CPP_CourseDesign.exe: CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Text.cpp.obj
 DLNU_CPP_CourseDesign.exe: CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Window.cpp.obj
-DLNU_CPP_CourseDesign.exe: CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Mixer.cpp.obj
 DLNU_CPP_CourseDesign.exe: CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Renderer.cpp.obj
 DLNU_CPP_CourseDesign.exe: CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Controller.cpp.obj
 DLNU_CPP_CourseDesign.exe: CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make
 DLNU_CPP_CourseDesign.exe: CMakeFiles\DLNU_CPP_CourseDesign.dir\objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable DLNU_CPP_CourseDesign.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable DLNU_CPP_CourseDesign.exe"
 	"D:\CLion\CLion 2025.1\bin\cmake\win\x64\bin\cmake.exe" -E vs_link_exe --msvc-ver=1941 --intdir=CMakeFiles\DLNU_CPP_CourseDesign.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100226~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100226~1.0\x64\mt.exe --manifests -- C:\PROGRA~1\MIB055~1\2022\PROFES~1\VC\Tools\MSVC\1441~1.341\bin\Hostx64\x64\link.exe /nologo @CMakeFiles\DLNU_CPP_CourseDesign.dir\objects1.rsp @<<
  /out:DLNU_CPP_CourseDesign.exe /implib:DLNU_CPP_CourseDesign.lib /pdb:D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug\DLNU_CPP_CourseDesign.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console   -LIBPATH:D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\lib\dep\plugins\SDL2\lib\x64  SDL2.lib SDL2main.lib SDL2_image.lib SDL2_ttf.lib SDL2_mixer.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
 <<

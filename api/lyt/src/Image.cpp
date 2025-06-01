@@ -6,13 +6,12 @@ namespace lyt
     Image::~Image()
     {
         if (texture) SDL_DestroyTexture(texture);
-        IMG_Quit();
+        if (surface) SDL_FreeSurface(surface);
     }
 
     void Image::draw()
     {
         this->renderer->copy(texture, nullptr, &rect);
-        SDL_FreeSurface(surface);
     }
 
     void Image::setImage(const std::string& filePath, Renderer* renderer, SDL_Rect rect, SDL_BlendMode blendMode,

@@ -5,9 +5,9 @@
 #include "Controller.h"
 namespace lyt
 {
-    Controller::Controller()= default;
+    Controller::Controller() = default;
 
-    Controller::~Controller()= default;
+    Controller::~Controller() = default;
 
     void Controller::event(SDL_Event &event, int &x, int &y)
     {

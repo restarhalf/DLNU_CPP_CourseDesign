@@ -16,6 +16,28 @@ namespace lyt
             return false;
         }
     }
+    bool Button::isButtonReleased() const
+    {
+        if (isReleased)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    bool Button::isButtonPressed() const
+    {
+        if (isPressed)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
     void Button::draw()
     {
@@ -72,7 +94,7 @@ namespace lyt
     }
     void Button::drawwithImage()
     {
-        if (isClicked)
+        if (isClicked || isPressed)
         {
             // 按下时降低图片的透明度来实现变暗效果
             image.setAlpha(alpha * 0.6);
@@ -87,47 +109,58 @@ namespace lyt
 
     void Button::handleEvent(SDL_Event &event)
     {
-        if (event.type == SDL_MOUSEBUTTONDOWN)
-        {
-            if (event.button.button == SDL_BUTTON_LEFT)
-            {
-                if (event.button.x >= rect.x && event.button.x <= rect.x + rect.w && event.button.y >= rect.y &&
-                    event.button.y <= rect.y + rect.h)
-                {
-                    isClicked = true;
-                    std::cout << "Button clicked at (" << event.button.x << ", " << event.button.y << ")" << std::endl;
+        bool isInside = false;
+        int mouseX, mouseY;
+
+        // 重置released状态（应该只持续一帧）
+        isReleased = false;
+
+        switch (event.type) {
+            case SDL_MOUSEBUTTONDOWN:
+                if (event.button.button == SDL_BUTTON_LEFT) {
+                    mouseX = event.button.x;
+                    mouseY = event.button.y;
+                    isInside = (mouseX >= rect.x && mouseX <= rect.x + rect.w &&
+                               mouseY >= rect.y && mouseY <= rect.y + rect.h);
+                    if (isInside) {
+                        isClicked = true;
+                        isPressed = true;
+                    }
                 }
-            }
-        }
-        else if (event.type == SDL_MOUSEBUTTONUP)
-        {
-            if (event.button.button == SDL_BUTTON_LEFT)
-            {
-                if (isClicked && event.button.x >= rect.x && event.button.x <= rect.x + rect.w &&
-                    event.button.y >= rect.y && event.button.y <= rect.y + rect.h)
-                {
-                    isClicked = false;  // 重置点击状态
-                    std::cout << "Button released at (" << event.button.x << ", " << event.button.y << ")" << std::endl;
+                break;
+
+            case SDL_MOUSEBUTTONUP:
+                if (event.button.button == SDL_BUTTON_LEFT) {
+                    mouseX = event.button.x;
+                    mouseY = event.button.y;
+                    isInside = (mouseX >= rect.x && mouseX <= rect.x + rect.w &&
+                               mouseY >= rect.y && mouseY <= rect.y + rect.h);
+
+                    if (isInside && isPressed) {
+                        isReleased = true;
+                    }
+                    isClicked = false;
+                    isPressed = false;
                 }
-            }
-        }
-        else if (event.type == SDL_MOUSEMOTION)
-        {
-            // 鼠标移动时检查是否在按钮区域内
-            if (event.motion.x >= rect.x && event.motion.x <= rect.x + rect.w && event.motion.y >= rect.y &&
-                event.motion.y <= rect.y + rect.h)
-            {
-                // 如果之前点击了按钮，鼠标移入时恢复点击状态
-                if (!isClicked) image.setAlpha(alpha * 0.6);
-            }
-            else
-            {
-                if (isClicked)
-                {
-                    isClicked = false;  // 如果之前点击了按钮，鼠标移出时重置点击状态
-                    std::cout << "Button click reset due to mouse leaving button area" << std::endl;
+                break;
+
+            case SDL_MOUSEMOTION:
+                mouseX = event.motion.x;
+                mouseY = event.motion.y;
+                isInside = (mouseX >= rect.x && mouseX <= rect.x + rect.w &&
+                           mouseY >= rect.y && mouseY <= rect.y + rect.h);
+
+                if (isInside) {
+                    if (!isClicked && !isPressed) {
+                        image.setAlpha(alpha * 0.8);
+                    }
+                } else {
+                    isClicked = false;
+                    if (!isPressed) {
+                        image.setAlpha(alpha);
+                    }
                 }
-            }
+                break;
         }
     }
 
@@ -137,6 +170,7 @@ namespace lyt
         rect.y      = y;
         rect.w      = w;
         rect.h      = h;
+        image.setRect(rect);
         buttonColor = color;  // 设置按钮颜色
         isClicked   = false;  // 重置点击状态
     }
@@ -144,6 +178,7 @@ namespace lyt
     void Button::setButton(SDL_Rect rect, SDL_Color color)
     {
         this->rect  = rect;
+        image.setRect(rect);
         buttonColor = color;  // 设置按钮颜色
         isClicked   = false;  // 重置点击状态
     }

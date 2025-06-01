@@ -8,12 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/Music.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/Music.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/Music.cpp.obj.d"
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/src/Button.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Button.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Button.cpp.obj.d"
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/src/Controller.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Controller.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Controller.cpp.obj.d"
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/src/Game.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Game.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Game.cpp.obj.d"
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/src/Image.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Image.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Image.cpp.obj.d"
-  "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/src/Mixer.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Mixer.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Mixer.cpp.obj.d"
+  "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/src/Music.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Music.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Music.cpp.obj.d"
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/src/Renderer.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Renderer.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Renderer.cpp.obj.d"
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/src/Text.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Text.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Text.cpp.obj.d"
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/src/Window.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Window.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Window.cpp.obj.d"
