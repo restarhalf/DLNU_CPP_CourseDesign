@@ -83,7 +83,7 @@ SDL_FORCE_INLINE int SDL_MostSignificantBitIndex32(Uint32 x) {
      * http://graphics.stanford.edu/~seander/bithacks.html#IntegerLog
      */
     const Uint32 b[] = {0x2, 0xC, 0xF0, 0xFF00, 0xFFFF0000};
-    const int S[] = {1, 2, 4, 8, 16};
+    const int S[]    = {1, 2, 4, 8, 16};
 
     int msbIndex = 0;
     int i;

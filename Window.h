@@ -2,8 +2,10 @@
 #include <SDL.h>
 #include <string>
 
-namespace lyt {
-    class Window {
+namespace lyt
+{
+    class Window
+    {
     public:
         Window();
 
@@ -16,13 +18,13 @@ namespace lyt {
         void handleEvents();
 
         SDL_Window *get() const { return window_; }
-        int width() const { return width_; }
-        int height() const { return height_; }
+        int         width() const { return width_; }
+        int         height() const { return height_; }
 
     private:
         SDL_Window *window_ = nullptr;
-        int width_;
-        int height_;
-        SDL_Event event_;
+        int         width_;
+        int         height_;
+        SDL_Event   event_;
     };
 }  // namespace lyt

@@ -62,7 +62,7 @@ extern "C" {
  * Flags used when creating a rendering context
  */
 typedef enum SDL_RendererFlags {
-    SDL_RENDERER_SOFTWARE = 0x00000001, /**< The renderer is a software fallback */
+    SDL_RENDERER_SOFTWARE    = 0x00000001, /**< The renderer is a software fallback */
     SDL_RENDERER_ACCELERATED = 0x00000002, /**< The renderer uses hardware
                                                      acceleration */
     SDL_RENDERER_PRESENTVSYNC = 0x00000004, /**< Present is synchronized
@@ -114,7 +114,7 @@ typedef enum SDL_TextureAccess {
  * The texture channel modulation used in SDL_RenderCopy().
  */
 typedef enum SDL_TextureModulate {
-    SDL_TEXTUREMODULATE_NONE = 0x00000000, /**< No modulation */
+    SDL_TEXTUREMODULATE_NONE  = 0x00000000, /**< No modulation */
     SDL_TEXTUREMODULATE_COLOR = 0x00000001, /**< srcC = srcC * color */
     SDL_TEXTUREMODULATE_ALPHA = 0x00000002 /**< srcA = srcA * alpha */
 } SDL_TextureModulate;
@@ -123,9 +123,9 @@ typedef enum SDL_TextureModulate {
  * Flip constants for SDL_RenderCopyEx
  */
 typedef enum SDL_RendererFlip {
-    SDL_FLIP_NONE = 0x00000000, /**< Do not flip */
+    SDL_FLIP_NONE       = 0x00000000, /**< Do not flip */
     SDL_FLIP_HORIZONTAL = 0x00000001, /**< flip horizontally */
-    SDL_FLIP_VERTICAL = 0x00000002 /**< flip vertically */
+    SDL_FLIP_VERTICAL   = 0x00000002 /**< flip vertically */
 } SDL_RendererFlip;
 
 /**

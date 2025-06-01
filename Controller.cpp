@@ -6,18 +6,22 @@
 
 #include "Game.h"
 
-namespace lyt {
+namespace lyt
+{
     Controller::Controller() {}
 
     Controller::~Controller() {}
 
-    void Controller::event(SDL_Event &event, int &x, int &y) {
-        switch (event.type) {
+    void Controller::event(SDL_Event &event, int &x, int &y)
+    {
+        switch (event.type)
+        {
             case SDL_KEYDOWN:
                 if (isKeytoMove) KeyboardPress(event, x, y);
-                if (event.key.keysym.sym == SDLK_F1) {
+                if (event.key.keysym.sym == SDLK_F1)
+                {
                     isMousetoMove = !isMousetoMove;
-                    isKeytoMove = !isKeytoMove;
+                    isKeytoMove   = !isKeytoMove;
                     std::cout << "isMousetoMove:" << isMousetoMove << std::endl;
                 }
                 break;
@@ -38,8 +42,10 @@ namespace lyt {
         }
     }
 
-    void Controller::KeyboardPress(const SDL_Event &event, int &x, int &y) {
-        switch (event.key.keysym.sym) {
+    void Controller::KeyboardPress(const SDL_Event &event, int &x, int &y)
+    {
+        switch (event.key.keysym.sym)
+        {
             case SDLK_w:
                 SDL_Log("w");
                 y--;
@@ -75,8 +81,10 @@ namespace lyt {
         }
     }
 
-    void Controller::KeyboardRelease(const SDL_Event &event, int &x, int &y) {
-        switch (event.key.keysym.sym) {
+    void Controller::KeyboardRelease(const SDL_Event &event, int &x, int &y)
+    {
+        switch (event.key.keysym.sym)
+        {
             case SDLK_w:
                 y--;
                 break;
@@ -108,8 +116,10 @@ namespace lyt {
         }
     }
 
-    void Controller::MousePress(const SDL_Event &event) {
-        switch (event.button.button) {
+    void Controller::MousePress(const SDL_Event &event)
+    {
+        switch (event.button.button)
+        {
             case SDL_BUTTON_LEFT:
                 break;
             case SDL_BUTTON_RIGHT:
@@ -121,8 +131,10 @@ namespace lyt {
         }
     }
 
-    void Controller::MouseRelease(const SDL_Event &event) {
-        switch (event.button.button) {
+    void Controller::MouseRelease(const SDL_Event &event)
+    {
+        switch (event.button.button)
+        {
             case SDL_BUTTON_LEFT:
                 break;
             case SDL_BUTTON_RIGHT:
@@ -134,7 +146,8 @@ namespace lyt {
         }
     }
 
-    void Controller::MouseMove(const SDL_Event &event, int &x, int &y) {
+    void Controller::MouseMove(const SDL_Event &event, int &x, int &y)
+    {
         x = event.motion.x;
         y = event.motion.y;
         SDL_Log("Mouse moved to (%d, %d)", x, y);

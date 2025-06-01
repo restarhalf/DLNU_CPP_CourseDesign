@@ -98,31 +98,31 @@ typedef struct SDL_Window SDL_Window;
  * \sa SDL_GetWindowFlags
  */
 typedef enum SDL_WindowFlags {
-    SDL_WINDOW_FULLSCREEN = 0x00000001, /**< fullscreen window */
-    SDL_WINDOW_OPENGL = 0x00000002, /**< window usable with OpenGL context */
-    SDL_WINDOW_SHOWN = 0x00000004, /**< window is visible */
-    SDL_WINDOW_HIDDEN = 0x00000008, /**< window is not visible */
-    SDL_WINDOW_BORDERLESS = 0x00000010, /**< no window decoration */
-    SDL_WINDOW_RESIZABLE = 0x00000020, /**< window can be resized */
-    SDL_WINDOW_MINIMIZED = 0x00000040, /**< window is minimized */
-    SDL_WINDOW_MAXIMIZED = 0x00000080, /**< window is maximized */
-    SDL_WINDOW_MOUSE_GRABBED = 0x00000100, /**< window has grabbed mouse input */
-    SDL_WINDOW_INPUT_FOCUS = 0x00000200, /**< window has input focus */
-    SDL_WINDOW_MOUSE_FOCUS = 0x00000400, /**< window has mouse focus */
+    SDL_WINDOW_FULLSCREEN         = 0x00000001, /**< fullscreen window */
+    SDL_WINDOW_OPENGL             = 0x00000002, /**< window usable with OpenGL context */
+    SDL_WINDOW_SHOWN              = 0x00000004, /**< window is visible */
+    SDL_WINDOW_HIDDEN             = 0x00000008, /**< window is not visible */
+    SDL_WINDOW_BORDERLESS         = 0x00000010, /**< no window decoration */
+    SDL_WINDOW_RESIZABLE          = 0x00000020, /**< window can be resized */
+    SDL_WINDOW_MINIMIZED          = 0x00000040, /**< window is minimized */
+    SDL_WINDOW_MAXIMIZED          = 0x00000080, /**< window is maximized */
+    SDL_WINDOW_MOUSE_GRABBED      = 0x00000100, /**< window has grabbed mouse input */
+    SDL_WINDOW_INPUT_FOCUS        = 0x00000200, /**< window has input focus */
+    SDL_WINDOW_MOUSE_FOCUS        = 0x00000400, /**< window has mouse focus */
     SDL_WINDOW_FULLSCREEN_DESKTOP = (SDL_WINDOW_FULLSCREEN | 0x00001000),
-    SDL_WINDOW_FOREIGN = 0x00000800, /**< window not created by SDL */
-    SDL_WINDOW_ALLOW_HIGHDPI = 0x00002000, /**< window should be created in high-DPI mode if supported.
+    SDL_WINDOW_FOREIGN            = 0x00000800, /**< window not created by SDL */
+    SDL_WINDOW_ALLOW_HIGHDPI      = 0x00002000, /**< window should be created in high-DPI mode if supported.
                                                      On macOS NSHighResolutionCapable must be set true in the
                                                      application's Info.plist for this to have any effect. */
-    SDL_WINDOW_MOUSE_CAPTURE = 0x00004000, /**< window has mouse captured (unrelated to MOUSE_GRABBED) */
-    SDL_WINDOW_ALWAYS_ON_TOP = 0x00008000, /**< window should always be above others */
-    SDL_WINDOW_SKIP_TASKBAR = 0x00010000, /**< window should not be added to the taskbar */
-    SDL_WINDOW_UTILITY = 0x00020000, /**< window should be treated as a utility window */
-    SDL_WINDOW_TOOLTIP = 0x00040000, /**< window should be treated as a tooltip */
-    SDL_WINDOW_POPUP_MENU = 0x00080000, /**< window should be treated as a popup menu */
+    SDL_WINDOW_MOUSE_CAPTURE    = 0x00004000, /**< window has mouse captured (unrelated to MOUSE_GRABBED) */
+    SDL_WINDOW_ALWAYS_ON_TOP    = 0x00008000, /**< window should always be above others */
+    SDL_WINDOW_SKIP_TASKBAR     = 0x00010000, /**< window should not be added to the taskbar */
+    SDL_WINDOW_UTILITY          = 0x00020000, /**< window should be treated as a utility window */
+    SDL_WINDOW_TOOLTIP          = 0x00040000, /**< window should be treated as a tooltip */
+    SDL_WINDOW_POPUP_MENU       = 0x00080000, /**< window should be treated as a popup menu */
     SDL_WINDOW_KEYBOARD_GRABBED = 0x00100000, /**< window has grabbed keyboard input */
-    SDL_WINDOW_VULKAN = 0x10000000, /**< window usable for Vulkan surface */
-    SDL_WINDOW_METAL = 0x20000000, /**< window usable for Metal view */
+    SDL_WINDOW_VULKAN           = 0x10000000, /**< window usable for Vulkan surface */
+    SDL_WINDOW_METAL            = 0x20000000, /**< window usable for Metal view */
 
     SDL_WINDOW_INPUT_GRABBED = SDL_WINDOW_MOUSE_GRABBED /**< equivalent to SDL_WINDOW_MOUSE_GRABBED for compatibility */
 } SDL_WindowFlags;
@@ -288,26 +288,26 @@ typedef enum SDL_GLattr {
 } SDL_GLattr;
 
 typedef enum SDL_GLprofile {
-    SDL_GL_CONTEXT_PROFILE_CORE = 0x0001,
+    SDL_GL_CONTEXT_PROFILE_CORE          = 0x0001,
     SDL_GL_CONTEXT_PROFILE_COMPATIBILITY = 0x0002,
-    SDL_GL_CONTEXT_PROFILE_ES = 0x0004 /**< GLX_CONTEXT_ES2_PROFILE_BIT_EXT */
+    SDL_GL_CONTEXT_PROFILE_ES            = 0x0004 /**< GLX_CONTEXT_ES2_PROFILE_BIT_EXT */
 } SDL_GLprofile;
 
 typedef enum SDL_GLcontextFlag {
-    SDL_GL_CONTEXT_DEBUG_FLAG = 0x0001,
+    SDL_GL_CONTEXT_DEBUG_FLAG              = 0x0001,
     SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG = 0x0002,
-    SDL_GL_CONTEXT_ROBUST_ACCESS_FLAG = 0x0004,
-    SDL_GL_CONTEXT_RESET_ISOLATION_FLAG = 0x0008
+    SDL_GL_CONTEXT_ROBUST_ACCESS_FLAG      = 0x0004,
+    SDL_GL_CONTEXT_RESET_ISOLATION_FLAG    = 0x0008
 } SDL_GLcontextFlag;
 
 typedef enum SDL_GLcontextReleaseFlag {
-    SDL_GL_CONTEXT_RELEASE_BEHAVIOR_NONE = 0x0000,
+    SDL_GL_CONTEXT_RELEASE_BEHAVIOR_NONE  = 0x0000,
     SDL_GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH = 0x0001
 } SDL_GLcontextReleaseFlag;
 
 typedef enum SDL_GLContextResetNotification {
     SDL_GL_CONTEXT_RESET_NO_NOTIFICATION = 0x0000,
-    SDL_GL_CONTEXT_RESET_LOSE_CONTEXT = 0x0001
+    SDL_GL_CONTEXT_RESET_LOSE_CONTEXT    = 0x0001
 } SDL_GLContextResetNotification;
 
 /* Function prototypes */

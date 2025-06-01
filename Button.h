@@ -9,8 +9,10 @@
 #include "SDL_ttf.h"
 #include "Text.h"
 
-namespace lyt {
-    class Button {
+namespace lyt
+{
+    class Button
+    {
     private:
         // 按钮矩形区域
         SDL_Rect rect;
