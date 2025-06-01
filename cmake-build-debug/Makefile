@@ -118,221 +118,221 @@ DLNU_CPP_CourseDesign\fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\build
 .PHONY : DLNU_CPP_CourseDesign\fast
 
-Button.obj: Button.cpp.obj
-.PHONY : Button.obj
+api\lyt\Music.obj: api\lyt\Music.cpp.obj
+.PHONY : api\lyt\Music.obj
 
 # target to build an object file
-Button.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Button.cpp.obj
-.PHONY : Button.cpp.obj
+api\lyt\Music.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\Music.cpp.obj
+.PHONY : api\lyt\Music.cpp.obj
 
-Button.i: Button.cpp.i
-.PHONY : Button.i
+api\lyt\Music.i: api\lyt\Music.cpp.i
+.PHONY : api\lyt\Music.i
 
 # target to preprocess a source file
-Button.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Button.cpp.i
-.PHONY : Button.cpp.i
+api\lyt\Music.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\Music.cpp.i
+.PHONY : api\lyt\Music.cpp.i
 
-Button.s: Button.cpp.s
-.PHONY : Button.s
+api\lyt\Music.s: api\lyt\Music.cpp.s
+.PHONY : api\lyt\Music.s
 
 # target to generate assembly for a file
-Button.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Button.cpp.s
-.PHONY : Button.cpp.s
+api\lyt\Music.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\Music.cpp.s
+.PHONY : api\lyt\Music.cpp.s
 
-Controller.obj: Controller.cpp.obj
-.PHONY : Controller.obj
+api\lyt\src\Button.obj: api\lyt\src\Button.cpp.obj
+.PHONY : api\lyt\src\Button.obj
 
 # target to build an object file
-Controller.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Controller.cpp.obj
-.PHONY : Controller.cpp.obj
+api\lyt\src\Button.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Button.cpp.obj
+.PHONY : api\lyt\src\Button.cpp.obj
 
-Controller.i: Controller.cpp.i
-.PHONY : Controller.i
+api\lyt\src\Button.i: api\lyt\src\Button.cpp.i
+.PHONY : api\lyt\src\Button.i
 
 # target to preprocess a source file
-Controller.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Controller.cpp.i
-.PHONY : Controller.cpp.i
+api\lyt\src\Button.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Button.cpp.i
+.PHONY : api\lyt\src\Button.cpp.i
 
-Controller.s: Controller.cpp.s
-.PHONY : Controller.s
+api\lyt\src\Button.s: api\lyt\src\Button.cpp.s
+.PHONY : api\lyt\src\Button.s
 
 # target to generate assembly for a file
-Controller.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Controller.cpp.s
-.PHONY : Controller.cpp.s
+api\lyt\src\Button.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Button.cpp.s
+.PHONY : api\lyt\src\Button.cpp.s
 
-Game.obj: Game.cpp.obj
-.PHONY : Game.obj
+api\lyt\src\Controller.obj: api\lyt\src\Controller.cpp.obj
+.PHONY : api\lyt\src\Controller.obj
 
 # target to build an object file
-Game.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Game.cpp.obj
-.PHONY : Game.cpp.obj
+api\lyt\src\Controller.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Controller.cpp.obj
+.PHONY : api\lyt\src\Controller.cpp.obj
 
-Game.i: Game.cpp.i
-.PHONY : Game.i
+api\lyt\src\Controller.i: api\lyt\src\Controller.cpp.i
+.PHONY : api\lyt\src\Controller.i
 
 # target to preprocess a source file
-Game.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Game.cpp.i
-.PHONY : Game.cpp.i
+api\lyt\src\Controller.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Controller.cpp.i
+.PHONY : api\lyt\src\Controller.cpp.i
 
-Game.s: Game.cpp.s
-.PHONY : Game.s
+api\lyt\src\Controller.s: api\lyt\src\Controller.cpp.s
+.PHONY : api\lyt\src\Controller.s
 
 # target to generate assembly for a file
-Game.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Game.cpp.s
-.PHONY : Game.cpp.s
+api\lyt\src\Controller.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Controller.cpp.s
+.PHONY : api\lyt\src\Controller.cpp.s
 
-Image.obj: Image.cpp.obj
-.PHONY : Image.obj
+api\lyt\src\Game.obj: api\lyt\src\Game.cpp.obj
+.PHONY : api\lyt\src\Game.obj
 
 # target to build an object file
-Image.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Image.cpp.obj
-.PHONY : Image.cpp.obj
+api\lyt\src\Game.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Game.cpp.obj
+.PHONY : api\lyt\src\Game.cpp.obj
 
-Image.i: Image.cpp.i
-.PHONY : Image.i
+api\lyt\src\Game.i: api\lyt\src\Game.cpp.i
+.PHONY : api\lyt\src\Game.i
 
 # target to preprocess a source file
-Image.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Image.cpp.i
-.PHONY : Image.cpp.i
+api\lyt\src\Game.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Game.cpp.i
+.PHONY : api\lyt\src\Game.cpp.i
 
-Image.s: Image.cpp.s
-.PHONY : Image.s
+api\lyt\src\Game.s: api\lyt\src\Game.cpp.s
+.PHONY : api\lyt\src\Game.s
 
 # target to generate assembly for a file
-Image.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Image.cpp.s
-.PHONY : Image.cpp.s
+api\lyt\src\Game.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Game.cpp.s
+.PHONY : api\lyt\src\Game.cpp.s
 
-Mixer.obj: Mixer.cpp.obj
-.PHONY : Mixer.obj
+api\lyt\src\Image.obj: api\lyt\src\Image.cpp.obj
+.PHONY : api\lyt\src\Image.obj
 
 # target to build an object file
-Mixer.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Mixer.cpp.obj
-.PHONY : Mixer.cpp.obj
+api\lyt\src\Image.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Image.cpp.obj
+.PHONY : api\lyt\src\Image.cpp.obj
 
-Mixer.i: Mixer.cpp.i
-.PHONY : Mixer.i
+api\lyt\src\Image.i: api\lyt\src\Image.cpp.i
+.PHONY : api\lyt\src\Image.i
 
 # target to preprocess a source file
-Mixer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Mixer.cpp.i
-.PHONY : Mixer.cpp.i
+api\lyt\src\Image.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Image.cpp.i
+.PHONY : api\lyt\src\Image.cpp.i
 
-Mixer.s: Mixer.cpp.s
-.PHONY : Mixer.s
+api\lyt\src\Image.s: api\lyt\src\Image.cpp.s
+.PHONY : api\lyt\src\Image.s
 
 # target to generate assembly for a file
-Mixer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Mixer.cpp.s
-.PHONY : Mixer.cpp.s
+api\lyt\src\Image.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Image.cpp.s
+.PHONY : api\lyt\src\Image.cpp.s
 
-Renderer.obj: Renderer.cpp.obj
-.PHONY : Renderer.obj
+api\lyt\src\Mixer.obj: api\lyt\src\Mixer.cpp.obj
+.PHONY : api\lyt\src\Mixer.obj
 
 # target to build an object file
-Renderer.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Renderer.cpp.obj
-.PHONY : Renderer.cpp.obj
+api\lyt\src\Mixer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Mixer.cpp.obj
+.PHONY : api\lyt\src\Mixer.cpp.obj
 
-Renderer.i: Renderer.cpp.i
-.PHONY : Renderer.i
+api\lyt\src\Mixer.i: api\lyt\src\Mixer.cpp.i
+.PHONY : api\lyt\src\Mixer.i
 
 # target to preprocess a source file
-Renderer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Renderer.cpp.i
-.PHONY : Renderer.cpp.i
+api\lyt\src\Mixer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Mixer.cpp.i
+.PHONY : api\lyt\src\Mixer.cpp.i
 
-Renderer.s: Renderer.cpp.s
-.PHONY : Renderer.s
+api\lyt\src\Mixer.s: api\lyt\src\Mixer.cpp.s
+.PHONY : api\lyt\src\Mixer.s
 
 # target to generate assembly for a file
-Renderer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Renderer.cpp.s
-.PHONY : Renderer.cpp.s
+api\lyt\src\Mixer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Mixer.cpp.s
+.PHONY : api\lyt\src\Mixer.cpp.s
 
-ServerSide.obj: ServerSide.cpp.obj
-.PHONY : ServerSide.obj
+api\lyt\src\Renderer.obj: api\lyt\src\Renderer.cpp.obj
+.PHONY : api\lyt\src\Renderer.obj
 
 # target to build an object file
-ServerSide.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\ServerSide.cpp.obj
-.PHONY : ServerSide.cpp.obj
+api\lyt\src\Renderer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Renderer.cpp.obj
+.PHONY : api\lyt\src\Renderer.cpp.obj
 
-ServerSide.i: ServerSide.cpp.i
-.PHONY : ServerSide.i
+api\lyt\src\Renderer.i: api\lyt\src\Renderer.cpp.i
+.PHONY : api\lyt\src\Renderer.i
 
 # target to preprocess a source file
-ServerSide.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\ServerSide.cpp.i
-.PHONY : ServerSide.cpp.i
+api\lyt\src\Renderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Renderer.cpp.i
+.PHONY : api\lyt\src\Renderer.cpp.i
 
-ServerSide.s: ServerSide.cpp.s
-.PHONY : ServerSide.s
+api\lyt\src\Renderer.s: api\lyt\src\Renderer.cpp.s
+.PHONY : api\lyt\src\Renderer.s
 
 # target to generate assembly for a file
-ServerSide.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\ServerSide.cpp.s
-.PHONY : ServerSide.cpp.s
+api\lyt\src\Renderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Renderer.cpp.s
+.PHONY : api\lyt\src\Renderer.cpp.s
 
-Text.obj: Text.cpp.obj
-.PHONY : Text.obj
+api\lyt\src\Text.obj: api\lyt\src\Text.cpp.obj
+.PHONY : api\lyt\src\Text.obj
 
 # target to build an object file
-Text.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Text.cpp.obj
-.PHONY : Text.cpp.obj
+api\lyt\src\Text.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Text.cpp.obj
+.PHONY : api\lyt\src\Text.cpp.obj
 
-Text.i: Text.cpp.i
-.PHONY : Text.i
+api\lyt\src\Text.i: api\lyt\src\Text.cpp.i
+.PHONY : api\lyt\src\Text.i
 
 # target to preprocess a source file
-Text.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Text.cpp.i
-.PHONY : Text.cpp.i
+api\lyt\src\Text.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Text.cpp.i
+.PHONY : api\lyt\src\Text.cpp.i
 
-Text.s: Text.cpp.s
-.PHONY : Text.s
+api\lyt\src\Text.s: api\lyt\src\Text.cpp.s
+.PHONY : api\lyt\src\Text.s
 
 # target to generate assembly for a file
-Text.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Text.cpp.s
-.PHONY : Text.cpp.s
+api\lyt\src\Text.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Text.cpp.s
+.PHONY : api\lyt\src\Text.cpp.s
 
-Window.obj: Window.cpp.obj
-.PHONY : Window.obj
+api\lyt\src\Window.obj: api\lyt\src\Window.cpp.obj
+.PHONY : api\lyt\src\Window.obj
 
 # target to build an object file
-Window.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Window.cpp.obj
-.PHONY : Window.cpp.obj
+api\lyt\src\Window.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Window.cpp.obj
+.PHONY : api\lyt\src\Window.cpp.obj
 
-Window.i: Window.cpp.i
-.PHONY : Window.i
+api\lyt\src\Window.i: api\lyt\src\Window.cpp.i
+.PHONY : api\lyt\src\Window.i
 
 # target to preprocess a source file
-Window.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Window.cpp.i
-.PHONY : Window.cpp.i
+api\lyt\src\Window.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Window.cpp.i
+.PHONY : api\lyt\src\Window.cpp.i
 
-Window.s: Window.cpp.s
-.PHONY : Window.s
+api\lyt\src\Window.s: api\lyt\src\Window.cpp.s
+.PHONY : api\lyt\src\Window.s
 
 # target to generate assembly for a file
-Window.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\Window.cpp.s
-.PHONY : Window.cpp.s
+api\lyt\src\Window.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Window.cpp.s
+.PHONY : api\lyt\src\Window.cpp.s
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
@@ -367,33 +367,33 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... DLNU_CPP_CourseDesign
-	@echo ... Button.obj
-	@echo ... Button.i
-	@echo ... Button.s
-	@echo ... Controller.obj
-	@echo ... Controller.i
-	@echo ... Controller.s
-	@echo ... Game.obj
-	@echo ... Game.i
-	@echo ... Game.s
-	@echo ... Image.obj
-	@echo ... Image.i
-	@echo ... Image.s
-	@echo ... Mixer.obj
-	@echo ... Mixer.i
-	@echo ... Mixer.s
-	@echo ... Renderer.obj
-	@echo ... Renderer.i
-	@echo ... Renderer.s
-	@echo ... ServerSide.obj
-	@echo ... ServerSide.i
-	@echo ... ServerSide.s
-	@echo ... Text.obj
-	@echo ... Text.i
-	@echo ... Text.s
-	@echo ... Window.obj
-	@echo ... Window.i
-	@echo ... Window.s
+	@echo ... api/lyt/Music.obj
+	@echo ... api/lyt/Music.i
+	@echo ... api/lyt/Music.s
+	@echo ... api/lyt/src/Button.obj
+	@echo ... api/lyt/src/Button.i
+	@echo ... api/lyt/src/Button.s
+	@echo ... api/lyt/src/Controller.obj
+	@echo ... api/lyt/src/Controller.i
+	@echo ... api/lyt/src/Controller.s
+	@echo ... api/lyt/src/Game.obj
+	@echo ... api/lyt/src/Game.i
+	@echo ... api/lyt/src/Game.s
+	@echo ... api/lyt/src/Image.obj
+	@echo ... api/lyt/src/Image.i
+	@echo ... api/lyt/src/Image.s
+	@echo ... api/lyt/src/Mixer.obj
+	@echo ... api/lyt/src/Mixer.i
+	@echo ... api/lyt/src/Mixer.s
+	@echo ... api/lyt/src/Renderer.obj
+	@echo ... api/lyt/src/Renderer.i
+	@echo ... api/lyt/src/Renderer.s
+	@echo ... api/lyt/src/Text.obj
+	@echo ... api/lyt/src/Text.i
+	@echo ... api/lyt/src/Text.s
+	@echo ... api/lyt/src/Window.obj
+	@echo ... api/lyt/src/Window.i
+	@echo ... api/lyt/src/Window.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

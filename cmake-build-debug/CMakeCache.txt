@@ -260,6 +260,15 @@ Z_VCPKG_PWSH_PATH:FILEPATH=Z_VCPKG_PWSH_PATH-NOTFOUND
 // triplet
 _VCPKG_INSTALLED_DIR:PATH=C:/Users/a1793/.vcpkg-clion/vcpkg/installed
 
+//Value Computed by CMake
+lyt_api_BINARY_DIR:STATIC=D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/cmake-build-debug/api/lyt
+
+//Value Computed by CMake
+lyt_api_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+lyt_api_SOURCE_DIR:STATIC=D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt
+
 
 ########################
 # INTERNAL cache entries
