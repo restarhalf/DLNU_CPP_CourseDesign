@@ -118,30 +118,6 @@ DLNU_CPP_CourseDesign\fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\build
 .PHONY : DLNU_CPP_CourseDesign\fast
 
-api\lyt\Music.obj: api\lyt\Music.cpp.obj
-.PHONY : api\lyt\Music.obj
-
-# target to build an object file
-api\lyt\Music.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\Music.cpp.obj
-.PHONY : api\lyt\Music.cpp.obj
-
-api\lyt\Music.i: api\lyt\Music.cpp.i
-.PHONY : api\lyt\Music.i
-
-# target to preprocess a source file
-api\lyt\Music.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\Music.cpp.i
-.PHONY : api\lyt\Music.cpp.i
-
-api\lyt\Music.s: api\lyt\Music.cpp.s
-.PHONY : api\lyt\Music.s
-
-# target to generate assembly for a file
-api\lyt\Music.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\Music.cpp.s
-.PHONY : api\lyt\Music.cpp.s
-
 api\lyt\src\Button.obj: api\lyt\src\Button.cpp.obj
 .PHONY : api\lyt\src\Button.obj
 
@@ -238,29 +214,29 @@ api\lyt\src\Image.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Image.cpp.s
 .PHONY : api\lyt\src\Image.cpp.s
 
-api\lyt\src\Mixer.obj: api\lyt\src\Mixer.cpp.obj
-.PHONY : api\lyt\src\Mixer.obj
+api\lyt\src\Music.obj: api\lyt\src\Music.cpp.obj
+.PHONY : api\lyt\src\Music.obj
 
 # target to build an object file
-api\lyt\src\Mixer.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Mixer.cpp.obj
-.PHONY : api\lyt\src\Mixer.cpp.obj
+api\lyt\src\Music.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Music.cpp.obj
+.PHONY : api\lyt\src\Music.cpp.obj
 
-api\lyt\src\Mixer.i: api\lyt\src\Mixer.cpp.i
-.PHONY : api\lyt\src\Mixer.i
+api\lyt\src\Music.i: api\lyt\src\Music.cpp.i
+.PHONY : api\lyt\src\Music.i
 
 # target to preprocess a source file
-api\lyt\src\Mixer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Mixer.cpp.i
-.PHONY : api\lyt\src\Mixer.cpp.i
+api\lyt\src\Music.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Music.cpp.i
+.PHONY : api\lyt\src\Music.cpp.i
 
-api\lyt\src\Mixer.s: api\lyt\src\Mixer.cpp.s
-.PHONY : api\lyt\src\Mixer.s
+api\lyt\src\Music.s: api\lyt\src\Music.cpp.s
+.PHONY : api\lyt\src\Music.s
 
 # target to generate assembly for a file
-api\lyt\src\Mixer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Mixer.cpp.s
-.PHONY : api\lyt\src\Mixer.cpp.s
+api\lyt\src\Music.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Music.cpp.s
+.PHONY : api\lyt\src\Music.cpp.s
 
 api\lyt\src\Renderer.obj: api\lyt\src\Renderer.cpp.obj
 .PHONY : api\lyt\src\Renderer.obj
@@ -367,9 +343,6 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... DLNU_CPP_CourseDesign
-	@echo ... api/lyt/Music.obj
-	@echo ... api/lyt/Music.i
-	@echo ... api/lyt/Music.s
 	@echo ... api/lyt/src/Button.obj
 	@echo ... api/lyt/src/Button.i
 	@echo ... api/lyt/src/Button.s
@@ -382,9 +355,9 @@ help:
 	@echo ... api/lyt/src/Image.obj
 	@echo ... api/lyt/src/Image.i
 	@echo ... api/lyt/src/Image.s
-	@echo ... api/lyt/src/Mixer.obj
-	@echo ... api/lyt/src/Mixer.i
-	@echo ... api/lyt/src/Mixer.s
+	@echo ... api/lyt/src/Music.obj
+	@echo ... api/lyt/src/Music.i
+	@echo ... api/lyt/src/Music.s
 	@echo ... api/lyt/src/Renderer.obj
 	@echo ... api/lyt/src/Renderer.i
 	@echo ... api/lyt/src/Renderer.s

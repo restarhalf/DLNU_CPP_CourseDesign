@@ -4,10 +4,10 @@
 
 #ifndef TEXT_H
 #define TEXT_H
+#include <Renderer.h>
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <bits/stdc++.h>
-#include <Renderer.h>
 
 namespace lyt
 {

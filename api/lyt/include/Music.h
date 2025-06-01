@@ -4,13 +4,22 @@
 
 #ifndef MUSIC_H
 #define MUSIC_H
-
-
-
-class Music {
+#include <SDL.h>
+#include <SDL_mixer.h>
+#include <string>
+class Music
+{
+private:
+    Mix_Music*  music;
+    std::string filePath;
+    bool        isPlaying;
+public:
+    Music();
+    ~Music();
+    void playMusic(const std::string& filePath);
+    void stopMusic();
 
 };
 
 
-
-#endif //MUSIC_H
+#endif  // MUSIC_H

@@ -26,21 +26,13 @@ namespace lyt
         }
     }
 
-    void Window::handleEvents()
+    void Window::handleEvents(SDL_Event& event)
     {
-        while (SDL_PollEvent(&event_))
-        {
-            if (event_.type == SDL_QUIT)
-            {
-                // 需要后续在Game类中处理退出逻辑
-            }
             if (event_.type == SDL_WINDOWEVENT && event_.window.event == SDL_WINDOWEVENT_RESIZED)
             {
                 width_  = event_.window.data1;
                 height_ = event_.window.data2;
             }
-        }
+
     }
-}  // namespace lyt
-
-
+}// namespace lyt

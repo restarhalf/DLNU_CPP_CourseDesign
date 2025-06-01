@@ -4,11 +4,11 @@
 
 #ifndef WINDOW_H
 #define WINDOW_H
-#include <bits/stdc++.h>
 #include <SDL.h>
-#include <SDL_ttf.h>
-#include <SDL_mixer.h>
 #include <SDL_image.h>
+#include <SDL_mixer.h>
+#include <SDL_ttf.h>
+#include <bits/stdc++.h>
 namespace lyt
 {
 
@@ -23,7 +23,7 @@ namespace lyt
 
         ~Window();
 
-        void handleEvents();
+        void handleEvents(SDL_Event &event);
 
         SDL_Window *get() const { return window_; }
         int         width() const { return width_; }

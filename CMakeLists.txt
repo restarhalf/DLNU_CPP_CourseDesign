@@ -21,7 +21,7 @@ target_sources(${PROJECT_NAME} PRIVATE
         api/lyt/src/Image.cpp
         api/lyt/src/Text.cpp
         api/lyt/src/Window.cpp
-        api/lyt/src/Mixer.cpp
+        api/lyt/src/Music.cpp
         api/lyt/src/Renderer.cpp
         api/lyt/src/Controller.cpp
         api/lyt/src/Music.cpp

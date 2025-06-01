@@ -9,10 +9,9 @@
 #include <Controller.h>
 #include <Game.h>
 #include <Image.h>
+#include <Music.h>
 #include <Renderer.h>
 #include <Text.h>
 #include <Window.h>
-#include <Mixer.h>
-#include <Music.h>
 
-#endif //LYT_API_H
+#endif  // LYT_API_H

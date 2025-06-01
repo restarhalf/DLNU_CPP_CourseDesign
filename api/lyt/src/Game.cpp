@@ -4,7 +4,7 @@
 #include "Game.h"
 namespace lyt
 {
-    Game::Game() : window(nullptr), renderer(nullptr), isRunning(false){}
+    Game::Game() : window(nullptr), renderer(nullptr), isRunning(false) {}
 
     Game::~Game() { clean(); }
 
@@ -62,7 +62,7 @@ namespace lyt
         {
             SDL_Log("SDL_TTF initialized");
         }
-        if (IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG) ==0 )
+        if (IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG) == 0)
         {
             SDL_Log("SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError());
             isRunning = false;
@@ -89,9 +89,10 @@ namespace lyt
     {
         if (event.type == SDL_QUIT || event.key.keysym.sym == SDLK_ESCAPE)
         {
-            isRunning = false;
+            clean();
         }
         controller.event(event, x, y);
+        window->handleEvents(event);
     }
 
     void Game::clean()
