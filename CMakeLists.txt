@@ -3,29 +3,30 @@ project("DLNU_CPP_CourseDesign")
 
 set(CMAKE_CXX_STANDARD 20)
 
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/SDL2/include")
-link_directories("${CMAKE_CURRENT_SOURCE_DIR}/SDL2/lib/x64")
-
-add_executable(DLNU_CPP_CourseDesign main.cpp
-        game.cpp
-        game.h
-        Controller.cpp
-        Controller.h
-        Text.cpp
-        Text.h
-        Window.cpp
-        Window.h
-        Renderer.cpp
-        Renderer.h
-        Image.cpp
-        Image.h
-        ServerSide.cpp
-        Button.cpp
-        Button.h
-        Mixer.cpp
-        Mixer.h
-        SDL2/include/All.h
+add_executable(${PROJECT_NAME} main.cpp
+        api/lyt/include/lyt_api.h
+        api/lyt/src/Music.cpp
+        api/lyt/include/Music.h
 )
+
+target_include_directories(${PROJECT_NAME} PRIVATE
+        "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2/include"
+        "${CMAKE_CURRENT_SOURCE_DIR}/api/lyt/include")
+target_link_directories(${PROJECT_NAME} PRIVATE
+        "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2/lib/x64")
+
+target_sources(${PROJECT_NAME} PRIVATE
+        api/lyt/src/Button.cpp
+        api/lyt/src/Game.cpp
+        api/lyt/src/Image.cpp
+        api/lyt/src/Text.cpp
+        api/lyt/src/Window.cpp
+        api/lyt/src/Mixer.cpp
+        api/lyt/src/Renderer.cpp
+        api/lyt/src/Controller.cpp
+        api/lyt/src/Music.cpp
+)
+
 target_link_libraries(DLNU_CPP_CourseDesign
         SDL2
         SDL2main

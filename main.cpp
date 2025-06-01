@@ -1,39 +1,32 @@
 //
 // Create by Tang Team on 2025/5/26.
 //
-#include <bits/stdc++.h>
-#include <random>
-#include <ranges>
-
-#include "Button.h"
-#include "Game.h"
-#include "Image.h"
-#include "ServerSide.cpp"
-#include "Text.h"
+#include<lyt_api.h>
 using namespace lyt;
-
 int main(int argc, char *argv[])
 {
     Game   game;
     Button login;
     Button exit;
+    TTF_Font * font= nullptr;
     game.init("Game", 2460, 1080, 0);
-    SDL_SetWindowIcon(game.getWindow()->get(), IMG_Load("4.png"));
+    SDL_SetWindowIcon(game.getWindow()->get(), IMG_Load("asset/images/4.png"));
     Image image;
     int   w = 0, h = 0, x = 0, y = 0, x1 = 0, y1 = 0;
     Text  text;
+    font = TTF_OpenFont("asset/fonts/MSYH.ttf", 720);
     while (game.running())
     {
         game.frameStart();
         game.getRenderer()->clear();
         SDL_GetWindowSize(game.getWindow()->get(), &w, &h);
-        login.setButtonwithImage("3.png", game.getRenderer(), {w / 3 - 100, h / 2 + 70, 230, 230}, SDL_BLENDMODE_BLEND,
+        login.setButtonwithImage("asset/images/3.png", game.getRenderer(), {w / 3 - 100, h / 2 + 70, 230, 230}, SDL_BLENDMODE_BLEND,
                                  255);
-        exit.setButtonwithImage("2.png", game.getRenderer(), {w / 3 * 2 - 100, h / 2 + 70, 230, 230},
+        exit.setButtonwithImage("asset/images/2.png", game.getRenderer(), {w / 3 * 2 - 100, h / 2 + 70, 230, 230},
                                 SDL_BLENDMODE_BLEND, 255);
-        text.setAll(game.getRenderer(), {x1, y1, 150, 30}, {0, 0, 0, 0}, game.getFont(), SDL_BLENDMODE_BLEND,
+        text.setAll(game.getRenderer(), {x1, y1, 150, 30}, {0, 0, 0, 0}, font, SDL_BLENDMODE_BLEND,
                     "按F1切换鼠标移动或键盘移动", 155);
-        image.setImage("1.jpg", game.getRenderer(), {0, 0, w, h}, SDL_BLENDMODE_BLEND, 255);
+        image.setImage("asset/images/1.jpg", game.getRenderer(), {0, 0, w, h}, SDL_BLENDMODE_BLEND, 255);
         text.draw();
         image.draw();
         login.drawwithImage();
