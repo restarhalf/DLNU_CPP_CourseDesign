@@ -4,9 +4,6 @@ project("DLNU_CPP_CourseDesign")
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(${PROJECT_NAME} main.cpp
-        api/lyt/include/lyt_api.h
-        api/lyt/src/Music.cpp
-        api/lyt/include/Music.h
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE
