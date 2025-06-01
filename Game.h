@@ -45,7 +45,7 @@ namespace lyt
         void handleEvent(SDL_Event &event, int &x, int &y);
 
         // 清理函数
-        void clean() const;
+        void clean();
 
         // 状态更新
         void update() const;

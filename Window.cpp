@@ -10,7 +10,7 @@ namespace lyt
 
     Window::Window(SDL_Window *window) : width_(0), height_(0), event_() { window_ = window; }
 
-    Window::Window(std::string title, int width, int height) : width_(width), height_(height), event_()
+    Window::Window(const std::string& title, int width, int height) : width_(width), height_(height), event_()
     {
         window_ = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height,
                                    SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
