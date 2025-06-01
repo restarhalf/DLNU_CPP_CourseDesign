@@ -5,40 +5,16 @@
 #include "Button.h"
 namespace lyt
 {
-    bool Button::isButtonClicked() const
-    {
-        if (isClicked)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-    bool Button::isButtonReleased() const
-    {
-        if (isReleased)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-    bool Button::isButtonPressed() const
-    {
-        if (isPressed)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+    // 检查按钮是否被点击
+    bool Button::isButtonClicked() const { return isClicked; }
 
+    // 检查按钮是否被释放
+    bool Button::isButtonReleased() const { return isReleased; }
+
+    // 检查按钮是否被按下
+    bool Button::isButtonPressed() const { return isPressed; }
+
+    // 绘制纯色按钮
     void Button::draw()
     {
         // 保存当前渲染器状态
@@ -83,6 +59,7 @@ namespace lyt
                 }
             }
         }
+
         // 绘制文本
         SDL_SetTextureAlphaMod(texture, alpha);
         renderer->copy(texture, nullptr, &rect);
@@ -92,8 +69,11 @@ namespace lyt
         SDL_SetRenderDrawColor(renderer->get(), r, g, b, a);
         SDL_SetRenderDrawBlendMode(renderer->get(), currentBlendMode);
     }
+
+    // 绘制带图片的按钮
     void Button::drawwithImage()
     {
+        // 根据按钮状态调整图片透明度
         if (isClicked || isPressed)
         {
             // 按下时降低图片的透明度来实现变暗效果
@@ -107,22 +87,27 @@ namespace lyt
         image.draw();
     }
 
+    // 处理按钮事件
     void Button::handleEvent(SDL_Event &event)
     {
         bool isInside = false;
-        int mouseX, mouseY;
+        int  mouseX, mouseY;
 
         // 重置released状态（应该只持续一帧）
         isReleased = false;
 
-        switch (event.type) {
+        switch (event.type)
+        {
             case SDL_MOUSEBUTTONDOWN:
-                if (event.button.button == SDL_BUTTON_LEFT) {
-                    mouseX = event.button.x;
-                    mouseY = event.button.y;
-                    isInside = (mouseX >= rect.x && mouseX <= rect.x + rect.w &&
-                               mouseY >= rect.y && mouseY <= rect.y + rect.h);
-                    if (isInside) {
+                if (event.button.button == SDL_BUTTON_LEFT)
+                {
+                    // 检查鼠标是否在按钮区域内
+                    mouseX   = event.button.x;
+                    mouseY   = event.button.y;
+                    isInside = (mouseX >= rect.x && mouseX <= rect.x + rect.w && mouseY >= rect.y &&
+                                mouseY <= rect.y + rect.h);
+                    if (isInside)
+                    {
                         isClicked = true;
                         isPressed = true;
                     }
@@ -130,13 +115,16 @@ namespace lyt
                 break;
 
             case SDL_MOUSEBUTTONUP:
-                if (event.button.button == SDL_BUTTON_LEFT) {
-                    mouseX = event.button.x;
-                    mouseY = event.button.y;
-                    isInside = (mouseX >= rect.x && mouseX <= rect.x + rect.w &&
-                               mouseY >= rect.y && mouseY <= rect.y + rect.h);
+                if (event.button.button == SDL_BUTTON_LEFT)
+                {
+                    // 检查鼠标是否在按钮区域内释放
+                    mouseX   = event.button.x;
+                    mouseY   = event.button.y;
+                    isInside = (mouseX >= rect.x && mouseX <= rect.x + rect.w && mouseY >= rect.y &&
+                                mouseY <= rect.y + rect.h);
 
-                    if (isInside && isPressed) {
+                    if (isInside && isPressed)
+                    {
                         isReleased = true;
                     }
                     isClicked = false;
@@ -145,18 +133,26 @@ namespace lyt
                 break;
 
             case SDL_MOUSEMOTION:
-                mouseX = event.motion.x;
-                mouseY = event.motion.y;
-                isInside = (mouseX >= rect.x && mouseX <= rect.x + rect.w &&
-                           mouseY >= rect.y && mouseY <= rect.y + rect.h);
+                // 检查鼠标悬停效果
+                mouseX   = event.motion.x;
+                mouseY   = event.motion.y;
+                isInside = (mouseX >= rect.x && mouseX <= rect.x + rect.w && mouseY >= rect.y &&
+                            mouseY <= rect.y + rect.h);
 
-                if (isInside) {
-                    if (!isClicked && !isPressed) {
+                if (isInside)
+                {
+                    if (!isClicked && !isPressed)
+                    {
+                        // 鼠标悬停时降低透明度
                         image.setAlpha(alpha * 0.8);
                     }
-                } else {
+                }
+                else
+                {
                     isClicked = false;
-                    if (!isPressed) {
+                    if (!isPressed)
+                    {
+                        // 鼠标移出时恢复正常透明度
                         image.setAlpha(alpha);
                     }
                 }
@@ -164,27 +160,30 @@ namespace lyt
         }
     }
 
+    // 设置按钮属性（使用坐标和尺寸）
     void Button::setButton(int x, int y, int w, int h, SDL_Color color)
     {
-        rect.x      = x;
-        rect.y      = y;
-        rect.w      = w;
-        rect.h      = h;
+        rect.x = x;
+        rect.y = y;
+        rect.w = w;
+        rect.h = h;
         image.setRect(rect);
         buttonColor = color;  // 设置按钮颜色
         isClicked   = false;  // 重置点击状态
     }
 
+    // 设置按钮属性（使用SDL_Rect）
     void Button::setButton(SDL_Rect rect, SDL_Color color)
     {
-        this->rect  = rect;
+        this->rect = rect;
         image.setRect(rect);
         buttonColor = color;  // 设置按钮颜色
         isClicked   = false;  // 重置点击状态
     }
 
+    // 设置按钮文本
     void Button::setText(const std::string &text, TTF_Font *font, SDL_Color color, Renderer *renderer,
-                         SDL_BlendMode blendMode = SDL_BLENDMODE_BLEND, Uint8 alpha = 255)
+                         SDL_BlendMode blendMode, Uint8 alpha)
     {
         this->font      = font;
         this->textColor = color;
@@ -212,6 +211,7 @@ namespace lyt
         this->text.setAll(renderer, centeredRect, color, font, blendMode, text, alpha);
     }
 
+    // 设置带图片的按钮
     void Button::setButtonwithImage(const std::string &filePath, Renderer *renderer, SDL_Rect rect,
                                     SDL_BlendMode blendMode, Uint8 alpha)
     {

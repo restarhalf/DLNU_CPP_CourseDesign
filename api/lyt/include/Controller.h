@@ -6,33 +6,73 @@
 #define CONTROLLER_H
 #include <SDL.h>
 #include <bits/stdc++.h>
+
 namespace lyt
 {
+    /**
+     * @brief 控制器类，负责处理键盘和鼠标的输入控制
+     */
     class Controller
     {
-        bool isMousetoMove{false};
-        bool isKeytoMove{true};
-
     public:
+        /**
+         * @brief 默认构造函数
+         */
         Controller();
 
+        /**
+         * @brief 析构函数
+         */
         ~Controller();
 
-        // 动作监视器
-        void event(SDL_Event &event, int &x, int &y);
+        /**
+         * @brief 处理输入事件
+         * @param event SDL事件对象
+         * @param x 鼠标x坐标引用
+         * @param y 鼠标y坐标引用
+         */
+        void event(SDL_Event& event, int& x, int& y);
+
+        /**
+         * @brief 处理键盘按下事件
+         * @param event SDL事件对象
+         * @param x 坐标x引用
+         * @param y 坐标y引用
+         */
+        void KeyboardPress(const SDL_Event& event, int& x, int& y);
+
+        /**
+         * @brief 处理键盘释放事件
+         * @param event SDL事件对象
+         * @param x 坐标x引用
+         * @param y 坐标y引用
+         */
+        void KeyboardRelease(const SDL_Event& event, int& x, int& y);
+
+        /**
+         * @brief 处理鼠标按下事件
+         * @param event SDL事件对象
+         */
+        void MousePress(const SDL_Event& event);
+
+        /**
+         * @brief 处理鼠标释放事件
+         * @param event SDL事件对象
+         */
+        void MouseRelease(const SDL_Event& event);
+
+        /**
+         * @brief 处理鼠标移动事件
+         * @param event SDL事件对象
+         * @param x 鼠标x坐标引用
+         * @param y 鼠标y坐标引用
+         */
+        void MouseMove(const SDL_Event& event, int& x, int& y);
 
     private:
-        void KeyboardPress(const SDL_Event &event, int &x, int &y);
-
-        void KeyboardRelease(const SDL_Event &event, int &x, int &y);
-
-        void MousePress(const SDL_Event &event);
-
-        void MouseRelease(const SDL_Event &event);
-
-        void MouseMove(const SDL_Event &event, int &x, int &y);
+        bool isMousetoMove = true;  ///< 是否启用鼠标移动控制
+        bool isKeytoMove = false;   ///< 是否启用键盘移动控制
     };
 }  // namespace lyt
-
 
 #endif  // CONTROLLER_H
