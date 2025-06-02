@@ -1,4 +1,10 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lx/src/AIFish.cpp.obj"
+  "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lx/src/AIFish.cpp.obj.d"
+  "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lx/src/Fish.cpp.obj"
+  "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lx/src/Fish.cpp.obj.d"
+  "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lx/src/PlayerFish.cpp.obj"
+  "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lx/src/PlayerFish.cpp.obj.d"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Button.cpp.obj"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Button.cpp.obj.d"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Controller.cpp.obj"
