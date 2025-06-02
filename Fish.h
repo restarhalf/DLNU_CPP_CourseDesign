@@ -29,8 +29,10 @@ namespace lx
         virtual ~Fish();                  // 方便继承
 
         virtual void move() = 0;          // 子类实现移动逻辑
+       
+        void checkBounds()const;                 //补边界检测
 
-        bool checkCollision(const Fish& other) const;  // 碰撞检测
+        bool checkCollision(const Fish& other) const;  // 碰撞检测（鱼
         bool canEat(const Fish& other) const;          // 判断是否能吃掉另一个鱼
 
         Vector2 getPosition() const;     // 获取当前位置
