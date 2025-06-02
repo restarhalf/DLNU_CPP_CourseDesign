@@ -118,6 +118,78 @@ DLNU_CPP_CourseDesign\fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\build
 .PHONY : DLNU_CPP_CourseDesign\fast
 
+api\lx\src\AIFish.obj: api\lx\src\AIFish.cpp.obj
+.PHONY : api\lx\src\AIFish.obj
+
+# target to build an object file
+api\lx\src\AIFish.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lx\src\AIFish.cpp.obj
+.PHONY : api\lx\src\AIFish.cpp.obj
+
+api\lx\src\AIFish.i: api\lx\src\AIFish.cpp.i
+.PHONY : api\lx\src\AIFish.i
+
+# target to preprocess a source file
+api\lx\src\AIFish.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lx\src\AIFish.cpp.i
+.PHONY : api\lx\src\AIFish.cpp.i
+
+api\lx\src\AIFish.s: api\lx\src\AIFish.cpp.s
+.PHONY : api\lx\src\AIFish.s
+
+# target to generate assembly for a file
+api\lx\src\AIFish.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lx\src\AIFish.cpp.s
+.PHONY : api\lx\src\AIFish.cpp.s
+
+api\lx\src\Fish.obj: api\lx\src\Fish.cpp.obj
+.PHONY : api\lx\src\Fish.obj
+
+# target to build an object file
+api\lx\src\Fish.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lx\src\Fish.cpp.obj
+.PHONY : api\lx\src\Fish.cpp.obj
+
+api\lx\src\Fish.i: api\lx\src\Fish.cpp.i
+.PHONY : api\lx\src\Fish.i
+
+# target to preprocess a source file
+api\lx\src\Fish.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lx\src\Fish.cpp.i
+.PHONY : api\lx\src\Fish.cpp.i
+
+api\lx\src\Fish.s: api\lx\src\Fish.cpp.s
+.PHONY : api\lx\src\Fish.s
+
+# target to generate assembly for a file
+api\lx\src\Fish.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lx\src\Fish.cpp.s
+.PHONY : api\lx\src\Fish.cpp.s
+
+api\lx\src\PlayerFish.obj: api\lx\src\PlayerFish.cpp.obj
+.PHONY : api\lx\src\PlayerFish.obj
+
+# target to build an object file
+api\lx\src\PlayerFish.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lx\src\PlayerFish.cpp.obj
+.PHONY : api\lx\src\PlayerFish.cpp.obj
+
+api\lx\src\PlayerFish.i: api\lx\src\PlayerFish.cpp.i
+.PHONY : api\lx\src\PlayerFish.i
+
+# target to preprocess a source file
+api\lx\src\PlayerFish.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lx\src\PlayerFish.cpp.i
+.PHONY : api\lx\src\PlayerFish.cpp.i
+
+api\lx\src\PlayerFish.s: api\lx\src\PlayerFish.cpp.s
+.PHONY : api\lx\src\PlayerFish.s
+
+# target to generate assembly for a file
+api\lx\src\PlayerFish.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lx\src\PlayerFish.cpp.s
+.PHONY : api\lx\src\PlayerFish.cpp.s
+
 api\lyt\src\Button.obj: api\lyt\src\Button.cpp.obj
 .PHONY : api\lyt\src\Button.obj
 
@@ -343,6 +415,15 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... DLNU_CPP_CourseDesign
+	@echo ... api/lx/src/AIFish.obj
+	@echo ... api/lx/src/AIFish.i
+	@echo ... api/lx/src/AIFish.s
+	@echo ... api/lx/src/Fish.obj
+	@echo ... api/lx/src/Fish.i
+	@echo ... api/lx/src/Fish.s
+	@echo ... api/lx/src/PlayerFish.obj
+	@echo ... api/lx/src/PlayerFish.i
+	@echo ... api/lx/src/PlayerFish.s
 	@echo ... api/lyt/src/Button.obj
 	@echo ... api/lyt/src/Button.i
 	@echo ... api/lyt/src/Button.s

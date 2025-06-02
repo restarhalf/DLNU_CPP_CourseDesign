@@ -1,7 +1,4 @@
-﻿//
-// Created by restarhalf on 2025/5/28.
-//
-
+﻿#pragma once
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 #include <SDL.h>
@@ -69,9 +66,18 @@ namespace lyt
          */
         void MouseMove(const SDL_Event& event, int& x, int& y);
 
+        /**
+         * @brief 查询指定按键是否被按下
+         * @param scancode SDL键盘扫描码
+         * @return 如果按下则返回true
+         */
+        bool isKeyPressed(SDL_Scancode scancode) const;
+
     private:
         bool isMousetoMove = false;  ///< 是否启用鼠标移动控制
-        bool isKeytoMove   = true;  ///< 是否启用键盘移动控制
+        bool isKeytoMove = true;  ///< 是否启用键盘移动控制
+        std::unordered_map<SDL_Scancode, bool> keyStates;
+
     };
 }  // namespace lyt
 
