@@ -30,45 +30,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bcc9e56-ae7f-4772-83b2-5a4237ae3734" name="更改" comment="GUI">
-      <change afterPath="$PROJECT_DIR$/api/lx/include/lx_api.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lyt/include/Controller.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Controller.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lyt/include/Renderer.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Renderer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lyt/src/Controller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Controller.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lyt/src/Renderer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Renderer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/AIFish.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/AIFish.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/AIFish.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/AIFish.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/Button.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/Button.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/Controller.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/Controller.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/Fish.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/Fish.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/Fish.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/Fish.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/Game.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/Game.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/Image.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/Image.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/Music.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/Music.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/PlayerFish.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/PlayerFish.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/PlayerFish.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/PlayerFish.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/Renderer.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/Renderer.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/Text.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/Text.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/Window.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/Window.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/api.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_lx/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/compiler_depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/compiler_depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/compiler_depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.ilk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/include/AIFish.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/AIFish.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/include/Fish.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/Fish.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/include/PlayerFish.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/PlayerFish.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/src/AIFish.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/AIFish.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/src/Fish.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/Fish.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/src/PlayerFish.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/PlayerFish.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/main.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/vc140.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/vc140.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.ilk" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
@@ -164,7 +137,7 @@
       <workItem from="1748863896335" duration="113000" />
       <workItem from="1748864644005" duration="1074000" />
       <workItem from="1748866918991" duration="725000" />
-      <workItem from="1748867944374" duration="1010000" />
+      <workItem from="1748867944374" duration="3042000" />
     </task>
     <task id="LOCAL-00001" summary="GUI">
       <option name="closed" value="true" />
@@ -182,7 +155,23 @@
       <option name="project" value="LOCAL" />
       <updated>1748866968234</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="GUI">
+      <option name="closed" value="true" />
+      <created>1748869063886</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1748869063886</updated>
+    </task>
+    <task id="LOCAL-00004" summary="GUI">
+      <option name="closed" value="true" />
+      <created>1748869093136</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1748869093136</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

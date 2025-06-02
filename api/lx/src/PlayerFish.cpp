@@ -2,7 +2,7 @@
 
 namespace lx {
 
-    PlayerFish::PlayerFish(SDL_Renderer* renderer, int x, int y, int width, int height)
+    PlayerFish::PlayerFish(lyt::Renderer* renderer, int x, int y, int width, int height)
         : Fish(renderer, x, y, width, height),
         movingUp(false), movingDown(false),
         movingLeft(false), movingRight(false),
@@ -38,7 +38,7 @@ namespace lx {
         {
             if (size > other.getSize())
             {
-                size += other.getSize() / 3;
+                size += other.getSize() * 0.1;
                 width = height = size;
                 rect.w = width;
                 rect.h = height;

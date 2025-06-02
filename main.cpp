@@ -52,7 +52,7 @@ int main(int argc, char* argv[])
         SDL_Color{ 225, 225, 225, 225 }, font, SDL_BLENDMODE_BLEND,
         "按F1切换鼠标移动或键盘移动");
 
-    lx::PlayerFish playerFish(game.getRenderer()->get(), windowW / 2, windowH / 2, 60, 60);
+    lx::PlayerFish playerFish(game.getRenderer(), windowW / 2, windowH / 2, 60, 60);
 
     std::vector<lx::AIFish> aiFishes;
     for (int i = 0; i < 10; ++i)
@@ -60,14 +60,14 @@ int main(int argc, char* argv[])
         int x = rand() % (windowW - 60);
         int y = rand() % (windowH - 60);
         int size = 20 + rand() % 40;
-        aiFishes.emplace_back(game.getRenderer()->get(), x, y, size, size);
+        aiFishes.emplace_back(game.getRenderer(), x, y, size, size);
     }
 
     while (game.running())
     {
         game.frameStart();
 
-        SDL_GetWindowSize(game.getWindow()->get(), &windowW, &windowH);
+        game.getWindow()->getSize(windowW, windowH);
 
         image.setRect(SDL_Rect{ 0, 0, windowW, windowH });
 
@@ -150,14 +150,14 @@ int main(int argc, char* argv[])
 
             // 根据玩家大小调整AI鱼大小，AI鱼大小在玩家大小附近浮动，比如 +-20%
             int playerSize = (playerFish.getWidth() + playerFish.getHeight()) / 2;
-            int minSize = static_cast<int>(playerSize * 0.8);
+            int minSize = static_cast<int>(playerSize * 0.2);
             int maxSize = static_cast<int>(playerSize * 1.2);
             if (minSize < 20) minSize = 20;  // 保证AI鱼最小尺寸
             if (maxSize < 20) maxSize = 20;
 
             int size = minSize + rand() % (maxSize - minSize + 1);
 
-            aiFishes.emplace_back(game.getRenderer()->get(), x, y, size, size);
+            aiFishes.emplace_back(game.getRenderer(), x, y, size, size);
         }
 
         game.getRenderer()->clear();

@@ -2,13 +2,13 @@
 #define FISH_H
 
 #include <SDL.h>
-
+#include <lyt_api.h>
 namespace lx {
 
     class Fish
     {
     protected:
-        SDL_Renderer* renderer;
+        lyt::Renderer* renderer;
         int x, y;
         int width, height;
         int size;
@@ -16,7 +16,7 @@ namespace lx {
         
 
     public:
-        Fish(SDL_Renderer* renderer, int x, int y, int width, int height);
+        Fish(lyt::Renderer* renderer, int x, int y, int width, int height);
 
         virtual ~Fish() = default;
 

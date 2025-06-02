@@ -8,7 +8,7 @@ namespace lx {
     class AIFish : public Fish
     {
     public:
-        AIFish(SDL_Renderer* renderer, int x, int y, int width, int height);
+        AIFish(lyt::Renderer* renderer, int x, int y, int width, int height);
 
         void update(int windowW, int windowH) override;
 

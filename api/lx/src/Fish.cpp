@@ -1,8 +1,8 @@
-﻿#include "../include/Fish.h"
+﻿#include "Fish.h"
 
 namespace lx {
 
-    Fish::Fish(SDL_Renderer* renderer, int x, int y, int width, int height)
+    Fish::Fish(lyt::Renderer* renderer, int x, int y, int width, int height)
         : renderer(renderer), x(x), y(y), width(width), height(height)
     {
         size = (width + height) / 2;
@@ -16,8 +16,8 @@ namespace lx {
 
     void Fish::render()
     {
-        SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
-        SDL_RenderFillRect(renderer, &rect);
+        SDL_SetRenderDrawColor(renderer->get(), 0, 0, 255, 255);
+        SDL_RenderFillRect(renderer->get(), &rect);
     }
 
     bool Fish::isCollide(const Fish& other) const
@@ -29,7 +29,7 @@ namespace lx {
     {
         if (this != &other && isCollide(other) && size > other.size)
         {
-            size += other.size / 3;
+            size += other.size *0.1;
             width = height = size;
             rect.w = width;
             rect.h = height;

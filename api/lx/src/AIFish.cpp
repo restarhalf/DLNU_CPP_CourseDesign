@@ -4,7 +4,7 @@
 
 namespace lx {
 
-    AIFish::AIFish(SDL_Renderer* renderer, int x, int y, int width, int height)
+    AIFish::AIFish(lyt::Renderer* renderer, int x, int y, int width, int height)
         : Fish(renderer, x, y, width, height)
     {
         vx = (rand() % 2 == 0) ? 2.0f : -2.0f;
@@ -28,7 +28,7 @@ namespace lx {
     {
         if (this != &other && isCollide(other) && size > other.getSize())
         {
-            size += other.getSize() / 3;
+            size += other.getSize() * 0.1;
             width = height = size;
             rect.w = width;
             rect.h = height;

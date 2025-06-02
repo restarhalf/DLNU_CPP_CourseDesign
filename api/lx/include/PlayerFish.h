@@ -8,7 +8,7 @@ namespace lx {
     class PlayerFish : public Fish
     {
     public:
-        PlayerFish(SDL_Renderer* renderer, int x, int y, int width, int height);
+        PlayerFish(lyt::Renderer* renderer, int x, int y, int width, int height);
 
         void update(int windowW, int windowH) override;
 
