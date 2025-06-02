@@ -34,7 +34,7 @@ namespace lyt
         SDL_Rect centerRect = {rect.x + radius, rect.y, rect.w - 2 * radius, rect.h};
         SDL_RenderFillRect(renderer->get(), &centerRect);
 
-        // 绘制左右矩形
+        // 绘制左右两侧矩形
         SDL_Rect leftRect  = {rect.x, rect.y + radius, radius, rect.h - 2 * radius};
         SDL_Rect rightRect = {rect.x + rect.w - radius, rect.y + radius, radius, rect.h - 2 * radius};
         SDL_RenderFillRect(renderer->get(), &leftRect);
@@ -45,8 +45,8 @@ namespace lyt
         {
             for (int h = 0; h < radius; h++)
             {
-                float pk = sqrt((float) ((radius - w) * (radius - w) + (radius - h) * (radius - h)));
-                if (pk <= radius)
+                const float pk = sqrt(static_cast<float>((radius - w) * (radius - w) + (radius - h) * (radius - h)));
+                if (pk <= static_cast<float>(radius))
                 {
                     // 左上角
                     SDL_RenderDrawPoint(renderer->get(), rect.x + w, rect.y + h);
@@ -73,11 +73,15 @@ namespace lyt
     // 绘制带图片的按钮
     void Button::drawwithImage()
     {
-        // 根据按钮状态调整图片透明度
         if (isClicked || isPressed)
         {
             // 按下时降低图片的透明度来实现变暗效果
-            image.setAlpha(alpha * 0.6);
+            image.setAlpha(static_cast<Uint8>(alpha * 0.6));
+        }
+        else if (isInside)
+        {
+            // 鼠标悬停时降低图片的透明度
+            image.setAlpha(static_cast<Uint8>(alpha * 0.9));
         }
         else
         {
@@ -88,9 +92,8 @@ namespace lyt
     }
 
     // 处理按钮事件
-    void Button::handleEvent(SDL_Event &event)
+    void Button::handleEvent(const SDL_Event &event)
     {
-        bool isInside = false;
         int  mouseX, mouseY;
 
         // 重置released状态（应该只持续一帧）
@@ -131,31 +134,13 @@ namespace lyt
                     isPressed = false;
                 }
                 break;
-
             case SDL_MOUSEMOTION:
-                // 检查鼠标悬停效果
-                mouseX   = event.motion.x;
-                mouseY   = event.motion.y;
-                isInside = (mouseX >= rect.x && mouseX <= rect.x + rect.w && mouseY >= rect.y &&
-                            mouseY <= rect.y + rect.h);
-
-                if (isInside)
-                {
-                    if (!isClicked && !isPressed)
-                    {
-                        // 鼠标悬停时降低透明度
-                        image.setAlpha(alpha * 0.8);
-                    }
-                }
-                else
-                {
-                    isClicked = false;
-                    if (!isPressed)
-                    {
-                        // 鼠标移出时恢复正常透明度
-                        image.setAlpha(alpha);
-                    }
-                }
+                mouseX = event.motion.x;
+                mouseY = event.motion.y;
+                isInside = (mouseX >= rect.x && mouseX <= rect.x + rect.w &&
+                             mouseY >= rect.y && mouseY <= rect.y + rect.h);
+                break;
+            default:
                 break;
         }
     }
@@ -176,9 +161,13 @@ namespace lyt
     void Button::setButton(SDL_Rect rect, SDL_Color color)
     {
         this->rect = rect;
-        image.setRect(rect);
         buttonColor = color;  // 设置按钮颜色
         isClicked   = false;  // 重置点击状态
+    }
+    void Button::setButtonwithImage(SDL_Rect rect)
+    {
+        this->rect = rect;
+        image.setRect(this->rect);
     }
 
     // 设置按钮文本
@@ -208,7 +197,7 @@ namespace lyt
                                  rect.y + (rect.h - scaledHeight) / 2,  // 垂直居中
                                  scaledWidth, scaledHeight};
 
-        this->text.setAll(renderer, centeredRect, color, font, blendMode, text, alpha);
+        this->text.setAll(renderer, centeredRect, color, font, blendMode, text);
     }
 
     // 设置带图片的按钮
@@ -220,6 +209,13 @@ namespace lyt
         this->alpha     = alpha;
         this->filePath  = filePath;
         this->renderer  = renderer;
-        image.setImage(filePath, renderer, rect, blendMode, alpha);
+        try
+        {
+            image.setImage(filePath, renderer, rect, blendMode, alpha);
+        }
+        catch (const std::exception &e)
+        {
+            SDL_Log("Failed to load image: %s", e.what());
+        }
     }
 }  // namespace lyt

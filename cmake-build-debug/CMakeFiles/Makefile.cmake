@@ -7,11 +7,9 @@ set(CMAKE_DEPENDS_GENERATOR "NMake Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "C:/Users/a1793/.vcpkg-clion/vcpkg/scripts/buildsystems/vcpkg.cmake"
   "D:/CLion/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeCInformation.cmake"
   "D:/CLion/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeCXXInformation.cmake"
   "D:/CLion/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeCommonLanguageInclude.cmake"
-  "D:/CLion/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeDependentOption.cmake"
   "D:/CLion/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeGenericSystem.cmake"
   "D:/CLion/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeInitializeConfigs.cmake"
   "D:/CLion/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeLanguageInformation.cmake"

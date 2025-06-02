@@ -17,15 +17,15 @@ namespace lyt
     class Text
     {
     private:
-        SDL_Texture  *texture;    ///< 文本纹理
-        SDL_Rect      rect;       ///< 文本显示区域
-        SDL_Color     color;      ///< 文本颜色
-        TTF_Font     *font;       ///< 字体
-        SDL_Surface  *surface;    ///< 文本表面
+        SDL_Texture  *texture;  ///< 文本纹理
+        SDL_Rect      rect;  ///< 文本显示区域
+        SDL_Color     color;  ///< 文本颜色
+        TTF_Font     *font;  ///< 字体
+        SDL_Surface  *surface;  ///< 文本表面
         SDL_BlendMode blendMode;  ///< 混合模式
-        Uint8         alpha;      ///< 透明度
-        std::string   text;       ///< 文本内容
-        Renderer     *renderer;   ///< 渲染器指针
+        Uint8         alpha;  ///< 透明度
+        std::string   text;  ///< 文本内容
+        Renderer     *renderer;  ///< 渲染器指针
 
     public:
         /**
@@ -39,20 +39,20 @@ namespace lyt
         ~Text();
 
         // Getters and setters
-        [[nodiscard]] SDL_Texture *getTexture() const;
-        void setTexture(SDL_Texture *texture);
-        [[nodiscard]] SDL_Rect getRect() const;
-        void setRect(const SDL_Rect &rect);
-        [[nodiscard]] SDL_Color getColor() const;
-        void setColor(const SDL_Color &color);
-        [[nodiscard]] TTF_Font *getFont() const;
-        void setFont(TTF_Font *font);
-        [[nodiscard]] SDL_Surface *getSurface() const;
-        void setSurface(SDL_Surface *surface);
+        [[nodiscard]] SDL_Texture  *getTexture() const;
+        void                        setTexture(SDL_Texture *texture);
+        [[nodiscard]] SDL_Rect      getRect() const;
+        void                        setRect(const SDL_Rect &rect);
+        [[nodiscard]] SDL_Color     getColor() const;
+        void                        setColor(const SDL_Color &color);
+        [[nodiscard]] TTF_Font     *getFont() const;
+        void                        setFont(TTF_Font *font);
+        [[nodiscard]] SDL_Surface  *getSurface() const;
+        void                        setSurface(SDL_Surface *surface);
         [[nodiscard]] SDL_BlendMode getBlendmode() const;
-        void setBlendmode(SDL_BlendMode BlendMode);
-        [[nodiscard]] std::string getText() const;
-        void setText(const std::string &text);
+        void                        setBlendmode(SDL_BlendMode BlendMode);
+        [[nodiscard]] std::string   getText() const;
+        void                        setText(const std::string &text);
 
         /**
          * @brief 设置文本的所有属性
@@ -62,10 +62,9 @@ namespace lyt
          * @param font 字体
          * @param blendMode 混合模式
          * @param text 文本内容
-         * @param alpha 透明度
          */
         void setAll(Renderer *render, SDL_Rect rect, SDL_Color color, TTF_Font *font, SDL_BlendMode blendMode,
-                    const std::string &text, Uint8 alpha);
+                    const std::string &text);
 
         /**
          * @brief 刷新文本纹理

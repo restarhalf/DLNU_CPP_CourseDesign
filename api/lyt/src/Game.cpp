@@ -113,7 +113,9 @@ namespace lyt
     // 清理游戏资源
     void Game::clean()
     {
+        if (renderer)
         delete renderer;
+        if (window)
         delete window;
         SDL_Quit();
         IMG_Quit();

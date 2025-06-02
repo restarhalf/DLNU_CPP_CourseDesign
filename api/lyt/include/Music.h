@@ -14,9 +14,9 @@
 class Music
 {
 private:
-    Mix_Music*  music;     ///< SDL_mixer音乐对象指针
+    Mix_Music*  music;  ///< SDL_mixer音乐对象指针
     std::string filePath;  ///< 音乐文件路径
-    bool        isPlaying; ///< 音乐播放状态标志
+    bool        isPlaying;  ///< 音乐播放状态标志
 
 public:
     /**

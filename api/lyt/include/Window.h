@@ -65,12 +65,34 @@ namespace lyt
          * @return 窗口高度
          */
         int height() const { return height_; }
+        /**
+         * @brief 设置图标
+         * @param filePath 图标文件路径
+         */
+        void setIcon(const std::string &filePath);
+        /**
+         * @brief 获取尺寸
+         * @param width 窗口宽度
+         * @param height 窗口高度
+         */
+        void getSize(int &width, int &height) const;
+        /**
+         * @brief 设置窗口全屏
+         * @param fullScreen 是否全屏
+         */
+        void fullscreen(bool fullScreen);
+        /**
+         * @brief 设置窗口隐藏
+         * @param isHide 是否隐藏
+         */
+        void hide(bool isHide);
 
     private:
         SDL_Window *window_ = nullptr;  ///< SDL窗口指针
-        int width_;                     ///< 窗口宽度
-        int height_;                    ///< 窗口高度
-        SDL_Event event_;              ///< SDL事件对象
+        int         width_;  ///< 窗口宽度
+        int         height_;  ///< 窗口高度
+        SDL_Event   event_;  ///< SDL事件对象
+        Uint32      flags = SDL_WINDOW_RESIZABLE | SDL_WINDOW_SHOWN;  ///< 窗口标志，默认可调整大小且可见
     };
 }  // namespace lyt
 #endif  // WINDOW_H

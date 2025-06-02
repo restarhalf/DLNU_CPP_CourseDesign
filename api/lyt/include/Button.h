@@ -1,4 +1,4 @@
-//
+   //
 // Created by restarhalf on 2025/5/30.
 //
 
@@ -33,10 +33,11 @@ namespace lyt
         SDL_Texture  *texture{};          ///< 按钮纹理
         SDL_Surface  *surface{};          ///< 按钮表面
         bool          isClicked{false};   ///< 按钮是否被点击（鼠标按下且在按钮区域内）
-        bool          isPressed{true};    ///< 按钮是否被按下（鼠标在按钮区域内按下）
-        bool          isReleased{false};  ///< 按钮是否被释放（鼠标在按钮区域内释放）
+        bool          isPressed{false};    ///< 按钮是否被按下（鼠标在按钮区域内按下）
+        bool          isReleased{true};  ///< 按钮是否被释放（鼠标在按钮区域内释放）
+        bool          isInside{false};    ///< 鼠标是否在按钮区域内
         SDL_BlendMode blendMode;          ///< 混合模式（用于透明度和颜色混合）
-        Uint8         alpha{};            ///< 透明度（0-255）
+        Uint8         alpha{255};         ///< 透明度（0-255）
 
     public:
         /**
@@ -85,7 +86,7 @@ namespace lyt
          * @param event SDL事件对象，处理鼠标点击、释放和移动事件
          * @note 根据鼠标事件更新按钮状态，并处理悬停效果
          */
-        void handleEvent(SDL_Event &event);
+        void handleEvent(const SDL_Event &event);
 
         /**
          * @brief 设置按钮属性（使用独立的坐标和尺寸参数）
@@ -103,6 +104,12 @@ namespace lyt
          * @param color 按钮颜色
          */
         void setButton(SDL_Rect rect, SDL_Color color);
+
+        /**
+         * @brief 设置按钮属性（使用image的情况）
+         * @param rect 按钮的矩形区域（位置和尺寸）
+         */
+        void setButtonwithImage(SDL_Rect rect);
 
         /**
          * @brief 设置按钮文本

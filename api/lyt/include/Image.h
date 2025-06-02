@@ -19,12 +19,12 @@ namespace lyt
     private:
         SDL_Texture*  texture = nullptr;  ///< 图像纹理指针
         SDL_Surface*  surface = nullptr;  ///< 图像表面指针
-        SDL_Rect      rect;               ///< 图像矩形区域
-        SDL_Color     color;              ///< 图像颜色
-        std::string   filePath;           ///< 图像文件路径
-        Renderer*     renderer;           ///< 渲染器指针
+        SDL_Rect      rect;  ///< 图像矩形区域
+        SDL_Color     color;  ///< 图像颜色
+        std::string   filePath;  ///< 图像文件路径
+        Renderer*     renderer;  ///< 渲染器指针
         SDL_BlendMode blendMode = SDL_BLENDMODE_BLEND;  ///< 混合模式
-        Uint8         alpha     = 255;    ///< 透明度
+        Uint8         alpha     = 255;  ///< 透明度
 
     public:
         /**

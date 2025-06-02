@@ -36,7 +36,7 @@ namespace lyt
 
     // 设置文本的所有属性并创建纹理
     void Text::setAll(Renderer *render, SDL_Rect rect, SDL_Color color, TTF_Font *font, SDL_BlendMode blendMode,
-                      const std::string &text, Uint8 alpha)
+                      const std::string &text)
     {
         // 设置基本属性
         this->rect      = rect;
@@ -61,7 +61,6 @@ namespace lyt
         // 从表面创建纹理
         texture = SDL_CreateTextureFromSurface(render->get(), surface);
         SDL_SetTextureBlendMode(texture, this->blendMode);
-        SDL_SetTextureAlphaMod(texture, this->alpha);
         if (!texture)
         {
             SDL_Log("Failed to create texture: %s", SDL_GetError());

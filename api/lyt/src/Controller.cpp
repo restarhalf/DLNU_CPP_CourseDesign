@@ -154,6 +154,5 @@ namespace lyt
     {
         x = event.motion.x;
         y = event.motion.y;
-        SDL_Log("Mouse moved to (%d, %d)", x, y);
     }
 }  // namespace lyt

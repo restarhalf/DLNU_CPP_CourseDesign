@@ -22,16 +22,16 @@ namespace lyt
     {
     private:
         // 窗口部分
-        Window* window;      ///< 游戏窗口指针
-        Renderer* renderer;  ///< 渲染器指针
-        bool isRunning;     ///< 游戏运行状态标志
-        Controller controller; ///< 控制器对象
+        Window*    window;  ///< 游戏窗口指针
+        Renderer*  renderer;  ///< 渲染器指针
+        bool       isRunning;  ///< 游戏运行状态标志
+        Controller controller;  ///< 控制器对象
 
         // 帧率控制部分
-        float FPS = 1000 / 165.f;  ///< 帧率（默认165FPS）
+        float  FPS           = 1000 / 165.f;  ///< 帧率（默认165FPS）
         Uint32 rendererFlags = SDL_RENDERER_PRESENTVSYNC;  ///< 渲染器标志
-        Uint32 Start = 0;    ///< 帧开始时间
-        Uint32 Time = 0;     ///< 帧经过的时间
+        Uint32 Start         = 0;  ///< 帧开始时间
+        Uint32 Time          = 0;  ///< 帧经过的时间
 
     public:
         /**
@@ -78,10 +78,10 @@ namespace lyt
         void render() const;
 
         // Getters and setters
-        Renderer* getRenderer() const;
-        Window* getWindow() const;
-        void setRenderer(Renderer* renderer);
-        void setWindow(Window* window);
+        Renderer*          getRenderer() const;
+        Window*            getWindow() const;
+        void               setRenderer(Renderer* renderer);
+        void               setWindow(Window* window);
         [[nodiscard]] bool running() const;
 
         /**

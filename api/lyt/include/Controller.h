@@ -70,8 +70,8 @@ namespace lyt
         void MouseMove(const SDL_Event& event, int& x, int& y);
 
     private:
-        bool isMousetoMove = true;  ///< 是否启用鼠标移动控制
-        bool isKeytoMove = false;   ///< 是否启用键盘移动控制
+        bool isMousetoMove = false;  ///< 是否启用鼠标移动控制
+        bool isKeytoMove   = true;  ///< 是否启用键盘移动控制
     };
 }  // namespace lyt
 

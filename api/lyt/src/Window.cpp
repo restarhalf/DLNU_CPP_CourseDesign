@@ -13,7 +13,7 @@ namespace lyt
     {
         // 创建SDL窗口，设置为居中显示、可见且可调整大小
         window_ = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height,
-                                   SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
+                                   flags);
 
         // 如果窗口创建失败，抛出运行时错误
         if (!window_)
@@ -40,5 +40,29 @@ namespace lyt
             width_  = event_.window.data1;
             height_ = event_.window.data2;
         }
+    }
+    // 设置窗口图标
+    void Window::setIcon(const std::string& filePath) { SDL_SetWindowIcon(window_, IMG_Load(filePath.c_str())); }
+    // 获取窗口的大小
+    void Window::getSize(int& width, int& height) const { SDL_GetWindowSize(window_, &width, &height); }
+    //设置全屏
+    void Window::fullscreen(bool fullScreen)
+    {
+        if (fullScreen)
+        {
+            SDL_SetWindowFullscreen(window_, SDL_WINDOW_FULLSCREEN);
+        }
+        else
+        {
+            SDL_SetWindowFullscreen(window_, 0);
+        }
+    }
+    //隐藏窗口
+    void Window::hide(bool isHide)
+    {
+        if (isHide)
+        SDL_HideWindow(window_);
+        else
+        SDL_ShowWindow(window_);
     }
 }  // namespace lyt
