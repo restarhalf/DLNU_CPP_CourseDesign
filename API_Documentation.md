@@ -8,7 +8,7 @@
 #### 成员函数
 | 函数签名 | 描述 |
 |----------|------|
-| `Fish(SDL_Renderer* renderer, int x, int y, int width, int height)` | 构造函数 |
+| `Fish(Renderer* renderer, int x, int y, int width, int height)` | 构造函数 |
 | `virtual void update(int windowW, int windowH)` | 更新鱼的位置和状态 |
 | `virtual void render()` | 渲染鱼（绘制一个蓝色矩形） |
 | `virtual bool tryEat(Fish& other)` | 尝试吃掉另一条鱼 |
@@ -26,7 +26,7 @@
 #### 成员函数
 | 函数签名 | 描述 |
 |----------|------|
-| `AIFish(SDL_Renderer* renderer, int x, int y, int width, int height)` | 构造函数 |
+| `AIFish(Renderer* renderer, int x, int y, int width, int height)` | 构造函数 |
 | `void update(int windowW, int windowH) override` | 更新AI鱼的位置（水平移动） |
 | `bool tryEat(Fish& other) override` | 尝试吃掉另一条鱼 |
 
@@ -38,7 +38,7 @@
 #### 成员函数
 | 函数签名 | 描述 |
 |----------|------|
-| `PlayerFish(SDL_Renderer* renderer, int x, int y, int width, int height)` | 构造函数 |
+| `PlayerFish(Renderer* renderer, int x, int y, int width, int height)` | 构造函数 |
 | `void update(int windowW, int windowH) override` | 根据键盘输入更新玩家鱼的位置 |
 | `bool tryEat(Fish& other) override` | 尝试吃掉另一条鱼（可能被反吃） |
 | `void moveUp(bool pressed)` | 设置向上移动状态 |
