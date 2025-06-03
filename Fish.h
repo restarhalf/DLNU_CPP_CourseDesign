@@ -1,85 +1,38 @@
-﻿#pragma once
-
-// 鱼的位置、大小、速度等属性
-// 定义移动、碰撞检测、吃食判定等接口
-#include <cmath>
-
-namespace lx 
-{
-
-    // 向量:坐标和速度
-    struct Vector2 
-    {
-        float x, y;
-    };
-
-    // 计算两点间距离
-    float getDistance(Vector2 a, Vector2 b);
-
-    // Fish抽象类
-    class Fish 
-    {
-    protected:
-        Vector2 position; // 位置
-        Vector2 velocity; // 速度
-        float size;       // 大小
-
-    public:
-        Fish(float x, float y, float s);  
-        virtual ~Fish();                  // 方便继承
-
-        virtual void move() = 0;          // 子类实现移动逻辑
-       
-        void checkBounds()const;                 //补边界检测
-
-        bool checkCollision(const Fish& other) const;  // 碰撞检测（鱼
-        bool canEat(const Fish& other) const;          // 判断是否能吃掉另一个鱼
-
-        Vector2 getPosition() const;     // 获取当前位置
-        float getSize() const;           // 获取大小
-        Vector2 getVelocity() const;     // 获取速度
-
-        void grow(float amount);         // 增加体积
-        void setVelocity(Vector2 v);    // 设置速度
-    };
-
-} 
-
 #ifndef FISH_H
 #define FISH_H
-
+#pragma once
+#include "Renderer.h"
 #include <SDL.h>
+#include <string>
 
 namespace lx {
 
-    class Fish
-    {
-    protected:
-        SDL_Renderer* renderer;
-        int x, y;
-        int width, height;
-        int size;
-        SDL_Rect rect;
-
-
+    // 鱼类基类，定义鱼的基本属性和接口
+    class Fish {
     public:
-        Fish(SDL_Renderer* renderer, int x, int y, int width, int height);
+        // 构造函数，初始化鱼的位置、大小和纹理
+        Fish(lyt::Renderer* renderer, const std::string& imagePath, int x, int y, int w, int h);
+        // 析构函数，释放资源
+        virtual ~Fish();
 
-        virtual ~Fish() = default;
+        // 更新鱼的状态，纯虚函数
+        virtual void update(int windowW, int windowH) = 0;
+        // 渲染鱼到屏幕
+        virtual void render() const;
+        // 判断鱼是否存活
+        virtual bool isAlive() const { return alive; }
+        // 让鱼变大
+        virtual void grow(float scale);
+        // 获取鱼的矩形区域
+        virtual SDL_Rect getRect() const { return rect; }
+        // 获取鱼的面积
+        virtual float getSize() const { return rect.w * rect.h; }
 
-        virtual void update(int windowW, int windowH);
-
-        virtual void render();
-
-        virtual bool tryEat(Fish& other);
-
-        bool isCollide(const Fish& other) const;
-
-        int getSize() const { return size; }
-        int getWidth() const { return width; }
-        int getHeight() const { return height; }
-
-        SDL_Rect getRect() const { return rect; }
+    protected:
+        lyt::Renderer* renderer; // 渲染器指针
+        SDL_Texture* texture;    // 鱼的纹理
+        SDL_Rect rect;           // 鱼的位置和大小
+        bool alive = true;       // 鱼是否存活
     };
 
 } // namespace lx
