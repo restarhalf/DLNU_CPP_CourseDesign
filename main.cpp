@@ -82,7 +82,7 @@ int main(int argc, char* argv[])
         loginGame.getWindow()->getSize(w, h);
 
         image.setRect(SDL_Rect{ 0, 0, w, h });
-
+        image2.setRect(SDL_Rect{ 0, 0, windowW, windowH });
         login.setButtonwithImage(SDL_Rect{ w / 3 - 115, h / 2 + 70, 230, 230 });
         exit.setButtonwithImage(SDL_Rect{ w/ 3 * 2 - 115, h / 2 + 70, 230, 230 });
         fullscreenBtn.setButtonwithImage(SDL_Rect{ 0, 0, 300, 100 });
@@ -90,6 +90,7 @@ int main(int argc, char* argv[])
         SDL_Event event;
         while (SDL_PollEvent(&event))
         {
+            loginGame.handleEvent(event,mouseX,mouseX);
             game.handleEvent(event, mouseX, mouseY);
             login.handleEvent(event);
             exit.handleEvent(event);
@@ -120,7 +121,6 @@ int main(int argc, char* argv[])
                 TTF_CloseFont(font);
                 game.clean();
                 loginGame.clean();
-                std::exit(0);
             }
             //全屏事件处理
             if (fullscreenBtn.isButtonReleased())
@@ -198,12 +198,14 @@ int main(int argc, char* argv[])
         }
 
         game.getRenderer()->present();
+        loginGame.getRenderer()->present();
 
         game.frameEnd();
     }
 
     TTF_CloseFont(font);
     game.clean();
+    loginGame.clean();
 
     return 0;
 }
