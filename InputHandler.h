@@ -1,5 +1,5 @@
 #pragma once
-//´¦ÀíÍæ¼ÒÊäÈëÊÂ¼ş£¬¿ØÖÆÍæ¼ÒÓãÒÆ¶¯
+//å¤„ç†ç©å®¶è¾“å…¥äº‹ä»¶ï¼Œæ§åˆ¶ç©å®¶é±¼ç§»åŠ¨
 #include "PlayerFish.h"
 
 namespace lx 
@@ -8,12 +8,12 @@ namespace lx
     class InputHandler 
     {
     private:
-        PlayerFish* player; // Ö¸ÏòÍæ¼ÒÓãµÄÖ¸Õë
+        PlayerFish* player; // æŒ‡å‘ç©å®¶é±¼çš„æŒ‡é’ˆ
 
     public:
-        InputHandler(PlayerFish* p);   // ¹¹Ôìº¯Êı£¬´«ÈëÍæ¼ÒÓã¶ÔÏóÖ¸Õë
-        void processInput(char key);   // ¼üÅÌÊäÈë
-        void stopMovement();           // Í£Ö¹Íæ¼ÒÒÆ¶¯
+        InputHandler(PlayerFish* p);   // æ„é€ å‡½æ•°ï¼Œä¼ å…¥ç©å®¶é±¼å¯¹è±¡æŒ‡é’ˆ
+        void processInput(char key);   // é”®ç›˜è¾“å…¥
+        void stopMovement();           // åœæ­¢ç©å®¶ç§»åŠ¨
     };
-    //Î´Íê³É
+    //æœªå®Œæˆ
 } 
