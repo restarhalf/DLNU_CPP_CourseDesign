@@ -27,7 +27,7 @@ target_sources(${PROJECT_NAME} PRIVATE
         api/lx/src/AIFish.cpp
 )
 
-target_link_libraries(DLNU_CPP_CourseDesign PRIVATE
+target_link_libraries(${PROJECT_NAME} PRIVATE
         SDL2
         SDL2main
         SDL2_image
