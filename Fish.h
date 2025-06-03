@@ -1,47 +1,87 @@
-#pragma once
+ï»¿#pragma once
 
-// ÓãµÄÎ»ÖÃ¡¢´óĞ¡¡¢ËÙ¶ÈµÈÊôĞÔ
-// ¶¨ÒåÒÆ¶¯¡¢Åö×²¼ì²â¡¢³ÔÊ³ÅĞ¶¨µÈ½Ó¿Ú
+// é±¼çš„ä½ç½®ã€å¤§å°ã€é€Ÿåº¦ç­‰å±æ€§
+// å®šä¹‰ç§»åŠ¨ã€ç¢°æ’æ£€æµ‹ã€åƒé£Ÿåˆ¤å®šç­‰æ¥å£
 #include <cmath>
 
 namespace lx 
 {
 
-    // ÏòÁ¿:×ø±êºÍËÙ¶È
+    // å‘é‡:åæ ‡å’Œé€Ÿåº¦
     struct Vector2 
     {
         float x, y;
     };
 
-    // ¼ÆËãÁ½µã¼ä¾àÀë
+    // è®¡ç®—ä¸¤ç‚¹é—´è·ç¦»
     float getDistance(Vector2 a, Vector2 b);
 
-    // Fish³éÏóÀà
+    // FishæŠ½è±¡ç±»
     class Fish 
     {
     protected:
-        Vector2 position; // Î»ÖÃ
-        Vector2 velocity; // ËÙ¶È
-        float size;       // ´óĞ¡
+        Vector2 position; // ä½ç½®
+        Vector2 velocity; // é€Ÿåº¦
+        float size;       // å¤§å°
 
     public:
         Fish(float x, float y, float s);  
-        virtual ~Fish();                  // ·½±ã¼Ì³Ğ
+        virtual ~Fish();                  // æ–¹ä¾¿ç»§æ‰¿
 
-        virtual void move() = 0;          // ×ÓÀàÊµÏÖÒÆ¶¯Âß¼­
+        virtual void move() = 0;          // å­ç±»å®ç°ç§»åŠ¨é€»è¾‘
        
-        void checkBounds()const;                 //²¹±ß½ç¼ì²â
+        void checkBounds()const;                 //è¡¥è¾¹ç•Œæ£€æµ‹
 
-        bool checkCollision(const Fish& other) const;  // Åö×²¼ì²â£¨Óã
-        bool canEat(const Fish& other) const;          // ÅĞ¶ÏÊÇ·ñÄÜ³ÔµôÁíÒ»¸öÓã
+        bool checkCollision(const Fish& other) const;  // ç¢°æ’æ£€æµ‹ï¼ˆé±¼
+        bool canEat(const Fish& other) const;          // åˆ¤æ–­æ˜¯å¦èƒ½åƒæ‰å¦ä¸€ä¸ªé±¼
 
-        Vector2 getPosition() const;     // »ñÈ¡µ±Ç°Î»ÖÃ
-        float getSize() const;           // »ñÈ¡´óĞ¡
-        Vector2 getVelocity() const;     // »ñÈ¡ËÙ¶È
+        Vector2 getPosition() const;     // è·å–å½“å‰ä½ç½®
+        float getSize() const;           // è·å–å¤§å°
+        Vector2 getVelocity() const;     // è·å–é€Ÿåº¦
 
-        void grow(float amount);         // Ôö¼ÓÌå»ı
-        void setVelocity(Vector2 v);    // ÉèÖÃËÙ¶È
+        void grow(float amount);         // å¢åŠ ä½“ç§¯
+        void setVelocity(Vector2 v);    // è®¾ç½®é€Ÿåº¦
     };
 
 } 
 
+#ifndef FISH_H
+#define FISH_H
+
+#include <SDL.h>
+
+namespace lx {
+
+    class Fish
+    {
+    protected:
+        SDL_Renderer* renderer;
+        int x, y;
+        int width, height;
+        int size;
+        SDL_Rect rect;
+
+
+    public:
+        Fish(SDL_Renderer* renderer, int x, int y, int width, int height);
+
+        virtual ~Fish() = default;
+
+        virtual void update(int windowW, int windowH);
+
+        virtual void render();
+
+        virtual bool tryEat(Fish& other);
+
+        bool isCollide(const Fish& other) const;
+
+        int getSize() const { return size; }
+        int getWidth() const { return width; }
+        int getHeight() const { return height; }
+
+        SDL_Rect getRect() const { return rect; }
+    };
+
+} // namespace lx
+
+#endif
