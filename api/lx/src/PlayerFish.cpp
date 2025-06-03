@@ -1,63 +1,73 @@
-﻿#include "PlayerFish.h"
+#include "PlayerFish.h"
+#include "ScoreManager.h"
+#include <SDL.h>
 
 namespace lx {
 
-    PlayerFish::PlayerFish(lyt::Renderer* renderer, int x, int y, int width, int height)
-        : Fish(renderer, x, y, width, height),
-        movingUp(false), movingDown(false),
-        movingLeft(false), movingRight(false),
-        speed(5), dead(false)
-    {
+    // 玩家鱼构造函数
+    PlayerFish::PlayerFish(lyt::Renderer* renderer, const std::string& imagePath, int x, int y, int w, int h)
+        : Fish(renderer, imagePath, x, y, w, h) {
     }
 
-    void PlayerFish::update(int windowW, int windowH)
-    {
-        if (dead) return;
-
-        if (movingUp) y -= speed;
-        if (movingDown) y += speed;
-        if (movingLeft) x -= speed;
-        if (movingRight) x += speed;
-
-        if (x < 0) x = 0;
-        if (x + width > windowW) x = windowW - width;
-        if (y < 0) y = 0;
-        if (y + height > windowH) y = windowH - height;
-
-        rect.x = x;
-        rect.y = y;
-        rect.w = width;
-        rect.h = height;
+    // 处理玩家输入，控制鱼的移动方向
+    void PlayerFish::handleInput(const lyt::Controller* controller) {
+        velocityX = velocityY = 0;
+        if (controller->isKeyPressed(SDL_SCANCODE_W)) velocityY = -speed;
+        if (controller->isKeyPressed(SDL_SCANCODE_S)) velocityY = speed;
+        if (controller->isKeyPressed(SDL_SCANCODE_A)) velocityX = -speed;
+        if (controller->isKeyPressed(SDL_SCANCODE_D)) velocityX = speed;
     }
 
-    bool PlayerFish::tryEat(Fish& other)
-    {
-        if (dead) return false;
+    // 更新玩家鱼的位置，并进行边界检测
+    void PlayerFish::update(int windowW, int windowH) {
+        rect.x += velocityX;
+        rect.y += velocityY;
 
-        if (this != &other && isCollide(other))
-        {
-            if (size > other.getSize())
-            {
-                size += other.getSize() * 0.1;
-                width = height = size;
-                rect.w = width;
-                rect.h = height;
+        // 边界检测，防止鱼游出窗口
+        if (rect.x < 0) rect.x = 0;
+        if (rect.y < 0) rect.y = 0;
+        if (rect.x + rect.w > windowW) rect.x = windowW - rect.w;
+        if (rect.y + rect.h > windowH) rect.y = windowH - rect.h;
+    }
+
+    bool PlayerFish::tryEat(AIFish& aiFish, ScoreManager& scoreManager)
+    {
+        if (!aiFish.isAlive() || !alive) return false;
+        SDL_Rect other = aiFish.getRect();
+        if (SDL_HasIntersection(&rect, &other)) {
+            float mySize = getSize();
+            float otherSize = aiFish.getSize();
+
+            if (mySize > otherSize * 1.2f) {
+                // 玩家比 AI 鱼大 20% 以上，可以吞掉
+                aiFish.kill();
+                grow(1.05f);  // 体型增长 5%
+                int value = aiFish.getScoreValue();
+                scoreManager.add(value);
+                SDL_Log("吃掉AI鱼，得分 +%d，当前体型 %.2f", value, getSize());
                 return true;
             }
-            else if (size < other.getSize())
-            {
-                dead = true;
-                return false;
+            else if (mySize < otherSize * 0.8f) {
+                // 玩家比 AI 鱼小 20% 以上，被吃掉
+                alive = false;
+                SDL_Log("被更大的AI鱼吃掉，游戏结束！");
+            }
+            else {
+                // 大小相近，不处理
+                SDL_Log("碰撞但大小相近，无操作");
             }
         }
+
         return false;
     }
 
-    void PlayerFish::moveUp(bool pressed) { movingUp = pressed; }
-    void PlayerFish::moveDown(bool pressed) { movingDown = pressed; }
-    void PlayerFish::moveLeft(bool pressed) { movingLeft = pressed; }
-    void PlayerFish::moveRight(bool pressed) { movingRight = pressed; }
 
-    bool PlayerFish::isDead() const { return dead; }
+    // 重置玩家鱼的位置和状态
+    void PlayerFish::reset(int startX, int startY) {
+        rect.x = startX;
+        rect.y = startY;
+        rect.w = rect.h = 60;
+        alive = true;
+    }
 
 } // namespace lx
