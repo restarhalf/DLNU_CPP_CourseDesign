@@ -76,7 +76,7 @@ namespace lyt
     private:
         bool isMousetoMove = false;  ///< 是否启用鼠标移动控制
         bool isKeytoMove = true;  ///< 是否启用键盘移动控制
-        std::unordered_map<SDL_Scancode, bool> keyStates;
+        std::unordered_map<SDL_Scancode, bool> keyStates;//记录各个键盘按键当前的状态（按下为 true，未按下为 false）
 
     };
 }  // namespace lyt
