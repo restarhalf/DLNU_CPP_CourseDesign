@@ -1,112 +1,28 @@
-﻿#include "Fish.h"
-#include <cmath>
-
-namespace lx 
-{
-
-    
-
-    void Fish::checkBounds()const {
-        bool hitBoundary = false;//默认未撞边界
-
-        // 左右边界检测
-        if (position.x <= 0 || position.x >= screenWidth - size) {
-            hitBoundary = true;
-        }
-
-        // 上下边界检测
-        if (position.y <= 0 || position.y >= screenHeight - size) {
-            hitBoundary = true;
-        }
-        return hitBoundary;
-    }
-    float getDistance(Vector2 a, Vector2 b) //获取两鱼位置距离
-    {
-        return std::sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
-    }
-
-    Fish::Fish(float x, float y, float s)
-        : position{ x, y }, size(s), velocity{ 0, 0 } 
-    {}
-
-    Fish::~Fish() {}
-
-    bool Fish::checkCollision(const Fish& other) const //吃食距离判断
-    {
-        return getDistance(position, other.position) < (size + other.size);
-    }
-
-    bool Fish::canEat(const Fish& other) const //吃食体积判断
-    {
-        return size > other.size;
-    }
-
-    Vector2 Fish::getPosition() const 
-    {
-        return position;
-    }
-
-    float Fish::getSize() const 
-    {
-        return size;
-    }
-
-    Vector2 Fish::getVelocity() const 
-    {
-        return velocity;
-    }
-
-    void Fish::grow(float amount) 
-    {
-        size += amount;
-    }
-
-    void Fish::setVelocity(Vector2 v) 
-    {
-        velocity = v;
-    }
-
-}
-
-
 #include "Fish.h"
 
 namespace lx {
 
-    Fish::Fish(SDL_Renderer* renderer, int x, int y, int width, int height)
-        : renderer(renderer), x(x), y(y), width(width), height(height)
-    {
-        size = (width + height) / 2;
-        rect = { x, y, width, height };
+    // 构造函数，加载鱼的纹理并初始化位置和尺寸
+    Fish::Fish(lyt::Renderer* renderer, const std::string& imagePath, int x, int y, int w, int h)
+        : renderer(renderer), rect{ x, y, w, h } {
+        texture = renderer->loadTexture(imagePath);
+        if (!texture) SDL_Log("Failed to load fish texture: %s", imagePath.c_str());
     }
 
-    void Fish::update(int windowW, int windowH)
-    {
-        rect = { x, y, width, height };
+    // 析构函数，释放纹理资源
+    Fish::~Fish() {
+        if (texture) SDL_DestroyTexture(texture);
     }
 
-    void Fish::render()
-    {
-        SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
-        SDL_RenderFillRect(renderer, &rect);
+    // 渲染鱼到屏幕
+    void Fish::render() const {
+        renderer->copy(texture, nullptr, &rect);
     }
 
-    bool Fish::isCollide(const Fish& other) const
-    {
-        return SDL_HasIntersection(&rect, &other.rect);
-    }
-
-    bool Fish::tryEat(Fish& other)
-    {
-        if (this != &other && isCollide(other) && size > other.size)
-        {
-            size += other.size / 3;
-            width = height = size;
-            rect.w = width;
-            rect.h = height;
-            return true;
-        }
-        return false;
+    // 让鱼变大，按比例缩放宽高
+    void Fish::grow(float scale) {
+        rect.w = static_cast<int>(rect.w * scale);
+        rect.h = static_cast<int>(rect.h * scale);
     }
 
 } // namespace lx
