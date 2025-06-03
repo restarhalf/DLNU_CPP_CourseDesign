@@ -32,14 +32,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0bcc9e56-ae7f-4772-83b2-5a4237ae3734" name="更改" comment="GUI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Controller.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Controller.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/vc140.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/vc140.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.ilk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +47,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
