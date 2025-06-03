@@ -1,0 +1,67 @@
+name: CMake on multiple platforms
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        build_type: [Release]
+        include:
+          - os: windows-latest
+            generator: "Visual Studio 17 2022"
+            c_compiler: cl
+            cpp_compiler: cl
+          - os: ubuntu-latest
+            generator: "Unix Makefiles"
+            c_compiler: gcc
+            cpp_compiler: g++
+          - os: ubuntu-latest
+            generator: "Unix Makefiles"
+            c_compiler: clang
+            cpp_compiler: clang++
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Configure CMake
+      run: |
+        # Windows 需要指定生成器
+        if [ "${{ runner.os }}" == "Windows" ]; then
+          cmake -B build -G "${{ matrix.generator }}" \
+            -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }} \
+            -DCMAKE_C_COMPILER=${{ matrix.c_compiler }} \
+            -S .
+        else
+          cmake -B build \
+            -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }} \
+            -DCMAKE_C_COMPILER=${{ matrix.c_compiler }} \
+            -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
+            -S .
+        fi
+
+    - name: Build
+      run: |
+        # Windows 需要指定 --config 参数
+        if [ "${{ runner.os }}" == "Windows" ]; then
+          cmake --build build --config ${{ matrix.build_type }}
+        else
+          cmake --build build
+        fi
+
+    - name: Test
+      working-directory: build
+      run: |
+        if [ "${{ runner.os }}" == "Windows" ]; then
+          ctest -C ${{ matrix.build_type }} --output-on-failure
+        else
+          ctest --output-on-failure
+        fi
