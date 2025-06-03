@@ -1,4 +1,4 @@
-#include "Fish.h"
+ï»¿#include "Fish.h"
 #include <cmath>
 
 namespace lx 
@@ -7,20 +7,20 @@ namespace lx
     
 
     void Fish::checkBounds()const {
-        bool hitBoundary = false;//Ä¬ÈÏÎ´×²±ß½ç
+        bool hitBoundary = false;//é»˜è®¤æœªæ’è¾¹ç•Œ
 
-        // ×óÓÒ±ß½ç¼ì²â
+        // å·¦å³è¾¹ç•Œæ£€æµ‹
         if (position.x <= 0 || position.x >= screenWidth - size) {
             hitBoundary = true;
         }
 
-        // ÉÏÏÂ±ß½ç¼ì²â
+        // ä¸Šä¸‹è¾¹ç•Œæ£€æµ‹
         if (position.y <= 0 || position.y >= screenHeight - size) {
             hitBoundary = true;
         }
         return hitBoundary;
     }
-    float getDistance(Vector2 a, Vector2 b) //»ñÈ¡Á½ÓãÎ»ÖÃ¾àÀë
+    float getDistance(Vector2 a, Vector2 b) //è·å–ä¸¤é±¼ä½ç½®è·ç¦»
     {
         return std::sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
     }
@@ -31,12 +31,12 @@ namespace lx
 
     Fish::~Fish() {}
 
-    bool Fish::checkCollision(const Fish& other) const //³ÔÊ³¾àÀëÅĞ¶Ï
+    bool Fish::checkCollision(const Fish& other) const //åƒé£Ÿè·ç¦»åˆ¤æ–­
     {
         return getDistance(position, other.position) < (size + other.size);
     }
 
-    bool Fish::canEat(const Fish& other) const //³ÔÊ³Ìå»ıÅĞ¶Ï
+    bool Fish::canEat(const Fish& other) const //åƒé£Ÿä½“ç§¯åˆ¤æ–­
     {
         return size > other.size;
     }
@@ -67,3 +67,46 @@ namespace lx
     }
 
 }
+
+
+#include "Fish.h"
+
+namespace lx {
+
+    Fish::Fish(SDL_Renderer* renderer, int x, int y, int width, int height)
+        : renderer(renderer), x(x), y(y), width(width), height(height)
+    {
+        size = (width + height) / 2;
+        rect = { x, y, width, height };
+    }
+
+    void Fish::update(int windowW, int windowH)
+    {
+        rect = { x, y, width, height };
+    }
+
+    void Fish::render()
+    {
+        SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+        SDL_RenderFillRect(renderer, &rect);
+    }
+
+    bool Fish::isCollide(const Fish& other) const
+    {
+        return SDL_HasIntersection(&rect, &other.rect);
+    }
+
+    bool Fish::tryEat(Fish& other)
+    {
+        if (this != &other && isCollide(other) && size > other.size)
+        {
+            size += other.size / 3;
+            width = height = size;
+            rect.w = width;
+            rect.h = height;
+            return true;
+        }
+        return false;
+    }
+
+} // namespace lx
