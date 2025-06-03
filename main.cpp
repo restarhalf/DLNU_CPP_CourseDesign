@@ -1,9 +1,11 @@
-﻿#include <lyt_api.h>
-#include <lx_api.h>
+﻿#include <lx_api.h>
+#include <lyt_api.h>
+#include <random>
 // #include <tjx_api.h>
 int main(int argc, char* argv[])
 {
-    srand((unsigned)time(nullptr));  // 初始化随机数
+    std::random_device rd;  // 使用随机设备生成随机数种子
+    std::mt19937 gen(rd());  // 使用 Mersenne Twister 引擎
 
     lyt::Game game;
     bool fullscreenFlag = false;
@@ -57,9 +59,12 @@ int main(int argc, char* argv[])
     std::vector<lx::AIFish> aiFishes;
     for (int i = 0; i < 10; ++i)
     {
-        int x = rand() % (windowW - 60);
-        int y = rand() % (windowH - 60);
-        int size = 20 + rand() % 40;
+        std::uniform_int_distribution<int> disX(0, windowW - 60);
+        std::uniform_int_distribution<int> disY(0, windowH - 60);
+        int x = disX(gen);
+        int y = disY(gen);
+        std::uniform_int_distribution<int> disSize(20, 60);
+        int size = disSize(gen);
         aiFishes.emplace_back(game.getRenderer(), x, y, size, size);
     }
 
@@ -95,7 +100,7 @@ int main(int argc, char* argv[])
                 default: break;
                 }
             }
-
+            //开始和退出按钮点击事件
             if (login.isButtonReleased())
             {
                 SDL_Log("Login button clicked");
@@ -107,6 +112,7 @@ int main(int argc, char* argv[])
                 game.clean();
                 return 0;
             }
+            //全屏事件处理
             if (fullscreenBtn.isButtonReleased())
             {
                 fullscreenFlag = !fullscreenFlag;
@@ -145,17 +151,22 @@ int main(int argc, char* argv[])
         // 动态补充AI鱼，保持数量不变，且大小随玩家成长调整
         while ((int)aiFishes.size() < MAX_AI_FISH)
         {
-            int x = rand() % (windowW - 60);
-            int y = rand() % (windowH - 60);
+            std::uniform_int_distribution<int> disX(0, windowW - 60);
+            std::uniform_int_distribution<int> disY(0, windowH - 60);
+            int x = disX(gen);
+            int y = disY(gen);
 
             // 根据玩家大小调整AI鱼大小，AI鱼大小在玩家大小附近浮动，比如 +-20%
             int playerSize = (playerFish.getWidth() + playerFish.getHeight()) / 2;
-            int minSize = static_cast<int>(playerSize * 0.2);
-            int maxSize = static_cast<int>(playerSize * 1.2);
+            std::uniform_int_distribution<int> disMinSize(playerSize * 0.1, playerSize * 0.3);
+            std::uniform_int_distribution<int> disMaxSize(playerSize * 1, playerSize * 1.5);
+            int minSize = disMinSize(gen);
+            int maxSize = disMaxSize(gen);
             if (minSize < 20) minSize = 20;  // 保证AI鱼最小尺寸
             if (maxSize < 20) maxSize = 20;
-
-            int size = minSize + rand() % (maxSize - minSize + 1);
+            std::uniform_int_distribution<int> disSize(minSize, maxSize-minSize+1);
+            int size= disSize(gen);
+            //int size = minSize + rand() % (maxSize - minSize + 1);
 
             aiFishes.emplace_back(game.getRenderer(), x, y, size, size);
         }
