@@ -1,48 +1,57 @@
-// 继承Fish，实现自动移动行为
+    #ifndef AIFISH_H
+    #define AIFISH_H
 
-#pragma once
-#include "Fish.h"
+    #pragma once
+    #include "Fish.h"
 
-namespace lx 
-{
-    class AIFish : public Fish 
-    {
-    public:
-        AIFish(float x, float y);//算法把size参数删了，因为它们size随机
-        void move() override;  // 重写移动逻辑，自动更新位置
+    namespace lx {
 
-    private:
-        void updataVelocity()const;
-    };
+        /**
+         * @brief AI鱼类，继承自Fish，具备自动移动和成长等行为
+         */
+        class AIFish : public Fish {
+        public:
+            /**
+             * @brief 构造函数，初始化AI鱼对象
+             * @param renderer 渲染器指针
+             * @param imagePath 图片路径
+             * @param x 初始x坐标
+             * @param y 初始y坐标
+             * @param w 宽度
+             * @param h 高度
+             */
+            AIFish(lyt::Renderer* renderer, const std::string& imagePath, int x, int y, int w, int h);
 
-}
+            /**
+             * @brief 更新AI鱼的位置和状态
+             * @param windowW 窗口宽度
+             * @param windowH 窗口高度
+             */
+            void update(int windowW, int windowH) override;
 
+            /**
+             * @brief 杀死鱼，将alive设为false
+             */
+            void kill() { alive = false; }
 
-#ifndef AIFISH_H  // 如果没有定义 AIFISH_H（防止头文件被重复包含）
-#define AIFISH_H
+            /**
+             * @brief 让鱼成长，变大
+             * @param scale 成长比例
+             */
+            void grow(float scale) override;
 
-#include "Fish.h"  // 包含 Fish 类的头文件
+            /**
+             * @brief 获取鱼的分值
+             * @return 分值
+             */
+            int getScoreValue() const;
 
-namespace lx {  // 定义命名空间 lx
+        private:
+            int speed;      ///< 移动速度
+            int direction;  ///< 移动方向，-1为左，1为右
+            int scoreValue; ///< 分值
+        };
 
-    class AIFish : public Fish {  // 定义 AIFish 类，公有继承自 Fish 类
-    public:
-        // 构造函数，接受渲染器指针、鱼的坐标和尺寸
-        AIFish(SDL_Renderer* renderer, int x, int y, int width, int height);
+    } // namespace lx
 
-        // 重写（override）基类 Fish 的 update 方法，用于更新鱼的状态
-        void update(int windowW, int windowH) override;
-
-        // 重写（override）基类 Fish 的 tryEat 方法，用于尝试让鱼吃其他鱼
-        bool tryEat(Fish& other) override;
-
-    private:
-        float vx;  // 私有成员变量，表示鱼在 x 方向的速度
-
-        // 私有成员函数，用于反转鱼的运动方向
-        void reverseDirection();
-    };
-
-} // namespace lx
-
-#endif
+    #endif
