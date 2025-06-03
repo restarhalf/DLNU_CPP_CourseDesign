@@ -104,6 +104,7 @@ namespace lyt
         if (event.type == SDL_QUIT || event.key.keysym.sym == SDLK_ESCAPE)
         {
             clean();
+            exit(0);
         }
         // 处理控制器事件和窗口事件
         controller.event(event, x, y);
@@ -121,7 +122,6 @@ namespace lyt
         IMG_Quit();
         TTF_Quit();
         SDL_Log("Game cleaned");
-        exit(0);
     }
 
     // 更新游戏状态
