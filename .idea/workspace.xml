@@ -33,38 +33,13 @@
     <list default="true" id="0bcc9e56-ae7f-4772-83b2-5a4237ae3734" name="更改" comment="GUI">
       <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lx/include/lx_api.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/lx_api.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lx/src/AIFish.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/AIFish.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lyt/include/Game.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Game.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lyt/include/Renderer.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Renderer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lyt/include/Text.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Text.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/lyt/include/Window.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Window.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lyt/src/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Game.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lyt/src/Renderer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Renderer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lyt/src/Text.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Text.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/lyt/src/Window.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Window.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Renderer.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Renderer.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Text.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Text.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Window.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Window.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/compiler_depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/compiler_depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/compiler_depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/main.cpp.obj.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/objects1.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/objects1.rsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.ilk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/vc140.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/vc140.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -269,7 +244,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "CMake 应用程序.DLNU_CPP_CourseDesign.executor": "Debug",
+    "CMake 应用程序.DLNU_CPP_CourseDesign.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.RadMigrateCodeStyle": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -335,7 +310,7 @@
       <workItem from="1748880865168" duration="748000" />
       <workItem from="1748938980973" duration="234000" />
       <workItem from="1748939477556" duration="2262000" />
-      <workItem from="1748957161936" duration="8298000" />
+      <workItem from="1748957161936" duration="9553000" />
     </task>
     <task id="LOCAL-00001" summary="GUI">
       <option name="closed" value="true" />
@@ -409,7 +384,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748953921719</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="GUI">
+      <option name="closed" value="true" />
+      <created>1748967139622</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1748967139622</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

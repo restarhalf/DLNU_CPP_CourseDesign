@@ -98,7 +98,7 @@ namespace lyt
         int         width_;  ///< 窗口宽度
         int         height_;  ///< 窗口高度
         SDL_Event   event_;  ///< SDL事件对象
-        Uint32      flags = SDL_WINDOW_RESIZABLE | SDL_WINDOW_SHOWN;  ///< 窗口标志，默认可调整大小且可见
+        Uint32      flags = SDL_WINDOW_HIDDEN|SDL_WINDOW_ALLOW_HIGHDPI;  ///< 窗口标志，默认可调整大小且可见
     };
 }  // namespace lyt
 #endif  // WINDOW_H

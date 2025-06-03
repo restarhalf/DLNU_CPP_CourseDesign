@@ -50,7 +50,7 @@ namespace lyt
     {
         if (fullScreen)
         {
-            SDL_SetWindowFullscreen(window_, SDL_WINDOW_FULLSCREEN);
+            SDL_SetWindowFullscreen(window_, SDL_WINDOW_FULLSCREEN_DESKTOP);
         }
         else
         {
@@ -61,9 +61,19 @@ namespace lyt
     void Window::hide(bool isHide)
     {
         if (isHide)
+        {
             SDL_HideWindow(window_);
+            flags&=SDL_WINDOW_SHOWN;
+            flags|=SDL_WINDOW_HIDDEN;
+        }
         else
-            SDL_ShowWindow(window_);
+        {
+             SDL_ShowWindow(window_);
+            flags&=SDL_WINDOW_HIDDEN;
+            flags|=SDL_WINDOW_SHOWN;
+
+        }
+
     }
     void Window::setSize(int width, int height)
     {

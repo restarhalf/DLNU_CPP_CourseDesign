@@ -17,7 +17,8 @@ int main(int argc, char* argv[])
         SDL_Log("Failed to initialize game");
         return -1;
     }
-    game.getWindow()->hide(true);
+    game.getWindow()->fullscreen(true);
+    loginUi.getWindow()->fullscreen(true);
     loginUi.getWindow()->hide(false);
     game.getWindow()->setIcon("asset/images/4.png");
     loginUi.getWindow()->setIcon("asset/images/4.png");
@@ -121,6 +122,12 @@ int main(int argc, char* argv[])
             if (fullscreenBtn.isButtonReleased()) {
                 fullscreenFlag = !fullscreenFlag;
                 game.getWindow()->fullscreen(fullscreenFlag);
+                loginUi.getWindow()->fullscreen(fullscreenFlag);
+                if (!fullscreenFlag) {
+                    game.getWindow()->setSize(windowW-100, windowH-100);
+                    SDL_SetWindowPosition(game.getWindow()->get(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+
+                }
             }
         }
 
