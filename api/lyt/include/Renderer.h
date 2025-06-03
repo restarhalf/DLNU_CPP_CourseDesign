@@ -7,7 +7,7 @@
 #define RENDERER_H
 #include <SDL.h>
 
-#include <Window.h>
+#include "Window.h"
 
 namespace lyt
 {
