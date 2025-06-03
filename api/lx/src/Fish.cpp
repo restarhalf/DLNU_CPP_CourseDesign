@@ -1,41 +1,28 @@
-﻿#include "Fish.h"
+#include "Fish.h"
 
 namespace lx {
 
-    Fish::Fish(lyt::Renderer* renderer, int x, int y, int width, int height)
-        : renderer(renderer), x(x), y(y), width(width), height(height)
-    {
-        size = (width + height) / 2;
-        rect = { x, y, width, height };
+    // 构造函数，加载鱼的纹理并初始化位置和尺寸
+    Fish::Fish(lyt::Renderer* renderer, const std::string& imagePath, int x, int y, int w, int h)
+        : renderer(renderer), rect{ x, y, w, h } {
+        texture = renderer->loadTexture(imagePath);
+        if (!texture) SDL_Log("Failed to load fish texture: %s", imagePath.c_str());
     }
 
-    void Fish::update(int windowW, int windowH)
-    {
-        rect = { x, y, width, height };
+    // 析构函数，释放纹理资源
+    Fish::~Fish() {
+        if (texture) SDL_DestroyTexture(texture);
     }
 
-    void Fish::render()
-    {
-        SDL_SetRenderDrawColor(renderer->get(), 0, 0, 255, 255);
-        SDL_RenderFillRect(renderer->get(), &rect);
+    // 渲染鱼到屏幕
+    void Fish::render() const {
+        renderer->copy(texture, nullptr, &rect);
     }
 
-    bool Fish::isCollide(const Fish& other) const
-    {
-        return SDL_HasIntersection(&rect, &other.rect);
-    }
-
-    bool Fish::tryEat(Fish& other)
-    {
-        if (this != &other && isCollide(other) && size > other.size)
-        {
-            size += other.size *0.1;
-            width = height = size;
-            rect.w = width;
-            rect.h = height;
-            return true;
-        }
-        return false;
+    // 让鱼变大，按比例缩放宽高
+    void Fish::grow(float scale) {
+        rect.w = static_cast<int>(rect.w * scale);
+        rect.h = static_cast<int>(rect.h * scale);
     }
 
 } // namespace lx
