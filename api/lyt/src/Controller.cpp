@@ -157,7 +157,7 @@ namespace lyt
         x = event.motion.x;
         y = event.motion.y;
     }
-
+    // 检查指定扫描码对应的按键是否被按下
     bool Controller::isKeyPressed(SDL_Scancode scancode) const
     {
         auto it = keyStates.find(scancode);
