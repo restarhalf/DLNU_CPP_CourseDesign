@@ -8,21 +8,24 @@ int main(int argc, char* argv[])
     std::mt19937 gen(rd());  // 使用 Mersenne Twister 引擎
 
     lyt::Game game;
+    lyt::Game loginGame;
     bool fullscreenFlag = false;
     lyt::Button login;
     lyt::Button exit;
     lyt::Button fullscreenBtn;
     TTF_Font* font = nullptr;
 
-    if (!game.init("Game", 1230, 540, 0))
+    if (!game.init("Game", 1230, 540, 0) || !loginGame.init("Login", 1230, 540, 0))
     {
         SDL_Log("Failed to initialize game");
         return -1;
     }
 
+    loginGame.getWindow()->setIcon("asset/images/4.png");
     game.getWindow()->setIcon("asset/images/4.png");
-
+    game.getWindow()->hide(true);
     lyt::Image image;
+    lyt::Image image2;
     lyt::Text text;
 
     int windowW = 0, windowH = 0;
@@ -37,17 +40,19 @@ int main(int argc, char* argv[])
 
     game.getWindow()->getSize(windowW, windowH);
 
-    login.setButtonwithImage("asset/images/3.png", game.getRenderer(),
+    login.setButtonwithImage("asset/images/3.png", loginGame.getRenderer(),
         SDL_Rect{ windowW / 3 - 100, windowH / 2 + 70, 230, 230 },
         SDL_BLENDMODE_BLEND, 255);
-    exit.setButtonwithImage("asset/images/2.png", game.getRenderer(),
+    exit.setButtonwithImage("asset/images/2.png", loginGame.getRenderer(),
         SDL_Rect{ windowW / 3 * 2 - 100, windowH / 2 + 70, 230, 230 },
         SDL_BLENDMODE_BLEND, 255);
     fullscreenBtn.setButtonwithImage("asset/images/0.png", game.getRenderer(),
         SDL_Rect{ 0, 0, 100, 100 },
         SDL_BLENDMODE_BLEND, 255);
 
-    image.setImage("asset/images/1.jpg", game.getRenderer(), SDL_Rect{ 0, 0, windowW, windowH },
+    image.setImage("asset/images/1.jpg", loginGame.getRenderer(), SDL_Rect{ 0, 0, windowW, windowH },
+        SDL_BLENDMODE_BLEND, 255);
+    image2.setImage("asset/images/1.jpg", game.getRenderer(), SDL_Rect{ 0, 0, windowW, windowH },
         SDL_BLENDMODE_BLEND, 255);
 
     text.setAll(game.getRenderer(), SDL_Rect{ 0, 0, windowW / 2, windowH / 10 },
@@ -67,17 +72,19 @@ int main(int argc, char* argv[])
         int size = disSize(gen);
         aiFishes.emplace_back(game.getRenderer(), x, y, size, size);
     }
+    int w,h;
 
     while (game.running())
     {
         game.frameStart();
 
         game.getWindow()->getSize(windowW, windowH);
+        loginGame.getWindow()->getSize(w, h);
 
-        image.setRect(SDL_Rect{ 0, 0, windowW, windowH });
+        image.setRect(SDL_Rect{ 0, 0, w, h });
 
-        login.setButtonwithImage(SDL_Rect{ windowW / 3 - 115, windowH / 2 + 70, 230, 230 });
-        exit.setButtonwithImage(SDL_Rect{ windowW / 3 * 2 - 115, windowH / 2 + 70, 230, 230 });
+        login.setButtonwithImage(SDL_Rect{ w / 3 - 115, h / 2 + 70, 230, 230 });
+        exit.setButtonwithImage(SDL_Rect{ w/ 3 * 2 - 115, h / 2 + 70, 230, 230 });
         fullscreenBtn.setButtonwithImage(SDL_Rect{ 0, 0, 300, 100 });
 
         SDL_Event event;
@@ -104,13 +111,16 @@ int main(int argc, char* argv[])
             if (login.isButtonReleased())
             {
                 SDL_Log("Login button clicked");
+                game.getWindow()->hide(false);
+                loginGame.getWindow()->hide(true);
             }
             if (exit.isButtonReleased())
             {
                 SDL_Log("Exit button clicked");
                 TTF_CloseFont(font);
                 game.clean();
-                return 0;
+                loginGame.clean();
+                std::exit(0);
             }
             //全屏事件处理
             if (fullscreenBtn.isButtonReleased())
@@ -172,8 +182,10 @@ int main(int argc, char* argv[])
         }
 
         game.getRenderer()->clear();
+        loginGame.getRenderer()->clear();
 
         image.draw();
+        image2.draw();
         text.draw();
         login.drawwithImage();
         exit.drawwithImage();
