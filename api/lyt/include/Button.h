@@ -4,10 +4,10 @@
 
 #ifndef BUTTON_H
 #define BUTTON_H
-#include <Image.h>
-#include <Renderer.h>
+#include "Image.h"
+#include "Renderer.h"
 #include <SDL.h>
-#include <Text.h>
+#include "Text.h"
 #include <bits/stdc++.h>
 
 namespace lyt
