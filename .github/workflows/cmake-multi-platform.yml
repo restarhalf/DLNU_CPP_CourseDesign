@@ -33,35 +33,48 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Configure CMake
+      # 使用跨平台的条件判断
+      if: ${{ matrix.os == 'windows-latest' }}
       run: |
-        # Windows 需要指定生成器
-        if [ "${{ runner.os }}" == "Windows" ]; then
-          cmake -B build -G "${{ matrix.generator }}" \
-            -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }} \
-            -DCMAKE_C_COMPILER=${{ matrix.c_compiler }} \
-            -S .
-        else
-          cmake -B build \
-            -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }} \
-            -DCMAKE_C_COMPILER=${{ matrix.c_compiler }} \
-            -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
-            -S .
-        fi
+        cmake -B build -G "${{ matrix.generator }}" ^
+          -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }} ^
+          -DCMAKE_C_COMPILER=${{ matrix.c_compiler }} ^
+          -S .
+      shell: cmd
+
+    - name: Configure CMake (Linux)
+      # Linux 专用配置
+      if: ${{ matrix.os == 'ubuntu-latest' }}
+      run: |
+        cmake -B build \
+          -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }} \
+          -DCMAKE_C_COMPILER=${{ matrix.c_compiler }} \
+          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
+          -S .
+      shell: bash
 
     - name: Build
-      run: |
-        # Windows 需要指定 --config 参数
-        if [ "${{ runner.os }}" == "Windows" ]; then
-          cmake --build build --config ${{ matrix.build_type }}
-        else
-          cmake --build build
-        fi
+      # Windows 构建
+      if: ${{ matrix.os == 'windows-latest' }}
+      run: cmake --build build --config ${{ matrix.build_type }}
+      shell: cmd
+
+    - name: Build (Linux)
+      # Linux 构建
+      if: ${{ matrix.os == 'ubuntu-latest' }}
+      run: cmake --build build
+      shell: bash
 
     - name: Test
       working-directory: build
-      run: |
-        if [ "${{ runner.os }}" == "Windows" ]; then
-          ctest -C ${{ matrix.build_type }} --output-on-failure
-        else
-          ctest --output-on-failure
-        fi
+      # Windows 测试
+      if: ${{ matrix.os == 'windows-latest' }}
+      run: ctest -C ${{ matrix.build_type }} --output-on-failure
+      shell: cmd
+
+    - name: Test (Linux)
+      working-directory: build
+      # Linux 测试
+      if: ${{ matrix.os == 'ubuntu-latest' }}
+      run: ctest --output-on-failure
+      shell: bash
