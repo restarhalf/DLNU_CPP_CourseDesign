@@ -31,8 +31,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bcc9e56-ae7f-4772-83b2-5a4237ae3734" name="更改" comment="GUI">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2025_5_27_17_09____.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_5_27_17_09_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Controller.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Controller.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Game.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/vc140.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/vc140.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.exe" afterDir="false" />
@@ -65,20 +67,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xmemory" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xutility" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/include/Button.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/include/Button.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/include/Controller.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/include/Controller.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/include/Game.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/include/Game.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/include/Image.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/include/Image.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/include/Renderer.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/include/Renderer.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/include/Text.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/include/Text.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/src/Controller.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/src/Controller.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/src/Game.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/main.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/main.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -152,7 +142,8 @@
       <workItem from="1748876978690" duration="2511000" />
       <workItem from="1748880865168" duration="748000" />
       <workItem from="1748938980973" duration="234000" />
-      <workItem from="1748939477556" duration="2262000" />
+      <workItem from="1748939477556" duration="2580000" />
+      <workItem from="1748942378219" duration="2107000" />
     </task>
     <task id="LOCAL-00001" summary="GUI">
       <option name="closed" value="true" />
@@ -210,7 +201,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748881581633</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="GUI">
+      <option name="closed" value="true" />
+      <created>1748942197997</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1748942197997</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
