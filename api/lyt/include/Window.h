@@ -86,6 +86,12 @@ namespace lyt
          * @param isHide 是否隐藏
          */
         void hide(bool isHide);
+        /**
+         * @brief 设置窗口宽高
+         * @param width 窗口宽度
+         * @param height 窗口高度
+         */
+        void setSize(int width, int height);
 
     private:
         SDL_Window *window_ = nullptr;  ///< SDL窗口指针

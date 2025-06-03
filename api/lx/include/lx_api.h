@@ -7,4 +7,5 @@
 #include <Fish.h>
 #include <PlayerFish.h>
 #include <AIFish.h>
+#include <ScoreManager.h>
 #endif //LX_API_H

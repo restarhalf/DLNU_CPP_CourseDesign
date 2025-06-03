@@ -4,6 +4,7 @@ project("DLNU_CPP_CourseDesign")
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(${PROJECT_NAME} main.cpp
+        api/lx/src/AIFish.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE
@@ -25,6 +26,7 @@ target_sources(${PROJECT_NAME} PRIVATE
         api/lx/src/Fish.cpp
         api/lx/src/PlayerFish.cpp
         api/lx/src/AIFish.cpp
+        api/lx/src/ScoreManager.cpp
 )
 
 target_link_libraries(DLNU_CPP_CourseDesign PRIVATE

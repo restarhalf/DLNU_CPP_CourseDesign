@@ -17,21 +17,21 @@ namespace lyt
     class Text
     {
     private:
-        SDL_Texture  *texture;  ///< 文本纹理
+        SDL_Texture  *texture{nullptr};  ///< 文本纹理
         SDL_Rect      rect;  ///< 文本显示区域
         SDL_Color     color;  ///< 文本颜色
-        TTF_Font     *font;  ///< 字体
-        SDL_Surface  *surface;  ///< 文本表面
+        TTF_Font     *font{nullptr};  ///< 字体
+        SDL_Surface  *surface{nullptr};  ///< 文本表面
         SDL_BlendMode blendMode;  ///< 混合模式
         Uint8         alpha;  ///< 透明度
         std::string   text;  ///< 文本内容
-        Renderer     *renderer;  ///< 渲染器指针
+        Renderer     *renderer{nullptr};  ///< 渲染器指针
 
     public:
         /**
          * @brief 默认构造函数
          */
-        Text();
+        Text()=default;
 
         /**
          * @brief 析构函数，负责清理文本资源

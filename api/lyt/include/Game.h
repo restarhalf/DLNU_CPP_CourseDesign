@@ -20,13 +20,16 @@ namespace lyt
      */
     class Game
     {
+
     private:
         // 窗口部分
         Window*    window;  ///< 游戏窗口指针
         Renderer*  renderer;  ///< 渲染器指针
         bool       isRunning;  ///< 游戏运行状态标志
         Controller controller;  ///< 控制器对象
-
+        public:
+        static int num;///<实例量
+    private:
         // 帧率控制部分
         float  FPS           = 1000 / 165.f;  ///< 帧率（默认165FPS）
         Uint32 rendererFlags = SDL_RENDERER_PRESENTVSYNC;  ///< 渲染器标志
@@ -52,7 +55,7 @@ namespace lyt
          * @param flags SDL初始化标志
          * @return 初始化是否成功
          */
-        bool init(std::string title, int width, int height, int flags);
+        bool init(const std::string& title, int width, int height, int flags);
 
         /**
          * @brief 处理游戏事件
@@ -70,7 +73,7 @@ namespace lyt
         /**
          * @brief 更新游戏状态
          */
-        void update() const;
+        void update();
 
         /**
          * @brief 渲染游戏画面
@@ -80,6 +83,7 @@ namespace lyt
         // Getters and setters
         Renderer*          getRenderer() const;
         Window*            getWindow() const;
+        Controller*        getController() { return &controller; }
         void               setRenderer(Renderer* renderer);
         void               setWindow(Window* window);
         [[nodiscard]] bool running() const;

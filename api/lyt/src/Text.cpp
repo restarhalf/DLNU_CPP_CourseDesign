@@ -6,9 +6,6 @@
 
 namespace lyt
 {
-    // 默认构造函数，初始化纹理指针
-    Text::Text() : texture(nullptr) {}
-
     // 析构函数，清理资源
     Text::~Text()
     {
@@ -16,6 +13,9 @@ namespace lyt
         if (texture) SDL_DestroyTexture(texture);
         if (surface) SDL_FreeSurface(surface);
         if (font) TTF_CloseFont(font);
+        texture = nullptr;
+        surface = nullptr;
+        font    = nullptr;
     }
 
     // Getters and setters 实现
@@ -73,6 +73,7 @@ namespace lyt
     {
         // 清理并重新创建纹理
         if (texture) SDL_DestroyTexture(texture);
+        if (surface) SDL_FreeSurface(surface);
         surface = TTF_RenderUTF8_Blended(font, text.c_str(), color);
         if (!surface)
         {

@@ -4,15 +4,17 @@
 #include "Game.h"
 namespace lyt
 {
+    int Game::num=0;
     // 默认构造函数，初始化基本属性
     Game::Game() : window(nullptr), renderer(nullptr), isRunning(false) {}
 
     // 析构函数，清理游戏资源
-    Game::~Game() { clean(); }
+    Game::~Game() {}
 
     // 初始化游戏环境和事件
-    bool Game::init(std::string title, int width, int height, int flags)
+    bool Game::init(const std::string& title, int width, int height, int flags)
     {
+        num++;
         // 初始化SDL所有子系统
         if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
         {
@@ -26,10 +28,34 @@ namespace lyt
             isRunning = true;
         }
 
+
+        // 初始化TTF字体系统
+        if (TTF_Init() == -1)
+        {
+            SDL_Log("SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError());
+            isRunning = false;
+            return false;
+        }
+        else
+        {
+            SDL_Log("SDL_TTF initialized");
+        }
+
+        // 初始化图像系统
+        if (IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG) == 0)
+        {
+            SDL_Log("SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError());
+            isRunning = false;
+            return false;
+        }
+        else
+        {
+            SDL_Log("IMG initialized");
+        }
         // 创建游戏窗口
         try
         {
-            window = new Window(std::move(title), width, height);
+            window = new Window(title, width, height);
             SDL_Log("Window created");
         }
         catch (const std::runtime_error &e)
@@ -56,44 +82,6 @@ namespace lyt
             isRunning = false;
             return false;
         }
-
-        isRunning = true;
-
-        // 初始化TTF字体系统
-        if (TTF_Init() == -1)
-        {
-            SDL_Log("SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError());
-            isRunning = false;
-            return false;
-        }
-        else
-        {
-            SDL_Log("SDL_TTF initialized");
-        }
-
-        // 初始化图像系统
-        if (IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG) == 0)
-        {
-            SDL_Log("SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError());
-            isRunning = false;
-            return false;
-        }
-        else
-        {
-            SDL_Log("IMG initialized");
-        }
-
-        // 初始化音频系统
-        if (Mix_Init(MIX_INIT_MP3 | MIX_INIT_FLAC) == 0)
-        {
-            SDL_Log("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
-            isRunning = false;
-            return false;
-        }
-        else
-        {
-            SDL_Log("SDL_mixer initialized");
-        }
         return isRunning;
     }
 
@@ -101,9 +89,11 @@ namespace lyt
     void Game::handleEvent(SDL_Event &event, int &x, int &y)
     {
         // 检查退出事件（窗口关闭或ESC键）
-        if (event.type == SDL_QUIT || event.key.keysym.sym == SDLK_ESCAPE)
+        if (event.type == SDL_QUIT || (event.key.keysym.sym == SDLK_ESCAPE && event.type==SDL_KEYDOWN) )
         {
             clean();
+            isRunning = false;
+            return;
         }
         // 处理控制器事件和窗口事件
         controller.event(event, x, y);
@@ -112,19 +102,24 @@ namespace lyt
 
     // 清理游戏资源
     void Game::clean()
-    {   SDL_Quit();
-        IMG_Quit();
-        TTF_Quit();
+    {
+        num--;
         if (renderer)
         delete renderer;
         if (window)
         delete window;
 
+            SDL_Quit();
+        IMG_Quit();
+        TTF_Quit();
+
         SDL_Log("Game cleaned");
+        if (num==0)
+            exit(0);
     }
 
     // 更新游戏状态
-    void Game::update() const
+    void Game::update()
     {
         if (renderer)
         {

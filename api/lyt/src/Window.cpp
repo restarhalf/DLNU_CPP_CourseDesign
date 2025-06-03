@@ -61,8 +61,12 @@ namespace lyt
     void Window::hide(bool isHide)
     {
         if (isHide)
-        SDL_HideWindow(window_);
+            SDL_HideWindow(window_);
         else
-        SDL_ShowWindow(window_);
+            SDL_ShowWindow(window_);
+    }
+    void Window::setSize(int width, int height)
+    {
+        SDL_SetWindowSize(window_, width, height);
     }
 }  // namespace lyt

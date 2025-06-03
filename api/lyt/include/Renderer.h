@@ -43,7 +43,7 @@ namespace lyt
         /**
          * @brief 清除渲染目标
          */
-        void clear() const;
+        void clear();
 
         /**
          * @brief 将渲染内容呈现到屏幕

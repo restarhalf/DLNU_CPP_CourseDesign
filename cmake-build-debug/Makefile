@@ -190,6 +190,30 @@ api\lx\src\PlayerFish.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lx\src\PlayerFish.cpp.s
 .PHONY : api\lx\src\PlayerFish.cpp.s
 
+api\lx\src\ScoreManager.obj: api\lx\src\ScoreManager.cpp.obj
+.PHONY : api\lx\src\ScoreManager.obj
+
+# target to build an object file
+api\lx\src\ScoreManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lx\src\ScoreManager.cpp.obj
+.PHONY : api\lx\src\ScoreManager.cpp.obj
+
+api\lx\src\ScoreManager.i: api\lx\src\ScoreManager.cpp.i
+.PHONY : api\lx\src\ScoreManager.i
+
+# target to preprocess a source file
+api\lx\src\ScoreManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lx\src\ScoreManager.cpp.i
+.PHONY : api\lx\src\ScoreManager.cpp.i
+
+api\lx\src\ScoreManager.s: api\lx\src\ScoreManager.cpp.s
+.PHONY : api\lx\src\ScoreManager.s
+
+# target to generate assembly for a file
+api\lx\src\ScoreManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lx\src\ScoreManager.cpp.s
+.PHONY : api\lx\src\ScoreManager.cpp.s
+
 api\lyt\src\Button.obj: api\lyt\src\Button.cpp.obj
 .PHONY : api\lyt\src\Button.obj
 
@@ -424,6 +448,9 @@ help:
 	@echo ... api/lx/src/PlayerFish.obj
 	@echo ... api/lx/src/PlayerFish.i
 	@echo ... api/lx/src/PlayerFish.s
+	@echo ... api/lx/src/ScoreManager.obj
+	@echo ... api/lx/src/ScoreManager.i
+	@echo ... api/lx/src/ScoreManager.s
 	@echo ... api/lyt/src/Button.obj
 	@echo ... api/lyt/src/Button.i
 	@echo ... api/lyt/src/Button.s

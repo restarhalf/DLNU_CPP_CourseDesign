@@ -10,6 +10,9 @@ CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lx\src\Fish.cpp.obj: D:\C_C++Package\CL
 CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lx\src\PlayerFish.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lx\src\PlayerFish.cpp
 
 
+CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lx\src\ScoreManager.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lx\src\ScoreManager.cpp
+
+
 CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Button.cpp.obj: D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\src\Button.cpp
 
 
@@ -40,13 +43,15 @@ CMakeFiles\DLNU_CPP_CourseDesign.dir\main.cpp.obj: D:\C_C++Package\CLionProject\
 
 D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lx\src\AIFish.cpp:
 
-D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\src\Music.cpp:
-
 D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\src\Text.cpp:
 
 D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lx\src\Fish.cpp:
 
 D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lx\src\PlayerFish.cpp:
+
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\main.cpp:
+
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lx\src\ScoreManager.cpp:
 
 D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\src\Controller.cpp:
 
@@ -56,8 +61,8 @@ D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\src\Game.cpp:
 
 D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\src\Image.cpp:
 
+D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\src\Music.cpp:
+
 D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\src\Renderer.cpp:
 
 D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lyt\src\Window.cpp:
-
-D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\main.cpp:

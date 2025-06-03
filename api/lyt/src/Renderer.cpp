@@ -31,11 +31,12 @@ namespace lyt
         if (renderer_)
         {
             SDL_DestroyRenderer(renderer_);
+            renderer_ = nullptr;
         }
     }
 
     // 清除渲染目标
-    void Renderer::clear() const { SDL_RenderClear(renderer_); }
+    void Renderer::clear() { SDL_RenderClear(renderer_); }
 
     // 将渲染内容呈现到屏幕
     void Renderer::present() const { SDL_RenderPresent(renderer_); }
