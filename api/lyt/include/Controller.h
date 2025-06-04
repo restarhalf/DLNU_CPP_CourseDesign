@@ -73,7 +73,7 @@ namespace lyt
          * @param scancode SDL键盘扫描码
          * @return 如果按下则返回true
          */
-        bool isKeyPressed(SDL_Scancode scancode) const;
+        [[nodiscard]] bool isKeyPressed(SDL_Scancode scancode) const;
 
     private:
         bool isMousetoMove = false;  ///< 是否启用鼠标移动控制

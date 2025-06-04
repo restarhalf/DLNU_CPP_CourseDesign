@@ -52,7 +52,21 @@ namespace lyt
          * @param alpha 透明度
          */
         void setImage(const std::string& filePath, Renderer* renderer, SDL_Rect rect, SDL_BlendMode blendMode,
-    Uint8 alpha);
+                      Uint8 alpha);
+
+        // Getters and setters
+        [[nodiscard]] SDL_Rect      getRect() const;
+        void                        setRect(const SDL_Rect& rect);
+        [[nodiscard]] SDL_Color     getColor() const;
+        void                        setColor(const SDL_Color& color);
+        [[nodiscard]] std::string   getFilepath() const;
+        void                        setFilepath(const std::string& file_path);
+        [[nodiscard]] Renderer*     getRenderer() const;
+        void                        setRenderer(Renderer* renderer);
+        [[nodiscard]] SDL_BlendMode getBlendmode() const;
+        void                        setBlendmode(SDL_BlendMode blend_mode);
+        [[nodiscard]] Uint8         getAlpha() const;
+        void                        setAlpha(Uint8 alpha);
     };
 }  // namespace lyt
 #endif  // IMAGE_H

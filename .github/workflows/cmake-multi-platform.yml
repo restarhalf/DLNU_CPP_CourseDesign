@@ -29,33 +29,26 @@ jobs:
         7z x SDL2_image.zip
         7z x SDL2_ttf.zip
         7z x SDL2_mixer.zip
-        xcopy /E /I /Y SDL2-2.28.5\lib\x64\*.dll lib\dep\plugins\SDL2\lib\x64\
-        xcopy /E /I /Y SDL2_image-2.6.3\lib\x64\*.dll lib\dep\plugins\SDL2\lib\x64\
-        xcopy /E /I /Y SDL2_ttf-2.20.2\lib\x64\*.dll lib\dep\plugins\SDL2\lib\x64\
-        xcopy /E /I /Y SDL2_mixer-2.6.3\lib\x64\*.dll lib\dep\plugins\SDL2\lib\x64\
-        xcopy /E /I /Y SDL2-2.28.5\include\*.* lib\dep\plugins\SDL2\include\
-        xcopy /E /I /Y SDL2_image-2.6.3\include\*.* lib\dep\plugins\SDL2\include\
-        xcopy /E /I /Y SDL2_ttf-2.20.2\include\*.* lib\dep\plugins\SDL2\include\
-        xcopy /E /I /Y SDL2_mixer-2.6.3\include\*.* lib\dep\plugins\SDL2\include\
+        dir /s /b SDL2*.dll
 
     - name: Configure CMake
-      run: cmake -B build -G "Visual Studio 17 2022" -DCMAKE_BUILD_TYPE=Release
+      run: cmake -B ${{github.workspace}}/build -G "Visual Studio 17 2022" -DCMAKE_BUILD_TYPE=Release
 
     - name: Build
-      run: cmake --build build --config Release
+      run: cmake --build ${{github.workspace}}/build --config Release
 
     - name: Prepare Release Package
       shell: cmd
       run: |
         mkdir FishGame
         copy "build\Release\DLNU_CPP_CourseDesign.exe" "FishGame\"
-        copy "lib\dep\plugins\SDL2\lib\x64\*.dll" "FishGame\"
+        for /r %%i in (SDL2*.dll) do copy "%%i" "FishGame\"
         xcopy /E /I /Y "asset" "FishGame\asset\"
 
     - name: Create ZIP Archive
       shell: cmd
       run: |
-        7z a -tzip FishGame.zip ./FishGame/*
+        7z a -tzip FishGame.zip .\FishGame\*
 
     - name: Create Release
       if: startsWith(github.ref, 'refs/tags/')
@@ -67,8 +60,9 @@ jobs:
           ## 🎮 鱼吃鱼游戏 ${{ github.ref_name }}
           
           ### 📥 安装说明
-          1. 下载 FishGame.zip 并解压到任意位置
-          2. 双击运行 DLNU_CPP_CourseDesign.exe 即可开始游戏
+          1. 下载 FishGame.zip
+          2. 解压到任意位置
+          3. 双击运行 DLNU_CPP_CourseDesign.exe 即可开始游戏
           
           ### 🎯 游戏说明
           - 使用方向键控制鱼的移动

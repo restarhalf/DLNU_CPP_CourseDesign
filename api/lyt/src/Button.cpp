@@ -218,18 +218,4 @@ namespace lyt
             SDL_Log("Failed to load image: %s", e.what());
         }
     }
-
-    void Button::setButtonwithResourceImage(const char* resourceName, Renderer* renderer,
-                                          SDL_Rect rect, SDL_BlendMode blendMode, Uint8 alpha) {
-        this->rect = rect;
-        this->renderer = renderer;
-        this->blendMode = blendMode;
-        this->alpha = alpha;
-
-        try {
-            image.setImageFromResource(resourceName, renderer, rect, blendMode, alpha);
-        } catch (const std::exception& e) {
-            throw std::runtime_error("Failed to load button image from resource: " + std::string(e.what()));
-        }
-    }
 }  // namespace lyt

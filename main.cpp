@@ -10,13 +10,6 @@
 #include <lyt_api.h>
 #include <random>
 
-// 使用资源ID常量
-#define RES_BACKGROUND "IMAGES"  // 背景图片
-#define RES_FISH1 "IMAGES2"     // 鱼1
-#define RES_FISH2 "IMAGES3"     // 鱼2
-#define RES_FISH3 "IMAGES4"     // 鱼3
-#define RES_FONT "FONTS"        // 字体
-
 int main(int argc, char* argv[])
 {
     // 随机数生成器初始化
@@ -76,8 +69,7 @@ int main(int argc, char* argv[])
     fullscreenBtn.setButtonwithImage("asset/images/0.png", game.getRenderer(), {0, 0, 100, 100}, SDL_BLENDMODE_BLEND,
                                      255);
 
-    background.setImage("asset/images/1.jpg", game.getRenderer(), {0, 0, windowW, windowH}, SDL_BLENDMODE_BLEND,
-                         255);
+    background.setImage("asset/images/1.jpg", game.getRenderer(), {0, 0, windowW, windowH}, SDL_BLENDMODE_BLEND, 255);
     loginBackground.setImage("asset/images/1.jpg", loginUi.getRenderer(), {0, 0, loginUiW, loginUiH},
                              SDL_BLENDMODE_BLEND, 255);
 
@@ -192,16 +184,16 @@ int main(int argc, char* argv[])
         }
 
         // 维持AI鱼的数量，确保始终有足够的AI鱼在场
-        const int MAX_AI_FISH = 10;
-        while ((int) aiFishes.size() < MAX_AI_FISH)
+        constexpr int MAX_AI_FISH = 10;
+        while (static_cast<int>(aiFishes.size()) < MAX_AI_FISH)
         {
             std::uniform_int_distribution<int> disX(0, windowW - 60);
             std::uniform_int_distribution<int> disY(0, windowH - 60);
             int                                x          = disX(gen);
             int                                y          = disY(gen);
             int                                playerSize = (playerFish.getRect().w + playerFish.getRect().h) / 2;
-            std::uniform_int_distribution<int> disMinSize(20, playerSize * 0.8);
-            std::uniform_int_distribution<int> disMaxSize(playerSize * 1.1, playerSize * 1.5);
+            std::uniform_int_distribution<int> disMinSize(20, static_cast<int>(playerSize * 0.8));
+            std::uniform_int_distribution<int> disMaxSize(static_cast<int>(playerSize * 1.1), static_cast<int>(playerSize * 1.5));
             int                                minSize = disMinSize(gen);
             int                                maxSize = disMaxSize(gen);
             std::uniform_int_distribution<int> disSize(minSize, maxSize);
@@ -239,7 +231,7 @@ int main(int argc, char* argv[])
         game.frameEnd();
     }
 
-    // 游戏���束处理：保存分数和清��资源
+    // 游戏结束处理：保存分数和清理资源
     scoreManager.saveHighScore();
     if (font) TTF_CloseFont(font);
     TTF_Quit();

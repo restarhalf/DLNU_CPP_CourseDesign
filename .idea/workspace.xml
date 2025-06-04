@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BackendCodeEditorMiscSettings">
-    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="3" type="long" />
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="5" type="long" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/OptionsDialog/SelectedPageId/@EntryValue" value="CppCodeGeneration" type="string" />
@@ -32,10 +32,284 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bcc9e56-ae7f-4772-83b2-5a4237ae3734" name="更改" comment="FIX">
+      <change beforePath="$PROJECT_DIR$/.clang-format" beforeDir="false" afterPath="$PROJECT_DIR$/.clang-format" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/workflows/cmake-multi-platform.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/cmake-multi-platform.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/DLNU_CPP_CourseDesign.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DLNU_CPP_CourseDesign.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/MarsCodeWorkspaceAppSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MarsCodeWorkspaceAppSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/_25-6-1_10_34____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_25-6-1_10_34____.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/___.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/___.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[更改]/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[更改]/shelved.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行签出之前于_25-6-1_下午10_34_取消提交了更改_[更改]/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在进行签出之前于_25-6-1_下午10_34_取消提交了更改_[更改]/shelved.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API_Documentation.md" beforeDir="false" afterPath="$PROJECT_DIR$/API_Documentation.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lyt/include/ResourceLoader.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README_plan.md" beforeDir="false" afterPath="$PROJECT_DIR$/README_plan.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/include/AIFish.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/AIFish.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/include/Fish.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/Fish.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/include/PlayerFish.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/PlayerFish.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/include/lx_api.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/lx_api.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/src/AIFish.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/AIFish.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/src/Fish.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/Fish.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/src/PlayerFish.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/PlayerFish.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Button.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Button.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Controller.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Controller.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Game.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Game.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Image.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Image.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Music.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Music.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Renderer.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Renderer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Text.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Text.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Window.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Window.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/lyt_api.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/lyt_api.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Button.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Button.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Controller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Controller.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Game.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Image.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Image.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Music.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Music.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Renderer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Renderer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Text.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Text.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Window.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Window.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/cache-v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/cmakeFiles-v1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/codemodel-v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/toolchains-v1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-d0094a50bb2071803777.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-25ab226bf5995dd7c164.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.31.6/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.31.6/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.31.6/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.31.6/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.31.6/CMakeRCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.31.6/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.31.6/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.31.6/CompilerIdC/CMakeCCompilerId.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.31.6/CompilerIdC/CMakeCCompilerId.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.31.6/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.31.6/CompilerIdCXX/CMakeCXXCompilerId.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.31.6/CompilerIdCXX/CMakeCXXCompilerId.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Button.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Button.cpp.obj.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Controller.cpp.obj.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Game.cpp.obj.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Image.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Image.cpp.obj.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Music.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Music.cpp.obj.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Renderer.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Renderer.cpp.obj.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Text.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Text.cpp.obj.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Window.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Window.cpp.obj.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/compiler_depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/compiler_depend.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/embed.manifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/intermediate.manifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/manifest.rc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/manifest.res" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/objects1.rsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ShowIncludes/foo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ShowIncludes/main.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ShowIncludes/main.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.ilk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/SDL2.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/SDL2_image.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/SDL2_mixer.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/SDL2_ttf.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/vc140.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/.git-hash" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/.git-hash" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/BUGS.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/BUGS.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/CHANGES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/CHANGES.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/README-SDL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/README-SDL.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/README.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/WhatsNew.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/WhatsNew.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2-config-version.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2-config-version.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2-config.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2-config.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_image-config-version.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_image-config-version.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_image-config.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_image-config.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_mixer-config-version.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_mixer-config-version.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_mixer-config.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_mixer-config.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_ttf-config-version.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_ttf-config-version.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_ttf-config.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_ttf-config.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/CONTRIBUTING.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-android.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-android.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-cmake.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-cmake.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-directfb.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-directfb.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-dynapi.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-dynapi.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-emscripten.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-emscripten.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-gdk.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-gdk.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-gesture.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-gesture.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-git.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-git.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-hg.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-hg.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-ios.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-ios.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-kmsbsd.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-kmsbsd.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-linux.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-linux.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-macos.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-macos.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-n3ds.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-n3ds.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-nacl.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-nacl.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-ngage.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-ngage.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-os2.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-os2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-pandora.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-pandora.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-platforms.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-platforms.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-porting.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-porting.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-ps2.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-ps2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-psp.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-psp.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-raspberrypi.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-raspberrypi.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-riscos.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-riscos.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-touch.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-touch.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-versions.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-versions.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-visualc.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-visualc.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-vita.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-vita.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-wince.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-wince.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-windows.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-windows.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-winrt.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-winrt.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/doxyfile" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/doxyfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/release_checklist.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/release_checklist.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_assert.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_assert.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_atomic.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_atomic.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_audio.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_audio.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_bits.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_bits.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_blendmode.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_blendmode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_clipboard.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_clipboard.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_android.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_android.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_emscripten.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_emscripten.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_iphoneos.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_iphoneos.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_macosx.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_macosx.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_minimal.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_minimal.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_ngage.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_ngage.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_os2.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_os2.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_pandora.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_pandora.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_windows.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_windows.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_wingdk.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_wingdk.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_winrt.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_winrt.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_xbox.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_xbox.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_copying.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_copying.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_cpuinfo.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_cpuinfo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_egl.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_egl.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_endian.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_endian.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_error.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_error.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_events.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_events.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_filesystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_filesystem.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_gamecontroller.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_gamecontroller.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_gesture.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_gesture.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_guid.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_guid.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_haptic.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_haptic.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_hidapi.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_hidapi.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_hints.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_hints.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_image.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_image.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_joystick.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_joystick.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_keyboard.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_keyboard.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_keycode.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_keycode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_loadso.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_loadso.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_locale.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_locale.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_log.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_log.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_main.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_main.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_messagebox.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_messagebox.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_metal.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_metal.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_misc.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_misc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_mixer.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_mixer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_mouse.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_mouse.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_mutex.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_mutex.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_name.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_name.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengl.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengl.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengl_glext.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengl_glext.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles2.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles2.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles2_gl2.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles2_gl2.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles2_gl2ext.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles2_gl2ext.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles2_gl2platform.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles2_gl2platform.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles2_khrplatform.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles2_khrplatform.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_pixels.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_pixels.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_platform.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_platform.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_power.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_power.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_quit.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_quit.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_rect.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_rect.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_render.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_render.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_revision.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_revision.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_rwops.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_rwops.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_scancode.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_scancode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_sensor.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_sensor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_shape.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_shape.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_stdinc.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_stdinc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_surface.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_surface.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_system.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_system.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_syswm.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_syswm.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_assert.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_assert.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_common.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_common.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_compare.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_compare.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_crc32.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_crc32.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_font.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_font.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_fuzzer.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_fuzzer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_harness.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_harness.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_images.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_images.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_log.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_log.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_md5.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_md5.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_memory.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_memory.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_random.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_random.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_thread.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_thread.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_timer.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_timer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_touch.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_touch.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_ttf.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_ttf.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_types.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_types.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_version.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_version.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_video.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_video.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_vulkan.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_vulkan.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/begin_code.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/begin_code.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/close_code.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/close_code.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.avif.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.avif.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.dav1d.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.dav1d.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.gme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.gme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.ogg-vorbis.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.ogg-vorbis.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.opus.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.opus.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.opusfile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.opusfile.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.tiff.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.tiff.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.wavpack.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.wavpack.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.webp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.webp.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.xmp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.xmp.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.avif.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.avif.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.dav1d.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.dav1d.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.gme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.gme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.ogg-vorbis.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.ogg-vorbis.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.opus.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.opus.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.opusfile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.opusfile.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.tiff.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.tiff.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.wavpack.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.wavpack.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.webp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.webp.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.xmp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.xmp.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -240,7 +514,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "CMake 应用程序.DLNU_CPP_CourseDesign.executor": "Run",
+    "CMake 应用程序.DLNU_CPP_CourseDesign.executor": "Debug",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.RadMigrateCodeStyle": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -270,9 +544,9 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
     <configuration name="DLNU_CPP_CourseDesign" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="DLNU_CPP_CourseDesign" TARGET_NAME="DLNU_CPP_CourseDesign" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="DLNU_CPP_CourseDesign" RUN_TARGET_NAME="DLNU_CPP_CourseDesign">
@@ -310,7 +584,8 @@
       <workItem from="1748995594679" duration="264000" />
       <workItem from="1749012092545" duration="26000" />
       <workItem from="1749012167896" duration="539000" />
-      <workItem from="1749013705852" duration="4308000" />
+      <workItem from="1749013705852" duration="2347000" />
+      <workItem from="1749019332515" duration="106000" />
     </task>
     <task id="LOCAL-00001" summary="GUI">
       <option name="closed" value="true" />
