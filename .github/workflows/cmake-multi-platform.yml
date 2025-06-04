@@ -47,37 +47,32 @@ jobs:
     - name: Prepare Release Package
       shell: cmd
       run: |
-        mkdir SingleExe
-        copy "build\Release\DLNU_CPP_CourseDesign.exe" "SingleExe\"
-        copy "lib\dep\plugins\SDL2\lib\x64\*.dll" "SingleExe\"
-        echo 点击 DLNU_CPP_CourseDesign.exe 开始游戏 > "SingleExe\开始游戏.txt"
+        mkdir FishGame
+        copy "build\Release\DLNU_CPP_CourseDesign.exe" "FishGame\"
+        copy "lib\dep\plugins\SDL2\lib\x64\*.dll" "FishGame\"
+        xcopy /E /I /Y "asset" "FishGame\asset\"
 
     - name: Create ZIP Archive
       shell: cmd
       run: |
-        7z a -tzip FishGame-SingleExe.zip ./SingleExe/*
+        7z a -tzip FishGame.zip ./FishGame/*
 
     - name: Create Release
       if: startsWith(github.ref, 'refs/tags/')
       uses: softprops/action-gh-release@v1
       with:
-        files: FishGame-SingleExe.zip
+        files: FishGame.zip
         name: 游戏发布 ${{ github.ref_name }}
         body: |
           ## 🎮 鱼吃鱼游戏 ${{ github.ref_name }}
           
-          ### 📥 运行说明
-          1. 下载 FishGame-SingleExe.zip
-          2. 解压到任意位置
-          3. 双击运行 DLNU_CPP_CourseDesign.exe 即可开始游戏
+          ### 📥 安装说明
+          1. 下载 FishGame.zip 并解压到任意位置
+          2. 双击运行 DLNU_CPP_CourseDesign.exe 即可开始游戏
           
           ### 🎯 游戏说明
           - 使用方向键控制鱼的移动
           - 吃掉比自己小的鱼来成长
           - 注意躲避比自己大的鱼
-          
-          ### ✨ 更新内容
-          - 优化为单文件发布，资源文件已内嵌到程序中
-          - 减小了发布包体积
         token: ${{ secrets.GITHUB_TOKEN }}
 

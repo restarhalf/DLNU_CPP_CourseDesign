@@ -34,7 +34,6 @@ target_sources(${PROJECT_NAME} PRIVATE
         api/lyt/src/Music.cpp
         api/lyt/src/Renderer.cpp
         api/lyt/src/Controller.cpp
-        api/lyt/src/ResourceLoader.cpp  # 添加 ResourceLoader.cpp
         api/lx/src/Fish.cpp
         api/lx/src/PlayerFish.cpp
         api/lx/src/AIFish.cpp

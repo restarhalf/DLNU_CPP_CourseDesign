@@ -18,7 +18,6 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/src/Image.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Image.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Image.cpp.obj.d"
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/src/Music.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Music.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Music.cpp.obj.d"
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/src/Renderer.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Renderer.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Renderer.cpp.obj.d"
-  "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/src/ResourceLoader.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/ResourceLoader.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/ResourceLoader.cpp.obj.d"
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/src/Text.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Text.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Text.cpp.obj.d"
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/api/lyt/src/Window.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Window.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Window.cpp.obj.d"
   "D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/main.cpp" "CMakeFiles/DLNU_CPP_CourseDesign.dir/main.cpp.obj" "msvc" "CMakeFiles/DLNU_CPP_CourseDesign.dir/main.cpp.obj.d"
