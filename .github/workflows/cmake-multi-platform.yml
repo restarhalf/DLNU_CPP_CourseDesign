@@ -1,4 +1,4 @@
-name: CMake Multi-Platform (MSVC on Windows)
+name: CMake Multi-Platform Build
 
 on:
   push:
@@ -9,72 +9,41 @@ on:
 jobs:
   build:
     runs-on: ${{ matrix.os }}
+
     strategy:
       fail-fast: false
       matrix:
-        # 顶层变量明确定义
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        compiler: [gcc, clang, cl]  # 关键修复：编译器定义为顶层变量
+        os: [windows-latest]
         build_type: [Release, Debug]
         include:
-          # Windows 专属配置
           - os: windows-latest
             compiler: cl
-            cpp_compiler: cl
             generator: "Visual Studio 17 2022"
-            arch: x64
-          # Linux 配置
-          - os: ubuntu-latest
-            compiler: gcc
-            cpp_compiler: g++
-            generator: "Unix Makefiles"
-          # macOS 配置
-          - os: macos-latest
-            compiler: clang
-            cpp_compiler: clang++
-            generator: "Xcode"
-        # 有效排除无效组合
-        exclude:
-          - os: windows-latest
-            compiler: gcc   # 排除 Windows + GCC
-          - os: windows-latest
-            compiler: clang # 排除 Windows + Clang
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v3
 
-    # 仅 Windows 初始化 MSVC 环境
-    - name: Setup MSVC
+    - name: Install SDL2 Dependencies (Windows)
       if: matrix.os == 'windows-latest'
-      uses: ilammy/msvc-dev-cmd@v1  # 自动配置 MSVC 环境变量
-      with:
-        arch: ${{ matrix.arch || 'x64' }}
-        toolset: 14.3  # VS2022 工具链版本
-
-    # 可选：vcpkg 集成示例
-    # - name: Setup vcpkg
-    #   uses: actions/checkout@v4
-    #   with:
-    #     repository: microsoft/vcpkg
-    #     path: vcpkg
-    # - name: Bootstrap vcpkg
-    #   run: ./vcpkg/bootstrap-vcpkg.sh
-    #   working-directory: vcpkg
+      run: |
+        curl -L -o SDL2-devel-2.28.5-VC.zip https://github.com/libsdl-org/SDL/releases/download/release-2.28.5/SDL2-devel-2.28.5-VC.zip
+        7z x SDL2-devel-2.28.5-VC.zip
+        curl -L -o SDL2_image-devel-2.6.3-VC.zip https://github.com/libsdl-org/SDL_image/releases/download/release-2.6.3/SDL2_image-devel-2.6.3-VC.zip
+        7z x SDL2_image-devel-2.6.3-VC.zip
+        curl -L -o SDL2_ttf-devel-2.20.2-VC.zip https://github.com/libsdl-org/SDL_ttf/releases/download/release-2.20.2/SDL2_ttf-devel-2.20.2-VC.zip
+        7z x SDL2_ttf-devel-2.20.2-VC.zip
+        curl -L -o SDL2_mixer-devel-2.6.3-VC.zip https://github.com/libsdl-org/SDL_mixer/releases/download/release-2.6.3/SDL2_mixer-devel-2.6.3-VC.zip
+        7z x SDL2_mixer-devel-2.6.3-VC.zip
 
     - name: Configure CMake
-      run: |
-        cmake -B build \
-          -G "${{ matrix.generator }}" \
-          -DCMAKE_C_COMPILER="${{ matrix.compiler }}" \
-          -DCMAKE_CXX_COMPILER="${{ matrix.cpp_compiler }}" \
-          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
-          # 启用 vcpkg 时添加
-          # -DCMAKE_TOOLCHAIN_FILE="${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake"
+      run: >
+        cmake -B ${{github.workspace}}/build 
+        -G "${{ matrix.generator }}"
+        -DCMAKE_BUILD_TYPE=${{matrix.build_type}}
 
     - name: Build
-      run: cmake --build build --config ${{ matrix.build_type }}
+      run: cmake --build ${{github.workspace}}/build --config ${{matrix.build_type}}
 
     - name: Test
-      run: |
-        cd build
-        ctest -C ${{ matrix.build_type }} --output-on-failure
+      working-directory: ${{github.workspace}}/build
+      run: ctest -C ${{matrix.build_type}} --output-on-failure
