@@ -8,6 +8,10 @@ on:
   pull_request:
     branches: [ "main" ]
 
+# 添加权限配置
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: windows-latest
