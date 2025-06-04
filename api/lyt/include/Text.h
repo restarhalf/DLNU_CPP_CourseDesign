@@ -6,7 +6,7 @@
 #define TEXT_H
 #include <SDL.h>
 #include <SDL_ttf.h>
-#include <bits/stdc++.h>
+#include <string>
 
 #include "Renderer.h"
 
