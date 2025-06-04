@@ -3,6 +3,8 @@
 #define CONTROLLER_H
 #include <SDL.h>
 #include <string>
+#include <unordered_map>
+#include <iostream>
 
 namespace lyt
 {
