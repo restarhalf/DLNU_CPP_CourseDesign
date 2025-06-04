@@ -33,21 +33,19 @@ jobs:
       run: cmake --build ${{github.workspace}}/build --config Release
 
     - name: Prepare Release Package
+      shell: cmd
       run: |
-        mkdir ${{github.workspace}}/FishGame
-        # 复制主程序
-        cp ${{github.workspace}}/build/Release/DLNU_CPP_CourseDesign.exe ${{github.workspace}}/FishGame/
-        # 复制所需的 DLL 文件
-        cp SDL2*/lib/x64/*.dll ${{github.workspace}}/FishGame/
-        # 复制资源文件
-        cp -r ${{github.workspace}}/asset ${{github.workspace}}/FishGame/
-        # 创建一个简单的启动说明
-        echo "双击 DLNU_CPP_CourseDesign.exe 开始游戏" > ${{github.workspace}}/FishGame/开始游戏.txt
+        mkdir "%GITHUB_WORKSPACE%\FishGame"
+        copy "%GITHUB_WORKSPACE%\build\Release\DLNU_CPP_CourseDesign.exe" "%GITHUB_WORKSPACE%\FishGame\"
+        for %%f in (SDL2*\lib\x64\*.dll) do copy "%%f" "%GITHUB_WORKSPACE%\FishGame\"
+        xcopy /E /I /Y "%GITHUB_WORKSPACE%\asset" "%GITHUB_WORKSPACE%\FishGame\asset"
+        echo 双击 DLNU_CPP_CourseDesign.exe 开始游戏 > "%GITHUB_WORKSPACE%\FishGame\开始游戏.txt"
 
     - name: Create ZIP Archive
+      shell: cmd
       run: |
-        cd ${{github.workspace}}
-        7z a -tzip FishGame.zip ./FishGame/*
+        cd "%GITHUB_WORKSPACE%"
+        7z a -tzip FishGame.zip .\FishGame\*
 
     - name: Create Release
       if: startsWith(github.ref, 'refs/tags/')
