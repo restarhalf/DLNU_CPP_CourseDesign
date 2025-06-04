@@ -1,0 +1,63 @@
+name: CMake Multi-Platform (MSVC on Windows)
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        build_type: [Release, Debug]
+        include:
+          # 针对Windows+MSVC的专属配置 
+          - os: windows-latest
+            c_compiler: cl
+            cpp_compiler: cl
+            generator: "Visual Studio 17 2022"
+            arch: x64
+          # Linux配置
+          - os: ubuntu-latest
+            c_compiler: gcc
+            cpp_compiler: g++
+            generator: "Unix Makefiles"
+          # macOS配置
+          - os: macos-latest
+            c_compiler: clang
+            cpp_compiler: clang++
+            generator: "Xcode"
+        # 排除无效组合 
+        exclude:
+          - os: windows-latest
+            c_compiler: gcc
+          - os: windows-latest
+            c_compiler: clang
+
+    steps:
+    - uses: actions/checkout@v4
+
+    # 仅Windows：初始化MSVC环境 
+    - name: Setup MSVC (Windows only)
+      if: matrix.os == 'windows-latest'
+      uses: ilammy/msvc-dev-cmd@v1
+      with:
+        arch: ${{ matrix.arch || 'x64' }}
+        toolset: 14.3 # 根据实际需求调整
+
+    - name: Configure CMake
+      run: |
+        cmake -B build \
+          -G "${{ matrix.generator }}" \
+          -DCMAKE_C_COMPILER="${{ matrix.c_compiler }}" \
+          -DCMAKE_CXX_COMPILER="${{ matrix.cpp_compiler }}" \
+          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+
+    - name: Build
+      run: cmake --build build --config ${{ matrix.build_type }}
+
+    # Windows需指定测试配置 
+    - name: Test
+      run: |
+        cd build
+        ctest -C ${{ matrix.build_type }} --output-on-failure
