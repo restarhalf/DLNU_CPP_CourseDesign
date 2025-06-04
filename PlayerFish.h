@@ -25,6 +25,7 @@ namespace lx {
         int velocityX = 0; // X方向速度
         int velocityY = 0; // Y方向速度
         int speed = 4;     // 移动速度
+        int SizeMax = 1440;//限制鱼的最大值，保证游戏时长
     };
 
 } // namespace lx

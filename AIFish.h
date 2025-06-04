@@ -39,7 +39,7 @@
              * @param scale 成长比例
              */
             void grow(float scale) override;
-
+           
             /**
              * @brief 获取鱼的分值
              * @return 分值

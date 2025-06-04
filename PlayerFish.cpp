@@ -16,6 +16,7 @@ namespace lx {
         if (controller->isKeyPressed(SDL_SCANCODE_S)) velocityY = speed;
         if (controller->isKeyPressed(SDL_SCANCODE_A)) velocityX = -speed;
         if (controller->isKeyPressed(SDL_SCANCODE_D)) velocityX = speed;
+        //实现同时按两个移动按键的要求
     }
 
     // 更新玩家鱼的位置，并进行边界检测
@@ -26,7 +27,7 @@ namespace lx {
         // 边界检测，防止鱼游出窗口
         if (rect.x < 0) rect.x = 0;
         if (rect.y < 0) rect.y = 0;
-        if (rect.x + rect.w > windowW) rect.x = windowW - rect.w;
+        if (rect.x + rect.w > windowW) rect.x = windowW - rect.w;//鱼中心点加上其体积宽高的延伸是否超出边界
         if (rect.y + rect.h > windowH) rect.y = windowH - rect.h;
     }
 
@@ -41,9 +42,10 @@ namespace lx {
             if (mySize > otherSize * 1.2f) {
                 // 玩家比 AI 鱼大 20% 以上，可以吞掉
                 aiFish.kill();
-                grow(1.05f);  // 体型增长 5%
+                if (mySize < SizeMax)//鱼体积不超过最大限制
+                grow(1.02f);  // 体型增长 5%，否则不继续长大保证游戏时长，先修改为2%
                 int value = aiFish.getScoreValue();
-                scoreManager.add(value);
+                scoreManager.add(value);          //加分     
                 SDL_Log("吃掉AI鱼，得分 +%d，当前体型 %.2f", value, getSize());
                 return true;
             }
@@ -54,7 +56,7 @@ namespace lx {
             }
             else {
                 // 大小相近，不处理
-                SDL_Log("碰撞但大小相近，无操作");
+                SDL_Log("碰撞但大小相近，无操作");//是否会太花哨？
             }
         }
 
@@ -66,7 +68,7 @@ namespace lx {
     void PlayerFish::reset(int startX, int startY) {
         rect.x = startX;
         rect.y = startY;
-        rect.w = rect.h = 60;
+        rect.w = rect.h = 60;//初始体格
         alive = true;
     }
 
