@@ -25,7 +25,7 @@ namespace lyt
         this->renderer  = renderer;
 
         // 加载图像表面
-        surface = IMG_Load(filePath.c_str());
+        surface = IMG_Load(this->filePath.c_str());
         if (surface == nullptr)
         {
             throw std::runtime_error("Failed to load image: " + std::string(SDL_GetError()));
@@ -57,12 +57,12 @@ namespace lyt
     void          Image::setBlendmode(SDL_BlendMode blend_mode)
     {
         blendMode = blend_mode;
-        SDL_SetTextureBlendMode(texture, blend_mode);
+        SDL_SetTextureBlendMode(texture, this->blendMode);
     }
     Uint8 Image::getAlpha() const { return alpha; }
     void  Image::setAlpha(Uint8 alpha)
     {
         this->alpha = alpha;
-        SDL_SetTextureAlphaMod(texture, alpha);
+        SDL_SetTextureAlphaMod(texture, this->alpha);
     }
 }  // namespace lyt

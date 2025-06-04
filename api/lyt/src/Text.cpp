@@ -32,7 +32,14 @@ namespace lyt
     SDL_BlendMode Text::getBlendmode() const { return blendMode; }
     void          Text::setBlendmode(const SDL_BlendMode blend_mode) { blendMode = blend_mode; }
     std::string   Text::getText() const { return text; }
-    void          Text::setText(const std::string &text) { this->text = text; }
+    void          Text::setText(const std::string &text)
+    {
+        if (this->text != text)
+        {
+            this->text = text;
+            flush();
+        }
+    }
 
     // 设置文本的所有属性并创建纹理
     void Text::setAll(Renderer *render, SDL_Rect rect, SDL_Color color, TTF_Font *font, SDL_BlendMode blendMode,
@@ -51,7 +58,7 @@ namespace lyt
         if (texture) SDL_DestroyTexture(texture);
 
         // 使用字体渲染文本
-        surface = TTF_RenderUTF8_Blended(font, text.c_str(), color);
+        surface = TTF_RenderUTF8_Blended(this->font, this->text.c_str(), this->color);
         if (!surface)
         {
             SDL_Log("Failed to create surface: %s", SDL_GetError());

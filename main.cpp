@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
     int        loginUiW = 0, loginUiH = 0;    // 登录窗口尺寸
 
     // 加载字体
-    font = TTF_OpenFont("asset/fonts/MSYH.ttf", 720);
+    font = TTF_OpenFont("asset/fonts/MSYH.ttf", 1080);
     if (!font)
     {
         SDL_Log("Failed to load font: %s", TTF_GetError());
@@ -204,11 +204,10 @@ int main(int argc, char* argv[])
         // 更新分数显示
         std::string scoreStr = "Score: " + std::to_string(scoreManager.getScore()) +
                                "  High: " + std::to_string(scoreManager.getHighScore());
-        scoreText.setText(scoreStr);
         scoreText.setColor(textColor);
         scoreText.setRect({10, 10, 400, 60});
         scoreText.setFont(font);
-        scoreText.flush();
+        scoreText.setText(scoreStr);
 
         // 渲染游戏画面
         loginUi.getRenderer()->clear();

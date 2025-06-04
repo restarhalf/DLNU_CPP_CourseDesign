@@ -211,7 +211,7 @@ namespace lyt
         this->renderer  = renderer;
         try
         {
-            image.setImage(filePath, renderer, rect, blendMode, alpha);
+            image.setImage(this->filePath,this-> renderer, this->rect, this->blendMode, this->alpha);
         }
         catch (const std::exception &e)
         {
