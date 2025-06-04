@@ -1,6 +1,10 @@
 name: CMake Multi-Platform (MSVC on Windows)
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -8,55 +12,68 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        # 顶层变量明确定义
         os: [ubuntu-latest, macos-latest, windows-latest]
+        compiler: [gcc, clang, cl]  # 关键修复：编译器定义为顶层变量
         build_type: [Release, Debug]
         include:
-          # 针对Windows+MSVC的专属配置 
+          # Windows 专属配置
           - os: windows-latest
-            c_compiler: cl
+            compiler: cl
             cpp_compiler: cl
             generator: "Visual Studio 17 2022"
             arch: x64
-          # Linux配置
+          # Linux 配置
           - os: ubuntu-latest
-            c_compiler: gcc
+            compiler: gcc
             cpp_compiler: g++
             generator: "Unix Makefiles"
-          # macOS配置
+          # macOS 配置
           - os: macos-latest
-            c_compiler: clang
+            compiler: clang
             cpp_compiler: clang++
             generator: "Xcode"
-        # 排除无效组合 
+        # 有效排除无效组合
         exclude:
           - os: windows-latest
-            c_compiler: gcc
+            compiler: gcc   # 排除 Windows + GCC
           - os: windows-latest
-            c_compiler: clang
+            compiler: clang # 排除 Windows + Clang
 
     steps:
     - uses: actions/checkout@v4
 
-    # 仅Windows：初始化MSVC环境 
-    - name: Setup MSVC (Windows only)
+    # 仅 Windows 初始化 MSVC 环境
+    - name: Setup MSVC
       if: matrix.os == 'windows-latest'
-      uses: ilammy/msvc-dev-cmd@v1
+      uses: ilammy/msvc-dev-cmd@v1  # 自动配置 MSVC 环境变量
       with:
         arch: ${{ matrix.arch || 'x64' }}
-        toolset: 14.3 # 根据实际需求调整
+        toolset: 14.3  # VS2022 工具链版本
+
+    # 可选：vcpkg 集成示例
+    # - name: Setup vcpkg
+    #   uses: actions/checkout@v4
+    #   with:
+    #     repository: microsoft/vcpkg
+    #     path: vcpkg
+    # - name: Bootstrap vcpkg
+    #   run: ./vcpkg/bootstrap-vcpkg.sh
+    #   working-directory: vcpkg
 
     - name: Configure CMake
       run: |
         cmake -B build \
           -G "${{ matrix.generator }}" \
-          -DCMAKE_C_COMPILER="${{ matrix.c_compiler }}" \
+          -DCMAKE_C_COMPILER="${{ matrix.compiler }}" \
           -DCMAKE_CXX_COMPILER="${{ matrix.cpp_compiler }}" \
           -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+          # 启用 vcpkg 时添加
+          # -DCMAKE_TOOLCHAIN_FILE="${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake"
 
     - name: Build
       run: cmake --build build --config ${{ matrix.build_type }}
 
-    # Windows需指定测试配置 
     - name: Test
       run: |
         cd build
