@@ -49,7 +49,7 @@ namespace lyt
     // Renderer.cpp 内新增
     SDL_Texture* Renderer::loadTexture(const std::string& filePath) const
     {
-        SDL_Texture* texture = nullptr;
+        SDL_Texture* texture     = nullptr;
         SDL_Surface* tempSurface = IMG_Load(filePath.c_str());
         if (!tempSurface)
         {

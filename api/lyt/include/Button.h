@@ -8,7 +8,7 @@
 #include "Renderer.h"
 #include <SDL.h>
 #include "Text.h"
-#include <bits/stdc++.h>
+#include <string>
 
 namespace lyt
 {

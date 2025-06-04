@@ -12,8 +12,7 @@ namespace lyt
     Window::Window(const std::string& title, int width, int height) : width_(width), height_(height), event_()
     {
         // 创建SDL窗口，设置为居中显示、可见且可调整大小
-        window_ = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height,
-                                   flags);
+        window_ = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
 
         // 如果窗口创建失败，抛出运行时错误
         if (!window_)
@@ -45,7 +44,7 @@ namespace lyt
     void Window::setIcon(const std::string& filePath) { SDL_SetWindowIcon(window_, IMG_Load(filePath.c_str())); }
     // 获取窗口的大小
     void Window::getSize(int& width, int& height) const { SDL_GetWindowSize(window_, &width, &height); }
-    //设置全屏
+    // 设置全屏
     void Window::fullscreen(bool fullScreen)
     {
         if (fullScreen)
@@ -57,26 +56,21 @@ namespace lyt
             SDL_SetWindowFullscreen(window_, 0);
         }
     }
-    //隐藏窗口
+    // 隐藏窗口
     void Window::hide(bool isHide)
     {
         if (isHide)
         {
             SDL_HideWindow(window_);
-            flags&=SDL_WINDOW_SHOWN;
-            flags|=SDL_WINDOW_HIDDEN;
+            flags &= SDL_WINDOW_SHOWN;
+            flags |= SDL_WINDOW_HIDDEN;
         }
         else
         {
-             SDL_ShowWindow(window_);
-            flags&=SDL_WINDOW_HIDDEN;
-            flags|=SDL_WINDOW_SHOWN;
-
+            SDL_ShowWindow(window_);
+            flags &= SDL_WINDOW_HIDDEN;
+            flags |= SDL_WINDOW_SHOWN;
         }
-
     }
-    void Window::setSize(int width, int height)
-    {
-        SDL_SetWindowSize(window_, width, height);
-    }
+    void Window::setSize(int width, int height) { SDL_SetWindowSize(window_, width, height); }
 }  // namespace lyt

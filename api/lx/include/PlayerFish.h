@@ -1,13 +1,15 @@
 #pragma once
-#include "Fish.h"
 #include "AIFish.h"
 #include "Controller.h"
+#include "Fish.h"
 #include "ScoreManager.h"
 
-namespace lx {
+namespace lx
+{
 
     // 玩家控制的鱼类，继承自Fish
-    class PlayerFish : public Fish {
+    class PlayerFish : public Fish
+    {
     public:
         // 构造函数，初始化玩家鱼的位置和图片
         PlayerFish(lyt::Renderer* renderer, const std::string& imagePath, int x, int y, int w, int h);
@@ -22,9 +24,9 @@ namespace lx {
         void reset(int startX, int startY);
 
     private:
-        int velocityX = 0; // X方向速度
-        int velocityY = 0; // Y方向速度
-        int speed = 4;     // 移动速度
+        int velocityX = 0;  // X方向速度
+        int velocityY = 0;  // Y方向速度
+        int speed     = 4;  // 移动速度
     };
 
-} // namespace lx
+}  // namespace lx

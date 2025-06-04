@@ -1,16 +1,21 @@
 #include "PlayerFish.h"
-#include "ScoreManager.h"
+
 #include <SDL.h>
 
-namespace lx {
+#include "ScoreManager.h"
+
+namespace lx
+{
 
     // 玩家鱼构造函数
-    PlayerFish::PlayerFish(lyt::Renderer* renderer, const std::string& imagePath, int x, int y, int w, int h)
-        : Fish(renderer, imagePath, x, y, w, h) {
+    PlayerFish::PlayerFish(lyt::Renderer* renderer, const std::string& imagePath, int x, int y, int w, int h) :
+        Fish(renderer, imagePath, x, y, w, h)
+    {
     }
 
     // 处理玩家输入，控制鱼的移动方向
-    void PlayerFish::handleInput(const lyt::Controller* controller) {
+    void PlayerFish::handleInput(const lyt::Controller* controller)
+    {
         velocityX = velocityY = 0;
         if (controller->isKeyPressed(SDL_SCANCODE_W)) velocityY = -speed;
         if (controller->isKeyPressed(SDL_SCANCODE_S)) velocityY = speed;
@@ -19,7 +24,8 @@ namespace lx {
     }
 
     // 更新玩家鱼的位置，并进行边界检测
-    void PlayerFish::update(int windowW, int windowH) {
+    void PlayerFish::update(int windowW, int windowH)
+    {
         rect.x += velocityX;
         rect.y += velocityY;
 
@@ -34,11 +40,13 @@ namespace lx {
     {
         if (!aiFish.isAlive() || !alive) return false;
         SDL_Rect other = aiFish.getRect();
-        if (SDL_HasIntersection(&rect, &other)) {
-            float mySize = getSize();
+        if (SDL_HasIntersection(&rect, &other))
+        {
+            float mySize    = getSize();
             float otherSize = aiFish.getSize();
 
-            if (mySize > otherSize * 1.2f) {
+            if (mySize > otherSize * 1.2f)
+            {
                 // 玩家比 AI 鱼大 20% 以上，可以吞掉
                 aiFish.kill();
                 grow(1.05f);  // 体型增长 5%
@@ -47,12 +55,14 @@ namespace lx {
                 SDL_Log("吃掉AI鱼，得分 +%d，当前体型 %.2f", value, getSize());
                 return true;
             }
-            else if (mySize < otherSize * 0.8f) {
+            else if (mySize < otherSize * 0.8f)
+            {
                 // 玩家比 AI 鱼小 20% 以上，被吃掉
                 alive = false;
                 SDL_Log("被更大的AI鱼吃掉，游戏结束！");
             }
-            else {
+            else
+            {
                 // 大小相近，不处理
                 SDL_Log("碰撞但大小相近，无操作");
             }
@@ -63,11 +73,12 @@ namespace lx {
 
 
     // 重置玩家鱼的位置和状态
-    void PlayerFish::reset(int startX, int startY) {
+    void PlayerFish::reset(int startX, int startY)
+    {
         rect.x = startX;
         rect.y = startY;
         rect.w = rect.h = 60;
-        alive = true;
+        alive           = true;
     }
 
-} // namespace lx
+}  // namespace lx

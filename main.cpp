@@ -1,42 +1,59 @@
-#include<lyt_api.h>
-#include<lx_api.h>
+/*
+ * 大鱼吃小鱼游戏主程序
+ * 功能：
+ * 1. 实现游戏登录界面和主游戏界面
+ * 2. 玩家控制鱼与AI鱼的交互
+ * 3. 分数系统和全屏显示功能
+ * 4. 碰撞检测和游戏结束判定
+ */
+#include <lx_api.h>
+#include <lyt_api.h>
 #include <random>
+
 int main(int argc, char* argv[])
 {
+    // 随机数生成器初始化
     std::random_device rd;
-    std::mt19937 gen(rd());
-    lyt::Game game;
-    lyt::Game loginUi;
-    bool fullscreenFlag = false;
-    lyt::Button login, exit, fullscreenBtn;
-    TTF_Font* font = nullptr;
+    std::mt19937       gen(rd());
 
-    // 初始化游戏窗口
-    if (!game.init("Game", 1230, 540, 0)||!loginUi.init("Login", 1230, 540, 0))
+    // 创建游戏窗口和登录窗口对象
+    lyt::Game          game;
+    lyt::Game          loginUi;
+    bool               fullscreenFlag = false;
+    lyt::Button        login, exit, fullscreenBtn;  // 创建按钮对象：登录、退出、全屏
+    TTF_Font*          font = nullptr;
+
+    // 初始化游戏窗口和登录窗口，设置分辨率和flags
+    if (!game.init("Game", 1230, 540, 0) || !loginUi.init("Login", 1230, 540, 0))
     {
         SDL_Log("Failed to initialize game");
         return -1;
     }
+
+    // 设置初始全屏状态和窗口图标
     game.getWindow()->fullscreen(true);
     loginUi.getWindow()->fullscreen(true);
     loginUi.getWindow()->hide(false);
     game.getWindow()->setIcon("asset/images/4.png");
     loginUi.getWindow()->setIcon("asset/images/4.png");
 
+    // 创建背景图像对象
     lyt::Image background;
     lyt::Image loginBackground;
-    lyt::Text scoreText;
-    int windowW = 0, windowH = 0;
-    int mouseX = 0, mouseY = 0;
-    int loginUiW = 0, loginUiH = 0;
+    lyt::Text  scoreText;
+    int        windowW = 0, windowH = 0;      // 游戏窗口尺寸
+    int        mouseX = 0, mouseY = 0;        // 鼠标坐标
+    int        loginUiW = 0, loginUiH = 0;    // 登录窗口尺寸
 
     // 加载字体
     font = TTF_OpenFont("asset/fonts/MSYH.ttf", 720);
-    if (!font) {
+    if (!font)
+    {
         SDL_Log("Failed to load font: %s", TTF_GetError());
         // 尝试备用字体
         font = TTF_OpenFont("arial.ttf", 20);
-        if (!font) {
+        if (!font)
+        {
             SDL_Log("Failed to load fallback font: %s", TTF_GetError());
             return -1;
         }
@@ -46,22 +63,21 @@ int main(int argc, char* argv[])
     loginUi.getWindow()->getSize(loginUiW, loginUiH);
     // 设置按钮和背景图片
     login.setButtonwithImage("asset/images/3.png", loginUi.getRenderer(),
-        { loginUiW / 3 - 100, loginUiH / 2 + 70, 230, 230 }, SDL_BLENDMODE_BLEND, 255);
+                             {loginUiW / 3 - 100, loginUiH / 2 + 70, 230, 230}, SDL_BLENDMODE_BLEND, 255);
     exit.setButtonwithImage("asset/images/2.png", loginUi.getRenderer(),
-        { loginUiW / 3 * 2 - 100, loginUiH / 2 + 70, 230, 230 }, SDL_BLENDMODE_BLEND, 255);
-    fullscreenBtn.setButtonwithImage("asset/images/0.png", game.getRenderer(),
-        { 0, 0, 100, 100 }, SDL_BLENDMODE_BLEND, 255);
+                            {loginUiW / 3 * 2 - 100, loginUiH / 2 + 70, 230, 230}, SDL_BLENDMODE_BLEND, 255);
+    fullscreenBtn.setButtonwithImage("asset/images/0.png", game.getRenderer(), {0, 0, 100, 100}, SDL_BLENDMODE_BLEND,
+                                     255);
 
-    background.setImage("asset/images/1.jpg", game.getRenderer(),
-        { 0, 0, windowW, windowH }, SDL_BLENDMODE_BLEND, 255);
-    loginBackground.setImage("asset/images/1.jpg", loginUi.getRenderer(),
-        { 0, 0, loginUiW, loginUiH }, SDL_BLENDMODE_BLEND, 255);
+    background.setImage("asset/images/1.jpg", game.getRenderer(), {0, 0, windowW, windowH}, SDL_BLENDMODE_BLEND, 255);
+    loginBackground.setImage("asset/images/1.jpg", loginUi.getRenderer(), {0, 0, loginUiW, loginUiH},
+                             SDL_BLENDMODE_BLEND, 255);
 
-    // 分数管理器和分数文本 
+    // 分数管理器和分数文本
     lx::ScoreManager scoreManager;
-    SDL_Color textColor = { 255, 0, 0, 255 };
-    scoreText.setAll(game.getRenderer(), { 200, 200, 400, 60 },
-        textColor, font, SDL_BLENDMODE_BLEND, "Score: 0  High: 0");
+    SDL_Color        textColor = {255, 0, 0, 255};
+    scoreText.setAll(game.getRenderer(), {200, 200, 400, 60}, textColor, font, SDL_BLENDMODE_BLEND,
+                     "Score: 0  High: 0");
 
     // 玩家鱼初始化
     lx::PlayerFish playerFish(game.getRenderer(), "asset/images/4.png", windowW / 2, windowH / 2, 60, 60);
@@ -69,32 +85,38 @@ int main(int argc, char* argv[])
     // AI鱼初始化
     std::vector<lx::AIFish> aiFishes;
 
-    for (int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 10; ++i)
+    {
         std::uniform_int_distribution<int> disX(0, windowW - 60);
         std::uniform_int_distribution<int> disY(0, windowH - 60);
-        int x = disX(gen);
-        int y = disY(gen);
+        int                                x = disX(gen);
+        int                                y = disY(gen);
         std::uniform_int_distribution<int> disSize(20, 60);
-        int size = disSize(gen);
+        int                                size = disSize(gen);
         aiFishes.emplace_back(game.getRenderer(), "asset/images/4.png", x, y, size, size);
     }
 
     // 游戏主循环
-    while (game.running()) {
+    while (game.running())
+    {
+        // 开始新的帧
         game.frameStart();
+
+        // 获取并更新窗口尺寸
         game.getWindow()->getSize(windowW, windowH);
         loginUi.getWindow()->getSize(loginUiW, loginUiH);
-        background.setRect({ 0, 0, windowW, windowH });
-        loginBackground.setRect({ 0, 0, loginUiW, loginUiH });
+        background.setRect({0, 0, windowW, windowH});
+        loginBackground.setRect({0, 0, loginUiW, loginUiH});
 
         // 按钮位置自适应窗口
-        login.setButtonwithImage({ loginUiW / 3 - 115, loginUiH/ 2 + 70, 230, 230 });
-        exit.setButtonwithImage({ loginUiW/ 3 * 2 - 115,loginUiH / 2 + 70, 230, 230 });
-        fullscreenBtn.setButtonwithImage({ 0, 0, 300, 100 });
+        login.setButtonwithImage({loginUiW / 3 - 115, loginUiH / 2 + 70, 230, 230});
+        exit.setButtonwithImage({loginUiW / 3 * 2 - 115, loginUiH / 2 + 70, 230, 230});
+        fullscreenBtn.setButtonwithImage({0, 0, 300, 100});
 
+        // 事件处理
         SDL_Event event;
-        while (SDL_PollEvent(&event)) {
-
+        while (SDL_PollEvent(&event))
+        {
             game.handleEvent(event, mouseX, mouseY);
             loginUi.handleEvent(event, mouseX, mouseY);
             login.handleEvent(event);
@@ -111,101 +133,107 @@ int main(int argc, char* argv[])
 
                 SDL_Log("Login button clicked");
             }
-            if (exit.isButtonReleased()) {
+            if (exit.isButtonReleased())
+            {
                 scoreManager.saveHighScore();
-                if (font)
-                TTF_CloseFont(font);
+                if (font) TTF_CloseFont(font);
                 game.clean();
                 loginUi.clean();
                 return 0;
             }
-            if (fullscreenBtn.isButtonReleased()) {
+            if (fullscreenBtn.isButtonReleased())
+            {
                 fullscreenFlag = !fullscreenFlag;
                 game.getWindow()->fullscreen(fullscreenFlag);
                 loginUi.getWindow()->fullscreen(fullscreenFlag);
-                if (!fullscreenFlag) {
-                    game.getWindow()->setSize(windowW-100, windowH-100);
+                if (!fullscreenFlag)
+                {
+                    game.getWindow()->setSize(windowW - 100, windowH - 100);
                     SDL_SetWindowPosition(game.getWindow()->get(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
-
                 }
             }
         }
 
-        // 玩家鱼更新
+        // 玩家鱼和AI鱼的更新逻辑
         playerFish.update(windowW, windowH);
 
-        // AI鱼更新与碰撞检测
-        for (auto it = aiFishes.begin(); it != aiFishes.end(); ) {
+        // AI鱼更新与碰撞检测循环
+        for (auto it = aiFishes.begin(); it != aiFishes.end();)
+        {
             it->update(windowW, windowH);
 
-            if (!playerFish.isAlive()) {
+            if (!playerFish.isAlive())
+            {
                 SDL_Log("玩家死亡，游戏结束");
                 scoreManager.saveHighScore();
-                if (font)
-                TTF_CloseFont(font);
+                if (font) TTF_CloseFont(font);
                 loginUi.clean();
                 game.clean();
                 return 0;
-
             }
 
-            if (playerFish.tryEat(*it, scoreManager)) {
+            if (playerFish.tryEat(*it, scoreManager))
+            {
                 scoreManager.add(it->getScoreValue());
             }
 
-            if (!it->isAlive()) it = aiFishes.erase(it);
-            else ++it;
+            if (!it->isAlive())
+                it = aiFishes.erase(it);
+            else
+                ++it;
         }
 
-        // 保持AI鱼数量
+        // 维持AI鱼的数量，确保始终有足够的AI鱼在场
         const int MAX_AI_FISH = 10;
-        while ((int)aiFishes.size() < MAX_AI_FISH) {
+        while ((int) aiFishes.size() < MAX_AI_FISH)
+        {
             std::uniform_int_distribution<int> disX(0, windowW - 60);
             std::uniform_int_distribution<int> disY(0, windowH - 60);
-            int x = disX(gen);
-            int y = disY(gen);
-            int playerSize = (playerFish.getRect().w + playerFish.getRect().h) / 2;
+            int                                x          = disX(gen);
+            int                                y          = disY(gen);
+            int                                playerSize = (playerFish.getRect().w + playerFish.getRect().h) / 2;
             std::uniform_int_distribution<int> disMinSize(20, playerSize * 0.8);
             std::uniform_int_distribution<int> disMaxSize(playerSize * 1.1, playerSize * 1.5);
-            int minSize = disMinSize(gen);
-            int maxSize = disMaxSize(gen);
+            int                                minSize = disMinSize(gen);
+            int                                maxSize = disMaxSize(gen);
             std::uniform_int_distribution<int> disSize(minSize, maxSize);
-            int size = disSize(gen);
+            int                                size = disSize(gen);
             aiFishes.emplace_back(game.getRenderer(), "asset/images/4.png", x, y, size, size);
         }
 
-        // 更新分数显示 - 使用更可靠的文本更新方式
+        // 更新分数显示
         std::string scoreStr = "Score: " + std::to_string(scoreManager.getScore()) +
-            "  High: " + std::to_string(scoreManager.getHighScore());
-
-        // 确保每次循环都重新创建文本纹理
+                               "  High: " + std::to_string(scoreManager.getHighScore());
         scoreText.setText(scoreStr);
         scoreText.setColor(textColor);
-        scoreText.setRect({ 10, 10, 400, 60 });
+        scoreText.setRect({10, 10, 400, 60});
         scoreText.setFont(font);
         scoreText.flush();
 
-        // 渲染所有元素
+        // 渲染游戏画面
         loginUi.getRenderer()->clear();
         game.getRenderer()->clear();
+        // 渲染登录界面元素
         loginBackground.draw();
         login.drawwithImage();
         exit.drawwithImage();
+        // 渲染游戏界面元素
         background.draw();
         fullscreenBtn.drawwithImage();
         playerFish.render();
         scoreText.draw();
-        for (auto& aiFish : aiFishes) aiFish.render();
+        for (auto& aiFish: aiFishes) aiFish.render();
+        // 显示渲染结果
         loginUi.getRenderer()->present();
         game.getRenderer()->present();
 
+        // 结束当前帧
         game.frameEnd();
     }
 
-    // 游戏结束保存分数并清理资源
+    // 游戏结束处理：保存分数和清理资源
     scoreManager.saveHighScore();
-    if (font)
-    TTF_CloseFont(font);
+    if (font) TTF_CloseFont(font);
     TTF_Quit();
     game.clean();
     return 0;

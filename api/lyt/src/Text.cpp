@@ -19,20 +19,20 @@ namespace lyt
     }
 
     // Getters and setters 实现
-    SDL_Texture *Text::getTexture() const { return texture; }
-    void Text::setTexture(SDL_Texture *const texture) { this->texture = texture; }
-    SDL_Rect Text::getRect() const { return rect; }
-    void Text::setRect(const SDL_Rect &rect) { this->rect = rect; }
-    SDL_Color Text::getColor() const { return color; }
-    void Text::setColor(const SDL_Color &color) { this->color = color; }
-    TTF_Font *Text::getFont() const { return font; }
-    void Text::setFont(TTF_Font *const font) { this->font = font; }
-    SDL_Surface *Text::getSurface() const { return surface; }
-    void Text::setSurface(SDL_Surface *const surface) { this->surface = surface; }
+    SDL_Texture  *Text::getTexture() const { return texture; }
+    void          Text::setTexture(SDL_Texture *const texture) { this->texture = texture; }
+    SDL_Rect      Text::getRect() const { return rect; }
+    void          Text::setRect(const SDL_Rect &rect) { this->rect = rect; }
+    SDL_Color     Text::getColor() const { return color; }
+    void          Text::setColor(const SDL_Color &color) { this->color = color; }
+    TTF_Font     *Text::getFont() const { return font; }
+    void          Text::setFont(TTF_Font *const font) { this->font = font; }
+    SDL_Surface  *Text::getSurface() const { return surface; }
+    void          Text::setSurface(SDL_Surface *const surface) { this->surface = surface; }
     SDL_BlendMode Text::getBlendmode() const { return blendMode; }
-    void Text::setBlendmode(const SDL_BlendMode blend_mode) { blendMode = blend_mode; }
-    std::string Text::getText() const { return text; }
-    void Text::setText(const std::string &text) { this->text = text; }
+    void          Text::setBlendmode(const SDL_BlendMode blend_mode) { blendMode = blend_mode; }
+    std::string   Text::getText() const { return text; }
+    void          Text::setText(const std::string &text) { this->text = text; }
 
     // 设置文本的所有属性并创建纹理
     void Text::setAll(Renderer *render, SDL_Rect rect, SDL_Color color, TTF_Font *font, SDL_BlendMode blendMode,

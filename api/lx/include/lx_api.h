@@ -4,8 +4,8 @@
 
 #ifndef LX_API_H
 #define LX_API_H
+#include <AIFish.h>
 #include <Fish.h>
 #include <PlayerFish.h>
-#include <AIFish.h>
 #include <ScoreManager.h>
-#endif //LX_API_H
+#endif  // LX_API_H

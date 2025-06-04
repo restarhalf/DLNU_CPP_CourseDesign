@@ -4,10 +4,11 @@
 
 #ifndef IMAGE_H
 #define IMAGE_H
-#include "Renderer.h"
 #include <SDL.h>
 #include <SDL_image.h>
-#include <bits/stdc++.h>
+#include <string>
+
+#include "Renderer.h"
 
 namespace lyt
 {

@@ -4,7 +4,7 @@
 #include "Game.h"
 namespace lyt
 {
-    int Game::num=0;
+    int Game::num = 0;
     // 默认构造函数，初始化基本属性
     Game::Game() : window(nullptr), renderer(nullptr), isRunning(false) {}
 
@@ -12,7 +12,7 @@ namespace lyt
     Game::~Game() {}
 
     // 初始化游戏环境和事件
-    bool Game::init(const std::string& title, int width, int height, int flags)
+    bool Game::init(const std::string &title, int width, int height, int flags)
     {
         num++;
         // 初始化SDL所有子系统
@@ -89,7 +89,7 @@ namespace lyt
     void Game::handleEvent(SDL_Event &event, int &x, int &y)
     {
         // 检查退出事件（窗口关闭或ESC键）
-        if (event.type == SDL_QUIT || (event.key.keysym.sym == SDLK_ESCAPE && event.type==SDL_KEYDOWN) )
+        if (event.type == SDL_QUIT || (event.key.keysym.sym == SDLK_ESCAPE && event.type == SDL_KEYDOWN))
         {
             clean();
             isRunning = false;
@@ -104,18 +104,15 @@ namespace lyt
     void Game::clean()
     {
         num--;
-        if (renderer)
-        delete renderer;
-        if (window)
-        delete window;
+        if (renderer) delete renderer;
+        if (window) delete window;
 
-            SDL_Quit();
+        SDL_Quit();
         IMG_Quit();
         TTF_Quit();
 
         SDL_Log("Game cleaned");
-        if (num==0)
-            exit(0);
+        if (num == 0) exit(0);
     }
 
     // 更新游戏状态
@@ -159,7 +156,7 @@ namespace lyt
 
     // Getters and setters
     Renderer *Game::getRenderer() const { return renderer; }
-    Window *Game::getWindow() const { return window; }
-    void Game::setRenderer(Renderer *renderer) { this->renderer = renderer; }
-    void Game::setWindow(Window *window) { this->window = window; }
+    Window   *Game::getWindow() const { return window; }
+    void      Game::setRenderer(Renderer *renderer) { this->renderer = renderer; }
+    void      Game::setWindow(Window *window) { this->window = window; }
 }  // namespace lyt

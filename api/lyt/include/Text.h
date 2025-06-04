@@ -4,10 +4,11 @@
 
 #ifndef TEXT_H
 #define TEXT_H
-#include "Renderer.h"
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <bits/stdc++.h>
+
+#include "Renderer.h"
 
 namespace lyt
 {
@@ -31,7 +32,7 @@ namespace lyt
         /**
          * @brief 默认构造函数
          */
-        Text()=default;
+        Text() = default;
 
         /**
          * @brief 析构函数，负责清理文本资源

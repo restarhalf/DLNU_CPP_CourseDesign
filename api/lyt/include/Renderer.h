@@ -65,12 +65,11 @@ namespace lyt
          * @return SDL_Renderer指针
          */
         [[nodiscard]] SDL_Renderer* get() const { return renderer_; }
-        SDL_Texture* loadTexture(const std::string& filePath) const;
+        SDL_Texture*                loadTexture(const std::string& filePath) const;
+
     private:
         SDL_Renderer* renderer_ = nullptr;  ///< SDL渲染器指针
         // Renderer.h 内新增
-    
-
     };
 }  // namespace lyt
 

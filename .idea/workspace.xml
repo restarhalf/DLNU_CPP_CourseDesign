@@ -31,11 +31,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bcc9e56-ae7f-4772-83b2-5a4237ae3734" name="更改" comment="GUI">
-      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/include/AIFish.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/AIFish.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/include/PlayerFish.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/PlayerFish.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/include/ScoreManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/ScoreManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/include/lx_api.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/lx_api.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/src/AIFish.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/AIFish.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/src/Fish.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/Fish.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/src/PlayerFish.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/PlayerFish.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/src/ScoreManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/ScoreManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Button.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Button.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Controller.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Controller.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Game.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Game.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Image.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Image.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Renderer.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Renderer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Text.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Text.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/lyt/include/Window.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Window.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Controller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Controller.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Game.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Renderer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Renderer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Text.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Text.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/lyt/src/Window.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Window.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Window.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Window.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.ilk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/DLNU_CPP_CourseDesign.pdb" afterDir="false" />
@@ -306,7 +322,9 @@
       <workItem from="1748938980973" duration="234000" />
       <workItem from="1748939477556" duration="2262000" />
       <workItem from="1748957161936" duration="9553000" />
-      <workItem from="1748995594679" duration="2000" />
+      <workItem from="1748995594679" duration="264000" />
+      <workItem from="1749012092545" duration="26000" />
+      <workItem from="1749012167896" duration="478000" />
     </task>
     <task id="LOCAL-00001" summary="GUI">
       <option name="closed" value="true" />
@@ -388,7 +406,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748967139622</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="GUI">
+      <option name="closed" value="true" />
+      <created>1748995663655</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1748995663655</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

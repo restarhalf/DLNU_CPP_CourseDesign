@@ -3,15 +3,16 @@
 //
 #ifndef GAME_H
 #define GAME_H
-#include "Button.h"
-#include "Controller.h"
-#include "Renderer.h"
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
 #include <SDL_ttf.h>
+#include <string>
+
+#include "Button.h"
+#include "Controller.h"
+#include "Renderer.h"
 #include "Window.h"
-#include <bits/stdc++.h>
 
 namespace lyt
 {
@@ -20,15 +21,14 @@ namespace lyt
      */
     class Game
     {
-
     private:
         // 窗口部分
         Window*    window;  ///< 游戏窗口指针
         Renderer*  renderer;  ///< 渲染器指针
         bool       isRunning;  ///< 游戏运行状态标志
         Controller controller;  ///< 控制器对象
-        public:
-        static int num;///<实例量
+    public:
+        static int num;  ///< 实例量
     private:
         // 帧率控制部分
         float  FPS           = 1000 / 165.f;  ///< 帧率（默认165FPS）
