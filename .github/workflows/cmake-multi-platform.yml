@@ -8,7 +8,6 @@ on:
   pull_request:
     branches: [ "main" ]
 
-# 添加权限配置
 permissions:
   contents: write
 
@@ -20,15 +19,17 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Install SDL2 Dependencies
+      shell: cmd
       run: |
-        curl -L -o SDL2-devel-2.28.5-VC.zip https://github.com/libsdl-org/SDL/releases/download/release-2.28.5/SDL2-devel-2.28.5-VC.zip
-        7z x SDL2-devel-2.28.5-VC.zip
-        curl -L -o SDL2_image-devel-2.6.3-VC.zip https://github.com/libsdl-org/SDL_image/releases/download/release-2.6.3/SDL2_image-devel-2.6.3-VC.zip
-        7z x SDL2_image-devel-2.6.3-VC.zip
-        curl -L -o SDL2_ttf-devel-2.20.2-VC.zip https://github.com/libsdl-org/SDL_ttf/releases/download/release-2.20.2/SDL2_ttf-devel-2.20.2-VC.zip
-        7z x SDL2_ttf-devel-2.20.2-VC.zip
-        curl -L -o SDL2_mixer-devel-2.6.3-VC.zip https://github.com/libsdl-org/SDL_mixer/releases/download/release-2.6.3/SDL2_mixer-devel-2.6.3-VC.zip
-        7z x SDL2_mixer-devel-2.6.3-VC.zip
+        curl -L -o SDL2.zip https://github.com/libsdl-org/SDL/releases/download/release-2.28.5/SDL2-devel-2.28.5-VC.zip
+        curl -L -o SDL2_image.zip https://github.com/libsdl-org/SDL_image/releases/download/release-2.6.3/SDL2_image-devel-2.6.3-VC.zip
+        curl -L -o SDL2_ttf.zip https://github.com/libsdl-org/SDL_ttf/releases/download/release-2.20.2/SDL2_ttf-devel-2.20.2-VC.zip
+        curl -L -o SDL2_mixer.zip https://github.com/libsdl-org/SDL_mixer/releases/download/release-2.6.3/SDL2_mixer-devel-2.6.3-VC.zip
+        7z x SDL2.zip
+        7z x SDL2_image.zip
+        7z x SDL2_ttf.zip
+        7z x SDL2_mixer.zip
+        dir /s /b SDL2*.dll
 
     - name: Configure CMake
       run: cmake -B ${{github.workspace}}/build -G "Visual Studio 17 2022" -DCMAKE_BUILD_TYPE=Release
@@ -39,16 +40,15 @@ jobs:
     - name: Prepare Release Package
       shell: cmd
       run: |
-        mkdir "%GITHUB_WORKSPACE%\FishGame"
-        copy "%GITHUB_WORKSPACE%\build\Release\DLNU_CPP_CourseDesign.exe" "%GITHUB_WORKSPACE%\FishGame\"
-        for %%f in (SDL2*\lib\x64\*.dll) do copy "%%f" "%GITHUB_WORKSPACE%\FishGame\"
-        xcopy /E /I /Y "%GITHUB_WORKSPACE%\asset" "%GITHUB_WORKSPACE%\FishGame\asset"
-        echo 双击 DLNU_CPP_CourseDesign.exe 开始游戏 > "%GITHUB_WORKSPACE%\FishGame\开始游戏.txt"
+        mkdir FishGame
+        copy "build\Release\DLNU_CPP_CourseDesign.exe" "FishGame\"
+        for /r %%i in (SDL2*.dll) do copy "%%i" "FishGame\"
+        xcopy /E /I /Y "asset" "FishGame\asset\"
+        echo 双击 DLNU_CPP_CourseDesign.exe 开始游戏 > "FishGame\开始游戏.txt"
 
     - name: Create ZIP Archive
       shell: cmd
       run: |
-        cd "%GITHUB_WORKSPACE%"
         7z a -tzip FishGame.zip .\FishGame\*
 
     - name: Create Release

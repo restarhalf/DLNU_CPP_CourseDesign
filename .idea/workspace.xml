@@ -31,7 +31,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bcc9e56-ae7f-4772-83b2-5a4237ae3734" name="更改" comment="FIX" />
+    <list default="true" id="0bcc9e56-ae7f-4772-83b2-5a4237ae3734" name="更改" comment="FIX">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/cmake-multi-platform.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/cmake-multi-platform.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -304,7 +306,7 @@
       <workItem from="1748995594679" duration="264000" />
       <workItem from="1749012092545" duration="26000" />
       <workItem from="1749012167896" duration="539000" />
-      <workItem from="1749013705852" duration="1937000" />
+      <workItem from="1749013705852" duration="2347000" />
     </task>
     <task id="LOCAL-00001" summary="GUI">
       <option name="closed" value="true" />
