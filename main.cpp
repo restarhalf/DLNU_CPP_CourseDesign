@@ -10,6 +10,13 @@
 #include <lyt_api.h>
 #include <random>
 
+// 使用资源ID常量
+#define RES_BACKGROUND "IMAGES"  // 背景图片
+#define RES_FISH1 "IMAGES2"     // 鱼1
+#define RES_FISH2 "IMAGES3"     // 鱼2
+#define RES_FISH3 "IMAGES4"     // 鱼3
+#define RES_FONT "FONTS"        // 字体
+
 int main(int argc, char* argv[])
 {
     // 随机数生成器初始化
@@ -69,9 +76,14 @@ int main(int argc, char* argv[])
     fullscreenBtn.setButtonwithImage("asset/images/0.png", game.getRenderer(), {0, 0, 100, 100}, SDL_BLENDMODE_BLEND,
                                      255);
 
-    background.setImage("asset/images/1.jpg", game.getRenderer(), {0, 0, windowW, windowH}, SDL_BLENDMODE_BLEND, 255);
-    loginBackground.setImage("asset/images/1.jpg", loginUi.getRenderer(), {0, 0, loginUiW, loginUiH},
-                             SDL_BLENDMODE_BLEND, 255);
+    try {
+        // 从资源加载背景图片
+        background.setImageFromResource(RES_BACKGROUND, game.getRenderer(), {0, 0, windowW, windowH});
+        loginBackground.setImageFromResource(RES_BACKGROUND, loginUi.getRenderer(), {0, 0, loginUiW, loginUiH});
+    } catch (const std::exception& e) {
+        SDL_Log("Failed to load images from resource: %s", e.what());
+        return -1;
+    }
 
     // 分数管理器和分数文本
     lx::ScoreManager scoreManager;

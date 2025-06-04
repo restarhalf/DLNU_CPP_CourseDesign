@@ -1,4 +1,4 @@
-   //
+//
 // Created by restarhalf on 2025/5/30.
 //
 
@@ -52,7 +52,7 @@ namespace lyt
 
         /**
          * @brief 检查按钮是否被点击（鼠标按下）
-         * @return true 如果按钮被点击，false 否则
+         * @return true 如果���钮被点击，false 否则
          */
         [[nodiscard]] bool isButtonClicked() const;
 
@@ -135,6 +135,18 @@ namespace lyt
          */
         void setButtonwithImage(const std::string &filePath, Renderer *renderer, SDL_Rect rect,
                                SDL_BlendMode blendMode = SDL_BLENDMODE_BLEND, Uint8 alpha = 255);
+
+        /**
+         * @brief 设置图片按钮（从资源加载图片）
+         * @param resourceName 资源名称
+         * @param renderer 渲染器指针
+         * @param rect 按钮的矩形区域
+         * @param blendMode 混合模式，默认为SDL_BLENDMODE_BLEND
+         * @param alpha 透明度，默认为255（完全不透明）
+         */
+        void setButtonwithResourceImage(const char* resourceName, Renderer* renderer,
+                                        SDL_Rect rect, SDL_BlendMode blendMode = SDL_BLENDMODE_BLEND,
+                                        Uint8 alpha = 255);
     };
 }  // namespace lyt
 
