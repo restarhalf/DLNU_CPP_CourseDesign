@@ -1,30 +1,21 @@
-name: CMake Multi-Platform Build
+name: CMake Build and Release
 
 on:
   push:
     branches: [ "main" ]
+    tags:
+      - 'v*'
   pull_request:
     branches: [ "main" ]
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [windows-latest]
-        build_type: [Release, Debug]
-        include:
-          - os: windows-latest
-            compiler: cl
-            generator: "Visual Studio 17 2022"
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v3
 
-    - name: Install SDL2 Dependencies (Windows)
-      if: matrix.os == 'windows-latest'
+    - name: Install SDL2 Dependencies
       run: |
         curl -L -o SDL2-devel-2.28.5-VC.zip https://github.com/libsdl-org/SDL/releases/download/release-2.28.5/SDL2-devel-2.28.5-VC.zip
         7z x SDL2-devel-2.28.5-VC.zip
@@ -36,14 +27,45 @@ jobs:
         7z x SDL2_mixer-devel-2.6.3-VC.zip
 
     - name: Configure CMake
-      run: >
-        cmake -B ${{github.workspace}}/build 
-        -G "${{ matrix.generator }}"
-        -DCMAKE_BUILD_TYPE=${{matrix.build_type}}
+      run: cmake -B ${{github.workspace}}/build -G "Visual Studio 17 2022" -DCMAKE_BUILD_TYPE=Release
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{matrix.build_type}}
+      run: cmake --build ${{github.workspace}}/build --config Release
 
-    - name: Test
-      working-directory: ${{github.workspace}}/build
-      run: ctest -C ${{matrix.build_type}} --output-on-failure
+    - name: Prepare Release Package
+      run: |
+        mkdir ${{github.workspace}}/FishGame
+        # 复制主程序
+        cp ${{github.workspace}}/build/Release/DLNU_CPP_CourseDesign.exe ${{github.workspace}}/FishGame/
+        # 复制所需的 DLL 文件
+        cp SDL2*/lib/x64/*.dll ${{github.workspace}}/FishGame/
+        # 复制资源文件
+        cp -r ${{github.workspace}}/asset ${{github.workspace}}/FishGame/
+        # 创建一个简单的启动说明
+        echo "双击 DLNU_CPP_CourseDesign.exe 开始游戏" > ${{github.workspace}}/FishGame/开始游戏.txt
+
+    - name: Create ZIP Archive
+      run: |
+        cd ${{github.workspace}}
+        7z a -tzip FishGame.zip ./FishGame/*
+
+    - name: Create Release
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v1
+      with:
+        files: FishGame.zip
+        name: 游戏发布 ${{ github.ref_name }}
+        body: |
+          ## 🎮 鱼吃鱼游戏 ${{ github.ref_name }}
+          
+          ### 📥 安装说明
+          1. 下载 FishGame.zip
+          2. 解压到任意位置
+          3. 双击运行 DLNU_CPP_CourseDesign.exe 即可开始游戏
+          
+          ### 🎯 游戏说明
+          - 使用方向键控制鱼的移动
+          - 吃掉比自己小的鱼来成长
+          - 注意躲避比自己大的鱼
+        token: ${{ secrets.GITHUB_TOKEN }}
+
