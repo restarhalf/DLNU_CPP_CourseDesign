@@ -1,28 +1,32 @@
 #include "ResourceLoader.h"
+#include <stdexcept>
 
 HMODULE ResourceLoader::GetModuleHandle() {
-    static HMODULE handle = ::GetModuleHandle(NULL);
+    static HMODULE handle = ::GetModuleHandle(nullptr);
     return handle;
 }
 
 std::vector<uint8_t> ResourceLoader::LoadResource(const char* name, const char* type) {
-    HRSRC resourceHandle = FindResource(GetModuleHandle(), name, type);
+    // 查找资源
+    HRSRC resourceHandle = ::FindResource(GetModuleHandle(), name, type);
     if (!resourceHandle) {
         return std::vector<uint8_t>();
     }
 
-    HGLOBAL globalHandle = LoadResource(GetModuleHandle(), resourceHandle);
+    // 加载资源
+    HGLOBAL globalHandle = ::LoadResource(GetModuleHandle(), resourceHandle);
     if (!globalHandle) {
         return std::vector<uint8_t>();
     }
 
-    DWORD size = SizeofResource(GetModuleHandle(), resourceHandle);
-    void* data = LockResource(globalHandle);
+    // 获取资源大小和数据指针
+    DWORD size = ::SizeofResource(GetModuleHandle(), resourceHandle);
+    const void* data = ::LockResource(globalHandle);
     if (!data) {
         return std::vector<uint8_t>();
     }
 
-    std::vector<uint8_t> buffer(static_cast<uint8_t*>(data),
-                               static_cast<uint8_t*>(data) + size);
-    return buffer;
+    // 复制资源数据到 vector
+    const uint8_t* byteData = static_cast<const uint8_t*>(data);
+    return std::vector<uint8_t>(byteData, byteData + size);
 }
