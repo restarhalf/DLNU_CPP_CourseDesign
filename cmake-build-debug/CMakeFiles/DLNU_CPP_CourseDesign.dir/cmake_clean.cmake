@@ -19,6 +19,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Music.cpp.obj.d"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Renderer.cpp.obj"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Renderer.cpp.obj.d"
+  "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/ResourceLoader.cpp.obj"
+  "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/ResourceLoader.cpp.obj.d"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Text.cpp.obj"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Text.cpp.obj.d"
   "CMakeFiles/DLNU_CPP_CourseDesign.dir/api/lyt/src/Window.cpp.obj"

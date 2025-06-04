@@ -21,6 +21,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
         "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2/include"
         "${CMAKE_CURRENT_SOURCE_DIR}/api/lyt/include"
         "${CMAKE_CURRENT_SOURCE_DIR}/api/lx/include")
+
 target_link_directories(${PROJECT_NAME} PRIVATE
         "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2/lib/x64")
 
@@ -33,6 +34,7 @@ target_sources(${PROJECT_NAME} PRIVATE
         api/lyt/src/Music.cpp
         api/lyt/src/Renderer.cpp
         api/lyt/src/Controller.cpp
+        api/lyt/src/ResourceLoader.cpp  # 添加 ResourceLoader.cpp
         api/lx/src/Fish.cpp
         api/lx/src/PlayerFish.cpp
         api/lx/src/AIFish.cpp

@@ -358,6 +358,30 @@ api\lyt\src\Renderer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\Renderer.cpp.s
 .PHONY : api\lyt\src\Renderer.cpp.s
 
+api\lyt\src\ResourceLoader.obj: api\lyt\src\ResourceLoader.cpp.obj
+.PHONY : api\lyt\src\ResourceLoader.obj
+
+# target to build an object file
+api\lyt\src\ResourceLoader.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\ResourceLoader.cpp.obj
+.PHONY : api\lyt\src\ResourceLoader.cpp.obj
+
+api\lyt\src\ResourceLoader.i: api\lyt\src\ResourceLoader.cpp.i
+.PHONY : api\lyt\src\ResourceLoader.i
+
+# target to preprocess a source file
+api\lyt\src\ResourceLoader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\ResourceLoader.cpp.i
+.PHONY : api\lyt\src\ResourceLoader.cpp.i
+
+api\lyt\src\ResourceLoader.s: api\lyt\src\ResourceLoader.cpp.s
+.PHONY : api\lyt\src\ResourceLoader.s
+
+# target to generate assembly for a file
+api\lyt\src\ResourceLoader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DLNU_CPP_CourseDesign.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DLNU_CPP_CourseDesign.dir\api\lyt\src\ResourceLoader.cpp.s
+.PHONY : api\lyt\src\ResourceLoader.cpp.s
+
 api\lyt\src\Text.obj: api\lyt\src\Text.cpp.obj
 .PHONY : api\lyt\src\Text.obj
 
@@ -469,6 +493,9 @@ help:
 	@echo ... api/lyt/src/Renderer.obj
 	@echo ... api/lyt/src/Renderer.i
 	@echo ... api/lyt/src/Renderer.s
+	@echo ... api/lyt/src/ResourceLoader.obj
+	@echo ... api/lyt/src/ResourceLoader.i
+	@echo ... api/lyt/src/ResourceLoader.s
 	@echo ... api/lyt/src/Text.obj
 	@echo ... api/lyt/src/Text.i
 	@echo ... api/lyt/src/Text.s
