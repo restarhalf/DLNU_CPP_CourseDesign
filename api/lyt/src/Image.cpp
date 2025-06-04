@@ -44,6 +44,42 @@ namespace lyt
         SDL_SetTextureAlphaMod(texture, alpha);
     }
 
+    void Image::setImageFromResource(const char* resourceName, Renderer* renderer, SDL_Rect rect,
+                                   SDL_BlendMode blendMode, Uint8 alpha)
+    {
+        this->rect = rect;
+        this->blendMode = blendMode;
+        this->alpha = alpha;
+        this->renderer = renderer;
+
+        // 从资源加载图片数据
+        auto resourceData = ResourceLoader::LoadResource(resourceName);
+        if (resourceData.empty())
+        {
+            throw std::runtime_error("Failed to load image from resource");
+        }
+
+        // 从内存加载图像
+        SDL_RWops* rw = SDL_RWFromMem(resourceData.data(), static_cast<int>(resourceData.size()));
+        surface = IMG_Load_RW(rw, 1);  // 1表示自动关闭RWops
+        if (surface == nullptr)
+        {
+            throw std::runtime_error("Failed to create surface from resource: " + std::string(SDL_GetError()));
+        }
+
+        // 清理旧的纹理并创建新的纹理
+        if (texture) SDL_DestroyTexture(texture);
+        texture = SDL_CreateTextureFromSurface(renderer->get(), surface);
+        if (!texture)
+        {
+            throw std::runtime_error(SDL_GetError());
+        }
+
+        // 设置纹理的混合模式和透明度
+        SDL_SetTextureBlendMode(texture, blendMode);
+        SDL_SetTextureAlphaMod(texture, alpha);
+    }
+
     // Getters and setters
     SDL_Rect      Image::getRect() const { return rect; }
     void          Image::setRect(const SDL_Rect& rect) { this->rect = rect; }

@@ -3,9 +3,19 @@ project("DLNU_CPP_CourseDesign")
 
 set(CMAKE_CXX_STANDARD 20)
 
+# 添加资源文件
+set(RESOURCE_FILES resource.rc)
+
 add_executable(${PROJECT_NAME} main.cpp
-        api/lx/src/AIFish.cpp
 )
+
+# 设置 Windows 子系统，使程序以 GUI 方式运行
+if(WIN32)
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+            WIN32_EXECUTABLE TRUE
+            LINK_FLAGS "/ENTRY:mainCRTStartup"
+    )
+endif()
 
 target_include_directories(${PROJECT_NAME} PRIVATE
         "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2/include"
@@ -36,3 +46,16 @@ target_link_libraries(DLNU_CPP_CourseDesign PRIVATE
         SDL2_ttf
         SDL2_mixer
 )
+
+# 复制 SDL2 DLL 到构建目录
+if(WIN32)
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2/lib/x64/SDL2.dll"
+            "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2/lib/x64/SDL2_image.dll"
+            "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2/lib/x64/SDL2_ttf.dll"
+            "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2/lib/x64/SDL2_mixer.dll"
+            $<TARGET_FILE_DIR:${PROJECT_NAME}>
+    )
+endif()
+

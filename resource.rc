@@ -1,0 +1,11 @@
+#include "windows.h"
+
+// 嵌入图片资源
+IMAGES           RCDATA     "asset/images/0.png"
+IMAGES1          RCDATA     "asset/images/1.jpg"
+IMAGES2          RCDATA     "asset/images/2.png"
+IMAGES3          RCDATA     "asset/images/3.png"
+IMAGES4          RCDATA     "asset/images/4.png"
+
+// 嵌入字体资源
+FONTS            RCDATA     "asset/fonts/MSYH.ttf"

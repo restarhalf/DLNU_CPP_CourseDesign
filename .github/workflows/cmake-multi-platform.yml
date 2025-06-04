@@ -29,39 +29,45 @@ jobs:
         7z x SDL2_image.zip
         7z x SDL2_ttf.zip
         7z x SDL2_mixer.zip
-        dir /s /b SDL2*.dll
+        xcopy /E /I /Y SDL2-2.28.5\lib\x64\*.dll lib\dep\plugins\SDL2\lib\x64\
+        xcopy /E /I /Y SDL2_image-2.6.3\lib\x64\*.dll lib\dep\plugins\SDL2\lib\x64\
+        xcopy /E /I /Y SDL2_ttf-2.20.2\lib\x64\*.dll lib\dep\plugins\SDL2\lib\x64\
+        xcopy /E /I /Y SDL2_mixer-2.6.3\lib\x64\*.dll lib\dep\plugins\SDL2\lib\x64\
+        xcopy /E /I /Y SDL2-2.28.5\include\*.* lib\dep\plugins\SDL2\include\
+        xcopy /E /I /Y SDL2_image-2.6.3\include\*.* lib\dep\plugins\SDL2\include\
+        xcopy /E /I /Y SDL2_ttf-2.20.2\include\*.* lib\dep\plugins\SDL2\include\
+        xcopy /E /I /Y SDL2_mixer-2.6.3\include\*.* lib\dep\plugins\SDL2\include\
 
     - name: Configure CMake
-      run: cmake -B ${{github.workspace}}/build -G "Visual Studio 17 2022" -DCMAKE_BUILD_TYPE=Release
+      run: cmake -B build -G "Visual Studio 17 2022" -DCMAKE_BUILD_TYPE=Release
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config Release
+      run: cmake --build build --config Release
 
     - name: Prepare Release Package
       shell: cmd
       run: |
-        mkdir FishGame
-        copy "build\Release\DLNU_CPP_CourseDesign.exe" "FishGame\"
-        for /r %%i in (SDL2*.dll) do copy "%%i" "FishGame\"
-        xcopy /E /I /Y "asset" "FishGame\asset\"
-        echo 双击 DLNU_CPP_CourseDesign.exe 开始游戏 > "FishGame\开始游戏.txt"
+        mkdir SingleExe
+        copy "build\Release\DLNU_CPP_CourseDesign.exe" "SingleExe\"
+        copy "lib\dep\plugins\SDL2\lib\x64\*.dll" "SingleExe\"
+        echo 点击 DLNU_CPP_CourseDesign.exe 开始游戏 > "SingleExe\开始游戏.txt"
 
     - name: Create ZIP Archive
       shell: cmd
       run: |
-        7z a -tzip FishGame.zip .\FishGame\*
+        7z a -tzip FishGame-SingleExe.zip ./SingleExe/*
 
     - name: Create Release
       if: startsWith(github.ref, 'refs/tags/')
       uses: softprops/action-gh-release@v1
       with:
-        files: FishGame.zip
+        files: FishGame-SingleExe.zip
         name: 游戏发布 ${{ github.ref_name }}
         body: |
           ## 🎮 鱼吃鱼游戏 ${{ github.ref_name }}
           
-          ### 📥 安装说明
-          1. 下载 FishGame.zip
+          ### 📥 运行说明
+          1. 下载 FishGame-SingleExe.zip
           2. 解压到任意位置
           3. 双击运行 DLNU_CPP_CourseDesign.exe 即可开始游戏
           
@@ -69,5 +75,9 @@ jobs:
           - 使用方向键控制鱼的移动
           - 吃掉比自己小的鱼来成长
           - 注意躲避比自己大的鱼
+          
+          ### ✨ 更新内容
+          - 优化为单文件发布，资源文件已内嵌到程序中
+          - 减小了发布包体积
         token: ${{ secrets.GITHUB_TOKEN }}
 

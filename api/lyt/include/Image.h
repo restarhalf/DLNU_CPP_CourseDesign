@@ -9,6 +9,7 @@
 #include <string>
 #include <stdexcept>
 #include "Renderer.h"
+#include "ResourceLoader.h"
 
 namespace lyt
 {
@@ -53,6 +54,17 @@ namespace lyt
          */
         void setImage(const std::string& filePath, Renderer* renderer, SDL_Rect rect, SDL_BlendMode blendMode,
                       Uint8 alpha);
+
+        /**
+         * @brief 从资源加载图片
+         * @param resourceName 资源名称
+         * @param renderer 渲染器指针
+         * @param rect 图像矩形区域
+         * @param blendMode 混合模式
+         * @param alpha 透明度
+         */
+        void setImageFromResource(const char* resourceName, Renderer* renderer, SDL_Rect rect,
+                                  SDL_BlendMode blendMode = SDL_BLENDMODE_BLEND, Uint8 alpha = 255);
 
         // Getters and setters
         [[nodiscard]] SDL_Rect      getRect() const;
