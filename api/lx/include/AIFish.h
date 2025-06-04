@@ -47,11 +47,17 @@ namespace lx
          * @return 分值
          */
         int getScoreValue() const;
+        /**
+        * @brief 获取鱼的特殊分值
+        * @return 特殊分值
+        */
+        int getspecialValue() const;
 
     private:
         int speed;  ///< 移动速度
         int direction;  ///< 移动方向，-1为左，1为右
         int scoreValue;  ///< 分值
+        int specialValue;///<特殊分值
     };
 
 }  // namespace lx

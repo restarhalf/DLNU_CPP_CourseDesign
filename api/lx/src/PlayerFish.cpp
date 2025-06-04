@@ -38,7 +38,7 @@ namespace lx
 
     bool PlayerFish::tryEat(AIFish& aiFish, ScoreManager& scoreManager)
     {
-        if (!aiFish.isAlive() || !alive) return false;
+        //if (!aiFish.isAlive() || !alive) return false;//写到fish类的函数，改到gamestate里面
         SDL_Rect other = aiFish.getRect();
         if (SDL_HasIntersection(&rect, &other))
         {
@@ -49,22 +49,39 @@ namespace lx
             {
                 // 玩家比 AI 鱼大 20% 以上，可以吞掉
                 aiFish.kill();
-                grow(1.05f);  // 体型增长 5%
+                float predictedSize = getSize() * 1.04f;  // 模拟增长后的体积
+                if (sqrt(predictedSize) <= wMax)
+                {
+                    grow(1.02f);  // 安全才实际增长
+                }
+                else
+                {
+                    resize();
+                }
                 int value = aiFish.getScoreValue();
-                scoreManager.add(value);
-                SDL_Log("吃掉AI鱼，得分 +%d，当前体型 %.2f", value, getSize());
+                if (aiFish.getspecialValue() > 4)  // 六分之一的概率
+                {
+                    value += value / 2;//奖励部分
+                    scoreManager.add(value);
+                    SDL_Log("吃掉奖励鱼，得分 +%d，当前体型 %.2f", value, getSize());
+                }
+                else
+                {
+                    scoreManager.add(value);
+                    SDL_Log("吃掉小鱼，得分 +%d，当前体型 %.2f", value, getSize());
+                }
                 return true;
             }
             else if (mySize < otherSize * 0.8f)
             {
                 // 玩家比 AI 鱼小 20% 以上，被吃掉
                 alive = false;
-                SDL_Log("被更大的AI鱼吃掉，游戏结束！");
+               // SDL_Log("被更大的AI鱼吃掉，游戏结束！");
             }
             else
             {
                 // 大小相近，不处理
-                SDL_Log("碰撞但大小相近，无操作");
+                //SDL_Log("碰撞但大小相近，无操作");
             }
         }
 
@@ -80,5 +97,10 @@ namespace lx
         rect.w = rect.h = 60;
         alive           = true;
     }
-
+    //控制玩家鱼的体积增长
+    void PlayerFish::resize() 
+    { 
+        rect.w = wMax;
+        rect.h = wMax;
+    }
 }  // namespace lx

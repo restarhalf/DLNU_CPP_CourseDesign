@@ -22,11 +22,13 @@ namespace lx
         bool tryEat(AIFish& ai, ScoreManager& scoreManager);
         // 重置玩家鱼的位置
         void reset(int startX, int startY);
+        void resize();
 
     private:
         int velocityX = 0;  // X方向速度
         int velocityY = 0;  // Y方向速度
         int speed     = 4;  // 移动速度
+        int wMax      = 150;//最大宽度
     };
 
 }  // namespace lx
