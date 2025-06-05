@@ -35,6 +35,7 @@ namespace lx
          * @param dir 鱼的方向
          */
         void setDirection(int dir);
+        int  getDirection() const;
         /**
          * @brief 让鱼成长，变大
          * @param scale 成长比例
