@@ -24,6 +24,7 @@ namespace lx
         void reset(int startX, int startY);
         void resize();
 
+
     private:
         int velocityX = 0;  // X方向速度
         int velocityY = 0;  // Y方向速度

@@ -27,6 +27,8 @@ namespace lx {
         virtual SDL_Rect getRect() const { return rect; }
         // 获取鱼的面积
         virtual float getSize() const { return rect.w * rect.h; }
+        // 杀死鱼，将alive设为false
+        void kill() { alive = false; }
 
     protected:
         lyt::Renderer* renderer; // 渲染器指针

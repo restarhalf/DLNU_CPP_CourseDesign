@@ -30,12 +30,11 @@ namespace lx
          * @param windowH 窗口高度
          */
         void update(int windowW, int windowH) override;
-
         /**
-         * @brief 杀死鱼，将alive设为false
+         * @brief 设置AI鱼移动方向
+         * @param dir 鱼的方向
          */
-        void kill() { alive = false; }
-
+        void setDirection(int dir);
         /**
          * @brief 让鱼成长，变大
          * @param scale 成长比例
@@ -48,16 +47,16 @@ namespace lx
          */
         int getScoreValue() const;
         /**
-        * @brief 获取鱼的特殊分值
-        * @return 特殊分值
-        */
+         * @brief 获取鱼的特殊分值
+         * @return 特殊分值
+         */
         int getspecialValue() const;
 
     private:
         int speed;  ///< 移动速度
         int direction;  ///< 移动方向，-1为左，1为右
         int scoreValue;  ///< 分值
-        int specialValue;///<特殊分值
+        int specialValue;  ///< 特殊分值
     };
 
 }  // namespace lx

@@ -87,12 +87,21 @@ int main(int argc, char* argv[])
 
     for (int i = 0; i < 10; ++i)
     {
-        std::uniform_int_distribution<int> disX(0, windowW - 60);
-        std::uniform_int_distribution<int> disY(0, windowH - 60);
-        int                                x = disX(gen);
-        int                                y = disY(gen);
         std::uniform_int_distribution<int> disSize(20, 60);
-        int                                size = disSize(gen);
+        int                                 size = disSize(gen);//根据随机大小设置生成地位置坐标
+
+         // 随机选择左侧或右侧边缘
+        int side = rand() % 2 == 0 ? 0 : 1;
+        int x    = 0;
+        if (side == 1)
+        {
+            x = windowW - size;  // 右侧边缘
+        }
+
+        // 随机y坐标
+        std::uniform_int_distribution<int> disY(0, windowH - size);
+        int                                y = disY(gen);
+
         aiFishes.emplace_back(game.getRenderer(), "asset/images/4.png", x, y, size, size);
     }
 
@@ -160,11 +169,11 @@ int main(int argc, char* argv[])
         // AI鱼更新与碰撞检测循环
         for (auto it = aiFishes.begin(); it != aiFishes.end();)
         {
-            it->update(windowW, windowH);
+            it->update(windowW, windowH);//位置更新
 
             if (!playerFish.isAlive())
             {
-                SDL_Log("玩家死亡，游戏结束");
+               // SDL_Log("玩家死亡，游戏结束");
                 scoreManager.saveHighScore();
                 if (font) TTF_CloseFont(font);
                 loginUi.clean();
@@ -172,10 +181,7 @@ int main(int argc, char* argv[])
                 return 0;
             }
 
-            if (playerFish.tryEat(*it, scoreManager))
-            {
-                scoreManager.add(it->getScoreValue());
-            }
+             playerFish.tryEat(*it, scoreManager);//循环判断
 
             if (!it->isAlive())
                 it = aiFishes.erase(it);
@@ -187,18 +193,39 @@ int main(int argc, char* argv[])
         constexpr int MAX_AI_FISH = 10;
         while (static_cast<int>(aiFishes.size()) < MAX_AI_FISH)
         {
-            std::uniform_int_distribution<int> disX(0, windowW - 60);
-            std::uniform_int_distribution<int> disY(0, windowH - 60);
-            int                                x          = disX(gen);
-            int                                y          = disY(gen);
+            // 先随机生成体积
             int                                playerSize = (playerFish.getRect().w + playerFish.getRect().h) / 2;
             std::uniform_int_distribution<int> disMinSize(20, static_cast<int>(playerSize * 0.8));
-            std::uniform_int_distribution<int> disMaxSize(static_cast<int>(playerSize * 1.1), static_cast<int>(playerSize * 1.5));
+            std::uniform_int_distribution<int> disMaxSize(static_cast<int>(playerSize * 1.1),
+                                                          static_cast<int>(playerSize * 1.5));
             int                                minSize = disMinSize(gen);
             int                                maxSize = disMaxSize(gen);
+            // 确保minSize<=maxSize
+            if (minSize > maxSize)
+            {
+                std::swap(minSize, maxSize);
+            }
             std::uniform_int_distribution<int> disSize(minSize, maxSize);
             int                                size = disSize(gen);
+
+            // 随机选择左侧或右侧边缘
+            int side = rand() % 2 == 0 ? 0 : 1;
+            int x    = 0;
+            if (side == 1)
+            {
+                x = windowW - size;  // 右侧边缘
+            }
+
+            // 随机y坐标
+            std::uniform_int_distribution<int> disY(0, windowH - size);
+            int                                y = disY(gen);
+            y                                    = disY(gen);
+
+            // 创建AI鱼
             aiFishes.emplace_back(game.getRenderer(), "asset/images/4.png", x, y, size, size);
+            // 设置方向：左侧的鱼向右游，右侧的鱼向左游
+            int dir = (side == 0) ? 1 : -1;
+            aiFishes.back().setDirection(dir);
         }
 
         // 更新分数显示
