@@ -69,8 +69,8 @@ int main(int argc, char* argv[])
     fullscreenBtn.setButtonwithImage("asset/images/0.png", game.getRenderer(), {0, 0, 100, 100}, SDL_BLENDMODE_BLEND,
                                      255);
 
-    background.setImage("asset/images/1.jpg", game.getRenderer(), {0, 0, windowW, windowH}, SDL_BLENDMODE_BLEND, 255);
-    loginBackground.setImage("asset/images/1.jpg", loginUi.getRenderer(), {0, 0, loginUiW, loginUiH},
+    background.setImage("asset/images/background.png", game.getRenderer(), {0, 0, windowW, windowH}, SDL_BLENDMODE_BLEND, 255);
+    loginBackground.setImage("asset/images/background.png", loginUi.getRenderer(), {0, 0, loginUiW, loginUiH},
                              SDL_BLENDMODE_BLEND, 255);
 
     // 分数管理器和分数文本
@@ -80,7 +80,7 @@ int main(int argc, char* argv[])
                      "Score: 0  High: 0");
 
     // 玩家鱼初始化
-    lx::PlayerFish playerFish(game.getRenderer(), "asset/images/4.png", windowW / 2, windowH / 2, 60, 60);
+    lx::PlayerFish playerFish(game.getRenderer(), "asset/images/fish8_left_0.png", windowW / 2, windowH / 2, 60, 60);
 
     // AI鱼初始化
     std::vector<lx::AIFish> aiFishes;
@@ -101,8 +101,15 @@ int main(int argc, char* argv[])
         // 随机y坐标
         std::uniform_int_distribution<int> disY(0, windowH - size);
         int                                y = disY(gen);
-
-        aiFishes.emplace_back(game.getRenderer(), "asset/images/4.png", x, y, size, size);
+        if (side == 0) aiFishes.emplace_back(game.getRenderer(), "asset/images/player_1_right_0.png", x, y, size, size);
+        else
+            aiFishes.emplace_back(game.getRenderer(), "asset/images/player_1_left_0.png", x, y, size, size);
+        /*if (aiFishes[i].getDirection() > 0)
+            aiFishes.emplace_back(game.getRenderer(), "asset/images/player_1_right_0.png", x, y, size, size);
+        else
+        {
+            aiFishes.emplace_back(game.getRenderer(), "asset/images/player_1_left_0.png", x, y, size, size);
+        }*/
     }
 
     // 游戏主循环
@@ -222,7 +229,10 @@ int main(int argc, char* argv[])
             y                                    = disY(gen);
 
             // 创建AI鱼
-            aiFishes.emplace_back(game.getRenderer(), "asset/images/4.png", x, y, size, size);
+            if (side == 0)
+                aiFishes.emplace_back(game.getRenderer(), "asset/images/player_1_right_0.png", x, y, size, size);
+            else
+                aiFishes.emplace_back(game.getRenderer(), "asset/images/player_1_left_0.png", x, y, size, size); 
             // 设置方向：左侧的鱼向右游，右侧的鱼向左游
             int dir = (side == 0) ? 1 : -1;
             aiFishes.back().setDirection(dir);
