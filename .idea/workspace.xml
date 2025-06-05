@@ -33,12 +33,15 @@
   <component name="ChangeListManager">
     <list default="true" id="0bcc9e56-ae7f-4772-83b2-5a4237ae3734" name="更改" comment="FIX">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lyt/src/Button.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Button.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lyt/src/Image.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Image.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lyt/src/Text.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Text.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/highscore.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README_plan.md" beforeDir="false" afterPath="$PROJECT_DIR$/README_plan.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/include/AIFish.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/AIFish.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/include/Fish.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/Fish.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/src/AIFish.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/AIFish.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/src/Fish.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/Fish.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/src/PlayerFish.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/PlayerFish.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Game.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Game.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Game.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource.rc" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,6 +122,11 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DLNU_CPP_CourseDesign" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="DLNU_CPP_CourseDesign" TARGET_NAME="DLNU_CPP_CourseDesign" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="DLNU_CPP_CourseDesign" RUN_TARGET_NAME="DLNU_CPP_CourseDesign">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -158,6 +166,7 @@
       <workItem from="1749019332515" duration="1814000" />
       <workItem from="1749027487903" duration="3112000" />
       <workItem from="1749030686757" duration="4000" />
+      <workItem from="1749103347253" duration="255000" />
     </task>
     <task id="LOCAL-00001" summary="GUI">
       <option name="closed" value="true" />

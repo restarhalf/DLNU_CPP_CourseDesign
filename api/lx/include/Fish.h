@@ -4,6 +4,7 @@
 #include "Renderer.h"
 #include <SDL.h>
 #include <string>
+#include <unordered_map>
 
 namespace lx {
 
@@ -30,11 +31,16 @@ namespace lx {
         // 杀死鱼，将alive设为false
         void kill() { alive = false; }
 
+        static void clearTextureCache();  // 清理所有缓存的纹理
+
     protected:
         lyt::Renderer* renderer; // 渲染器指针
         SDL_Texture* texture;    // 鱼的纹理
         SDL_Rect rect;           // 鱼的位置和大小
         bool alive = true;       // 鱼是否存活
+
+        static std::unordered_map<std::string, SDL_Texture*> textureCache;
+        SDL_Texture* getOrLoadTexture(const std::string& imagePath);
     };
 
 } // namespace lx
