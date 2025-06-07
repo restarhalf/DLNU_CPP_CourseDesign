@@ -129,16 +129,24 @@ jobs:
       run: |
         brew install sdl2 sdl2_image sdl2_ttf sdl2_mixer
 
-    - name: Configure CMake (Desktop)
-      if: matrix.platform != 'android'
+    - name: Configure CMake (Desktop Windows)
+      if: runner.os == 'Windows'
+      shell: cmd
+      run: |
+        cmake -B ${{github.workspace}}/build ^
+        -DCMAKE_BUILD_TYPE=Release ^
+        -DCMAKE_VERBOSE_MAKEFILE=ON ^
+        -DSDL2_DIR=${{github.workspace}}/lib/dep/plugins/SDL2/cmake ^
+        -DSDL2_IMAGE_DIR=${{github.workspace}}/lib/dep/plugins/SDL2/cmake ^
+        -DSDL2_TTF_DIR=${{github.workspace}}/lib/dep/plugins/SDL2/cmake ^
+        -DSDL2_MIXER_DIR=${{github.workspace}}/lib/dep/plugins/SDL2/cmake
+
+    - name: Configure CMake (Desktop Unix)
+      if: matrix.platform != 'android' && runner.os != 'Windows'
       run: |
         cmake -B ${{github.workspace}}/build \
         -DCMAKE_BUILD_TYPE=Release \
-        -DCMAKE_VERBOSE_MAKEFILE=ON \
-        -DSDL2_DIR=${{github.workspace}}/lib/dep/plugins/SDL2/cmake \
-        -DSDL2_IMAGE_DIR=${{github.workspace}}/lib/dep/plugins/SDL2/cmake \
-        -DSDL2_TTF_DIR=${{github.workspace}}/lib/dep/plugins/SDL2/cmake \
-        -DSDL2_MIXER_DIR=${{github.workspace}}/lib/dep/plugins/SDL2/cmake
+        -DCMAKE_VERBOSE_MAKEFILE=ON
 
     - name: Configure CMake (Android)
       if: matrix.platform == 'android'
