@@ -13,12 +13,53 @@ permissions:
 
 jobs:
   build:
-    runs-on: windows-latest
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest, ubuntu-latest]
+        include:
+          - os: windows-latest
+            platform: windows
+            artifact_name: FishGame-Windows.zip
+            exe_name: DLNU_CPP_CourseDesign.exe
+          - os: ubuntu-latest
+            platform: linux
+            artifact_name: FishGame-Linux.zip
+            exe_name: DLNU_CPP_CourseDesign
+          - os: macos-latest
+            platform: macos
+            artifact_name: FishGame-macOS.zip
+            exe_name: DLNU_CPP_CourseDesign
+          - os: ubuntu-latest
+            platform: android
+            artifact_name: FishGame-Android.apk
+            build_type: android
+
+    runs-on: ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v3
 
-    - name: Install SDL2 Dependencies
+    - name: Set up JDK for Android
+      if: matrix.platform == 'android'
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Setup Android SDK
+      if: matrix.platform == 'android'
+      uses: android-actions/setup-android@v3
+
+    - name: Install Android NDK
+      if: matrix.platform == 'android'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y ninja-build
+        yes | sdkmanager --licenses
+        sdkmanager "ndk;25.2.9519653" "cmake;3.22.1"
+
+    - name: Install SDL2 Dependencies (Windows)
+      if: runner.os == 'Windows' && matrix.platform == 'windows'
       shell: cmd
       run: |
         curl -L -o SDL2.zip https://github.com/libsdl-org/SDL/releases/download/release-2.28.5/SDL2-devel-2.28.5-VC.zip
@@ -29,44 +70,93 @@ jobs:
         7z x SDL2_image.zip
         7z x SDL2_ttf.zip
         7z x SDL2_mixer.zip
-        dir /s /b SDL2*.dll
 
-    - name: Configure CMake
-      run: cmake -B ${{github.workspace}}/build -G "Visual Studio 17 2022" -DCMAKE_BUILD_TYPE=Release
+    - name: Install SDL2 Dependencies (Ubuntu)
+      if: runner.os == 'Linux' && matrix.platform == 'linux'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev
+
+    - name: Install SDL2 Dependencies (macOS)
+      if: runner.os == 'macOS'
+      run: |
+        brew install sdl2 sdl2_image sdl2_ttf sdl2_mixer
+
+    - name: Configure CMake (Desktop)
+      if: matrix.platform != 'android'
+      run: |
+        cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=Release
+
+    - name: Configure CMake (Android)
+      if: matrix.platform == 'android'
+      run: |
+        cmake -B ${{github.workspace}}/build -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \
+        -DANDROID_ABI="arm64-v8a" \
+        -DANDROID_PLATFORM=android-26 \
+        -DCMAKE_BUILD_TYPE=Release
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config Release
 
-    - name: Prepare Release Package
+    - name: Build Android APK
+      if: matrix.platform == 'android'
+      run: |
+        cd android
+        ./gradlew assembleRelease
+        cp app/build/outputs/apk/release/app-release.apk ../FishGame-Android.apk
+
+    - name: Prepare Release Package (Windows)
+      if: runner.os == 'Windows' && matrix.platform == 'windows'
       shell: cmd
       run: |
         mkdir FishGame
-        copy "build\Release\DLNU_CPP_CourseDesign.exe" "FishGame\"
+        copy "build\Release\${{ matrix.exe_name }}" "FishGame\"
         for /r %%i in (SDL2*.dll) do copy "%%i" "FishGame\"
         xcopy /E /I /Y "asset" "FishGame\asset\"
 
-    - name: Create ZIP Archive
-      shell: cmd
+    - name: Prepare Release Package (Linux/macOS)
+      if: matrix.platform != 'android' && matrix.platform != 'windows'
       run: |
-        7z a -tzip FishGame.zip .\FishGame\*
+        mkdir -p FishGame
+        cp "build/${{ matrix.exe_name }}" "FishGame/"
+        cp -r asset FishGame/
+
+    - name: Create ZIP Archive (Desktop)
+      if: matrix.platform != 'android'
+      run: |
+        7z a -tzip ${{ matrix.artifact_name }} ./FishGame/*
+
+    - name: Upload Build Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ matrix.platform }}-build
+        path: ${{ matrix.artifact_name }}
 
     - name: Create Release
       if: startsWith(github.ref, 'refs/tags/')
       uses: softprops/action-gh-release@v1
       with:
-        files: FishGame.zip
+        files: ${{ matrix.artifact_name }}
         name: 游戏发布 ${{ github.ref_name }}
         body: |
           ## 🎮 鱼吃鱼游戏 ${{ github.ref_name }}
           
-          ### 📥 安装说明
-          1. 下载 FishGame.zip
-          2. 解压到任意位置
-          3. 双击运行 DLNU_CPP_CourseDesign.exe 即可开始游戏
+          ### 📥 下载说明
+          请根据您的操作系统选择对应的版本：
+          - Windows: FishGame-Windows.zip
+          - Linux: FishGame-Linux.zip
+          - macOS: FishGame-macOS.zip
+          - Android: FishGame-Android.apk
+          
+          ### 📦 安装说明
+          1. 下载对应平台的压缩包/安装包：
+          2. 安装/运行说明：
+             - Windows: 解压后双击运行 DLNU_CPP_CourseDesign.exe
+             - Linux/macOS: 解压后在终端中运行 ./DLNU_CPP_CourseDesign
+             - Android: 直接安装 APK 文件
           
           ### 🎯 游戏说明
-          - 使用方向键控制鱼的移动
+          - 使用方向键/触摸控制鱼的移动
           - 吃掉比自己小的鱼来成长
           - 注意躲避比自己大的鱼
         token: ${{ secrets.GITHUB_TOKEN }}
-
