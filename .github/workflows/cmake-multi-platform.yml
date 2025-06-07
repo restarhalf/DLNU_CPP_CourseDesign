@@ -65,11 +65,18 @@ jobs:
         for /r %%i in (SDL2*.dll) do copy "%%i" "FishGame\"
         xcopy /E /I /Y "asset" "FishGame\asset\"
 
-    - name: Prepare Release Package (Unix)
-      if: runner.os != 'Windows'
+    - name: Prepare Release Package (Linux)
+      if: runner.os == 'Linux'
       run: |
-        mkdir FishGame
+        mkdir -p FishGame
         cp build/DLNU_CPP_CourseDesign FishGame/
+        cp -r asset FishGame/
+
+    - name: Prepare Release Package (macOS)
+      if: runner.os == 'macOS'
+      run: |
+        mkdir -p FishGame
+        cp build/Release/DLNU_CPP_CourseDesign FishGame/
         cp -r asset FishGame/
 
     - name: Create Archive
@@ -77,8 +84,10 @@ jobs:
         if [ "$RUNNER_OS" == "Windows" ]; then
           7z a -tzip FishGame-Windows.zip ./FishGame/*
         elif [ "$RUNNER_OS" == "Linux" ]; then
+          chmod +x ./FishGame/DLNU_CPP_CourseDesign
           tar -czf FishGame-Linux.tar.gz ./FishGame/
         elif [ "$RUNNER_OS" == "macOS" ]; then
+          chmod +x ./FishGame/DLNU_CPP_CourseDesign
           tar -czf FishGame-macOS.tar.gz ./FishGame/
         fi
       shell: bash
