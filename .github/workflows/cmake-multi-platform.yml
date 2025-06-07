@@ -14,6 +14,7 @@ permissions:
 jobs:
   build:
     strategy:
+      fail-fast: false  # 防止一个平台失败导致其他平台取消
       matrix:
         include:
           - os: windows-latest
@@ -28,7 +29,7 @@ jobs:
             platform: macos
             artifact_name: FishGame-macOS.zip
             exe_name: DLNU_CPP_CourseDesign
-          - os: ubuntu-latest
+          - os: ubuntu-20.04  # 使用不同版本的 Ubuntu 来构建 Android
             platform: android
             artifact_name: FishGame-Android.apk
             build_type: android
