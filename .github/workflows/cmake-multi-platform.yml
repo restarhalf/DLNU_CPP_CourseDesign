@@ -132,7 +132,7 @@ jobs:
     - name: Configure CMake (Desktop)
       if: matrix.platform != 'android'
       run: |
-        cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=Release
+        cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=Release -DCMAKE_VERBOSE_MAKEFILE=ON
 
     - name: Configure CMake (Android)
       if: matrix.platform == 'android'
@@ -148,7 +148,7 @@ jobs:
         -DSDL2_MIXER_DIR=${{github.workspace}}/android/SDL2_mixer/cmake
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config Release
+      run: cmake --build ${{github.workspace}}/build --config Release --verbose
 
     - name: Build Android APK
       if: matrix.platform == 'android'
