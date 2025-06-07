@@ -9,6 +9,7 @@
 #include <SDL.h>
 #include "Text.h"
 #include <string>
+#include <cmath>
 
 namespace lyt
 {

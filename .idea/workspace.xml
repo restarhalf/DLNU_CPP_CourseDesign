@@ -33,15 +33,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0bcc9e56-ae7f-4772-83b2-5a4237ae3734" name="更改" comment="FIX">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README_plan.md" beforeDir="false" afterPath="$PROJECT_DIR$/README_plan.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lx/include/AIFish.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/AIFish.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lx/include/Fish.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/Fish.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lx/src/AIFish.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/AIFish.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lx/src/Fish.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/Fish.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lx/src/PlayerFish.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/PlayerFish.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lyt/include/Game.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Game.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lyt/src/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Game.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +72,9 @@
     <setting file="file://C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.41.34120/include/xutility" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/main.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="0rDj0rbN" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 1
@@ -99,6 +93,7 @@
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.rust.reset.selective.auto.import&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.west.config.association.type.startup.service&quot;: &quot;true&quot;,
     &quot;cf.advertisement.text.has.clang-format&quot;: &quot;true&quot;,
     &quot;cf.advertisement.text.overridden&quot;: &quot;true&quot;,
@@ -111,22 +106,20 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon&quot;: &quot;&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;CMakeSettings&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\.github\workflows" />
+      <recent name="D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api" />
       <recent name="D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lx\src" />
       <recent name="D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lx\include" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="DLNU_CPP_CourseDesign" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="DLNU_CPP_CourseDesign" TARGET_NAME="DLNU_CPP_CourseDesign" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="DLNU_CPP_CourseDesign" RUN_TARGET_NAME="DLNU_CPP_CourseDesign">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -167,6 +160,9 @@
       <workItem from="1749027487903" duration="3112000" />
       <workItem from="1749030686757" duration="4000" />
       <workItem from="1749103347253" duration="255000" />
+      <workItem from="1749308695745" duration="399000" />
+      <workItem from="1749310338564" duration="63000" />
+      <workItem from="1749310567625" duration="2000" />
     </task>
     <task id="LOCAL-00001" summary="GUI">
       <option name="closed" value="true" />
@@ -304,7 +300,31 @@
       <option name="project" value="LOCAL" />
       <updated>1749019776476</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749304051708</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1749304051708</updated>
+    </task>
+    <task id="LOCAL-00019" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749304342431</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1749304342431</updated>
+    </task>
+    <task id="LOCAL-00020" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749310373318</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1749310373318</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
