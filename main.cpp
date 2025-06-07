@@ -104,7 +104,8 @@ int main(int argc, char* argv[])
 
         aiFishes.emplace_back(game.getRenderer(), "asset/images/4.png", x, y, size, size);
     }
-
+    //暂停状态变量,初始就是静止状态（游戏未开始前）
+    bool paused=true;
     // 游戏主循环
     while (game.running())
     {
@@ -132,8 +133,20 @@ int main(int argc, char* argv[])
             exit.handleEvent(event);
             fullscreenBtn.handleEvent(event);
 
-            playerFish.handleInput(game.getController());
-
+            
+            //检测暂停键（p键）
+            if (event.type == SDL_KEYDOWN) //还需加上点击开始/继续图标的条件语句！！！！！
+            {
+                if (event.key.keysym.sym == SDLK_p) {
+                    paused = !paused;//暂停状态转化
+                }            
+            }
+            if (!paused) //暂停状态变化，若未暂停，更新移动
+            {
+                // 处理玩家输入
+                playerFish.handleInput(game.getController());
+            }
+          
             if (login.isButtonReleased())
             {
                 loginUi.getWindow()->hide(true);
@@ -163,31 +176,35 @@ int main(int argc, char* argv[])
             }
         }
 
-        // 玩家鱼和AI鱼的更新逻辑
-        playerFish.update(windowW, windowH);
-
-        // AI鱼更新与碰撞检测循环
-        for (auto it = aiFishes.begin(); it != aiFishes.end();)
+        if (!paused)
         {
-            it->update(windowW, windowH);//位置更新
+            // 玩家鱼和AI鱼的更新逻辑
+            playerFish.update(windowW, windowH);  
 
-            if (!playerFish.isAlive())
+            // AI鱼更新与碰撞检测循环
+            for (auto it = aiFishes.begin(); it != aiFishes.end();)
             {
-               // SDL_Log("玩家死亡，游戏结束");
-                scoreManager.saveHighScore();
-                if (font) TTF_CloseFont(font);
-                loginUi.clean();
-                game.clean();
-                return 0;
+                it->update(windowW, windowH);  // 位置更新
+
+                if (!playerFish.isAlive())
+                {
+                    SDL_Log("玩家死亡，游戏结束");
+                    scoreManager.saveHighScore();
+                    if (font) TTF_CloseFont(font);
+                    loginUi.clean();
+                    game.clean();
+                    return 0;
+                }
+
+                playerFish.tryEat(*it, scoreManager);  // 循环判断
+
+                if (!it->isAlive())
+                    it = aiFishes.erase(it);
+                else
+                    ++it;
             }
-
-             playerFish.tryEat(*it, scoreManager);//循环判断
-
-            if (!it->isAlive())
-                it = aiFishes.erase(it);
-            else
-                ++it;
         }
+         
 
         // 维持AI鱼的数量，确保始终有足够的AI鱼在场
         constexpr int MAX_AI_FISH = 10;
