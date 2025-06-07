@@ -29,7 +29,7 @@ jobs:
             platform: macos
             artifact_name: FishGame-macOS.zip
             exe_name: DLNU_CPP_CourseDesign
-          - os: ubuntu-20.04  # 使用不同版本的 Ubuntu 来构建 Android
+          - os: ubuntu-22.04  # 更新为 Ubuntu 22.04
             platform: android
             artifact_name: FishGame-Android.apk
             build_type: android
