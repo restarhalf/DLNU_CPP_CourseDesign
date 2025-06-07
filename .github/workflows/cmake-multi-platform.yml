@@ -13,16 +13,12 @@ permissions:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        os: [windows-latest, ubuntu-latest, macos-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v3
 
-    - name: Install Dependencies (Windows)
-      if: runner.os == 'Windows'
+    - name: Install SDL2 Dependencies
       shell: cmd
       run: |
         curl -L -o SDL2.zip https://github.com/libsdl-org/SDL/releases/download/release-2.28.5/SDL2-devel-2.28.5-VC.zip
@@ -33,31 +29,15 @@ jobs:
         7z x SDL2_image.zip
         7z x SDL2_ttf.zip
         7z x SDL2_mixer.zip
+        dir /s /b SDL2*.dll
 
-    - name: Install Dependencies (Ubuntu)
-      if: runner.os == 'Linux'
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev
-
-    - name: Install Dependencies (macOS)
-      if: runner.os == 'macOS'
-      run: |
-        brew install sdl2 sdl2_image sdl2_ttf sdl2_mixer
-
-    - name: Configure CMake (Windows)
-      if: runner.os == 'Windows'
+    - name: Configure CMake
       run: cmake -B ${{github.workspace}}/build -G "Visual Studio 17 2022" -DCMAKE_BUILD_TYPE=Release
-
-    - name: Configure CMake (Unix)
-      if: runner.os != 'Windows'
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=Release
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config Release
 
-    - name: Prepare Release Package (Windows)
-      if: runner.os == 'Windows'
+    - name: Prepare Release Package
       shell: cmd
       run: |
         mkdir FishGame
@@ -65,68 +45,28 @@ jobs:
         for /r %%i in (SDL2*.dll) do copy "%%i" "FishGame\"
         xcopy /E /I /Y "asset" "FishGame\asset\"
 
-    - name: Prepare Release Package (Linux)
-      if: runner.os == 'Linux'
+    - name: Create ZIP Archive
+      shell: cmd
       run: |
-        mkdir -p FishGame
-        cp build/DLNU_CPP_CourseDesign FishGame/
-        cp -r asset FishGame/
-
-    - name: Prepare Release Package (macOS)
-      if: runner.os == 'macOS'
-      run: |
-        mkdir -p FishGame
-        cp build/Release/DLNU_CPP_CourseDesign FishGame/
-        cp -r asset FishGame/
-
-    - name: Create Archive
-      run: |
-        if [ "$RUNNER_OS" == "Windows" ]; then
-          7z a -tzip FishGame-Windows.zip ./FishGame/*
-        elif [ "$RUNNER_OS" == "Linux" ]; then
-          chmod +x ./FishGame/DLNU_CPP_CourseDesign
-          tar -czf FishGame-Linux.tar.gz ./FishGame/
-        elif [ "$RUNNER_OS" == "macOS" ]; then
-          chmod +x ./FishGame/DLNU_CPP_CourseDesign
-          tar -czf FishGame-macOS.tar.gz ./FishGame/
-        fi
-      shell: bash
-
-    - name: Upload Build Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: FishGame-${{ runner.os }}
-        path: FishGame-*.*
-        compression-level: 9
-        retention-days: 5
+        7z a -tzip FishGame.zip .\FishGame\*
 
     - name: Create Release
       if: startsWith(github.ref, 'refs/tags/')
       uses: softprops/action-gh-release@v1
       with:
-        files: FishGame-*.*
+        files: FishGame.zip
         name: 游戏发布 ${{ github.ref_name }}
         body: |
           ## 🎮 鱼吃鱼游戏 ${{ github.ref_name }}
           
           ### 📥 安装说明
-          #### Windows
-          1. 下载 FishGame-Windows.zip
+          1. 下载 FishGame.zip
           2. 解压到任意位置
           3. 双击运行 DLNU_CPP_CourseDesign.exe 即可开始游戏
-          
-          #### Linux
-          1. 下载 FishGame-Linux.tar.gz
-          2. 解压: `tar -xzf FishGame-Linux.tar.gz`
-          3. 运行: `./DLNU_CPP_CourseDesign`
-          
-          #### macOS
-          1. 下载 FishGame-macOS.tar.gz
-          2. 解压: `tar -xzf FishGame-macOS.tar.gz`
-          3. 运行: `./DLNU_CPP_CourseDesign`
           
           ### 🎯 游戏说明
           - 使用方向键控制鱼的移动
           - 吃掉比自己小的鱼来成长
           - 注意躲避比自己大的鱼
         token: ${{ secrets.GITHUB_TOKEN }}
+
