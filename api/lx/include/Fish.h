@@ -4,6 +4,8 @@
 #include "Renderer.h"
 #include <SDL.h>
 #include <string>
+#include <cmath>
+#include<vector>
 #include <unordered_map>
 
 namespace lx {
