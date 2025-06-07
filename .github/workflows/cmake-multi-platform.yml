@@ -132,7 +132,13 @@ jobs:
     - name: Configure CMake (Desktop)
       if: matrix.platform != 'android'
       run: |
-        cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=Release -DCMAKE_VERBOSE_MAKEFILE=ON
+        cmake -B ${{github.workspace}}/build \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_VERBOSE_MAKEFILE=ON \
+        -DSDL2_DIR=${{github.workspace}}/lib/dep/plugins/SDL2/cmake \
+        -DSDL2_IMAGE_DIR=${{github.workspace}}/lib/dep/plugins/SDL2/cmake \
+        -DSDL2_TTF_DIR=${{github.workspace}}/lib/dep/plugins/SDL2/cmake \
+        -DSDL2_MIXER_DIR=${{github.workspace}}/lib/dep/plugins/SDL2/cmake
 
     - name: Configure CMake (Android)
       if: matrix.platform == 'android'
