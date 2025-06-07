@@ -14,7 +14,7 @@ permissions:
 jobs:
   build:
     strategy:
-      fail-fast: false  # 防止一个平台失败导致其他平台取消
+      fail-fast: false
       matrix:
         include:
           - os: windows-latest
@@ -29,7 +29,7 @@ jobs:
             platform: macos
             artifact_name: FishGame-macOS.zip
             exe_name: DLNU_CPP_CourseDesign
-          - os: ubuntu-22.04  # 更新为 Ubuntu 22.04
+          - os: ubuntu-22.04
             platform: android
             artifact_name: FishGame-Android.apk
             build_type: android
@@ -54,60 +54,17 @@ jobs:
           android/SDL2
         key: sdl2-android-${{ hashFiles('android/app/build.gradle') }}
 
-    - name: Setup Android SDK and NDK
+    - name: Set up Android SDK
       if: matrix.platform == 'android'
       uses: android-actions/setup-android@v3
       with:
-        cmdline-tools-version: '8.0'
-
-    - name: Install Android Build Tools
-      if: matrix.platform == 'android'
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y ninja-build
-        yes | sdkmanager --licenses
-        sdkmanager \
-          "platform-tools" \
-          "platforms;android-34" \
-          "build-tools;34.0.0" \
-          "ndk;25.2.9519653" \
-          "cmake;3.22.1"
-
-    - name: Clone SDL2 for Android
-      if: matrix.platform == 'android'
-      run: |
-        cd android
-        git clone https://github.com/libsdl-org/SDL.git SDL2
-        cd SDL2
-        git checkout release-2.28.5
-
-    - name: Clone SDL2_image for Android
-      if: matrix.platform == 'android'
-      run: |
-        cd android
-        git clone https://github.com/libsdl-org/SDL_image.git SDL2_image
-        cd SDL2_image
-        git checkout release-2.6.3
-
-    - name: Clone SDL2_ttf for Android
-      if: matrix.platform == 'android'
-      run: |
-        cd android
-        git clone https://github.com/libsdl-org/SDL_ttf.git SDL2_ttf
-        cd SDL2_ttf
-        git checkout release-2.20.2
-
-    - name: Clone SDL2_mixer for Android
-      if: matrix.platform == 'android'
-      run: |
-        cd android
-        git clone https://github.com/libsdl-org/SDL_mixer.git SDL2_mixer
-        cd SDL2_mixer
-        git checkout release-2.6.3
+        cmdline-tools-version: '9.0'
+        cmake-version: '3.22.1'
+        ndk-version: '25.1.8937393'
 
     - name: Install SDL2 Dependencies (Windows)
-      if: runner.os == 'Windows' && matrix.platform == 'windows'
-      shell: cmd
+      if: runner.os == 'Windows'
+      shell: pwsh
       run: |
         curl -L -o SDL2.zip https://github.com/libsdl-org/SDL/releases/download/release-2.28.5/SDL2-devel-2.28.5-VC.zip
         curl -L -o SDL2_image.zip https://github.com/libsdl-org/SDL_image/releases/download/release-2.6.3/SDL2_image-devel-2.6.3-VC.zip
@@ -133,7 +90,6 @@ jobs:
       if: runner.os == 'Windows'
       shell: cmd
       run: |
-        type ${{github.workspace}}/lib/dep/plugins/SDL2/cmake/sdl2-config.cmake
         cmake -B ${{github.workspace}}/build ^
         -DCMAKE_BUILD_TYPE=Release ^
         -DCMAKE_VERBOSE_MAKEFILE=ON ^
@@ -202,26 +158,4 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: ${{ matrix.artifact_name }}
-        name: 游戏发布 ${{ github.ref_name }}
-        body: |
-          ## 🎮 鱼吃鱼游戏 ${{ github.ref_name }}
-          
-          ### 📥 下载说明
-          请根据您的操作系统选择对应的版本：
-          - Windows: FishGame-Windows.zip
-          - Linux: FishGame-Linux.zip
-          - macOS: FishGame-macOS.zip
-          - Android: FishGame-Android.apk
-          
-          ### 📦 安装说明
-          1. 下载对应平台的压缩包/安装包：
-          2. 安装/运行说明：
-             - Windows: 解压后双击运行 DLNU_CPP_CourseDesign.exe
-             - Linux/macOS: 解压后在终端中运行 ./DLNU_CPP_CourseDesign
-             - Android: 直接安装 APK 文件
-          
-          ### 🎯 游戏说明
-          - 使用方向键/触摸控制鱼的移动
-          - 吃掉比自己小的鱼来成长
-          - 注意躲避比自己大的鱼
         token: ${{ secrets.GITHUB_TOKEN }}
