@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 //
 // Created by restarhalf on 2025/5/29.
 //
@@ -57,7 +57,9 @@ namespace lyt
          * @param dst 目标矩形（可为nullptr表示整个渲染目标）
          * @return 成功返回0，失败返回负值
          */
-        int copy(SDL_Texture* texture, const SDL_Rect* src, const SDL_Rect* dst) const;
+        int copy(SDL_Texture* texture, const SDL_Rect* src, const SDL_Rect* dst, double angle = 0.0,
+                 const SDL_Point* center = nullptr, SDL_RendererFlip flip = SDL_FLIP_NONE) const;
+
 
 
         /**
