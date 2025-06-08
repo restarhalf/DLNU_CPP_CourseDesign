@@ -1,52 +1,161 @@
-name: CMake Build
+name: CMake Build and Release
 
 on:
   push:
     branches: [ "main" ]
+    tags:
+      - 'v*'
   pull_request:
     branches: [ "main" ]
 
+permissions:
+  contents: write
+
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        build_type: [Release]
+        include:
+          - os: windows-latest
+            platform: windows
+            artifact_name: FishGame-Windows.zip
+            exe_name: DLNU_CPP_CourseDesign.exe
+          - os: ubuntu-latest
+            platform: linux
+            artifact_name: FishGame-Linux.zip
+            exe_name: DLNU_CPP_CourseDesign
+          - os: macos-latest
+            platform: macos
+            artifact_name: FishGame-macOS.zip
+            exe_name: DLNU_CPP_CourseDesign
+          - os: ubuntu-22.04
+            platform: android
+            artifact_name: FishGame-Android.apk
+            build_type: android
+
+    runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
-    - name: Install Dependencies (macOS)
+    - name: Set up JDK for Android
+      if: matrix.platform == 'android'
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Cache SDL2 Android
+      if: matrix.platform == 'android'
+      uses: actions/cache@v4
+      with:
+        path: |
+          android/SDL2
+        key: sdl2-android-${{ hashFiles('android/app/build.gradle') }}
+
+    - name: Set up Android SDK
+      if: matrix.platform == 'android'
+      uses: android-actions/setup-android@v3
+      with:
+        cmdline-tools-version: '9.0'
+        cmake-version: '3.22.1'
+        ndk-version: '25.1.8937393'
+
+    - name: Install SDL2 Dependencies (Windows)
+      if: runner.os == 'Windows'
+      shell: pwsh
+      run: |
+        curl -L -o SDL2.zip https://github.com/libsdl-org/SDL/releases/download/release-2.28.5/SDL2-devel-2.28.5-VC.zip
+        curl -L -o SDL2_image.zip https://github.com/libsdl-org/SDL_image/releases/download/release-2.6.3/SDL2_image-devel-2.6.3-VC.zip
+        curl -L -o SDL2_ttf.zip https://github.com/libsdl-org/SDL_ttf/releases/download/release-2.20.2/SDL2_ttf-devel-2.20.2-VC.zip
+        curl -L -o SDL2_mixer.zip https://github.com/libsdl-org/SDL_mixer/releases/download/release-2.6.3/SDL2_mixer-devel-2.6.3-VC.zip
+        7z x SDL2.zip
+        7z x SDL2_image.zip
+        7z x SDL2_ttf.zip
+        7z x SDL2_mixer.zip
+
+    - name: Install SDL2 Dependencies (Ubuntu)
+      if: runner.os == 'Linux' && matrix.platform == 'linux'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev
+
+    - name: Install SDL2 Dependencies (macOS)
       if: runner.os == 'macOS'
       run: |
-        brew update
-        brew install cmake
-        brew install sdl2
-        brew install sdl2_image
-        brew install sdl2_ttf
-        brew install sdl2_mixer
-        # 验证安装
-        brew list sdl2
-        brew list sdl2_image
-        brew list sdl2_ttf
-        brew list sdl2_mixer
-        # 显示库文件路径
-        echo "SDL2 Include path: $(brew --prefix sdl2)/include/SDL2"
-        echo "SDL2 Library path: $(brew --prefix sdl2)/lib"
+        brew install sdl2 sdl2_image sdl2_ttf sdl2_mixer
 
-    - name: Configure CMake
-      if: runner.os == 'macOS'
+    - name: Configure CMake (Desktop Windows)
+      if: runner.os == 'Windows'
+      shell: cmd
+      run: |
+        cmake -B ${{github.workspace}}/build ^
+        -DCMAKE_BUILD_TYPE=Release ^
+        -DCMAKE_VERBOSE_MAKEFILE=ON ^
+        -DCMAKE_PREFIX_PATH=${{github.workspace}}/lib/dep/plugins/SDL2/cmake
+
+    - name: Configure CMake (Desktop Unix)
+      if: matrix.platform != 'android' && runner.os != 'Windows'
       run: |
         cmake -B ${{github.workspace}}/build \
-        -DCMAKE_BUILD_TYPE=${{matrix.build_type}} \
-        -DCMAKE_PREFIX_PATH="$(brew --prefix sdl2):$(brew --prefix sdl2_image):$(brew --prefix sdl2_ttf):$(brew --prefix sdl2_mixer)"
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_VERBOSE_MAKEFILE=ON \
+        -DCMAKE_PREFIX_PATH=/usr/local/lib/cmake
 
-    # 其他平台的配置
-    - name: Configure CMake (Non-macOS)
-      if: runner.os != 'macOS'
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{matrix.build_type}}
+    - name: Configure CMake (Android)
+      if: matrix.platform == 'android'
+      run: |
+        cmake -B ${{github.workspace}}/build \
+        -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \
+        -DANDROID_ABI="arm64-v8a" \
+        -DANDROID_PLATFORM=android-26 \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DSDL2_DIR=${{github.workspace}}/android/SDL2/cmake \
+        -DSDL2_IMAGE_DIR=${{github.workspace}}/android/SDL2_image/cmake \
+        -DSDL2_TTF_DIR=${{github.workspace}}/android/SDL2_ttf/cmake \
+        -DSDL2_MIXER_DIR=${{github.workspace}}/android/SDL2_mixer/cmake
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{matrix.build_type}}
+      run: cmake --build ${{github.workspace}}/build --config Release --verbose
+
+    - name: Build Android APK
+      if: matrix.platform == 'android'
+      run: |
+        cd android
+        ./gradlew assembleRelease
+        cp app/build/outputs/apk/release/app-release.apk ../FishGame-Android.apk
+
+    - name: Prepare Release Package (Windows)
+      if: runner.os == 'Windows' && matrix.platform == 'windows'
+      shell: cmd
+      run: |
+        mkdir FishGame
+        copy "build\Release\${{ matrix.exe_name }}" "FishGame\"
+        for /r %%i in (SDL2*.dll) do copy "%%i" "FishGame\"
+        xcopy /E /I /Y "asset" "FishGame\asset\"
+
+    - name: Prepare Release Package (Linux/macOS)
+      if: matrix.platform != 'android' && matrix.platform != 'windows'
+      run: |
+        mkdir -p FishGame
+        cp "build/${{ matrix.exe_name }}" "FishGame/"
+        cp -r asset FishGame/
+
+    - name: Create ZIP Archive (Desktop)
+      if: matrix.platform != 'android'
+      run: |
+        7z a -tzip ${{ matrix.artifact_name }} ./FishGame/*
+
+    - name: Upload Build Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ matrix.platform }}-build
+        path: ${{ matrix.artifact_name }}
+
+    - name: Create Release
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v1
+      with:
+        files: ${{ matrix.artifact_name }}
+        token: ${{ secrets.GITHUB_TOKEN }}
