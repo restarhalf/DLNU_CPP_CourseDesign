@@ -3,109 +3,94 @@ project("DLNU_CPP_CourseDesign")
 
 set(CMAKE_CXX_STANDARD 20)
 
-# macOS 平台配置
-if(APPLE)
-    # 设置 SDL2 查找路径
-    set(SDL2_DIR ${HOMEBREW_PREFIX}/lib/cmake/SDL2)
-    set(SDL2_IMAGE_DIR ${HOMEBREW_PREFIX}/lib/cmake/SDL2_image)
-    set(SDL2_TTF_DIR ${HOMEBREW_PREFIX}/lib/cmake/SDL2_ttf)
-    set(SDL2_MIXER_DIR ${HOMEBREW_PREFIX}/lib/cmake/SDL2_mixer)
-
-    # 查找所有 SDL2 相关包
-    find_package(SDL2 REQUIRED)
-    find_package(SDL2_image REQUIRED)
-    find_package(SDL2_ttf REQUIRED)
-    find_package(SDL2_mixer REQUIRED)
-
-    message(STATUS "SDL2_INCLUDE_DIRS: ${SDL2_INCLUDE_DIRS}")
-    message(STATUS "SDL2_LIBRARIES: ${SDL2_LIBRARIES}")
-endif()
-
 # Android平台配置
 if(ANDROID)
-    include(FetchContent)
+    message(STATUS "Configuring for Android platform...")
 
-    # 设置FetchContent全局属性
-    set(FETCHCONTENT_TRY_FIND_PACKAGE_MODE NEVER)
-    set(FETCHCONTENT_QUIET OFF)
-    set(FETCHCONTENT_FULLY_DISCONNECTED OFF)
-
-    message(STATUS "Configuring SDL2 dependencies for Android...")
+    if(NOT DEFINED ENV{ANDROID_NDK})
+        message(FATAL_ERROR "ANDROID_NDK environment variable not set!")
+    endif()
 
     # 设置Android特定选项
-    set(SDL_SHARED OFF CACHE BOOL "Build a shared version of the library")
-    set(SDL_STATIC ON CACHE BOOL "Build a static version of the library")
-    set(SDL2_DISABLE_INSTALL ON)
-    set(SDL2IMAGE_INSTALL OFF)
-    set(SDL2TTF_INSTALL OFF)
-    set(SDL2MIXER_INSTALL OFF)
-
-    # SDL2核心库
-    FetchContent_Declare(
-        SDL2
-        URL https://github.com/libsdl-org/SDL/releases/download/release-2.28.5/SDL2-2.28.5.tar.gz
-        DOWNLOAD_EXTRACT_TIMESTAMP TRUE
-    )
-
-    # SDL2_image
-    FetchContent_Declare(
-        SDL2_image
-        URL https://github.com/libsdl-org/SDL_image/releases/download/release-2.8.2/SDL2_image-2.8.2.tar.gz
-        DOWNLOAD_EXTRACT_TIMESTAMP TRUE
-    )
-
-    # SDL2_ttf
-    FetchContent_Declare(
-        SDL2_ttf
-        URL https://github.com/libsdl-org/SDL_ttf/releases/download/release-2.20.2/SDL2_ttf-2.20.2.tar.gz
-        DOWNLOAD_EXTRACT_TIMESTAMP TRUE
-    )
-
-    # SDL2_mixer
-    FetchContent_Declare(
-        SDL2_mixer
-        URL https://github.com/libsdl-org/SDL_mixer/releases/download/release-2.8.0/SDL2_mixer-2.8.0.tar.gz
-        DOWNLOAD_EXTRACT_TIMESTAMP TRUE
-    )
-
-    # Android特定配置
     set(CMAKE_ANDROID_ARCH_ABI "arm64-v8a")
     set(CMAKE_ANDROID_STL_TYPE "c++_static")
     set(CMAKE_ANDROID_API 26)
 
-    # 下载并构建所有依赖，分开处理以便于错误排查
-    foreach(dep IN ITEMS SDL2 SDL2_image SDL2_ttf SDL2_mixer)
-        FetchContent_GetProperties(${dep})
-        if(NOT ${dep}_POPULATED)
+    message(STATUS "Android NDK path: $ENV{ANDROID_NDK}")
+    message(STATUS "Android ABI: ${CMAKE_ANDROID_ARCH_ABI}")
+    message(STATUS "Android API: ${CMAKE_ANDROID_API}")
+
+    # 检查预编译的SDL2库
+    set(SDL2_PATH "${CMAKE_CURRENT_SOURCE_DIR}/android/SDL2")
+    set(SDL2_IMAGE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/android/SDL2_image")
+    set(SDL2_TTF_PATH "${CMAKE_CURRENT_SOURCE_DIR}/android/SDL2_ttf")
+    set(SDL2_MIXER_PATH "${CMAKE_CURRENT_SOURCE_DIR}/android/SDL2_mixer")
+
+    # 如果预编译库不存在，则使用FetchContent下载
+    if(NOT EXISTS "${SDL2_PATH}")
+        include(FetchContent)
+        set(FETCHCONTENT_QUIET OFF)
+
+        message(STATUS "Downloading SDL2 dependencies...")
+
+        FetchContent_Declare(
+            SDL2
+            GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
+            GIT_TAG release-2.28.5
+            GIT_PROGRESS TRUE
+            GIT_SHALLOW TRUE
+        )
+
+        FetchContent_Declare(
+            SDL2_image
+            GIT_REPOSITORY https://github.com/libsdl-org/SDL_image.git
+            GIT_TAG release-2.8.2
+            GIT_PROGRESS TRUE
+            GIT_SHALLOW TRUE
+        )
+
+        FetchContent_Declare(
+            SDL2_ttf
+            GIT_REPOSITORY https://github.com/libsdl-org/SDL_ttf.git
+            GIT_TAG release-2.20.2
+            GIT_PROGRESS TRUE
+            GIT_SHALLOW TRUE
+        )
+
+        FetchContent_Declare(
+            SDL2_mixer
+            GIT_REPOSITORY https://github.com/libsdl-org/SDL_mixer.git
+            GIT_TAG release-2.8.0
+            GIT_PROGRESS TRUE
+            GIT_SHALLOW TRUE
+        )
+
+        # 逐个下载和配置依赖
+        foreach(dep IN ITEMS SDL2 SDL2_image SDL2_ttf SDL2_mixer)
             message(STATUS "Fetching ${dep}...")
-            FetchContent_Populate(${dep})
 
-            if(NOT EXISTS "${${dep}_SOURCE_DIR}")
-                message(FATAL_ERROR "Failed to fetch ${dep}. Source directory not found: ${${dep}_SOURCE_DIR}")
-            else()
-                message(STATUS "${dep} source directory: ${${dep}_SOURCE_DIR}")
+            FetchContent_GetProperties(${dep})
+            if(NOT ${dep}_POPULATED)
+                FetchContent_Populate(${dep})
+
+                if(EXISTS "${${dep}_SOURCE_DIR}")
+                    message(STATUS "${dep} downloaded to: ${${dep}_SOURCE_DIR}")
+
+                    if(${dep} STREQUAL "SDL2")
+                        set(SDL_STATIC ON CACHE BOOL "Build static SDL2 library" FORCE)
+                        set(SDL_SHARED OFF CACHE BOOL "Build shared SDL2 library" FORCE)
+                        set(SDL_TEST OFF CACHE BOOL "Build SDL2 test programs" FORCE)
+                    endif()
+
+                    add_subdirectory(${${dep}_SOURCE_DIR} ${${dep}_BINARY_DIR})
+                else()
+                    message(FATAL_ERROR "${dep} download failed! Directory not found: ${${dep}_SOURCE_DIR}")
+                endif()
             endif()
-
-            # SDL2特定配置
-            if(${dep} STREQUAL "SDL2")
-                set(SDL_STATIC ON CACHE BOOL "Build static SDL2 library" FORCE)
-                set(SDL_SHARED OFF CACHE BOOL "Build shared SDL2 library" FORCE)
-            endif()
-
-            # 添加子目录，但忽略安装步骤
-            add_subdirectory(${${dep}_SOURCE_DIR} ${${dep}_BINARY_DIR} EXCLUDE_FROM_ALL)
-            message(STATUS "${dep} configured successfully")
-        endif()
-    endforeach()
-
-    # 验证所有依赖是否都已正确配置
-    foreach(dep IN ITEMS SDL2 SDL2_image SDL2_ttf SDL2_mixer)
-        if(NOT TARGET ${dep}::${dep})
-            message(FATAL_ERROR "${dep} target not found after configuration")
-        endif()
-    endforeach()
-
-    message(STATUS "All SDL2 dependencies configured successfully")
+        endforeach()
+    else()
+        message(STATUS "Using pre-built SDL2 libraries from android directory")
+    endif()
 endif()
 
 add_executable(${PROJECT_NAME} main.cpp)
