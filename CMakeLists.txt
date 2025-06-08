@@ -23,6 +23,7 @@ endif()
 
 # Android平台配置
 if(ANDROID)
+    set(SDL2_SHARED OFF) # Ensure SDL2_SHARED is OFF for the Android scope
     include(FetchContent)
 
     # 设置FetchContent全局属性
