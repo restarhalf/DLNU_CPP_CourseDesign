@@ -103,7 +103,10 @@ jobs:
         cmake -B ${{github.workspace}}/build ^
         -DCMAKE_BUILD_TYPE=Release ^
         -DCMAKE_VERBOSE_MAKEFILE=ON ^
-        -DSDL2_DIR=${{github.workspace}}/lib/dep/plugins/SDL2/cmake
+        -DSDL2_DIR=${{github.workspace}}/lib/dep/plugins/SDL2/cmake ^
+        -DSDL2_image_DIR=${{github.workspace}}/lib/dep/plugins/SDL2_image/cmake ^
+        -DSDL2_ttf_DIR=${{github.workspace}}/lib/dep/plugins/SDL2_ttf/cmake ^
+        -DSDL2_mixer_DIR=${{github.workspace}}/lib/dep/plugins/SDL2_mixer/cmake
 
     - name: Configure CMake (Desktop Linux)
       if: runner.os == 'Linux'

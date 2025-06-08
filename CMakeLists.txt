@@ -3,22 +3,29 @@ project("DLNU_CPP_CourseDesign")
 
 set(CMAKE_CXX_STANDARD 20)
 
-# 添加自定义模块路径
+# 确保 CMake 能找到自定义模块
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
 
-# 使用自定义 FindSDL2 模块查找 SDL2
-find_package(SDL2 REQUIRED)
-
-# 尝试使用标准方式查找其他 SDL2 组件
+# 平台特定的 SDL2 查找逻辑
 if(WIN32)
-    find_package(SDL2_image REQUIRED PATHS "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2_image/cmake")
-    find_package(SDL2_ttf REQUIRED PATHS "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2_ttf/cmake")
-    find_package(SDL2_mixer REQUIRED PATHS "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2_mixer/cmake")
+    # 对于 Windows，使用预设的目录查找 SDL2
+    set(SDL2_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2/cmake" CACHE PATH "SDL2 config directory")
+    set(SDL2_image_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2_image/cmake" CACHE PATH "SDL2_image config directory")
+    set(SDL2_ttf_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2_ttf/cmake" CACHE PATH "SDL2_ttf config directory")
+    set(SDL2_mixer_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2_mixer/cmake" CACHE PATH "SDL2_mixer config directory")
+
+    # 直接使用手动导入的 SDL2 库
+    message(STATUS "Using SDL2 from: ${SDL2_DIR}")
+    include("${SDL2_DIR}/sdl2-config.cmake")
+    include("${SDL2_image_DIR}/sdl2_image-config.cmake")
+    include("${SDL2_ttf_DIR}/sdl2_ttf-config.cmake")
+    include("${SDL2_mixer_DIR}/sdl2_mixer-config.cmake")
 elseif(ANDROID)
-    find_package(SDL2_image QUIET)
-    find_package(SDL2_ttf QUIET)
-    find_package(SDL2_mixer QUIET)
+    # Android 平台不使用 CMake 查找 SDL2，由 Gradle 负责
+    message(STATUS "Android build - SDL2 will be handled by Gradle")
 else()
+    # 在 Linux/macOS，使用系统库
+    find_package(SDL2 REQUIRED)
     find_package(SDL2_image REQUIRED)
     find_package(SDL2_ttf REQUIRED)
     find_package(SDL2_mixer REQUIRED)
@@ -26,17 +33,23 @@ endif()
 
 add_executable(${PROJECT_NAME} main.cpp)
 
-# 通用包含路径
+# 包含目录设置
 target_include_directories(${PROJECT_NAME} PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/api/lyt/include"
     "${CMAKE_CURRENT_SOURCE_DIR}/api/lx/include"
 )
 
-# 平台特定包含路径
-if(SDL2_INCLUDE_DIRS)
-    target_include_directories(${PROJECT_NAME} PRIVATE ${SDL2_INCLUDE_DIRS})
+# Windows 平台额外包含 SDL2 目录
+if(WIN32)
+    target_include_directories(${PROJECT_NAME} PRIVATE
+        "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2/include"
+        "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2_image/include"
+        "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2_ttf/include"
+        "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2_mixer/include"
+    )
 endif()
 
+# 源文件
 target_sources(${PROJECT_NAME} PRIVATE
     api/lyt/src/Button.cpp
     api/lyt/src/Game.cpp
@@ -54,38 +67,20 @@ target_sources(${PROJECT_NAME} PRIVATE
 
 # 链接 SDL2 库
 if(WIN32)
-    target_link_libraries(${PROJECT_NAME} PRIVATE
-        SDL2
-        SDL2main
-        SDL2_image
-        SDL2_ttf
-        SDL2_mixer
+    # Windows 平台使用直接链接
+    target_link_directories(${PROJECT_NAME} PRIVATE
+        "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2/lib/x64"
+        "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2_image/lib/x64"
+        "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2_ttf/lib/x64"
+        "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2_mixer/lib/x64"
     )
-
-    # 确保 DLL 能够被找到
-    if(SDL2_ARCH_PATH)
-        target_link_directories(${PROJECT_NAME} PRIVATE "${SDL2_ARCH_PATH}")
-    endif()
-elseif(ANDROID)
-    if(TARGET SDL2::SDL2)
-        target_link_libraries(${PROJECT_NAME} PRIVATE
-            SDL2::SDL2
-            SDL2::SDL2main
-        )
-    endif()
-    if(TARGET SDL2_image::SDL2_image)
-        target_link_libraries(${PROJECT_NAME} PRIVATE SDL2_image::SDL2_image)
-    endif()
-    if(TARGET SDL2_ttf::SDL2_ttf)
-        target_link_libraries(${PROJECT_NAME} PRIVATE SDL2_ttf::SDL2_ttf)
-    endif()
-    if(TARGET SDL2_mixer::SDL2_mixer)
-        target_link_libraries(${PROJECT_NAME} PRIVATE SDL2_mixer::SDL2_mixer)
-    endif()
-else()
     target_link_libraries(${PROJECT_NAME} PRIVATE
-        SDL2::SDL2
-        SDL2::SDL2main
+        SDL2 SDL2main SDL2_image SDL2_ttf SDL2_mixer
+    )
+elseif(NOT ANDROID)
+    # Linux/macOS 使用导入目标
+    target_link_libraries(${PROJECT_NAME} PRIVATE
+        SDL2::SDL2 SDL2::SDL2main
         SDL2_image::SDL2_image
         SDL2_ttf::SDL2_ttf
         SDL2_mixer::SDL2_mixer
