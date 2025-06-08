@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.21)
+cmake_minimum_required(VERSION 3.29)
 project("DLNU_CPP_CourseDesign")
 
 set(CMAKE_CXX_STANDARD 20)
