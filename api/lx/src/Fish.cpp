@@ -45,7 +45,13 @@ Fish::~Fish() {
 }
 
 // 渲染鱼到屏幕
-void Fish::render() const { renderer->copy(texture, nullptr, &rect); }
+void Fish::render() const
+{
+    SDL_RendererFlip flip = (direction == -1) ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
+    renderer->copy(texture, nullptr, &rect, 0.0, nullptr, flip);
+    SDL_Log("Fish direction: %d", direction);
+}
+
 
 // 让鱼变大，按比例缩放宽高
 void Fish::grow(float scale)
