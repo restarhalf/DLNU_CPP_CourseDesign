@@ -3,8 +3,16 @@ project("DLNU_CPP_CourseDesign")
 
 set(CMAKE_CXX_STANDARD 20)
 
-# On Unix/Mac use find_package for SDL2 and components
-if(NOT WIN32)
+# Android: use local SDL2 if cross-compiling for Android
+if(ANDROID)
+    find_package(SDL2 REQUIRED PATHS "${CMAKE_CURRENT_SOURCE_DIR}/android/SDL2/cmake" NO_DEFAULT_PATH)
+    find_package(SDL2_image REQUIRED PATHS "${CMAKE_CURRENT_SOURCE_DIR}/android/SDL2_image/cmake" NO_DEFAULT_PATH)
+    find_package(SDL2_ttf REQUIRED PATHS "${CMAKE_CURRENT_SOURCE_DIR}/android/SDL2_ttf/cmake" NO_DEFAULT_PATH)
+    find_package(SDL2_mixer REQUIRED PATHS "${CMAKE_CURRENT_SOURCE_DIR}/android/SDL2_mixer/cmake" NO_DEFAULT_PATH)
+endif()
+
+# On Unix/Mac use find_package for SDL2 and components (exclude Windows and Android)
+if(NOT WIN32 AND NOT ANDROID)
     find_package(SDL2 REQUIRED)
     find_package(SDL2_image REQUIRED)
     find_package(SDL2_ttf REQUIRED)
