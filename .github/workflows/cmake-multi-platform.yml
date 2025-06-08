@@ -76,14 +76,35 @@ jobs:
       if: runner.os == 'Windows'
       shell: pwsh
       run: |
+        # 创建必要的目录结构
+        mkdir -p ${{github.workspace}}/lib/dep/plugins/SDL2
+        mkdir -p ${{github.workspace}}/lib/dep/plugins/SDL2_image
+        mkdir -p ${{github.workspace}}/lib/dep/plugins/SDL2_ttf
+        mkdir -p ${{github.workspace}}/lib/dep/plugins/SDL2_mixer
+        
+        # 下载 SDL2 库
         curl -L -o SDL2.zip https://github.com/libsdl-org/SDL/releases/download/release-2.28.5/SDL2-devel-2.28.5-VC.zip
         curl -L -o SDL2_image.zip https://github.com/libsdl-org/SDL_image/releases/download/release-2.6.3/SDL2_image-devel-2.6.3-VC.zip
         curl -L -o SDL2_ttf.zip https://github.com/libsdl-org/SDL_ttf/releases/download/release-2.20.2/SDL2_ttf-devel-2.20.2-VC.zip
         curl -L -o SDL2_mixer.zip https://github.com/libsdl-org/SDL_mixer/releases/download/release-2.6.3/SDL2_mixer-devel-2.6.3-VC.zip
-        7z x SDL2.zip
-        7z x SDL2_image.zip
-        7z x SDL2_ttf.zip
-        7z x SDL2_mixer.zip
+        
+        # 解压库文件到指定目录
+        7z x SDL2.zip -o"${{github.workspace}}/temp-sdl2"
+        cp -r "${{github.workspace}}/temp-sdl2/SDL2-2.28.5"/* "${{github.workspace}}/lib/dep/plugins/SDL2/"
+        
+        7z x SDL2_image.zip -o"${{github.workspace}}/temp-sdl2-image"
+        cp -r "${{github.workspace}}/temp-sdl2-image/SDL2_image-2.6.3"/* "${{github.workspace}}/lib/dep/plugins/SDL2_image/"
+        
+        7z x SDL2_ttf.zip -o"${{github.workspace}}/temp-sdl2-ttf"
+        cp -r "${{github.workspace}}/temp-sdl2-ttf/SDL2_ttf-2.20.2"/* "${{github.workspace}}/lib/dep/plugins/SDL2_ttf/"
+        
+        7z x SDL2_mixer.zip -o"${{github.workspace}}/temp-sdl2-mixer" 
+        cp -r "${{github.workspace}}/temp-sdl2-mixer/SDL2_mixer-2.6.3"/* "${{github.workspace}}/lib/dep/plugins/SDL2_mixer/"
+        
+        # 列出解压后的目录结构以便调试
+        ls -la "${{github.workspace}}/lib/dep/plugins/SDL2"
+        ls -la "${{github.workspace}}/lib/dep/plugins/SDL2/include" || echo "Include directory not found"
+        ls -la "${{github.workspace}}/lib/dep/plugins/SDL2/lib" || echo "Lib directory not found"
 
     - name: Install SDL2 Dependencies (Ubuntu)
       if: runner.os == 'Linux' && matrix.platform == 'linux'
@@ -102,11 +123,7 @@ jobs:
       run: |
         cmake -B ${{github.workspace}}/build ^
         -DCMAKE_BUILD_TYPE=Release ^
-        -DCMAKE_VERBOSE_MAKEFILE=ON ^
-        -DSDL2_DIR=${{github.workspace}}/lib/dep/plugins/SDL2/cmake ^
-        -DSDL2_image_DIR=${{github.workspace}}/lib/dep/plugins/SDL2_image/cmake ^
-        -DSDL2_ttf_DIR=${{github.workspace}}/lib/dep/plugins/SDL2_ttf/cmake ^
-        -DSDL2_mixer_DIR=${{github.workspace}}/lib/dep/plugins/SDL2_mixer/cmake
+        -DCMAKE_VERBOSE_MAKEFILE=ON
 
     - name: Configure CMake (Desktop Linux)
       if: runner.os == 'Linux'
