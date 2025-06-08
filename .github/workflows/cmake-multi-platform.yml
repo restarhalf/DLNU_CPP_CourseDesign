@@ -46,6 +46,16 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
+    - name: Download SDL2 Android
+      if: matrix.platform == 'android'
+      run: |
+        mkdir -p android/SDL2
+        curl -L -o SDL2-android.zip https://github.com/libsdl-org/SDL/archive/refs/tags/release-2.28.5.zip
+        unzip SDL2-android.zip -d android/SDL2
+        # Flatten extracted directory to android/SDL2
+        mv android/SDL2/SDL-release-2.28.5/* android/SDL2/
+        rm -rf android/SDL2/SDL-release-2.28.5 SDL2-android.zip
+
     - name: Cache SDL2 Android
       if: matrix.platform == 'android'
       uses: actions/cache@v4
@@ -93,7 +103,7 @@ jobs:
         cmake -B ${{github.workspace}}/build ^
         -DCMAKE_BUILD_TYPE=Release ^
         -DCMAKE_VERBOSE_MAKEFILE=ON ^
-        -DCMAKE_PREFIX_PATH=${{github.workspace}}/lib/dep/plugins/SDL2/cmake
+        -DSDL2_DIR=${{github.workspace}}/lib/dep/plugins/SDL2/cmake
 
     - name: Configure CMake (Desktop Linux)
       if: runner.os == 'Linux'
@@ -110,20 +120,10 @@ jobs:
         -DCMAKE_VERBOSE_MAKEFILE=ON \
         -DCMAKE_PREFIX_PATH=$(brew --prefix)/lib/cmake
 
-    - name: Configure CMake (Android)
-      if: matrix.platform == 'android'
-      run: |
-        cmake -B ${{github.workspace}}/build \
-        -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \
-        -DANDROID_ABI="arm64-v8a" \
-        -DANDROID_PLATFORM=android-26 \
-        -DCMAKE_BUILD_TYPE=Release \
-        -DSDL2_DIR=${{github.workspace}}/android/SDL2/cmake \
-        -DSDL2_IMAGE_DIR=${{github.workspace}}/android/SDL2_image/cmake \
-        -DSDL2_TTF_DIR=${{github.workspace}}/android/SDL2_ttf/cmake \
-        -DSDL2_MIXER_DIR=${{github.workspace}}/android/SDL2_mixer/cmake
+    # Android: native build via Gradle, skip CMake configuration
 
     - name: Build
+      if: matrix.platform != 'android'
       run: cmake --build ${{github.workspace}}/build --config Release --verbose
 
     - name: Build Android APK
