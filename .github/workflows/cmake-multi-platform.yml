@@ -95,13 +95,20 @@ jobs:
         -DCMAKE_VERBOSE_MAKEFILE=ON ^
         -DCMAKE_PREFIX_PATH=${{github.workspace}}/lib/dep/plugins/SDL2/cmake
 
-    - name: Configure CMake (Desktop Unix)
-      if: matrix.platform != 'android' && runner.os != 'Windows'
+    - name: Configure CMake (Desktop Linux)
+      if: runner.os == 'Linux'
+      run: |
+        cmake -B ${{github.workspace}}/build \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_VERBOSE_MAKEFILE=ON
+
+    - name: Configure CMake (Desktop macOS)
+      if: runner.os == 'macOS'
       run: |
         cmake -B ${{github.workspace}}/build \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_VERBOSE_MAKEFILE=ON \
-        -DCMAKE_PREFIX_PATH=/usr/local/lib/cmake
+        -DCMAKE_PREFIX_PATH=$(brew --prefix)/lib/cmake
 
     - name: Configure CMake (Android)
       if: matrix.platform == 'android'

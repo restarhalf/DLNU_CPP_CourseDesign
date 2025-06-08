@@ -3,15 +3,40 @@ project("DLNU_CPP_CourseDesign")
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(${PROJECT_NAME} main.cpp
-)
+# On Unix/Mac use find_package for SDL2 and components
+if(NOT WIN32)
+    find_package(SDL2 REQUIRED)
+    find_package(SDL2_image REQUIRED)
+    find_package(SDL2_ttf REQUIRED)
+    find_package(SDL2_mixer REQUIRED)
+endif()
 
-target_include_directories(${PROJECT_NAME} PRIVATE
+add_executable(${PROJECT_NAME} main.cpp)
+
+# Include directories
+if(WIN32)
+    # Windows: use local SDL2 include
+    target_include_directories(${PROJECT_NAME} PRIVATE
         "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2/include"
         "${CMAKE_CURRENT_SOURCE_DIR}/api/lyt/include"
-        "${CMAKE_CURRENT_SOURCE_DIR}/api/lx/include")
-target_link_directories(${PROJECT_NAME} PRIVATE
-        "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2/lib/x64")
+        "${CMAKE_CURRENT_SOURCE_DIR}/api/lx/include"
+    )
+    # Find SDL2 on Windows
+    find_package(SDL2 REQUIRED PATHS "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2/cmake")
+    find_package(SDL2_image REQUIRED PATHS "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2_image/cmake")
+    find_package(SDL2_ttf REQUIRED PATHS "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2_ttf/cmake")
+    find_package(SDL2_mixer REQUIRED PATHS "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2_mixer/cmake")
+else()
+    # Unix/Mac: find and use system SDL2
+    find_package(SDL2 REQUIRED)
+    find_package(SDL2_image REQUIRED)
+    find_package(SDL2_ttf REQUIRED)
+    find_package(SDL2_mixer REQUIRED)
+    target_include_directories(${PROJECT_NAME} PRIVATE
+        "${CMAKE_CURRENT_SOURCE_DIR}/api/lyt/include"
+        "${CMAKE_CURRENT_SOURCE_DIR}/api/lx/include"
+    )
+endif()
 
 target_sources(${PROJECT_NAME} PRIVATE
         api/lyt/src/Button.cpp
@@ -28,10 +53,24 @@ target_sources(${PROJECT_NAME} PRIVATE
         api/lx/src/ScoreManager.cpp
 )
 
-target_link_libraries(DLNU_CPP_CourseDesign PRIVATE
+# Link SDL2 conditionally: use local libs on Windows, imported targets on Unix/Mac
+if(WIN32)
+    target_link_directories(${PROJECT_NAME} PRIVATE
+        "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2/lib/x64"
+    )
+    target_link_libraries(${PROJECT_NAME} PRIVATE
         SDL2
         SDL2main
         SDL2_image
         SDL2_ttf
         SDL2_mixer
-)
+    )
+else()
+    target_link_libraries(${PROJECT_NAME} PRIVATE
+        SDL2::SDL2
+        SDL2::SDL2main
+        SDL2_image::SDL2_image
+        SDL2_ttf::SDL2_ttf
+        SDL2_mixer::SDL2_mixer
+    )
+endif()
