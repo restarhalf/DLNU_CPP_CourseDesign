@@ -77,10 +77,16 @@ jobs:
       shell: pwsh
       run: |
         # 创建必要的目录结构
-        mkdir -p ${{github.workspace}}/lib/dep/plugins/SDL2
-        mkdir -p ${{github.workspace}}/lib/dep/plugins/SDL2_image
-        mkdir -p ${{github.workspace}}/lib/dep/plugins/SDL2_ttf
-        mkdir -p ${{github.workspace}}/lib/dep/plugins/SDL2_mixer
+        # PowerShell 创建目录方式
+        $sdl2Path = "${{github.workspace}}\lib\dep\plugins\SDL2"
+        $sdl2ImagePath = "${{github.workspace}}\lib\dep\plugins\SDL2_image"
+        $sdl2TtfPath = "${{github.workspace}}\lib\dep\plugins\SDL2_ttf"
+        $sdl2MixerPath = "${{github.workspace}}\lib\dep\plugins\SDL2_mixer"
+        
+        if(!(Test-Path $sdl2Path)) { New-Item -Path $sdl2Path -ItemType Directory -Force }
+        if(!(Test-Path $sdl2ImagePath)) { New-Item -Path $sdl2ImagePath -ItemType Directory -Force }
+        if(!(Test-Path $sdl2TtfPath)) { New-Item -Path $sdl2TtfPath -ItemType Directory -Force }
+        if(!(Test-Path $sdl2MixerPath)) { New-Item -Path $sdl2MixerPath -ItemType Directory -Force }
         
         # 下载 SDL2 库
         curl -L -o SDL2.zip https://github.com/libsdl-org/SDL/releases/download/release-2.28.5/SDL2-devel-2.28.5-VC.zip
@@ -89,22 +95,54 @@ jobs:
         curl -L -o SDL2_mixer.zip https://github.com/libsdl-org/SDL_mixer/releases/download/release-2.6.3/SDL2_mixer-devel-2.6.3-VC.zip
         
         # 解压库文件到指定目录
-        7z x SDL2.zip -o"${{github.workspace}}/temp-sdl2"
-        cp -r "${{github.workspace}}/temp-sdl2/SDL2-2.28.5"/* "${{github.workspace}}/lib/dep/plugins/SDL2/"
+        # 使用 PowerShell 方式解压和拷贝
+        $tempDir = "${{github.workspace}}\temp-extract"
+        if(!(Test-Path $tempDir)) { New-Item -Path $tempDir -ItemType Directory -Force }
         
-        7z x SDL2_image.zip -o"${{github.workspace}}/temp-sdl2-image"
-        cp -r "${{github.workspace}}/temp-sdl2-image/SDL2_image-2.6.3"/* "${{github.workspace}}/lib/dep/plugins/SDL2_image/"
+        # SDL2
+        7z x SDL2.zip -o"$tempDir"
+        $sdl2ExtractDir = "$tempDir\SDL2-2.28.5"
+        if(Test-Path $sdl2ExtractDir) {
+            Copy-Item -Path "$sdl2ExtractDir\*" -Destination $sdl2Path -Recurse -Force
+        } else {
+            Write-Error "Could not find extracted SDL2 directory"
+            exit 1
+        }
         
-        7z x SDL2_ttf.zip -o"${{github.workspace}}/temp-sdl2-ttf"
-        cp -r "${{github.workspace}}/temp-sdl2-ttf/SDL2_ttf-2.20.2"/* "${{github.workspace}}/lib/dep/plugins/SDL2_ttf/"
+        # SDL2_image
+        7z x SDL2_image.zip -o"$tempDir"
+        $sdl2ImageExtractDir = "$tempDir\SDL2_image-2.6.3"
+        if(Test-Path $sdl2ImageExtractDir) {
+            Copy-Item -Path "$sdl2ImageExtractDir\*" -Destination $sdl2ImagePath -Recurse -Force
+        } else {
+            Write-Error "Could not find extracted SDL2_image directory"
+            exit 1
+        }
         
-        7z x SDL2_mixer.zip -o"${{github.workspace}}/temp-sdl2-mixer" 
-        cp -r "${{github.workspace}}/temp-sdl2-mixer/SDL2_mixer-2.6.3"/* "${{github.workspace}}/lib/dep/plugins/SDL2_mixer/"
+        # SDL2_ttf
+        7z x SDL2_ttf.zip -o"$tempDir"
+        $sdl2TtfExtractDir = "$tempDir\SDL2_ttf-2.20.2"
+        if(Test-Path $sdl2TtfExtractDir) {
+            Copy-Item -Path "$sdl2TtfExtractDir\*" -Destination $sdl2TtfPath -Recurse -Force 
+        } else {
+            Write-Error "Could not find extracted SDL2_ttf directory"
+            exit 1
+        }
+        
+        # SDL2_mixer
+        7z x SDL2_mixer.zip -o"$tempDir"
+        $sdl2MixerExtractDir = "$tempDir\SDL2_mixer-2.6.3"
+        if(Test-Path $sdl2MixerExtractDir) {
+            Copy-Item -Path "$sdl2MixerExtractDir\*" -Destination $sdl2MixerPath -Recurse -Force
+        } else {
+            Write-Error "Could not find extracted SDL2_mixer directory"
+            exit 1
+        }
         
         # 列出解压后的目录结构以便调试
-        ls -la "${{github.workspace}}/lib/dep/plugins/SDL2"
-        ls -la "${{github.workspace}}/lib/dep/plugins/SDL2/include" || echo "Include directory not found"
-        ls -la "${{github.workspace}}/lib/dep/plugins/SDL2/lib" || echo "Lib directory not found"
+        Get-ChildItem -Path $sdl2Path -Force
+        Get-ChildItem -Path "$sdl2Path\include" -Force -ErrorAction SilentlyContinue || Write-Host "Include directory not found"
+        Get-ChildItem -Path "$sdl2Path\lib" -Force -ErrorAction SilentlyContinue || Write-Host "Lib directory not found"
 
     - name: Install SDL2 Dependencies (Ubuntu)
       if: runner.os == 'Linux' && matrix.platform == 'linux'

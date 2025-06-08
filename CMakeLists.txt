@@ -30,12 +30,41 @@ elseif(ANDROID)
     # Android 平台不使用 CMake 查找 SDL2，由 Gradle 负责
     message(STATUS "Android build - SDL2 will be handled by Gradle")
 else()
-    # 在 Linux/macOS，使用系统库
-    message(STATUS "Using system SDL2")
-    find_package(SDL2 REQUIRED)
-    find_package(SDL2_image REQUIRED)
-    find_package(SDL2_ttf REQUIRED)
-    find_package(SDL2_mixer REQUIRED)
+    # 在 Linux/macOS，使用我们的自定义查找模块
+    message(STATUS "Using system SDL2 with custom Find module")
+endif()
+
+# 所有平台都使用我们的自定义 FindSDL2 模块
+find_package(SDL2 REQUIRED)
+
+# 在 Linux/macOS 上使用系统的 SDL2 扩展库
+if(NOT WIN32 AND NOT ANDROID)
+    # 尝试使用系统的查找模块，若失败将使用缺省处理
+    find_package(SDL2_image QUIET)
+    find_package(SDL2_ttf QUIET)
+    find_package(SDL2_mixer QUIET)
+
+    # 如果找不到配置文件，使用 pkg-config
+    if(NOT SDL2_image_FOUND)
+        find_package(PkgConfig QUIET)
+        if(PKG_CONFIG_FOUND)
+            pkg_check_modules(SDL2_IMAGE QUIET SDL2_image)
+        endif()
+    endif()
+
+    if(NOT SDL2_ttf_FOUND)
+        find_package(PkgConfig QUIET)
+        if(PKG_CONFIG_FOUND)
+            pkg_check_modules(SDL2_TTF QUIET SDL2_ttf)
+        endif()
+    endif()
+
+    if(NOT SDL2_mixer_FOUND)
+        find_package(PkgConfig QUIET)
+        if(PKG_CONFIG_FOUND)
+            pkg_check_modules(SDL2_MIXER QUIET SDL2_mixer)
+        endif()
+    endif()
 endif()
 
 add_executable(${PROJECT_NAME} main.cpp)
@@ -81,9 +110,19 @@ if(WIN32)
 elseif(NOT ANDROID)
     # Linux/macOS 使用导入目标
     target_link_libraries(${PROJECT_NAME} PRIVATE
-        SDL2::SDL2 SDL2::SDL2main
-        SDL2_image::SDL2_image
-        SDL2_ttf::SDL2_ttf
-        SDL2_mixer::SDL2_mixer
+        ${SDL2_LIBRARIES}
     )
+
+    # 链接其他 SDL2 组件，如果找到的话
+    if(SDL2_IMAGE_FOUND OR SDL2_image_FOUND)
+        target_link_libraries(${PROJECT_NAME} PRIVATE ${SDL2_IMAGE_LIBRARIES})
+    endif()
+
+    if(SDL2_TTF_FOUND OR SDL2_ttf_FOUND)
+        target_link_libraries(${PROJECT_NAME} PRIVATE ${SDL2_TTF_LIBRARIES})
+    endif()
+
+    if(SDL2_MIXER_FOUND OR SDL2_mixer_FOUND)
+        target_link_libraries(${PROJECT_NAME} PRIVATE ${SDL2_MIXER_LIBRARIES})
+    endif()
 endif()

@@ -1,0 +1,7 @@
+"D:\CLion\CLion 2025.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "NMake Makefiles" -S D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign -B D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\cmake-build-debug
+-- Configure for Windows platform
+-- Found SDL2 at D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/lib/dep/plugins/SDL2
+-- Found SDL2: D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/lib/dep/plugins/SDL2/lib/x64/SDL2.lib (found version "")
+-- Configuring done (1.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/cmake-build-debug
