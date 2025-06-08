@@ -46,6 +46,16 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
+    - name: Download SDL2 Android
+      if: matrix.platform == 'android'
+      run: |
+        mkdir -p android/SDL2
+        curl -L -o SDL2-android.zip https://github.com/libsdl-org/SDL/archive/refs/tags/release-2.28.5.zip
+        unzip SDL2-android.zip -d android/SDL2
+        # Flatten extracted directory to android/SDL2
+        mv android/SDL2/SDL-release-2.28.5/* android/SDL2/
+        rm -rf android/SDL2/SDL-release-2.28.5 SDL2-android.zip
+
     - name: Cache SDL2 Android
       if: matrix.platform == 'android'
       uses: actions/cache@v4
@@ -66,14 +76,73 @@ jobs:
       if: runner.os == 'Windows'
       shell: pwsh
       run: |
+        # 创建必要的目录结构
+        # PowerShell 创建目录方式
+        $sdl2Path = "${{github.workspace}}\lib\dep\plugins\SDL2"
+        $sdl2ImagePath = "${{github.workspace}}\lib\dep\plugins\SDL2_image"
+        $sdl2TtfPath = "${{github.workspace}}\lib\dep\plugins\SDL2_ttf"
+        $sdl2MixerPath = "${{github.workspace}}\lib\dep\plugins\SDL2_mixer"
+        
+        if(!(Test-Path $sdl2Path)) { New-Item -Path $sdl2Path -ItemType Directory -Force }
+        if(!(Test-Path $sdl2ImagePath)) { New-Item -Path $sdl2ImagePath -ItemType Directory -Force }
+        if(!(Test-Path $sdl2TtfPath)) { New-Item -Path $sdl2TtfPath -ItemType Directory -Force }
+        if(!(Test-Path $sdl2MixerPath)) { New-Item -Path $sdl2MixerPath -ItemType Directory -Force }
+        
+        # 下载 SDL2 库
         curl -L -o SDL2.zip https://github.com/libsdl-org/SDL/releases/download/release-2.28.5/SDL2-devel-2.28.5-VC.zip
         curl -L -o SDL2_image.zip https://github.com/libsdl-org/SDL_image/releases/download/release-2.6.3/SDL2_image-devel-2.6.3-VC.zip
         curl -L -o SDL2_ttf.zip https://github.com/libsdl-org/SDL_ttf/releases/download/release-2.20.2/SDL2_ttf-devel-2.20.2-VC.zip
         curl -L -o SDL2_mixer.zip https://github.com/libsdl-org/SDL_mixer/releases/download/release-2.6.3/SDL2_mixer-devel-2.6.3-VC.zip
-        7z x SDL2.zip
-        7z x SDL2_image.zip
-        7z x SDL2_ttf.zip
-        7z x SDL2_mixer.zip
+        
+        # 解压库文件到指定目录
+        # 使用 PowerShell 方式解压和拷贝
+        $tempDir = "${{github.workspace}}\temp-extract"
+        if(!(Test-Path $tempDir)) { New-Item -Path $tempDir -ItemType Directory -Force }
+        
+        # SDL2
+        7z x SDL2.zip -o"$tempDir"
+        $sdl2ExtractDir = "$tempDir\SDL2-2.28.5"
+        if(Test-Path $sdl2ExtractDir) {
+            Copy-Item -Path "$sdl2ExtractDir\*" -Destination $sdl2Path -Recurse -Force
+        } else {
+            Write-Error "Could not find extracted SDL2 directory"
+            exit 1
+        }
+        
+        # SDL2_image
+        7z x SDL2_image.zip -o"$tempDir"
+        $sdl2ImageExtractDir = "$tempDir\SDL2_image-2.6.3"
+        if(Test-Path $sdl2ImageExtractDir) {
+            Copy-Item -Path "$sdl2ImageExtractDir\*" -Destination $sdl2ImagePath -Recurse -Force
+        } else {
+            Write-Error "Could not find extracted SDL2_image directory"
+            exit 1
+        }
+        
+        # SDL2_ttf
+        7z x SDL2_ttf.zip -o"$tempDir"
+        $sdl2TtfExtractDir = "$tempDir\SDL2_ttf-2.20.2"
+        if(Test-Path $sdl2TtfExtractDir) {
+            Copy-Item -Path "$sdl2TtfExtractDir\*" -Destination $sdl2TtfPath -Recurse -Force 
+        } else {
+            Write-Error "Could not find extracted SDL2_ttf directory"
+            exit 1
+        }
+        
+        # SDL2_mixer
+        7z x SDL2_mixer.zip -o"$tempDir"
+        $sdl2MixerExtractDir = "$tempDir\SDL2_mixer-2.6.3"
+        if(Test-Path $sdl2MixerExtractDir) {
+            Copy-Item -Path "$sdl2MixerExtractDir\*" -Destination $sdl2MixerPath -Recurse -Force
+        } else {
+            Write-Error "Could not find extracted SDL2_mixer directory"
+            exit 1
+        }
+        
+        # 列出解压后的目录结构以便调试
+        Get-ChildItem -Path $sdl2Path -Force
+        Get-ChildItem -Path "$sdl2Path\include" -Force -ErrorAction SilentlyContinue || Write-Host "Include directory not found"
+        Get-ChildItem -Path "$sdl2Path\lib" -Force -ErrorAction SilentlyContinue || Write-Host "Lib directory not found"
 
     - name: Install SDL2 Dependencies (Ubuntu)
       if: runner.os == 'Linux' && matrix.platform == 'linux'
@@ -92,31 +161,27 @@ jobs:
       run: |
         cmake -B ${{github.workspace}}/build ^
         -DCMAKE_BUILD_TYPE=Release ^
-        -DCMAKE_VERBOSE_MAKEFILE=ON ^
-        -DCMAKE_PREFIX_PATH=${{github.workspace}}/lib/dep/plugins/SDL2/cmake
+        -DCMAKE_VERBOSE_MAKEFILE=ON
 
-    - name: Configure CMake (Desktop Unix)
-      if: matrix.platform != 'android' && runner.os != 'Windows'
+    - name: Configure CMake (Desktop Linux)
+      if: runner.os == 'Linux'
+      run: |
+        cmake -B ${{github.workspace}}/build \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_VERBOSE_MAKEFILE=ON
+
+    - name: Configure CMake (Desktop macOS)
+      if: runner.os == 'macOS'
       run: |
         cmake -B ${{github.workspace}}/build \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_VERBOSE_MAKEFILE=ON \
-        -DCMAKE_PREFIX_PATH=/usr/local/lib/cmake
+        -DCMAKE_PREFIX_PATH=$(brew --prefix)/lib/cmake
 
-    - name: Configure CMake (Android)
-      if: matrix.platform == 'android'
-      run: |
-        cmake -B ${{github.workspace}}/build \
-        -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \
-        -DANDROID_ABI="arm64-v8a" \
-        -DANDROID_PLATFORM=android-26 \
-        -DCMAKE_BUILD_TYPE=Release \
-        -DSDL2_DIR=${{github.workspace}}/android/SDL2/cmake \
-        -DSDL2_IMAGE_DIR=${{github.workspace}}/android/SDL2_image/cmake \
-        -DSDL2_TTF_DIR=${{github.workspace}}/android/SDL2_ttf/cmake \
-        -DSDL2_MIXER_DIR=${{github.workspace}}/android/SDL2_mixer/cmake
+    # Android: native build via Gradle, skip CMake configuration
 
     - name: Build
+      if: matrix.platform != 'android'
       run: cmake --build ${{github.workspace}}/build --config Release --verbose
 
     - name: Build Android APK
