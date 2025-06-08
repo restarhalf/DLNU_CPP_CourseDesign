@@ -89,14 +89,15 @@ if(ANDROID)
             set(SDL2TTF_VENDORED ON CACHE BOOL "Use vendored dependencies for SDL2_ttf" FORCE)
         endif()
 
-        # SDL2_mixer 特定配置：使用 vendored 依赖 (特别是 Ogg)
-        if(${dep} STREQUAL "SDL2_mixer")
-            set(SDL2MIXER_VENDORED ON CACHE BOOL "Use vendored dependencies for SDL2_mixer")
-            set(SDL2MIXER_OGG_VENDORED ON CACHE BOOL "Use vendored Ogg for SDL2_mixer")
-            set(SDL2MIXER_OPUS OFF CACHE BOOL "Disable Opus support in SDL2_mixer") # Disable Opus
-            set(SDL2MIXER_XMP OFF CACHE BOOL "Disable XMP support in SDL2_mixer") # Disable XMP
-            # SDL2MIXER_VENDORED ON 通常会处理其他格式，但为了明确，特别是针对 Ogg 错误
-        endif()
+        # Removed SDL2_mixer specific block, as these options will be controlled
+        # via command line for Android builds in GitHub Actions.
+        # if(${dep} STREQUAL "SDL2_mixer")
+        #     set(SDL2MIXER_VENDORED ON CACHE BOOL "Use vendored dependencies for SDL2_mixer")
+        #     set(SDL2MIXER_OGG_VENDORED ON CACHE BOOL "Use vendored Ogg for SDL2_mixer")
+        #     set(SDL2MIXER_OPUS OFF CACHE BOOL "Disable Opus support in SDL2_mixer") # Disable Opus
+        #     set(SDL2MIXER_XMP OFF CACHE BOOL "Disable XMP support in SDL2_mixer") # Disable XMP
+        #     # SDL2MIXER_VENDORED ON 通常会处理其他格式，但为了明确，特别是针对 Ogg 错误
+        # endif()
 
         FetchContent_MakeAvailable(${dep}) # 此命令声明、填充（如果需要）并使目标可用。
 
