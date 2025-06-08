@@ -31,8 +31,97 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bcc9e56-ae7f-4772-83b2-5a4237ae3734" name="更改" comment="test">
+    <list default="true" id="0bcc9e56-ae7f-4772-83b2-5a4237ae3734" name="更改" comment="FIX">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/cmake-multi-platform.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/cmake-multi-platform.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ALL_BUILD.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ALL_BUILD.vcxproj.filters" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CMakeRCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdC/CompilerIdC.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdC/CompilerIdC.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdC/Debug/CMakeCCompilerId.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdC/Debug/CompilerIdC.exe.recipe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdC/Debug/CompilerIdC.tlog/CL.command.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdC/Debug/CompilerIdC.tlog/CL.read.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdC/Debug/CompilerIdC.tlog/CL.write.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdC/Debug/CompilerIdC.tlog/Cl.items.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdC/Debug/CompilerIdC.tlog/CompilerIdC.lastbuildstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdC/Debug/CompilerIdC.tlog/link.command.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdC/Debug/CompilerIdC.tlog/link.read.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdC/Debug/CompilerIdC.tlog/link.secondary.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdC/Debug/CompilerIdC.tlog/link.write.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdCXX/CompilerIdCXX.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdCXX/CompilerIdCXX.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdCXX/Debug/CMakeCXXCompilerId.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdCXX/Debug/CompilerIdCXX.exe.recipe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdCXX/Debug/CompilerIdCXX.tlog/CL.command.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdCXX/Debug/CompilerIdCXX.tlog/CL.read.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdCXX/Debug/CompilerIdCXX.tlog/CL.write.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdCXX/Debug/CompilerIdCXX.tlog/Cl.items.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdCXX/Debug/CompilerIdCXX.tlog/CompilerIdCXX.lastbuildstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdCXX/Debug/CompilerIdCXX.tlog/link.command.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdCXX/Debug/CompilerIdCXX.tlog/link.read.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdCXX/Debug/CompilerIdCXX.tlog/link.secondary.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/CompilerIdCXX/Debug/CompilerIdCXX.tlog/link.write.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/VCTargetsPath.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/VCTargetsPath.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/VCTargetsPath/x64/Debug/VCTargetsPath.recipe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.29.5-msvc4/VCTargetsPath/x64/Debug/VCTargetsPath.tlog/VCTargetsPath.lastbuildstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/94962d59476a34c45a3eff476a3ec0bd/generate.stamp.rule" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/generate.stamp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/generate.stamp.depend" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/generate.stamp.list" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/DLNU_CPP.4AC0C058.tlog/CL.command.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/DLNU_CPP.4AC0C058.tlog/CustomBuild.command.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/DLNU_CPP.4AC0C058.tlog/CustomBuild.read.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/DLNU_CPP.4AC0C058.tlog/CustomBuild.write.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/DLNU_CPP.4AC0C058.tlog/DLNU_CPP_CourseDesign.lastbuildstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/DLNU_CPP.4AC0C058.tlog/Microsoft.Build.CPPTasks.CL.read.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/DLNU_CPP.4AC0C058.tlog/Microsoft.Build.CPPTasks.CL.write.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/DLNU_CPP.4AC0C058.tlog/unsuccessfulbuild" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/DLNU_CPP.4AC0C058_MD.tlog/CL.command.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/DLNU_CPP.4AC0C058_MD.tlog/Microsoft.Build.CPPTasks.CL.read.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/DLNU_CPP.4AC0C058_MD.tlog/Microsoft.Build.CPPTasks.CL.write.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/aifish.cpp.module.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/button.cpp.module.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/controller.cpp.module.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/fish.cpp.module.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/game.cpp.module.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/image.cpp.module.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/main.cpp.module.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/music.cpp.module.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/playerfish.cpp.module.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/renderer.cpp.module.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/scoremanager.cpp.module.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/text.cpp.module.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/vc143.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.dir/Debug/window.cpp.module.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.sln" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/DLNU_CPP_CourseDesign.vcxproj.filters" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ZERO_CHECK.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ZERO_CHECK.vcxproj.filters" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/x64/Debug/ZERO_CHECK/ZERO_CHECK.recipe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/x64/Debug/ZERO_CHECK/ZERO_CHECK.tlog/CustomBuild.command.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/x64/Debug/ZERO_CHECK/ZERO_CHECK.tlog/CustomBuild.read.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/x64/Debug/ZERO_CHECK/ZERO_CHECK.tlog/CustomBuild.write.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/x64/Debug/ZERO_CHECK/ZERO_CHECK.tlog/ZERO_CHECK.lastbuildstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2-config-version.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2-config-version.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2-config.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2-config.cmake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,11 +209,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="DLNU_CPP_CourseDesign" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="DLNU_CPP_CourseDesign" TARGET_NAME="DLNU_CPP_CourseDesign" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="DLNU_CPP_CourseDesign" RUN_TARGET_NAME="DLNU_CPP_CourseDesign">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -168,6 +252,7 @@
       <workItem from="1749308695745" duration="399000" />
       <workItem from="1749310338564" duration="63000" />
       <workItem from="1749310567625" duration="2000" />
+      <workItem from="1749352685800" duration="4000" />
     </task>
     <task id="LOCAL-00001" summary="GUI">
       <option name="closed" value="true" />
@@ -329,23 +414,7 @@
       <option name="project" value="LOCAL" />
       <updated>1749310373318</updated>
     </task>
-    <task id="LOCAL-00021" summary="test">
-      <option name="closed" value="true" />
-      <created>1749350733652</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1749350733652</updated>
-    </task>
-    <task id="LOCAL-00022" summary="test">
-      <option name="closed" value="true" />
-      <created>1749351047597</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1749351047597</updated>
-    </task>
-    <option name="localTasksCounter" value="23" />
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,8 +439,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="GUI" />
     <MESSAGE value="FIX" />
-    <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="FIX" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

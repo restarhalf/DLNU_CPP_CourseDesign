@@ -1,3 +1,0 @@
-D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/build/CMakeFiles/DLNU_CPP_CourseDesign.dir
-D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/build/CMakeFiles/ALL_BUILD.dir
-D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/build/CMakeFiles/ZERO_CHECK.dir
