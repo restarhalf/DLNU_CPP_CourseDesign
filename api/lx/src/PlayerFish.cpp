@@ -9,19 +9,28 @@ namespace lx
 
     // 玩家鱼构造函数
     PlayerFish::PlayerFish(lyt::Renderer* renderer, const std::string& imagePath, int x, int y, int w, int h) :
-        Fish(renderer, imagePath, x, y, w, h)
+        Fish(renderer, imagePath, x, y, w, h) 
+        
     {
     }
 
-    // 处理玩家输入，控制鱼的移动方向
-    void PlayerFish::handleInput(const lyt::Controller* controller)
+  void PlayerFish::handleInput(const lyt::Controller* controller)
     {
         velocityX = velocityY = 0;
         if (controller->isKeyPressed(SDL_SCANCODE_W)) velocityY = -speed;
         if (controller->isKeyPressed(SDL_SCANCODE_S)) velocityY = speed;
-        if (controller->isKeyPressed(SDL_SCANCODE_A)) velocityX = -speed;
-        if (controller->isKeyPressed(SDL_SCANCODE_D)) velocityX = speed;
+        if (controller->isKeyPressed(SDL_SCANCODE_A))
+        {
+            velocityX = -speed;
+            setDirection(1); 
+        }
+        if (controller->isKeyPressed(SDL_SCANCODE_D))
+        {
+            velocityX = speed;
+            setDirection(-1); 
+        }
     }
+
 
     // 更新玩家鱼的位置，并进行边界检测
     void PlayerFish::update(int windowW, int windowH)
@@ -76,12 +85,12 @@ namespace lx
             {
                 // 玩家比 AI 鱼小 20% 以上，被吃掉
                 alive = false;
-                SDL_Log("被更大的AI鱼吃掉，游戏结束！");
+                //SDL_Log("被更大的AI鱼吃掉，游戏结束！");
             }
             else
             {
                 // 大小相近，不处理
-                SDL_Log("碰撞但大小相近，无操作");
+                //SDL_Log("碰撞但大小相近，无操作");
             }
         }
 
