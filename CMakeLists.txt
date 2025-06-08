@@ -3,94 +3,72 @@ project("DLNU_CPP_CourseDesign")
 
 set(CMAKE_CXX_STANDARD 20)
 
+# 检查是否在CI环境中运行
+if(DEFINED ENV{CI})
+    # 在CI环境中且是macOS
+    if(APPLE)
+        # 在CI的macOS runner中，通过Homebrew安装依赖
+        execute_process(
+            COMMAND brew install sdl2 sdl2_image sdl2_ttf sdl2_mixer
+            RESULT_VARIABLE BREW_RESULT
+        )
+        if(NOT BREW_RESULT EQUAL "0")
+            message(FATAL_ERROR "Failed to install SDL2 dependencies via Homebrew")
+        endif()
+
+        find_package(SDL2 REQUIRED)
+        find_package(SDL2_image REQUIRED)
+        find_package(SDL2_ttf REQUIRED)
+        find_package(SDL2_mixer REQUIRED)
+    endif()
+endif()
+
 # Android平台配置
 if(ANDROID)
-    message(STATUS "Configuring for Android platform...")
+    include(FetchContent)
 
-    if(NOT DEFINED ENV{ANDROID_NDK})
-        message(FATAL_ERROR "ANDROID_NDK environment variable not set!")
-    endif()
+    # 设置FetchContent全局属性
+    set(FETCHCONTENT_TRY_FIND_PACKAGE_MODE NEVER)
+    set(FETCHCONTENT_QUIET OFF)
 
-    # 设置Android特定选项
+    # SDL2
+    FetchContent_Declare(
+        SDL2
+        URL https://github.com/libsdl-org/SDL/releases/download/release-2.28.5/SDL2-2.28.5.tar.gz
+        URL_HASH SHA256=332cb37d0be20cb9541739c61f79bae5a477427d79ae85e352089afdaf6666e4
+        DOWNLOAD_RETRIES 3
+    )
+
+    # SDL2_image
+    FetchContent_Declare(
+        SDL2_image
+        URL https://github.com/libsdl-org/SDL_image/releases/download/release-2.8.2/SDL2_image-2.8.2.tar.gz
+        URL_HASH SHA256=8f486bbfbcf8464dd58c9e5d93394ab0255ce68b51c5a966a918244820a76ddc
+        DOWNLOAD_RETRIES 3
+    )
+
+    # SDL2_ttf
+    FetchContent_Declare(
+        SDL2_ttf
+        URL https://github.com/libsdl-org/SDL_ttf/releases/download/release-2.20.2/SDL2_ttf-2.20.2.tar.gz
+        URL_HASH SHA256=9dc71ed93487521c207617c0d340c45515b5b23f171e1d20bd7367b561f4a843
+        DOWNLOAD_RETRIES 3
+    )
+
+    # SDL2_mixer
+    FetchContent_Declare(
+        SDL2_mixer
+        URL https://github.com/libsdl-org/SDL_mixer/releases/download/release-2.8.0/SDL2_mixer-2.8.0.tar.gz
+        URL_HASH SHA256=1cfb39a55ea1fc0d38bc7d0fe57b8e5a59783091f0fb1a8def3531875d6a7f3e
+        DOWNLOAD_RETRIES 3
+    )
+
+    # Android特定配置
     set(CMAKE_ANDROID_ARCH_ABI "arm64-v8a")
     set(CMAKE_ANDROID_STL_TYPE "c++_static")
-    set(CMAKE_ANDROID_API 26)
 
-    message(STATUS "Android NDK path: $ENV{ANDROID_NDK}")
-    message(STATUS "Android ABI: ${CMAKE_ANDROID_ARCH_ABI}")
-    message(STATUS "Android API: ${CMAKE_ANDROID_API}")
-
-    # 检查预编译的SDL2库
-    set(SDL2_PATH "${CMAKE_CURRENT_SOURCE_DIR}/android/SDL2")
-    set(SDL2_IMAGE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/android/SDL2_image")
-    set(SDL2_TTF_PATH "${CMAKE_CURRENT_SOURCE_DIR}/android/SDL2_ttf")
-    set(SDL2_MIXER_PATH "${CMAKE_CURRENT_SOURCE_DIR}/android/SDL2_mixer")
-
-    # 如果预编译库不存在，则使用FetchContent下载
-    if(NOT EXISTS "${SDL2_PATH}")
-        include(FetchContent)
-        set(FETCHCONTENT_QUIET OFF)
-
-        message(STATUS "Downloading SDL2 dependencies...")
-
-        FetchContent_Declare(
-            SDL2
-            GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
-            GIT_TAG release-2.28.5
-            GIT_PROGRESS TRUE
-            GIT_SHALLOW TRUE
-        )
-
-        FetchContent_Declare(
-            SDL2_image
-            GIT_REPOSITORY https://github.com/libsdl-org/SDL_image.git
-            GIT_TAG release-2.8.2
-            GIT_PROGRESS TRUE
-            GIT_SHALLOW TRUE
-        )
-
-        FetchContent_Declare(
-            SDL2_ttf
-            GIT_REPOSITORY https://github.com/libsdl-org/SDL_ttf.git
-            GIT_TAG release-2.20.2
-            GIT_PROGRESS TRUE
-            GIT_SHALLOW TRUE
-        )
-
-        FetchContent_Declare(
-            SDL2_mixer
-            GIT_REPOSITORY https://github.com/libsdl-org/SDL_mixer.git
-            GIT_TAG release-2.8.0
-            GIT_PROGRESS TRUE
-            GIT_SHALLOW TRUE
-        )
-
-        # 逐个下载和配置依赖
-        foreach(dep IN ITEMS SDL2 SDL2_image SDL2_ttf SDL2_mixer)
-            message(STATUS "Fetching ${dep}...")
-
-            FetchContent_GetProperties(${dep})
-            if(NOT ${dep}_POPULATED)
-                FetchContent_Populate(${dep})
-
-                if(EXISTS "${${dep}_SOURCE_DIR}")
-                    message(STATUS "${dep} downloaded to: ${${dep}_SOURCE_DIR}")
-
-                    if(${dep} STREQUAL "SDL2")
-                        set(SDL_STATIC ON CACHE BOOL "Build static SDL2 library" FORCE)
-                        set(SDL_SHARED OFF CACHE BOOL "Build shared SDL2 library" FORCE)
-                        set(SDL_TEST OFF CACHE BOOL "Build SDL2 test programs" FORCE)
-                    endif()
-
-                    add_subdirectory(${${dep}_SOURCE_DIR} ${${dep}_BINARY_DIR})
-                else()
-                    message(FATAL_ERROR "${dep} download failed! Directory not found: ${${dep}_SOURCE_DIR}")
-                endif()
-            endif()
-        endforeach()
-    else()
-        message(STATUS "Using pre-built SDL2 libraries from android directory")
-    endif()
+    # 下载并构建所有依赖
+    FetchContent_MakeAvailable(SDL2 SDL2_image SDL2_ttf SDL2_mixer)
 endif()
 
 add_executable(${PROJECT_NAME} main.cpp)
@@ -104,17 +82,8 @@ if(ANDROID)
             "${SDL2_mixer_SOURCE_DIR}/include"
             "${CMAKE_CURRENT_SOURCE_DIR}/api/lyt/include"
             "${CMAKE_CURRENT_SOURCE_DIR}/api/lx/include")
-
-    # 确保静态链接
-    set_target_properties(${PROJECT_NAME} PROPERTIES
-        LINK_FLAGS "-static-libstdc++"
-    )
 elseif(APPLE)
     target_include_directories(${PROJECT_NAME} PRIVATE
-            ${SDL2_INCLUDE_DIRS}
-            ${SDL2_IMAGE_INCLUDE_DIRS}
-            ${SDL2_TTF_INCLUDE_DIRS}
-            ${SDL2_MIXER_INCLUDE_DIRS}
             "${CMAKE_CURRENT_SOURCE_DIR}/api/lyt/include"
             "${CMAKE_CURRENT_SOURCE_DIR}/api/lx/include")
 else()
@@ -145,17 +114,18 @@ target_sources(${PROJECT_NAME} PRIVATE
 # 链接SDL2库
 if(ANDROID)
     target_link_libraries(${PROJECT_NAME} PRIVATE
-        SDL2::SDL2-static
-        SDL2_image::SDL2_image-static
-        SDL2_ttf::SDL2_ttf-static
-        SDL2_mixer::SDL2_mixer-static)
-elseif(APPLE)
-    target_link_libraries(${PROJECT_NAME} PRIVATE
         SDL2::SDL2
         SDL2::SDL2main
         SDL2_image::SDL2_image
         SDL2_ttf::SDL2_ttf
         SDL2_mixer::SDL2_mixer)
+elseif(APPLE)
+    target_link_libraries(${PROJECT_NAME} PRIVATE
+        SDL2
+        SDL2main
+        SDL2_image
+        SDL2_ttf
+        SDL2_mixer)
 else()
     target_link_libraries(${PROJECT_NAME} PRIVATE
         SDL2
