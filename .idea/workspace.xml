@@ -34,6 +34,8 @@
     <list default="true" id="0bcc9e56-ae7f-4772-83b2-5a4237ae3734" name="更改" comment="FIX">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Music.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Music.cpp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +173,7 @@
       <workItem from="1749310567625" duration="2000" />
       <workItem from="1749352685800" duration="3226000" />
       <workItem from="1749371421020" duration="284000" />
-      <workItem from="1749371734635" duration="5937000" />
+      <workItem from="1749371734635" duration="6306000" />
     </task>
     <task id="LOCAL-00001" summary="GUI">
       <option name="closed" value="true" />
@@ -557,7 +559,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749388361470</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749388783550</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1749388783550</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
