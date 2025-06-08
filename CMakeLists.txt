@@ -84,6 +84,11 @@ if(ANDROID)
             set(SDL_SHARED OFF CACHE BOOL "Build shared SDL2 library" FORCE)
         endif()
 
+        # SDL2_ttf 特定配置：使用 vendored Freetype
+        if(${dep} STREQUAL "SDL2_ttf")
+            set(SDL2TTF_VENDORED ON CACHE BOOL "Use vendored dependencies for SDL2_ttf" FORCE)
+        endif()
+
         FetchContent_MakeAvailable(${dep}) # 此命令声明、填充（如果需要）并使目标可用。
 
         # 可选：检查并显示状态
