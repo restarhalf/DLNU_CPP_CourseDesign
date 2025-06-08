@@ -45,9 +45,9 @@ namespace lx
             float mySize    = getSize();
             float otherSize = aiFish.getSize();
 
-            if (mySize > otherSize * 1.2f)
+            if (mySize > otherSize * 1.1f)
             {
-                // 玩家比 AI 鱼大 20% 以上，可以吞掉
+                // 玩家比 AI 鱼大 10% 以上，可以吞掉
                 aiFish.kill();
                 float predictedSize = getSize() * 1.04f;  // 模拟增长后的体积
                 if (sqrt(predictedSize) <= wMax)
@@ -72,16 +72,16 @@ namespace lx
                 }
                 return true;
             }
-            else if (mySize < otherSize * 0.8f)
+            else if (mySize < otherSize * 0.9f)
             {
                 // 玩家比 AI 鱼小 20% 以上，被吃掉
                 alive = false;
-               // SDL_Log("被更大的AI鱼吃掉，游戏结束！");
+                SDL_Log("被更大的AI鱼吃掉，游戏结束！");
             }
             else
             {
                 // 大小相近，不处理
-               // SDL_Log("碰撞但大小相近，无操作");
+                SDL_Log("碰撞但大小相近，无操作");
             }
         }
 
