@@ -9,10 +9,18 @@ set_package_properties(SDL2 PROPERTIES
     DESCRIPTION "low level access to audio, keyboard, mouse, joystick, and graphics hardware"
 )
 
+# 获取SDL2根目录的绝对路径
+get_filename_component(SDL2_ROOT_DIR "${CMAKE_CURRENT_LIST_DIR}/.." ABSOLUTE)
+
 # Copied from `configure_package_config_file`
 macro(set_and_check _var _file)
-    set(${_var} "${_file}")
-    if(NOT EXISTS "${_file}")
+    if(NOT IS_ABSOLUTE "${_file}")
+        set(_abs_file "${SDL2_ROOT_DIR}/${_file}")
+    else()
+        set(_abs_file "${_file}")
+    endif()
+    set(${_var} "${_abs_file}")
+    if(NOT EXISTS "${${_var}}")
         message(FATAL_ERROR "File or directory ${_file} referenced by variable ${_var} does not exist !")
     endif()
 endmacro()
@@ -41,8 +49,8 @@ endif()
 
 # For compatibility with autotools sdl2-config.cmake, provide SDL2_* variables.
 
-set_and_check(SDL2_PREFIX       "..")
-set_and_check(SDL2_EXEC_PREFIX  "..")
+set_and_check(SDL2_PREFIX       "${SDL2_ROOT_DIR}")
+set_and_check(SDL2_EXEC_PREFIX  "${SDL2_ROOT_DIR}")
 set_and_check(SDL2_INCLUDE_DIR  "${SDL2_PREFIX}/include")
 set(SDL2_INCLUDE_DIRS           "${SDL2_INCLUDE_DIR}")
 set_and_check(SDL2_BINDIR       "${SDL2_PREFIX}/lib/${_sdl_arch_subdir}")
