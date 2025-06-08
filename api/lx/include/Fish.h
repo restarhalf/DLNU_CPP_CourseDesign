@@ -38,9 +38,9 @@ namespace lx {
     protected:
         lyt::Renderer* renderer; // 渲染器指针
         SDL_Texture* texture;    // 鱼的纹理
+        int direction = 1;  // 方向，-1为左，1为右
         SDL_Rect rect;           // 鱼的位置和大小
         bool alive = true;       // 鱼是否存活
-
         static std::unordered_map<std::string, SDL_Texture*> textureCache;
         SDL_Texture* getOrLoadTexture(const std::string& imagePath);
     };
