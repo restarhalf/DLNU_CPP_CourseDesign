@@ -3,12 +3,14 @@
 # SDL2 CMake version configuration file:
 # This file is meant to be placed in a cmake subfolder of SDL2-devel-2.x.y-VC
 
-if(NOT EXISTS "../include/SDL_version.h")
+## Resolve SDL2 root directory
+set(_sdl2_root "${CMAKE_CURRENT_LIST_DIR}/..")
+if(NOT EXISTS "${_sdl2_root}/include/SDL_version.h")
     message(AUTHOR_WARNING "Could not find SDL_version.h. This script is meant to be placed in the root of SDL2-devel-2.x.y-VC")
     return()
 endif()
 
-file(READ "../include/SDL_version.h" _sdl_version_h)
+file(READ "${_sdl2_root}/include/SDL_version.h" _sdl_version_h)
 string(REGEX MATCH "#define[ \t]+SDL_MAJOR_VERSION[ \t]+([0-9]+)" _sdl_major_re "${_sdl_version_h}")
 set(_sdl_major "${CMAKE_MATCH_1}")
 string(REGEX MATCH "#define[ \t]+SDL_MINOR_VERSION[ \t]+([0-9]+)" _sdl_minor_re "${_sdl_version_h}")

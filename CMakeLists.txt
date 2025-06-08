@@ -21,21 +21,31 @@ endif()
 
 add_executable(${PROJECT_NAME} main.cpp)
 
-# Include directories
+# Include directories and SDL2 package resolution
 if(WIN32)
-    # Windows: use local SDL2 include
+    # Windows: local SDL2
     target_include_directories(${PROJECT_NAME} PRIVATE
         "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2/include"
         "${CMAKE_CURRENT_SOURCE_DIR}/api/lyt/include"
         "${CMAKE_CURRENT_SOURCE_DIR}/api/lx/include"
     )
-    # Find SDL2 on Windows
-    find_package(SDL2 REQUIRED PATHS "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2/cmake")
-    find_package(SDL2_image REQUIRED PATHS "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2_image/cmake")
-    find_package(SDL2_ttf REQUIRED PATHS "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2_ttf/cmake")
-    find_package(SDL2_mixer REQUIRED PATHS "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2_mixer/cmake")
+    find_package(SDL2 REQUIRED PATHS "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2/cmake" NO_DEFAULT_PATH)
+    find_package(SDL2_image REQUIRED PATHS "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2_image/cmake" NO_DEFAULT_PATH)
+    find_package(SDL2_ttf REQUIRED PATHS "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2_ttf/cmake" NO_DEFAULT_PATH)
+    find_package(SDL2_mixer REQUIRED PATHS "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2_mixer/cmake" NO_DEFAULT_PATH)
+elseif(ANDROID)
+    # Android: local SDL2
+    target_include_directories(${PROJECT_NAME} PRIVATE
+        "${CMAKE_CURRENT_SOURCE_DIR}/android/SDL2/include"
+        "${CMAKE_CURRENT_SOURCE_DIR}/android/SDL2_image/include"
+        "${CMAKE_CURRENT_SOURCE_DIR}/android/SDL2_ttf/include"
+        "${CMAKE_CURRENT_SOURCE_DIR}/android/SDL2_mixer/include"
+        "${CMAKE_CURRENT_SOURCE_DIR}/api/lyt/include"
+        "${CMAKE_CURRENT_SOURCE_DIR}/api/lx/include"
+    )
+    # find_package for Android SDL2 was done earlier
 else()
-    # Unix/Mac: find and use system SDL2
+    # Unix/Mac: system SDL2
     find_package(SDL2 REQUIRED)
     find_package(SDL2_image REQUIRED)
     find_package(SDL2_ttf REQUIRED)
@@ -61,24 +71,20 @@ target_sources(${PROJECT_NAME} PRIVATE
         api/lx/src/ScoreManager.cpp
 )
 
-# Link SDL2 conditionally: use local libs on Windows, imported targets on Unix/Mac
+# Link SDL2 libraries
 if(WIN32)
     target_link_directories(${PROJECT_NAME} PRIVATE
         "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2/lib/x64"
     )
     target_link_libraries(${PROJECT_NAME} PRIVATE
-        SDL2
-        SDL2main
-        SDL2_image
-        SDL2_ttf
-        SDL2_mixer
+        SDL2 SDL2main SDL2_image SDL2_ttf SDL2_mixer
+    )
+elseif(ANDROID)
+    target_link_libraries(${PROJECT_NAME} PRIVATE
+        SDL2::SDL2 SDL2::SDL2main SDL2_image::SDL2_image SDL2_ttf::SDL2_ttf SDL2_mixer::SDL2_mixer
     )
 else()
     target_link_libraries(${PROJECT_NAME} PRIVATE
-        SDL2::SDL2
-        SDL2::SDL2main
-        SDL2_image::SDL2_image
-        SDL2_ttf::SDL2_ttf
-        SDL2_mixer::SDL2_mixer
+        SDL2::SDL2 SDL2::SDL2main SDL2_image::SDL2_image SDL2_ttf::SDL2_ttf SDL2_mixer::SDL2_mixer
     )
 endif()
