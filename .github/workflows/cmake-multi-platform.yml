@@ -113,7 +113,8 @@ jobs:
         -DSDL2_DIR=${{github.workspace}}/android/SDL2/cmake \
         -DSDL2_IMAGE_DIR=${{github.workspace}}/android/SDL2_image/cmake \
         -DSDL2_TTF_DIR=${{github.workspace}}/android/SDL2_ttf/cmake \
-        -DSDL2_MIXER_DIR=${{github.workspace}}/android/SDL2_mixer/cmake
+        -DSDL2_MIXER_DIR=${{github.workspace}}/android/SDL2_mixer/cmake \
+        -DSDL2MIXER_VENDORED=OFF
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config Release --verbose
