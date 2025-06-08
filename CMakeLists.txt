@@ -1,10 +1,30 @@
-cmake_minimum_required(VERSION 3.29)
+cmake_minimum_required(VERSION 3.21)
 project("DLNU_CPP_CourseDesign")
 
 set(CMAKE_CXX_STANDARD 20)
 
-# 检测操作系统类型
-if(ANDROID OR APPLE)
+# 检查是否在CI环境中运行
+if(DEFINED ENV{CI})
+    # 在CI环境中且是macOS
+    if(APPLE)
+        # 在CI的macOS runner中，通过Homebrew安装依赖
+        execute_process(
+            COMMAND brew install sdl2 sdl2_image sdl2_ttf sdl2_mixer
+            RESULT_VARIABLE BREW_RESULT
+        )
+        if(NOT BREW_RESULT EQUAL "0")
+            message(FATAL_ERROR "Failed to install SDL2 dependencies via Homebrew")
+        endif()
+
+        find_package(SDL2 REQUIRED)
+        find_package(SDL2_image REQUIRED)
+        find_package(SDL2_ttf REQUIRED)
+        find_package(SDL2_mixer REQUIRED)
+    endif()
+endif()
+
+# Android平台配置
+if(ANDROID)
     include(FetchContent)
 
     # 设置FetchContent全局属性
@@ -27,7 +47,7 @@ if(ANDROID OR APPLE)
         DOWNLOAD_RETRIES 3
     )
 
-    # SDL2_ttf - 更新了哈希值
+    # SDL2_ttf
     FetchContent_Declare(
         SDL2_ttf
         URL https://github.com/libsdl-org/SDL_ttf/releases/download/release-2.20.2/SDL2_ttf-2.20.2.tar.gz
@@ -44,10 +64,8 @@ if(ANDROID OR APPLE)
     )
 
     # Android特定配置
-    if(ANDROID)
-        set(CMAKE_ANDROID_ARCH_ABI "arm64-v8a")
-        set(CMAKE_ANDROID_STL_TYPE "c++_static")
-    endif()
+    set(CMAKE_ANDROID_ARCH_ABI "arm64-v8a")
+    set(CMAKE_ANDROID_STL_TYPE "c++_static")
 
     # 下载并构建所有依赖
     FetchContent_MakeAvailable(SDL2 SDL2_image SDL2_ttf SDL2_mixer)
@@ -56,12 +74,16 @@ endif()
 add_executable(${PROJECT_NAME} main.cpp)
 
 # 平台特定的包含目录和链接配置
-if(ANDROID OR APPLE)
+if(ANDROID)
     target_include_directories(${PROJECT_NAME} PRIVATE
             "${SDL2_SOURCE_DIR}/include"
             "${SDL2_image_SOURCE_DIR}/include"
             "${SDL2_ttf_SOURCE_DIR}/include"
             "${SDL2_mixer_SOURCE_DIR}/include"
+            "${CMAKE_CURRENT_SOURCE_DIR}/api/lyt/include"
+            "${CMAKE_CURRENT_SOURCE_DIR}/api/lx/include")
+elseif(APPLE)
+    target_include_directories(${PROJECT_NAME} PRIVATE
             "${CMAKE_CURRENT_SOURCE_DIR}/api/lyt/include"
             "${CMAKE_CURRENT_SOURCE_DIR}/api/lx/include")
 else()
@@ -90,13 +112,25 @@ target_sources(${PROJECT_NAME} PRIVATE
         api/lx/src/ScoreManager.cpp)
 
 # 链接SDL2库
-if(ANDROID OR APPLE)
+if(ANDROID)
     target_link_libraries(${PROJECT_NAME} PRIVATE
         SDL2::SDL2
         SDL2::SDL2main
         SDL2_image::SDL2_image
         SDL2_ttf::SDL2_ttf
         SDL2_mixer::SDL2_mixer)
+elseif(APPLE)
+    target_link_libraries(${PROJECT_NAME} PRIVATE
+        SDL2
+        SDL2main
+        SDL2_image
+        SDL2_ttf
+        SDL2_mixer)
 else()
-    target_link_libraries(${PROJECT_NAME} PRIVATE SDL2 SDL2main SDL2_image SDL2_ttf SDL2_mixer)
+    target_link_libraries(${PROJECT_NAME} PRIVATE
+        SDL2
+        SDL2main
+        SDL2_image
+        SDL2_ttf
+        SDL2_mixer)
 endif()
