@@ -37,7 +37,7 @@ namespace lyt
         if (this->text != text)
         {
             this->text = text;
-            flush();
+            //flush();
         }
     }
 
