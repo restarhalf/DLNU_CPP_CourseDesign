@@ -59,8 +59,7 @@ jobs:
       uses: android-actions/setup-android@v3
       with:
         cmdline-tools-version: '9.0'
-        cmake-version: '3.22.1'
-        ndk-version: '25.1.8937393'
+        packages: ndk;25.1.8937393 cmake;3.22.1
 
     - name: Install SDL2 Dependencies (Windows)
       if: runner.os == 'Windows'
