@@ -116,7 +116,8 @@ jobs:
         -DSDL2_MIXER_DIR=${{github.workspace}}/android/SDL2_mixer/cmake \
         -DSDL2MIXER_VENDORED=OFF \
         -DSDL2MIXER_OPUS=OFF \
-        -DSDL2MIXER_MOD=OFF
+        -DSDL2MIXER_MOD=OFF \
+        -DSDL2MIXER_MIDI_FLUIDSYNTH=OFF
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config Release --verbose
