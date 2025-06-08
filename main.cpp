@@ -159,7 +159,7 @@ int main(int argc, char* argv[])
                 loginUi.getWindow()->hide(true);
                 game.getWindow()->setSize(loginUiW, loginUiH);
                 game.getWindow()->hide(false);
-
+                paused=false;
                 SDL_Log("Login button clicked");
             }
             if (exit.isButtonReleased())
