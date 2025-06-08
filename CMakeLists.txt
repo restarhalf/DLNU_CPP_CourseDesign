@@ -83,11 +83,17 @@ if(ANDROID)
         if(${dep} STREQUAL "SDL2")
             set(SDL_STATIC ON CACHE BOOL "Build static SDL2 library" FORCE)
             set(SDL_SHARED OFF CACHE BOOL "Build shared SDL2 library" FORCE)
+            set(SDL_TESTS OFF CACHE BOOL "Disable SDL2 tests" FORCE) # Disable SDL2's own tests/examples
         endif()
 
         # SDL2_ttf 特定配置：使用 vendored Freetype
         if(${dep} STREQUAL "SDL2_ttf")
             set(SDL2TTF_VENDORED ON CACHE BOOL "Use vendored dependencies for SDL2_ttf" FORCE)
+            set(SDL2TTF_BUILD_PROGRAMS OFF CACHE BOOL "Disable SDL_ttf example programs" FORCE) # Disable glfont, showfont
+        endif()
+
+        if(${dep} STREQUAL "SDL2_image")
+            set(SDL2IMAGE_BUILD_EXAMPLES OFF CACHE BOOL "Disable SDL2_image example programs" FORCE) # Disable SDL2_image examples
         endif()
 
         # Removed SDL2_mixer specific block, as these options will be controlled
@@ -114,8 +120,13 @@ if(ANDROID)
 
     # 验证所有依赖是否都已正确配置
     foreach(dep IN ITEMS SDL2 SDL2_image SDL2_ttf SDL2_mixer)
+        # Check for the base target name, e.g., SDL2::SDL2, SDL2_image::SDL2_image
         if(NOT TARGET ${dep}::${dep})
-            message(FATAL_ERROR "${dep} target not found after configuration")
+            message(FATAL_ERROR "Base target ${dep}::${dep} not found after configuration")
+        endif()
+        # For SDL2, also check for SDL2::SDL2-static as it's used in linking
+        if((${dep} STREQUAL "SDL2") AND (NOT TARGET SDL2::SDL2-static))
+             message(FATAL_ERROR "Target SDL2::SDL2-static not found after configuration. Base SDL2::SDL2 exists though.")
         endif()
     endforeach()
 
@@ -175,9 +186,9 @@ target_sources(${PROJECT_NAME} PRIVATE
 if(ANDROID)
     target_link_libraries(${PROJECT_NAME} PRIVATE
         SDL2::SDL2-static
-        SDL2_image::SDL2_image-static
-        SDL2_ttf::SDL2_ttf-static
-        SDL2_mixer::SDL2_mixer-static)
+        SDL2_image::SDL2_image
+        SDL2_ttf::SDL2_ttf
+        SDL2_mixer::SDL2_mixer)
 elseif(APPLE)
     target_link_libraries(${PROJECT_NAME} PRIVATE
         SDL2::SDL2
