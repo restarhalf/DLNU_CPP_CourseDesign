@@ -9,11 +9,13 @@ if(APPLE)
     set(SDL2_DIR ${HOMEBREW_PREFIX}/lib/cmake/SDL2)
     set(SDL2_IMAGE_DIR ${HOMEBREW_PREFIX}/lib/cmake/SDL2_image)
     set(SDL2_TTF_DIR ${HOMEBREW_PREFIX}/lib/cmake/SDL2_ttf)
+    set(SDL2_MIXER_DIR ${HOMEBREW_PREFIX}/lib/cmake/SDL2_mixer)
 
     # 查找所有 SDL2 相关包
     find_package(SDL2 REQUIRED)
     find_package(SDL2_image REQUIRED)
     find_package(SDL2_ttf REQUIRED)
+    find_package(SDL2_mixer REQUIRED)
 
     message(STATUS "SDL2_INCLUDE_DIRS: ${SDL2_INCLUDE_DIRS}")
     message(STATUS "SDL2_LIBRARIES: ${SDL2_LIBRARIES}")
@@ -37,6 +39,7 @@ if(ANDROID)
     set(SDL2_DISABLE_INSTALL ON)
     set(SDL2IMAGE_INSTALL OFF)
     set(SDL2TTF_INSTALL OFF)
+    set(SDL2MIXER_INSTALL OFF)
 
     # SDL2核心库
     FetchContent_Declare(
@@ -116,7 +119,7 @@ if(ANDROID)
     endforeach()
 
     # 验证所有依赖是否都已正确配置
-    foreach(dep IN ITEMS SDL2 SDL2_image SDL2_ttf)
+    foreach(dep IN ITEMS SDL2 SDL2_image SDL2_ttf SDL2_mixer)
         # Check for the base target name, e.g., SDL2::SDL2, SDL2_image::SDL2_image
         if(NOT TARGET ${dep}::${dep})
             message(FATAL_ERROR "Base target ${dep}::${dep} not found after configuration")
@@ -171,6 +174,7 @@ target_sources(${PROJECT_NAME} PRIVATE
         api/lyt/src/Image.cpp
         api/lyt/src/Text.cpp
         api/lyt/src/Window.cpp
+        api/lyt/src/Music.cpp
         api/lyt/src/Renderer.cpp
         api/lyt/src/Controller.cpp
         api/lx/src/Fish.cpp
@@ -182,18 +186,21 @@ target_sources(${PROJECT_NAME} PRIVATE
 if(ANDROID)
     target_link_libraries(${PROJECT_NAME} PRIVATE
         SDL2::SDL2-static
-        SDL2_image::SDL2_image
-        SDL2_ttf::SDL2_ttf)
+        SDL2_image::SDL2_image-static
+        SDL2_ttf::SDL2_ttf-static
+        SDL2_mixer::SDL2_mixer-static)
 elseif(APPLE)
     target_link_libraries(${PROJECT_NAME} PRIVATE
         SDL2::SDL2
         SDL2::SDL2main
         SDL2_image::SDL2_image
-        SDL2_ttf::SDL2_ttf)
+        SDL2_ttf::SDL2_ttf
+        SDL2_mixer::SDL2_mixer)
 else()
     target_link_libraries(${PROJECT_NAME} PRIVATE
         SDL2
         SDL2main
         SDL2_image
-        SDL2_ttf)
+        SDL2_ttf
+        SDL2_mixer)
 endif()

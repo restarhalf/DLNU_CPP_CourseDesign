@@ -9,6 +9,7 @@
 #include <Controller.h>
 #include <Game.h>
 #include <Image.h>
+#include <Music.h>
 #include <Renderer.h>
 #include <Text.h>
 #include <Window.h>
