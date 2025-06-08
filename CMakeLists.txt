@@ -93,6 +93,7 @@ if(ANDROID)
         if(${dep} STREQUAL "SDL2_mixer")
             set(SDL2MIXER_VENDORED ON CACHE BOOL "Use vendored dependencies for SDL2_mixer")
             set(SDL2MIXER_OGG_VENDORED ON CACHE BOOL "Use vendored Ogg for SDL2_mixer")
+            set(SDL2MIXER_OPUS OFF CACHE BOOL "Disable Opus support in SDL2_mixer") # Disable Opus
             # SDL2MIXER_VENDORED ON 通常会处理其他格式，但为了明确，特别是针对 Ogg 错误
         endif()
 
