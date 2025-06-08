@@ -89,6 +89,13 @@ if(ANDROID)
             set(SDL2TTF_VENDORED ON CACHE BOOL "Use vendored dependencies for SDL2_ttf" FORCE)
         endif()
 
+        # SDL2_mixer 特定配置：使用 vendored 依赖 (特别是 Ogg)
+        if(${dep} STREQUAL "SDL2_mixer")
+            set(SDL2MIXER_VENDORED ON CACHE BOOL "Use vendored dependencies for SDL2_mixer" FORCE)
+            set(SDL2MIXER_OGG_VENDORED ON CACHE BOOL "Use vendored Ogg for SDL2_mixer" FORCE)
+            # SDL2MIXER_VENDORED ON 通常会处理其他格式，但为了明确，特别是针对 Ogg 错误
+        endif()
+
         FetchContent_MakeAvailable(${dep}) # 此命令声明、填充（如果需要）并使目标可用。
 
         # 可选：检查并显示状态
