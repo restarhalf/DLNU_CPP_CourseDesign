@@ -75,30 +75,24 @@ if(ANDROID)
 
     # 下载并构建所有依赖，分开处理以便于错误排查
     foreach(dep IN ITEMS SDL2 SDL2_image SDL2_ttf SDL2_mixer)
-        FetchContent_GetProperties(${dep})
-        if(NOT ${dep}_POPULATED)
-            message(STATUS "Fetching ${dep}...")
-            FetchContent_Populate(${dep})
+        # SDL2特定配置
+        # 这些设置需要在 SDL2 的 CMakeLists.txt 文件通过 add_subdirectory 处理之前进行。
+        # FetchContent_MakeAvailable 会在内部调用 add_subdirectory。
+        # 因此，在调用 FetchContent_MakeAvailable 之前设置这些变量。
+        if(${dep} STREQUAL "SDL2")
+            set(SDL_STATIC ON CACHE BOOL "Build static SDL2 library" FORCE)
+            set(SDL_SHARED OFF CACHE BOOL "Build shared SDL2 library" FORCE)
+        endif()
 
-            if(NOT EXISTS "${${dep}_SOURCE_DIR}")
-                message(WARNING "Failed to fetch ${dep}. Retrying...")
-                FetchContent_Populate(${dep})
-                if(NOT EXISTS "${${dep}_SOURCE_DIR}")
-                    message(FATAL_ERROR "Failed to fetch ${dep} after retry. Source directory not found: ${${dep}_SOURCE_DIR}")
-                endif()
-            else()
-                message(STATUS "${dep} source directory: ${${dep}_SOURCE_DIR}")
-            endif()
+        FetchContent_MakeAvailable(${dep}) # 此命令声明、填充（如果需要）并使目标可用。
 
-            # SDL2特定配置
-            if(${dep} STREQUAL "SDL2")
-                set(SDL_STATIC ON CACHE BOOL "Build static SDL2 library" FORCE)
-                set(SDL_SHARED OFF CACHE BOOL "Build shared SDL2 library" FORCE)
-            endif()
-
-            # 添加子目录，但忽略安装步骤
-            add_subdirectory(${${dep}_SOURCE_DIR} ${${dep}_BINARY_DIR} EXCLUDE_FROM_ALL)
-            message(STATUS "${dep} configured successfully")
+        # 可选：检查并显示状态
+        FetchContent_GetProperties(${dep}) # 获取更新后的属性，如 _SOURCE_DIR
+        if(${dep}_POPULATED)
+            message(STATUS "${dep} is available. Source: ${${dep}_SOURCE_DIR}")
+        else()
+            # 如果 FetchContent_MakeAvailable 失败，它通常会直接报错。
+            message(WARNING "Could not make ${dep} available. Check logs for details.")
         endif()
     endforeach()
 
