@@ -1,0 +1,10 @@
+^D:\C_C++PACKAGE\CLIONPROJECT\DLNU_CPP_COURSEDESIGN\BUILD\CMAKEFILES\94962D59476A34C45A3EFF476A3EC0BD\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign -BD:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/C_C++Package/CLionProject/DLNU_CPP_CourseDesign/build/DLNU_CPP_CourseDesign.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
