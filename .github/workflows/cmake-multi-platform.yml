@@ -61,6 +61,12 @@ jobs:
         cmdline-tools-version: '9.0'
         packages: ndk;25.1.8937393 cmake;3.22.1
 
+    - name: Install Opusfile for Android build
+      if: matrix.platform == 'android'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libopusfile-dev
+
     - name: Install SDL2 Dependencies (Windows)
       if: runner.os == 'Windows'
       shell: pwsh
