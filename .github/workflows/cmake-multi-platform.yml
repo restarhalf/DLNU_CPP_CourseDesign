@@ -168,7 +168,7 @@ jobs:
         SDL2_INCLUDE_PATH="${SDL2_ANDROID_LIBS_DIR}/include/SDL2"
         SDL2_CMAKE_CONFIG_PATH="${SDL2_ANDROID_LIBS_DIR}/lib/cmake/SDL2"
 
-        # ��译 SDL2_image (依赖 SDL2)
+        # ���译 SDL2_image (依赖 SDL2)
         build_sdl_library "SDL2_image" "https://github.com/libsdl-org/SDL_image.git" "release-2.8.2" "-DSDL2_CMAKE_PATH=${SDL2_CMAKE_CONFIG_PATH} -DSDL2_LIBRARY=${SDL2_LIB_PATH} -DSDL2_INCLUDE_DIR=${SDL2_INCLUDE_PATH} -DSDL2IMAGE_SAMPLES=OFF"
         # 编译 SDL2_ttf (依赖 SDL2)
         build_sdl_library "SDL2_ttf" "https://github.com/libsdl-org/SDL_ttf.git" "release-2.22.0" "-DSDL2_CMAKE_PATH=${SDL2_CMAKE_CONFIG_PATH} -DSDL2_LIBRARY=${SDL2_LIB_PATH} -DSDL2_INCLUDE_DIR=${SDL2_INCLUDE_PATH} -DSDL2TTF_SAMPLES=OFF -DSDL2TTF_FREETYPE=vendored"
