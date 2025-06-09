@@ -127,11 +127,3 @@ else()
         SDL2_ttf
         SDL2_mixer)
 endif()
-
-if(ANDROID)
-
-get_filename_component(ASSET_DIR_ABS "${CMAKE_CURRENT_SOURCE_DIR}/asset" ABSOLUTE)
-set_property(TARGET ${PROJECT_NAME} PROPERTY VS_ANDROID_ सोर्स_Դիր "${ASSET_DIR_ABS}")
-SDL_SetHint(SDL_HINT_ANDROID_ASSETS_PATH, "./")
-message(STATUS "Android assets directory should be: ${CMAKE_CURRENT_SOURCE_DIR}/asset")
-endif()
