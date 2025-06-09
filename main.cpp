@@ -11,7 +11,7 @@
 #include <lyt_api.h>
 #include <random>
 
-int SDL_main(int argc, char* argv[])
+extern "C" int main(int argc, char* argv[])
 {
     // 随机数生成器初始化
     std::random_device rd;
