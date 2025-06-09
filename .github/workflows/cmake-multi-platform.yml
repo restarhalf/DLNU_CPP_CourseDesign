@@ -99,6 +99,24 @@ jobs:
         cd ..
         echo "INFO: Finished building libjpeg-turbo for Android (${{ matrix.android_abi }})"
 
+        # Build and install libpng
+        echo "INFO: Building libpng for Android (${{ matrix.android_abi }})"
+        LIBPNG_VERSION="1.6.40" # Using a recent version of libpng
+        wget https://download.sourceforge.net/libpng/libpng-${LIBPNG_VERSION}.tar.gz -O libpng.tar.gz
+        tar xzf libpng.tar.gz
+        cd libpng-${LIBPNG_VERSION}
+        cmake -B build-android -S . \\
+            -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \\
+            -DANDROID_ABI=${{ matrix.android_abi }} \\
+            -DANDROID_PLATFORM=android-21 \\
+            -DCMAKE_INSTALL_PREFIX=$SDL2_ANDROID_LIBS_DIR \\
+            -DPNG_SHARED=OFF \\
+            -DPNG_STATIC=ON \\
+            -DPNG_TESTS=OFF
+        cmake --build build-android --target install -j$(nproc)
+        cd ..
+        echo "INFO: Finished building libpng for Android (${{ matrix.android_abi }})"
+
         # 定义一个函数来简化编译过程
         build_sdl_library() {
           local LIB_NAME=$1
@@ -276,3 +294,4 @@ jobs:
       with:
         files: ${{ matrix.artifact_name }} # 上传 .zip 或 .apk
         # token: ${{ secrets.GITHUB_TOKEN }} # GITHUB_TOKEN 默认可用
+
