@@ -1,3 +1,4 @@
+#include <SDL_main.h> // Explicitly include for Android builds
 /*
  * 大鱼吃小鱼游戏主程序
  * 功能：
