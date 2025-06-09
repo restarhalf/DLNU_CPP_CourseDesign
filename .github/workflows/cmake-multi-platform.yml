@@ -155,15 +155,23 @@ jobs:
       if: matrix.platform == 'android'
       shell: bash
       run: |
-        cmake -B ${{github.workspace}}/build \\
-          -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \\
-          -DANDROID_ABI=${{ matrix.android_abi }} \\
-          -DANDROID_NATIVE_API_LEVEL=${{ matrix.android_api_level }} \\
-          -DCMAKE_BUILD_TYPE=Release \\
-          -DCMAKE_VERBOSE_MAKEFILE=ON \\
-          -DCMAKE_PREFIX_PATH=${{ env.SDL2_ANDROID_INSTALL_PREFIX }} \\
-          -DSDL_ASSETS_DIR=${{ github.workspace }}/asset \\
-          -DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=BOTH \\
+        # 检查SDL2库安装情况
+        echo "SDL2库安装路径内容："
+        find ${{ env.SDL2_ANDROID_INSTALL_PREFIX }} -type f | grep -E 'SDL2.*Config\.cmake|libSDL2'
+
+        cmake -B ${{github.workspace}}/build \
+          -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \
+          -DANDROID_ABI=${{ matrix.android_abi }} \
+          -DANDROID_NATIVE_API_LEVEL=${{ matrix.android_api_level }} \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DCMAKE_VERBOSE_MAKEFILE=ON \
+          -DSDL2_DIR=${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/lib/cmake/SDL2 \
+          -DSDL2_image_DIR=${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/lib/cmake/SDL2_image \
+          -DSDL2_ttf_DIR=${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/lib/cmake/SDL2_ttf \
+          -DSDL2_mixer_DIR=${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/lib/cmake/SDL2_mixer \
+          -DSDL_ASSETS_DIR=${{ github.workspace }}/asset \
+          -DCMAKE_FIND_ROOT_PATH=${{ env.SDL2_ANDROID_INSTALL_PREFIX }} \
+          -DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=BOTH \
           -DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=BOTH
 
     - name: Build Project (Windows)
