@@ -127,7 +127,7 @@ jobs:
       if: matrix.platform == 'windows'
       shell: cmd
       run: |
-        cmake -B ${{github.workspace}}/build ^
+        cmake -B ${{github.workspace}}\\build ^
         -DCMAKE_BUILD_TYPE=Release ^
         -DCMAKE_VERBOSE_MAKEFILE=ON ^
         -DCMAKE_PREFIX_PATH=${{github.workspace}}/SDL2-devel-2.28.5-VC/SDL2-2.28.5/cmake;${{github.workspace}}/SDL2_image-devel-2.6.3-VC/SDL2_image-2.6.3/cmake;${{github.workspace}}/SDL2_ttf-devel-2.20.2-VC/SDL2_ttf-2.20.2/cmake;${{github.workspace}}/SDL2_mixer-devel-2.6.3-VC/SDL2_mixer-2.6.3/cmake
@@ -155,17 +155,23 @@ jobs:
       if: matrix.platform == 'android'
       shell: bash
       run: |
-        cmake -B ${{github.workspace}}/build \
-          -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \
-          -DANDROID_ABI=${{ matrix.android_abi }} \
-          -DANDROID_NATIVE_API_LEVEL=${{ matrix.android_api_level }} \
-          -DCMAKE_BUILD_TYPE=Release \
-          -DCMAKE_VERBOSE_MAKEFILE=ON \
-          -DCMAKE_PREFIX_PATH=${{ env.SDL2_ANDROID_INSTALL_PREFIX }} \
+        cmake -B ${{github.workspace}}/build \\
+          -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \\
+          -DANDROID_ABI=${{ matrix.android_abi }} \\
+          -DANDROID_NATIVE_API_LEVEL=${{ matrix.android_api_level }} \\
+          -DCMAKE_BUILD_TYPE=Release \\
+          -DCMAKE_VERBOSE_MAKEFILE=ON \\
+          -DCMAKE_PREFIX_PATH=${{ env.SDL2_ANDROID_INSTALL_PREFIX }} \\
           -DSDL_ASSETS_DIR=${{ github.workspace }}/asset # 告诉SDL2资产目录在哪里
 
-    - name: Build
-      shell: bash # 使用bash以确保一致性
+    - name: Build Project (Windows)
+      if: matrix.platform == 'windows'
+      shell: cmd
+      run: cmake --build ${{github.workspace}}\\build --config Release --verbose
+
+    - name: Build Project (non-Windows)
+      if: matrix.platform != 'windows'
+      shell: bash # Keep bash for Linux, macOS, Android
       run: cmake --build ${{github.workspace}}/build --config Release --verbose
 
     - name: Prepare Release Package (Windows)
@@ -187,7 +193,7 @@ jobs:
       run: |
         mkdir -p FishGame
         cp "build/${{ matrix.exe_name }}" "FishGame/"
-        # 对于macOS, 可能需要使用 macdeployqt ���类似工具来捆绑依赖项到 .app 包
+        # 对于macOS, 可能需要使用 macdeployqt �����类似工具来捆绑依赖项到 .app 包
         # 对于Linux, 共享库通常由系统处理或与可执行文件放在一起
         cp -r asset FishGame/
 
