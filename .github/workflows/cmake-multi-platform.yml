@@ -207,38 +207,28 @@ jobs:
         # 对于Linux, 共享库通常由系统处理或与可执行文件放在一起
         cp -r asset FishGame/
 
-    - name: Prepare Release Package (Android)
+    - name: Configure CMake (Android)
       if: matrix.platform == 'android'
       shell: bash
       run: |
-        mkdir -p FishGame
-        # SDL2 生成的 APK 通常在 build/bin/ 目录下, 或者 build/outputs/apk/release
-        APK_PATH_OPTION1="${{github.workspace}}/build/bin/${{ matrix.exe_name }}.apk"
-        APK_PATH_OPTION2="${{github.workspace}}/build/outputs/apk/release/app-release.apk" # Gradle的典型路径
-        APK_PATH_OPTION3="${{github.workspace}}/build/${{ matrix.exe_name }}.apk"
+        # 输出更详细的调试信息
+        echo "调试信息 - SDL2安装前缀: ${{ env.SDL2_ANDROID_INSTALL_PREFIX }}"
+        ls -la ${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/lib
+        ls -la ${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/include || echo "include目录不存在"
         
-        FINAL_APK_PATH=""
-        if [ -f "$APK_PATH_OPTION1" ]; then
-          FINAL_APK_PATH="$APK_PATH_OPTION1"
-        elif [ -f "$APK_PATH_OPTION2" ]; then
-          FINAL_APK_PATH="$APK_PATH_OPTION2"
-        elif [ -f "$APK_PATH_OPTION3" ]; then
-          FINAL_APK_PATH="$APK_PATH_OPTION3"
-        else
-          echo "APK not found in expected locations. Listing build directory contents:"
-          ls -R ${{github.workspace}}/build
-          # 尝试查找任何 .apk 文件
-          find ${{github.workspace}}/build -name "*.apk" -print -quit
-          # exit 1 # 暂时不退出，允许手动检查
-        fi
-        
-        if [ ! -z "$FINAL_APK_PATH" ]; then
-          cp "$FINAL_APK_PATH" "FishGame/${{ matrix.artifact_name }}"
-          echo "Packaged APK: FishGame/${{ matrix.artifact_name }}"
-        else
-           echo "Error: APK file could not be located after build."
-           exit 1
-        fi
+        # 直接指定SDL2_LIBRARY和SDL2_INCLUDE_DIR变量
+        cmake -B ${{github.workspace}}/build \
+          -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \
+          -DANDROID_ABI=${{ matrix.android_abi }} \
+          -DANDROID_NATIVE_API_LEVEL=${{ matrix.android_api_level }} \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DCMAKE_VERBOSE_MAKEFILE=ON \
+          -DSDL2_DIR=${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/lib/cmake/SDL2 \
+          -DSDL2_LIBRARY=${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/lib/libSDL2.so \
+          -DSDL2_INCLUDE_DIR=${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/include/SDL2 \
+          -DSDL2_image_DIR=${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/lib/cmake/SDL2_image \
+          -DSDL2_ttf_DIR=${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/lib/cmake/SDL2_ttf \
+          -DSDL2_mixer_DIR=${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/lib/cmake/SDL2_mixer
 
     - name: Create Archive (Desktop and Android)
       shell: bash
