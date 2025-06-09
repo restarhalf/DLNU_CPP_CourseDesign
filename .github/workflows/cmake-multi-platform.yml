@@ -70,11 +70,11 @@ jobs:
 
     - name: Configure CMake (Desktop Unix)
       if: runner.os != 'Windows'
+      shell: bash
       run: |
-        cmake -B ${{github.workspace}}/build \\
-        -DCMAKE_BUILD_TYPE=Release \\
-        -DCMAKE_VERBOSE_MAKEFILE=ON \\
-        -DCMAKE_PREFIX_PATH=/usr/local/lib/cmake
+        cmake -B ${{github.workspace}}/build \
+              -DCMAKE_BUILD_TYPE=Release \
+              -DCMAKE_VERBOSE_MAKEFILE=ON
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config Release --verbose
