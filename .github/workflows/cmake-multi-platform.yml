@@ -162,7 +162,9 @@ jobs:
           -DCMAKE_BUILD_TYPE=Release \\
           -DCMAKE_VERBOSE_MAKEFILE=ON \\
           -DCMAKE_PREFIX_PATH=${{ env.SDL2_ANDROID_INSTALL_PREFIX }} \\
-          -DSDL_ASSETS_DIR=${{ github.workspace }}/asset # 告诉SDL2资产目录在哪里
+          -DSDL_ASSETS_DIR=${{ github.workspace }}/asset \\
+          -DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=BOTH \\
+          -DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=BOTH
 
     - name: Build Project (Windows)
       if: matrix.platform == 'windows'
