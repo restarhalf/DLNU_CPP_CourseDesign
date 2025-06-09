@@ -88,6 +88,25 @@ jobs:
         echo "SDL2_ANDROID_INSTALL_PREFIX=${SDL2_ANDROID_LIBS_DIR}" >> $GITHUB_ENV
         mkdir -p $SDL2_ANDROID_LIBS_DIR
 
+        # Build and install libjpeg-turbo
+        echo "INFO: Building libjpeg-turbo for Android (${{ matrix.android_abi }})"
+        LIBJPEG_TURBO_VERSION="3.0.2" # Using a recent version of libjpeg-turbo
+        wget https://github.com/libjpeg-turbo/libjpeg-turbo/archive/refs/tags/${LIBJPEG_TURBO_VERSION}.tar.gz -O libjpeg-turbo.tar.gz
+        tar xzf libjpeg-turbo.tar.gz
+        cd libjpeg-turbo-${LIBJPEG_TURBO_VERSION}
+        cmake -B build-android \\
+            -S . \\
+            -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \\
+            -DANDROID_ABI=${{ matrix.android_abi }} \\
+            -DANDROID_PLATFORM=android-21 \\
+            -DCMAKE_INSTALL_PREFIX=$SDL2_ANDROID_LIBS_DIR \\
+            -DWITH_JPEG8=1 \\
+            -DENABLE_SHARED=OFF \\
+            -DENABLE_STATIC=ON
+        cmake --build build-android --target install -j$(nproc)
+        cd ..
+        echo "INFO: Finished building libjpeg-turbo for Android (${{ matrix.android_abi }})"
+
         # 定义一个函数来简化编译过程
         build_sdl_library() {
           local LIB_NAME=$1
@@ -149,7 +168,7 @@ jobs:
         SDL2_INCLUDE_PATH="${SDL2_ANDROID_LIBS_DIR}/include/SDL2"
         SDL2_CMAKE_CONFIG_PATH="${SDL2_ANDROID_LIBS_DIR}/lib/cmake/SDL2"
 
-        # 编译 SDL2_image (依赖 SDL2)
+        # ��译 SDL2_image (依赖 SDL2)
         build_sdl_library "SDL2_image" "https://github.com/libsdl-org/SDL_image.git" "release-2.8.2" "-DSDL2_CMAKE_PATH=${SDL2_CMAKE_CONFIG_PATH} -DSDL2_LIBRARY=${SDL2_LIB_PATH} -DSDL2_INCLUDE_DIR=${SDL2_INCLUDE_PATH} -DSDL2IMAGE_SAMPLES=OFF"
         # 编译 SDL2_ttf (依赖 SDL2)
         build_sdl_library "SDL2_ttf" "https://github.com/libsdl-org/SDL_ttf.git" "release-2.22.0" "-DSDL2_CMAKE_PATH=${SDL2_CMAKE_CONFIG_PATH} -DSDL2_LIBRARY=${SDL2_LIB_PATH} -DSDL2_INCLUDE_DIR=${SDL2_INCLUDE_PATH} -DSDL2TTF_SAMPLES=OFF -DSDL2TTF_FREETYPE=vendored"
