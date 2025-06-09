@@ -22,7 +22,7 @@ namespace lyt
         }
 
         // 设置默认绘图颜色为白色
-        SDL_SetRenderDrawColor(renderer_, 1000, 1000, 1000, 255);
+        SDL_SetRenderDrawColor(renderer_, 255, 255, 255, 255);
     }
 
     // 析构函数，清理渲染器资源
