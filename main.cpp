@@ -1,4 +1,3 @@
-#include <SDL_main.h>  // Explicitly include for Android builds
 /*
  * 大鱼吃小鱼游戏主程序
  * 功能：
@@ -10,7 +9,8 @@
 #include <lx_api.h>
 #include <lyt_api.h>
 #include <random>
-
+#include <SDL_main.h>
+#undef main
 extern "C" int main(int argc, char* argv[])
 {
     // 随机数生成器初始化

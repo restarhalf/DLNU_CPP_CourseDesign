@@ -105,6 +105,8 @@ if(ANDROID)
         EGL
         GLESv2
         OpenSLES
+        atomic
+        m
         )
 elseif(APPLE)
     target_link_libraries(${PROJECT_NAME} PRIVATE
