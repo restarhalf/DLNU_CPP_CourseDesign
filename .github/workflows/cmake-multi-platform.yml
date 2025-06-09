@@ -105,19 +105,25 @@ jobs:
             -DSDL_STATIC=OFF \
             -DSDL_SHARED=ON \
             -DSDL_SENSOR=OFF \
-            $EXTRA_CMAKE_DEFS # Add -DSDL_SENSOR=OFF here for SDL2
+            $EXTRA_CMAKE_DEFS
           cmake --build ${LIB_NAME}_src/build-android --target install --config Release --verbose
           echo "---- Finished $LIB_NAME ----"
         }
 
         # 编译 SDL2
-        build_sdl_library "SDL2" "https://github.com/libsdl-org/SDL.git" "release-2.30.0" "-DSDL_SENSOR=OFF" # Explicitly disable sensor for SDL2 base library
+        build_sdl_library "SDL2" "https://github.com/libsdl-org/SDL.git" "release-2.30.0" "-DSDL_SENSOR=OFF"
+        
+        # 定义 SDL2 库和头文件路径变量，供依赖库使用
+        SDL2_LIB_PATH="${SDL2_ANDROID_LIBS_DIR}/lib/libSDL2.so"
+        SDL2_INCLUDE_PATH="${SDL2_ANDROID_LIBS_DIR}/include/SDL2"
+        SDL2_CMAKE_CONFIG_PATH="${SDL2_ANDROID_LIBS_DIR}/lib/cmake/SDL2"
+
         # 编译 SDL2_image (依赖 SDL2)
-        build_sdl_library "SDL2_image" "https://github.com/libsdl-org/SDL_image.git" "release-2.8.2" "-DSDL2_CMAKE_PATH=$SDL2_ANDROID_LIBS_DIR/lib/cmake/SDL2 -DSDL2IMAGE_SAMPLES=OFF"
+        build_sdl_library "SDL2_image" "https://github.com/libsdl-org/SDL_image.git" "release-2.8.2" "-DSDL2_CMAKE_PATH=${SDL2_CMAKE_CONFIG_PATH} -DSDL2_LIBRARY=${SDL2_LIB_PATH} -DSDL2_INCLUDE_DIR=${SDL2_INCLUDE_PATH} -DSDL2IMAGE_SAMPLES=OFF"
         # 编译 SDL2_ttf (依赖 SDL2)
-        build_sdl_library "SDL2_ttf" "https://github.com/libsdl-org/SDL_ttf.git" "release-2.22.0" "-DSDL2_CMAKE_PATH=$SDL2_ANDROID_LIBS_DIR/lib/cmake/SDL2 -DSDL2TTF_SAMPLES=OFF"
+        build_sdl_library "SDL2_ttf" "https://github.com/libsdl-org/SDL_ttf.git" "release-2.22.0" "-DSDL2_CMAKE_PATH=${SDL2_CMAKE_CONFIG_PATH} -DSDL2_LIBRARY=${SDL2_LIB_PATH} -DSDL2_INCLUDE_DIR=${SDL2_INCLUDE_PATH} -DSDL2TTF_SAMPLES=OFF"
         # 编译 SDL2_mixer (依赖 SDL2)
-        build_sdl_library "SDL2_mixer" "https://github.com/libsdl-org/SDL_mixer.git" "release-2.8.0" "-DSDL2_CMAKE_PATH=$SDL2_ANDROID_LIBS_DIR/lib/cmake/SDL2 -DSDL2MIXER_SAMPLES=OFF -DSDL2MIXER_OPUS=OFF -DSDL2MIXER_MP3_MINIMP3=ON"
+        build_sdl_library "SDL2_mixer" "https://github.com/libsdl-org/SDL_mixer.git" "release-2.8.0" "-DSDL2_CMAKE_PATH=${SDL2_CMAKE_CONFIG_PATH} -DSDL2_LIBRARY=${SDL2_LIB_PATH} -DSDL2_INCLUDE_DIR=${SDL2_INCLUDE_PATH} -DSDL2MIXER_SAMPLES=OFF -DSDL2MIXER_OPUS=OFF -DSDL2MIXER_MP3_MINIMP3=ON"
 
         echo "SDL2 and dependencies for Android built and installed to $SDL2_ANDROID_LIBS_DIR"
         echo "Listing installed CMake files:"
@@ -206,29 +212,6 @@ jobs:
         # 对于macOS, 可能需要使用 macdeployqt �����类似工具来捆绑依赖项到 .app 包
         # 对于Linux, 共享库通常由系统处理或与可执行文件放在一起
         cp -r asset FishGame/
-
-    - name: Configure CMake (Android)
-      if: matrix.platform == 'android'
-      shell: bash
-      run: |
-        # 输出更详细的调试信息
-        echo "调试信息 - SDL2安装前缀: ${{ env.SDL2_ANDROID_INSTALL_PREFIX }}"
-        ls -la ${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/lib
-        ls -la ${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/include || echo "include目录不存在"
-        
-        # 直接指定SDL2_LIBRARY和SDL2_INCLUDE_DIR变量
-        cmake -B ${{github.workspace}}/build \
-          -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \
-          -DANDROID_ABI=${{ matrix.android_abi }} \
-          -DANDROID_NATIVE_API_LEVEL=${{ matrix.android_api_level }} \
-          -DCMAKE_BUILD_TYPE=Release \
-          -DCMAKE_VERBOSE_MAKEFILE=ON \
-          -DSDL2_DIR=${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/lib/cmake/SDL2 \
-          -DSDL2_LIBRARY=${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/lib/libSDL2.so \
-          -DSDL2_INCLUDE_DIR=${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/include/SDL2 \
-          -DSDL2_image_DIR=${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/lib/cmake/SDL2_image \
-          -DSDL2_ttf_DIR=${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/lib/cmake/SDL2_ttf \
-          -DSDL2_mixer_DIR=${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/lib/cmake/SDL2_mixer
 
     - name: Create Archive (Desktop and Android)
       shell: bash
