@@ -105,14 +105,7 @@ jobs:
         wget https://download.sourceforge.net/libpng/libpng-${LIBPNG_VERSION}.tar.gz -O libpng.tar.gz
         tar xzf libpng.tar.gz
         cd libpng-${LIBPNG_VERSION}
-        cmake -B build-android -S . \\
-            -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \\
-            -DANDROID_ABI=${{ matrix.android_abi }} \\
-            -DANDROID_PLATFORM=android-21 \\
-            -DCMAKE_INSTALL_PREFIX=$SDL2_ANDROID_LIBS_DIR \\
-            -DPNG_SHARED=OFF \\
-            -DPNG_STATIC=ON \\
-            -DPNG_TESTS=OFF
+        cmake -B build-android -S . -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake -DANDROID_ABI=${{ matrix.android_abi }} -DANDROID_PLATFORM=android-21 -DCMAKE_INSTALL_PREFIX=$SDL2_ANDROID_LIBS_DIR -DPNG_SHARED=OFF -DPNG_STATIC=ON -DPNG_TESTS=OFF
         cmake --build build-android --target install -j$(nproc)
         cd ..
         echo "INFO: Finished building libpng for Android (${{ matrix.android_abi }})"
@@ -294,4 +287,3 @@ jobs:
       with:
         files: ${{ matrix.artifact_name }} # 上传 .zip 或 .apk
         # token: ${{ secrets.GITHUB_TOKEN }} # GITHUB_TOKEN 默认可用
-
