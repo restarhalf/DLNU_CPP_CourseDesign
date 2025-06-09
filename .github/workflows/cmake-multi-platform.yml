@@ -94,15 +94,7 @@ jobs:
         wget https://github.com/libjpeg-turbo/libjpeg-turbo/archive/refs/tags/${LIBJPEG_TURBO_VERSION}.tar.gz -O libjpeg-turbo.tar.gz
         tar xzf libjpeg-turbo.tar.gz
         cd libjpeg-turbo-${LIBJPEG_TURBO_VERSION}
-        cmake -B build-android \\
-            -S . \\
-            -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \\
-            -DANDROID_ABI=${{ matrix.android_abi }} \\
-            -DANDROID_PLATFORM=android-21 \\
-            -DCMAKE_INSTALL_PREFIX=$SDL2_ANDROID_LIBS_DIR \\
-            -DWITH_JPEG8=1 \\
-            -DENABLE_SHARED=OFF \\
-            -DENABLE_STATIC=ON
+        cmake -B build-android -S . -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake -DANDROID_ABI=${{ matrix.android_abi }} -DANDROID_PLATFORM=android-21 -DCMAKE_INSTALL_PREFIX=$SDL2_ANDROID_LIBS_DIR -DWITH_JPEG8=1 -DENABLE_SHARED=OFF -DENABLE_STATIC=ON -DWITH_SIMD=OFF
         cmake --build build-android --target install -j$(nproc)
         cd ..
         echo "INFO: Finished building libjpeg-turbo for Android (${{ matrix.android_abi }})"
@@ -146,16 +138,7 @@ jobs:
             fi
           fi
           
-          cmake -S ${LIB_NAME}_src -B ${LIB_NAME}_src/build-android \
-            -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \
-            -DANDROID_ABI=${{ matrix.android_abi }} \
-            -DANDROID_NATIVE_API_LEVEL=${{ matrix.android_api_level }} \
-            -DCMAKE_INSTALL_PREFIX=$SDL2_ANDROID_LIBS_DIR \
-            -DCMAKE_BUILD_TYPE=Release \
-            -DSDL_STATIC=OFF \
-            -DSDL_SHARED=ON \
-            -DSDL_SENSOR=OFF \
-            $EXTRA_CMAKE_DEFS
+          cmake -S ${LIB_NAME}_src -B ${LIB_NAME}_src/build-android -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake -DANDROID_ABI=${{ matrix.android_abi }} -DANDROID_NATIVE_API_LEVEL=${{ matrix.android_api_level }} -DCMAKE_INSTALL_PREFIX=$SDL2_ANDROID_LIBS_DIR -DCMAKE_BUILD_TYPE=Release -DSDL_STATIC=OFF -DSDL_SHARED=ON -DSDL_SENSOR=OFF $EXTRA_CMAKE_DEFS
           cmake --build ${LIB_NAME}_src/build-android --target install --config Release --verbose
           echo "---- Finished $LIB_NAME ----"
         }
@@ -187,7 +170,7 @@ jobs:
         -DCMAKE_BUILD_TYPE=Release ^
         -DCMAKE_VERBOSE_MAKEFILE=ON ^
         -DCMAKE_PREFIX_PATH=${{github.workspace}}/SDL2-devel-2.28.5-VC/SDL2-2.28.5/cmake;${{github.workspace}}/SDL2_image-devel-2.6.3-VC/SDL2_image-2.6.3/cmake;${{github.workspace}}/SDL2_ttf-devel-2.20.2-VC/SDL2_ttf-2.20.2/cmake;${{github.workspace}}/SDL2_mixer-devel-2.6.3-VC/SDL2_mixer-2.6.3/cmake
-        REM 确保上面的路径与解压后的实际路径一致
+        REM 确保上面的路径与解压��的实际路径一致
 
     - name: Configure CMake (Desktop Unix - Linux/macOS)
       if: (matrix.platform == 'linux' || matrix.platform == 'macos')
@@ -196,7 +179,7 @@ jobs:
         EXTRA_CMAKE_ARGS=""
         if [ "${{ matrix.platform }}" == "macos" ]; then
           # 对于macOS, Homebrew通常会处理好路径，find_package应该能直接工作
-          # 如果不行，可以尝试指定路径：
+          # 如果不行，可以���试指定路径：
           EXTRA_CMAKE_ARGS="-DSDL2_DIR=$(brew --prefix sdl2)/lib/cmake/SDL2 \
                             -DSDL2_image_DIR=$(brew --prefix sdl2_image)/lib/cmake/SDL2_image \
                             -DSDL2_ttf_DIR=$(brew --prefix sdl2_ttf)/lib/cmake/SDL2_ttf \
@@ -260,7 +243,7 @@ jobs:
         mkdir -p FishGame
         cp "build/${{ matrix.exe_name }}" "FishGame/"
         # 对于macOS, 可能需要使用 macdeployqt �����类似工具来捆绑依赖项到 .app 包
-        # 对于Linux, 共享库通常由系统处理或与可执行文件放在一起
+        # 对于Linux, 共享库��常由系统处理或与可执行文件放在一起
         cp -r asset FishGame/
 
     - name: Create Archive (Desktop and Android)
