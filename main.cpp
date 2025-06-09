@@ -11,7 +11,7 @@
 #include <lyt_api.h>
 #include <random>
 
-int main(int argc, char* argv[])
+extern "C" int main(int argc, char* argv[])
 {
     // 随机数生成器初始化
     std::random_device rd;
@@ -254,7 +254,7 @@ int main(int argc, char* argv[])
             aiFishes.back().setDirection(dir);
         }
 
-        // 更新分数显示
+        // ��新分数显示
 
         std::string scoreStr = "Score: " + std::to_string(scoreManager.getScore()) +
                                "  High: " + std::to_string(scoreManager.getHighScore());
