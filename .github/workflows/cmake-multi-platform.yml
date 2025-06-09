@@ -261,17 +261,45 @@ jobs:
       shell: bash
       run: |
         if [ "${{ matrix.platform }}" == "android" ]; then
-          # 对于安卓，产物已经是 APK，直接使用
-          if [ -f "FishGame/${{ matrix.artifact_name }}" ]; then
-            mv FishGame/${{ matrix.artifact_name }} ./${{ matrix.artifact_name }}
-            echo "Using APK directly: ./${{ matrix.artifact_name }}"
+          # For Android, the artifact is the APK.
+          # The APK is typically generated in the build directory.
+          # Common names are <project_name>.apk or <project_name>-release.apk.
+          APK_CANDIDATE_1="${{github.workspace}}/build/${{ matrix.exe_name }}.apk"
+          APK_CANDIDATE_2="${{github.workspace}}/build/${{ matrix.exe_name }}-release.apk"
+          # Add more candidates here if necessary, e.g., specific subdirectories like build/outputs/apk/release/
+
+          TARGET_APK_NAME="${{ matrix.artifact_name }}" # This is the name the artifact should have for upload.
+
+          FOUND_APK_PATH=""
+          if [ -f "$APK_CANDIDATE_1" ]; then
+            FOUND_APK_PATH="$APK_CANDIDATE_1"
+          elif [ -f "$APK_CANDIDATE_2" ]; then
+            FOUND_APK_PATH="$APK_CANDIDATE_2"
+          fi
+
+          if [ -n "$FOUND_APK_PATH" ]; then
+            echo "Found APK at $FOUND_APK_PATH"
+            # Move the found APK to the root of the workspace with the target artifact name
+            mv "$FOUND_APK_PATH" "./$TARGET_APK_NAME"
+            echo "Moved APK to ./$TARGET_APK_NAME for upload."
           else
-            echo "Error: Packaged APK not found for archiving step."
+            echo "Error: APK not found. Searched for:"
+            echo "  $APK_CANDIDATE_1"
+            echo "  $APK_CANDIDATE_2"
+            echo "Listing contents of ${{github.workspace}}/build/ (recursive):"
+            ls -lAR "${{github.workspace}}/build/"
             exit 1
           fi
         else
-          # 桌面平台创建 ZIP
-          7z a -tzip ${{ matrix.artifact_name }} ./FishGame/*
+          # Desktop platforms create a ZIP from the ./FishGame directory
+          # Ensure the FishGame directory and its contents are prepared by previous steps
+          if [ ! -d "./FishGame" ]; then
+            echo "Error: ./FishGame directory not found for desktop packaging."
+            # Attempt to create it if it was missed by a previous step for some reason, though this indicates a flaw elsewhere.
+            # mkdir -p FishGame # This line is commented out as it might hide earlier issues.
+            exit 1
+          fi
+          7z a -tzip "${{ matrix.artifact_name }}" ./FishGame/*
           echo "Created ZIP archive: ./${{ matrix.artifact_name }}"
         fi
 
