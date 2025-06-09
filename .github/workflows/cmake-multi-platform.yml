@@ -29,6 +29,12 @@ jobs:
             platform: macos
             artifact_name: FishGame-macOS.zip
             exe_name: DLNU_CPP_CourseDesign
+          - os: ubuntu-latest # 安卓构建通常在 Linux runner 上进行
+            platform: android
+            artifact_name: FishGame-Android.apk
+            exe_name: DLNU_CPP_CourseDesign # 项目名，用于APK内部
+            android_abi: arm64-v8a #  可以扩展为多个 e.g., armeabi-v7a, x86_64
+            android_api_level: 21  # 最低支持的安卓 API 级别
 
     runs-on: ${{ matrix.os }}
 
@@ -36,7 +42,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Install SDL2 Dependencies (Windows)
-      if: runner.os == 'Windows'
+      if: matrix.platform == 'windows'
       shell: pwsh
       run: |
         curl -L -o SDL2.zip https://github.com/libsdl-org/SDL/releases/download/release-2.28.5/SDL2-devel-2.28.5-VC.zip
@@ -48,66 +54,202 @@ jobs:
         7z x SDL2_ttf.zip
         7z x SDL2_mixer.zip
 
-    - name: Install SDL2 Dependencies (Ubuntu)
-      if: runner.os == 'Linux' && matrix.platform == 'linux'
+    - name: Install SDL2 Dependencies (Ubuntu for Desktop Linux)
+      if: matrix.platform == 'linux'
       run: |
         sudo apt-get update
         sudo apt-get install -y libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev
 
     - name: Install SDL2 Dependencies (macOS)
-      if: runner.os == 'macOS'
+      if: matrix.platform == 'macos'
       run: |
         brew install sdl2 sdl2_image sdl2_ttf sdl2_mixer
 
+    # 安卓环境设置
+    - name: Set up JDK for Android
+      if: matrix.platform == 'android'
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17' # 安卓构建通常需要 JDK 17
+
+    - name: Set up Android SDK/NDK
+      if: matrix.platform == 'android'
+      uses: android-actions/setup-android@v3 # 使用 v3 版本
+      # 默认会安装最新的 NDK 和 CMake。可以通过 ndk-version, cmake-version 指定版本
+
+    - name: Build SDL2 and dependencies for Android
+      if: matrix.platform == 'android'
+      shell: bash
+      env:
+        SDL2_ANDROID_LIBS_DIR: ${{ github.workspace }}/sdl2_android_libs_install
+      run: |
+        echo "INFO: Building SDL2, SDL2_image, SDL2_ttf, SDL2_mixer for Android (${{ matrix.android_abi }})"
+        echo "SDL2_ANDROID_INSTALL_PREFIX=${SDL2_ANDROID_LIBS_DIR}" >> $GITHUB_ENV
+        mkdir -p $SDL2_ANDROID_LIBS_DIR
+
+        # 定义一个函数来简化编译过程
+        build_sdl_library() {
+          local LIB_NAME=$1
+          local GIT_URL=$2
+          local GIT_TAG=$3
+          local EXTRA_CMAKE_DEFS=$4
+          echo "---- Building $LIB_NAME ----"
+          git clone --depth 1 -b $GIT_TAG $GIT_URL ${LIB_NAME}_src
+          cmake -S ${LIB_NAME}_src -B ${LIB_NAME}_src/build-android \
+            -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \
+            -DANDROID_ABI=${{ matrix.android_abi }} \
+            -DANDROID_NATIVE_API_LEVEL=${{ matrix.android_api_level }} \
+            -DCMAKE_INSTALL_PREFIX=$SDL2_ANDROID_LIBS_DIR \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DSDL_STATIC=OFF \
+            -DSDL_SHARED=ON \
+            $EXTRA_CMAKE_DEFS
+          cmake --build ${LIB_NAME}_src/build-android --target install --config Release --verbose
+          echo "---- Finished $LIB_NAME ----"
+        }
+
+        # 编译 SDL2
+        build_sdl_library "SDL2" "https://github.com/libsdl-org/SDL.git" "release-2.30.0" # 使用较新版本以获得更好的安卓支持
+        # 编译 SDL2_image (依赖 SDL2)
+        build_sdl_library "SDL2_image" "https://github.com/libsdl-org/SDL_image.git" "release-2.8.2" "-DSDL2_CMAKE_PATH=$SDL2_ANDROID_LIBS_DIR/lib/cmake/SDL2 -DSDL2IMAGE_SAMPLES=OFF"
+        # 编译 SDL2_ttf (依赖 SDL2)
+        build_sdl_library "SDL2_ttf" "https://github.com/libsdl-org/SDL_ttf.git" "release-2.22.0" "-DSDL2_CMAKE_PATH=$SDL2_ANDROID_LIBS_DIR/lib/cmake/SDL2 -DSDL2TTF_SAMPLES=OFF"
+        # 编译 SDL2_mixer (依赖 SDL2)
+        build_sdl_library "SDL2_mixer" "https://github.com/libsdl-org/SDL_mixer.git" "release-2.8.0" "-DSDL2_CMAKE_PATH=$SDL2_ANDROID_LIBS_DIR/lib/cmake/SDL2 -DSDL2MIXER_SAMPLES=OFF -DSDL2MIXER_OPUS=OFF -DSDL2MIXER_MP3_MINIMP3=ON"
+
+        echo "SDL2 and dependencies for Android built and installed to $SDL2_ANDROID_LIBS_DIR"
+        echo "Listing installed CMake files:"
+        find $SDL2_ANDROID_LIBS_DIR -name "*Config.cmake"
+
     - name: Configure CMake (Desktop Windows)
-      if: runner.os == 'Windows'
+      if: matrix.platform == 'windows'
       shell: cmd
       run: |
         cmake -B ${{github.workspace}}/build ^
         -DCMAKE_BUILD_TYPE=Release ^
         -DCMAKE_VERBOSE_MAKEFILE=ON ^
-        -DCMAKE_PREFIX_PATH=${{github.workspace}}/lib/dep/plugins/SDL2/cmake
+        -DCMAKE_PREFIX_PATH=${{github.workspace}}/SDL2-devel-2.28.5-VC/SDL2-2.28.5/cmake;${{github.workspace}}/SDL2_image-devel-2.6.3-VC/SDL2_image-2.6.3/cmake;${{github.workspace}}/SDL2_ttf-devel-2.20.2-VC/SDL2_ttf-2.20.2/cmake;${{github.workspace}}/SDL2_mixer-devel-2.6.3-VC/SDL2_mixer-2.6.3/cmake
+        # 确保上面的路径与解压后的实际路径一致
 
-    - name: Configure CMake (Desktop Unix)
-      if: runner.os != 'Windows'
+    - name: Configure CMake (Desktop Unix - Linux/macOS)
+      if: (matrix.platform == 'linux' || matrix.platform == 'macos')
+      shell: bash
+      run: |
+        EXTRA_CMAKE_ARGS=""
+        if [ "${{ matrix.platform }}" == "macos" ]; then
+          # 对于macOS, Homebrew通常会处理好路径，find_package应该能直接工作
+          # 如果不行，可以尝试指定路径：
+          EXTRA_CMAKE_ARGS="-DSDL2_DIR=$(brew --prefix sdl2)/lib/cmake/SDL2 \
+                            -DSDL2_image_DIR=$(brew --prefix sdl2_image)/lib/cmake/SDL2_image \
+                            -DSDL2_ttf_DIR=$(brew --prefix sdl2_ttf)/lib/cmake/SDL2_ttf \
+                            -DSDL2_mixer_DIR=$(brew --prefix sdl2_mixer)/lib/cmake/SDL2_mixer"
+        fi
+        cmake -B ${{github.workspace}}/build \
+              -DCMAKE_BUILD_TYPE=Release \
+              -DCMAKE_VERBOSE_MAKEFILE=ON \
+              $EXTRA_CMAKE_ARGS
+
+    - name: Configure CMake (Android)
+      if: matrix.platform == 'android'
       shell: bash
       run: |
         cmake -B ${{github.workspace}}/build \
-              -DCMAKE_BUILD_TYPE=Release \
-              -DCMAKE_VERBOSE_MAKEFILE=ON
+          -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \
+          -DANDROID_ABI=${{ matrix.android_abi }} \
+          -DANDROID_NATIVE_API_LEVEL=${{ matrix.android_api_level }} \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DCMAKE_VERBOSE_MAKEFILE=ON \
+          -DCMAKE_PREFIX_PATH=${{ env.SDL2_ANDROID_INSTALL_PREFIX }} \
+          -DSDL_ASSETS_DIR=${{ github.workspace }}/asset # 告诉SDL2资产目录在哪里
 
     - name: Build
+      shell: bash # 使用bash以确保一致性
       run: cmake --build ${{github.workspace}}/build --config Release --verbose
 
     - name: Prepare Release Package (Windows)
-      if: runner.os == 'Windows' && matrix.platform == 'windows'
+      if: matrix.platform == 'windows'
       shell: cmd
       run: |
         mkdir FishGame
         copy "build\Release\${{ matrix.exe_name }}" "FishGame\"
-        for /r %%i in (SDL2*.dll) do copy "%%i" "FishGame\"
+        # 复制DLLs, 确保路径正确
+        copy "SDL2-devel-2.28.5-VC\SDL2-2.28.5\lib\x64\SDL2.dll" "FishGame\"
+        copy "SDL2_image-devel-2.6.3-VC\SDL2_image-2.6.3\lib\x64\SDL2_image.dll" "FishGame\"
+        copy "SDL2_ttf-devel-2.20.2-VC\SDL2_ttf-2.20.2\lib\x64\SDL2_ttf.dll" "FishGame\"
+        copy "SDL2_mixer-devel-2.6.3-VC\SDL2_mixer-2.6.3\lib\x64\SDL2_mixer.dll" "FishGame\"
+        # 可能还有其他DLLs如 libpng, libjpeg, freetype等，根据SDL_image/ttf/mixer的依赖
         xcopy /E /I /Y "asset" "FishGame\asset\"
 
     - name: Prepare Release Package (Linux/macOS)
-      if: matrix.platform != 'windows'
+      if: (matrix.platform == 'linux' || matrix.platform == 'macos')
       run: |
         mkdir -p FishGame
         cp "build/${{ matrix.exe_name }}" "FishGame/"
+        # 对于macOS, 可能需要使用 macdeployqt 或类似工具来捆绑依赖项到 .app 包
+        # 对于Linux, 共享库通常由系统处理或与可执行文件放在一起
         cp -r asset FishGame/
 
-    - name: Create ZIP Archive (Desktop)
+    - name: Prepare Release Package (Android)
+      if: matrix.platform == 'android'
+      shell: bash
       run: |
-        7z a -tzip ${{ matrix.artifact_name }} ./FishGame/*
+        mkdir -p FishGame
+        # SDL2 生成的 APK 通常在 build/bin/ 目录下, 或者 build/outputs/apk/release
+        APK_PATH_OPTION1="${{github.workspace}}/build/bin/${{ matrix.exe_name }}.apk"
+        APK_PATH_OPTION2="${{github.workspace}}/build/outputs/apk/release/app-release.apk" # Gradle的典型路径
+        APK_PATH_OPTION3="${{github.workspace}}/build/${{ matrix.exe_name }}.apk"
+        
+        FINAL_APK_PATH=""
+        if [ -f "$APK_PATH_OPTION1" ]; then
+          FINAL_APK_PATH="$APK_PATH_OPTION1"
+        elif [ -f "$APK_PATH_OPTION2" ]; then
+          FINAL_APK_PATH="$APK_PATH_OPTION2"
+        elif [ -f "$APK_PATH_OPTION3" ]; then
+          FINAL_APK_PATH="$APK_PATH_OPTION3"
+        else
+          echo "APK not found in expected locations. Listing build directory contents:"
+          ls -R ${{github.workspace}}/build
+          # 尝试查找任何 .apk 文件
+          find ${{github.workspace}}/build -name "*.apk" -print -quit
+          # exit 1 # 暂时不退出，允许手动检查
+        fi
+        
+        if [ ! -z "$FINAL_APK_PATH" ]; then
+          cp "$FINAL_APK_PATH" "FishGame/${{ matrix.artifact_name }}"
+          echo "Packaged APK: FishGame/${{ matrix.artifact_name }}"
+        else
+           echo "Error: APK file could not be located after build."
+           exit 1
+        fi
+
+    - name: Create Archive (Desktop and Android)
+      shell: bash
+      run: |
+        if [ "${{ matrix.platform }}" == "android" ]; then
+          # 对于安卓，产物已经是 APK，直接使用
+          if [ -f "FishGame/${{ matrix.artifact_name }}" ]; then
+            mv FishGame/${{ matrix.artifact_name }} ./${{ matrix.artifact_name }}
+            echo "Using APK directly: ./${{ matrix.artifact_name }}"
+          else
+            echo "Error: Packaged APK not found for archiving step."
+            exit 1
+          fi
+        else
+          # 桌面平台创建 ZIP
+          7z a -tzip ${{ matrix.artifact_name }} ./FishGame/*
+          echo "Created ZIP archive: ./${{ matrix.artifact_name }}"
+        fi
 
     - name: Upload Build Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ matrix.platform }}-build
-        path: ${{ matrix.artifact_name }}
+        name: ${{ matrix.platform }}-${{ matrix.android_abi }}-build # 为安卓添加ABI
+        path: ${{ matrix.artifact_name }} # 上传 .zip 或 .apk
 
     - name: Create Release
       if: startsWith(github.ref, 'refs/tags/')
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2 # 使用 v2
       with:
-        files: ${{ matrix.artifact_name }}
-        token: ${{ secrets.GITHUB_TOKEN }}
+        files: ${{ matrix.artifact_name }} # 上传 .zip 或 .apk
+        # token: ${{ secrets.GITHUB_TOKEN }} # GITHUB_TOKEN 默认可用
