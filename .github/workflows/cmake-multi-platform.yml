@@ -95,7 +95,31 @@ jobs:
           local GIT_TAG=$3
           local EXTRA_CMAKE_DEFS=$4
           echo "---- Building $LIB_NAME ----"
-          git clone --depth 1 -b $GIT_TAG $GIT_URL ${LIB_NAME}_src
+          
+          if [ "$LIB_NAME" == "SDL2_ttf" ]; then
+            echo "Performing full clone for SDL2_ttf to aid submodule fetching."
+            git clone -b $GIT_TAG $GIT_URL ${LIB_NAME}_src # No --depth 1 for SDL2_ttf
+          else
+            git clone --depth 1 -b $GIT_TAG $GIT_URL ${LIB_NAME}_src
+          fi
+          
+          if [ "$LIB_NAME" == "SDL2_ttf" ]; then
+            echo "DEBUG: Attempting to initialize submodules for SDL2_ttf"
+            (cd ${LIB_NAME}_src && git submodule update --init --recursive)
+            echo "DEBUG: Listing contents of ${LIB_NAME}_src directory (SDL2_ttf_src) after submodule update attempt:"
+            ls -AlR ${LIB_NAME}_src # This can be very verbose, consider reducing if needed later
+            echo "DEBUG: Specifically checking for ${LIB_NAME}_src/external/freetype/CMakeLists.txt"
+            if [ -f "${LIB_NAME}_src/external/freetype/CMakeLists.txt" ]; then
+              echo "DEBUG: FOUND ${LIB_NAME}_src/external/freetype/CMakeLists.txt via shell check."
+            else
+              echo "DEBUG: NOT FOUND ${LIB_NAME}_src/external/freetype/CMakeLists.txt via shell check."
+              echo "DEBUG: Listing contents of ${LIB_NAME}_src/external/ :"
+              ls -Al ${LIB_NAME}_src/external || echo "DEBUG: Failed to list ${LIB_NAME}_src/external/"
+              echo "DEBUG: Listing contents of ${LIB_NAME}_src/external/freetype/ :"
+              ls -Al ${LIB_NAME}_src/external/freetype || echo "DEBUG: Failed to list ${LIB_NAME}_src/external/freetype/"
+            fi
+          fi
+          
           cmake -S ${LIB_NAME}_src -B ${LIB_NAME}_src/build-android \
             -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \
             -DANDROID_ABI=${{ matrix.android_abi }} \
@@ -121,7 +145,7 @@ jobs:
         # 编译 SDL2_image (依赖 SDL2)
         build_sdl_library "SDL2_image" "https://github.com/libsdl-org/SDL_image.git" "release-2.8.2" "-DSDL2_CMAKE_PATH=${SDL2_CMAKE_CONFIG_PATH} -DSDL2_LIBRARY=${SDL2_LIB_PATH} -DSDL2_INCLUDE_DIR=${SDL2_INCLUDE_PATH} -DSDL2IMAGE_SAMPLES=OFF"
         # 编译 SDL2_ttf (依赖 SDL2)
-        build_sdl_library "SDL2_ttf" "https://github.com/libsdl-org/SDL_ttf.git" "release-2.22.0" "-DSDL2_CMAKE_PATH=${SDL2_CMAKE_CONFIG_PATH} -DSDL2_LIBRARY=${SDL2_LIB_PATH} -DSDL2_INCLUDE_DIR=${SDL2_INCLUDE_PATH} -DSDL2TTF_SAMPLES=OFF"
+        build_sdl_library "SDL2_ttf" "https://github.com/libsdl-org/SDL_ttf.git" "release-2.22.0" "-DSDL2_CMAKE_PATH=${SDL2_CMAKE_CONFIG_PATH} -DSDL2_LIBRARY=${SDL2_LIB_PATH} -DSDL2_INCLUDE_DIR=${SDL2_INCLUDE_PATH} -DSDL2TTF_SAMPLES=OFF -DSDL2TTF_FREETYPE=vendored"
         # 编译 SDL2_mixer (依赖 SDL2)
         build_sdl_library "SDL2_mixer" "https://github.com/libsdl-org/SDL_mixer.git" "release-2.8.0" "-DSDL2_CMAKE_PATH=${SDL2_CMAKE_CONFIG_PATH} -DSDL2_LIBRARY=${SDL2_LIB_PATH} -DSDL2_INCLUDE_DIR=${SDL2_INCLUDE_PATH} -DSDL2MIXER_SAMPLES=OFF -DSDL2MIXER_OPUS=OFF -DSDL2MIXER_MP3_MINIMP3=ON"
 
