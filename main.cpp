@@ -1,4 +1,4 @@
-#include <SDL_main.h> // Explicitly include for Android builds
+#include <SDL_main.h>  // Explicitly include for Android builds
 /*
  * 大鱼吃小鱼游戏主程序
  * 功能：
@@ -11,7 +11,7 @@
 #include <lyt_api.h>
 #include <random>
 
-extern "C" int main(int argc, char* argv[])
+int SDL_main(int argc, char* argv[])
 {
     // 随机数生成器初始化
     std::random_device rd;
@@ -150,7 +150,7 @@ extern "C" int main(int argc, char* argv[])
             {
                 // 处理玩家输入
                 playerFish.handleInput(game.getController());
-                //playerFish.update(windowW, windowH);
+                // playerFish.update(windowW, windowH);
             }
 
             if (login.isButtonReleased())

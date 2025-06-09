@@ -22,7 +22,7 @@ namespace lx
         rect.x += direction * speed;
         if (rect.x <= 0 || rect.x + rect.w >= windowW)
         {
-            //direction *= -1;  // 碰到边界时反向，用于测试，建议让鱼直接消失，头文件有个kill可以用
+            // direction *= -1;  // 碰到边界时反向，用于测试，建议让鱼直接消失，头文件有个kill可以用
             rect.x = std::max(0, std::min(rect.x, windowW - rect.w));  // 保持在窗口内
             kill();
         }

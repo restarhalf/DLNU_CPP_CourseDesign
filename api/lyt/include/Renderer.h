@@ -61,7 +61,6 @@ namespace lyt
                  const SDL_Point* center = nullptr, SDL_RendererFlip flip = SDL_FLIP_NONE) const;
 
 
-
         /**
          * @brief 获取SDL_Renderer指针
          * @return SDL_Renderer指针

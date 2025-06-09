@@ -21,22 +21,21 @@ namespace lx
         // 尝试吃掉AI鱼，成功则加分
         bool tryEat(AIFish& ai, ScoreManager& scoreManager);
         // 重置玩家鱼的位置
-        void reset(int startX, int startY);
-        void resize();
-        int getDirection() const { return direction; }
-        void setDirection(int dir) { direction = dir; } 
+        void        reset(int startX, int startY);
+        void        resize();
+        int         getDirection() const { return direction; }
+        void        setDirection(int dir) { direction = dir; }
         std::string getImagePath() { return imagePath; }
-        void setImagePath(const std::string& path) { imagePath = path; }
-        
+        void        setImagePath(const std::string& path) { imagePath = path; }
+
 
     private:
         int velocityX = 0;  // X方向速度
         int velocityY = 0;  // Y方向速度
         int speed     = 4;  // 移动速度
-        int wMax      = 150; //最大宽度
-        //int direction = 1;   // 鱼的移动方向，1表示向右，-1表示向左
+        int wMax      = 150;  // 最大宽度
+        // int direction = 1;   // 鱼的移动方向，1表示向右，-1表示向左
         std::string imagePath;  // 鱼的图片路径
-
     };
 
 }  // namespace lx

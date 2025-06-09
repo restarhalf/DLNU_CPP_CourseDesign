@@ -42,7 +42,7 @@ namespace lyt
     void Renderer::present() const { SDL_RenderPresent(renderer_); }
 
     // 将纹理复制到渲染目标
-     int Renderer::copy(SDL_Texture* texture, const SDL_Rect* src, const SDL_Rect* dst, double angle,
+    int Renderer::copy(SDL_Texture* texture, const SDL_Rect* src, const SDL_Rect* dst, double angle,
                        const SDL_Point* center, SDL_RendererFlip flip) const
     {
         return SDL_RenderCopyEx(renderer_, texture, src, dst, angle, center, flip);
