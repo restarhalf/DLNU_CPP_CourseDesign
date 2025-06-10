@@ -19,7 +19,7 @@ jobs:
         include:
           - os: windows-latest
             platform: windows
-            artifact_name: FishGame-Windows.zip
+            artifact_name: FishGame-Windows.exe
             exe_name: DLNU_CPP_CourseDesign.exe
           - os: ubuntu-latest
             platform: linux
@@ -95,7 +95,61 @@ jobs:
         cp "build/${{ matrix.exe_name }}" "FishGame/"
         cp -r asset FishGame/
 
-    - name: Create ZIP Archive (Desktop)
+    - name: Create NSIS Installer (Windows)
+      if: runner.os == 'Windows'
+      shell: pwsh
+      run: |
+        # 安装 NSIS
+        choco install nsis -y
+        
+        # 创建 NSIS 安装脚本
+        @"
+        !define APP_NAME "FishGame"
+        !define COMP_NAME "DLNU"
+        !define VERSION "1.0.0"
+        !define COPYRIGHT "© $(Get-Date -Format yyyy) DLNU"
+        !define DESCRIPTION "Fish Game"
+        !define LICENSE_TXT "${{github.workspace}}\LICENSE"
+        !define INSTALLER_NAME "${{github.workspace}}\${{ matrix.artifact_name }}"
+        
+        SetCompressor lzma
+        
+        Name "$${APP_NAME}"
+        Caption "$${APP_NAME} $${VERSION} 安装程序"
+        OutFile "$${INSTALLER_NAME}"
+        InstallDir "\$PROGRAMFILES\$${APP_NAME}"
+        InstallDirRegKey HKLM "Software\$${APP_NAME}" "Install_Dir"
+        
+        Section "主程序"
+          SetOutPath "\$INSTDIR"
+          File /r "${{github.workspace}}\FishGame\*"
+          
+          CreateDirectory "\$SMPROGRAMS\$${APP_NAME}"
+          CreateShortCut "\$SMPROGRAMS\$${APP_NAME}\$${APP_NAME}.lnk" "\$INSTDIR\${{ matrix.exe_name }}" "" "\$INSTDIR\${{ matrix.exe_name }}" 0
+          CreateShortCut "\$DESKTOP\$${APP_NAME}.lnk" "\$INSTDIR\${{ matrix.exe_name }}" "" "\$INSTDIR\${{ matrix.exe_name }}" 0
+        SectionEnd
+        
+        Section "卸载程序"
+          WriteUninstaller "\$INSTDIR\uninstall.exe"
+          WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$${APP_NAME}" "DisplayName" "$${APP_NAME}"
+          WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$${APP_NAME}" "UninstallString" "\$INSTDIR\uninstall.exe"
+        SectionEnd
+        
+        Section "Uninstall"
+          Delete "\$INSTDIR\uninstall.exe"
+          Delete "\$SMPROGRAMS\$${APP_NAME}\$${APP_NAME}.lnk"
+          Delete "\$DESKTOP\$${APP_NAME}.lnk"
+          RMDir /r "\$SMPROGRAMS\$${APP_NAME}"
+          RMDir /r "\$INSTDIR"
+          DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$${APP_NAME}"
+        SectionEnd
+        "@ | Out-File -FilePath "${{github.workspace}}\installer.nsi" -Encoding UTF8
+        
+        # 编译 NSIS 脚本
+        & 'C:\Program Files (x86)\NSIS\makensis.exe' "${{github.workspace}}\installer.nsi"
+
+    - name: Create ZIP Archive (Linux/macOS)
+      if: matrix.platform != 'windows'
       run: |
         7z a -tzip ${{ matrix.artifact_name }} ./FishGame/*
 

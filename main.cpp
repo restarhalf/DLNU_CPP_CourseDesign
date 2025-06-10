@@ -54,7 +54,7 @@ int main(int argc, char* argv[])
     {
         SDL_Log("Failed to load font: %s", TTF_GetError());
         // 尝试备用字体
-        font = TTF_OpenFont("arial.ttf", 20);
+        font = TTF_OpenFont("arial.ttf", 1080);
         if (!font)
         {
             SDL_Log("Failed to load fallback font: %s", TTF_GetError());
