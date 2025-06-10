@@ -1,0 +1,4 @@
+#include <windows.h>
+
+// 图标资源的定义
+IDI_ICON1 ICON "app_icon.ico"
