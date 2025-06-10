@@ -108,70 +108,73 @@ jobs:
         Write-Host "FishGame 目录内容:"
         Get-ChildItem -Path "${{github.workspace}}\FishGame" -Recurse | Select-Object -First 20
         
+        # 定义安装包文件名和路径
+        $installerName = "${{ matrix.artifact_name }}"
+        $installerPath = Join-Path -Path $PWD -ChildPath $installerName
+        Write-Host "安装包路径: $installerPath"
+        
         # 创建 NSIS 安装脚本
-        $installerPath = "${{github.workspace}}\${{ matrix.artifact_name }}"
-        @"
-        !define APP_NAME "FishGame"
-        !define COMP_NAME "DLNU"
-        !define VERSION "1.0.0"
-        !define COPYRIGHT "© $(Get-Date -Format yyyy) DLNU"
-        !define DESCRIPTION "Fish Game"
-        !define INSTALLER_NAME "$installerPath"
+        $nsiScript = @"
+!define APP_NAME "FishGame"
+!define COMP_NAME "DLNU"
+!define VERSION "1.0.0"
+!define COPYRIGHT "© $(Get-Date -Format yyyy) DLNU"
+!define DESCRIPTION "Fish Game"
+
+SetCompressor lzma
+
+Name "\${APP_NAME}"
+Caption "\${APP_NAME} \${VERSION} 安装程序"
+OutFile "$installerName"
+InstallDir "\$PROGRAMFILES\\\${APP_NAME}"
+InstallDirRegKey HKLM "Software\\\\${APP_NAME}" "Install_Dir"
+
+Section "主程序"
+  SetOutPath "\$INSTDIR"
+  File /r "${{github.workspace}}\FishGame\*"
+  
+  CreateDirectory "\$SMPROGRAMS\\\${APP_NAME}"
+  CreateShortCut "\$SMPROGRAMS\\\${APP_NAME}\\\${APP_NAME}.lnk" "\$INSTDIR\\${{ matrix.exe_name }}" "" "\$INSTDIR\\${{ matrix.exe_name }}" 0
+  CreateShortCut "\$DESKTOP\\\${APP_NAME}.lnk" "\$INSTDIR\\${{ matrix.exe_name }}" "" "\$INSTDIR\\${{ matrix.exe_name }}" 0
+SectionEnd
+
+Section "卸载程序"
+  WriteUninstaller "\$INSTDIR\\uninstall.exe"
+  WriteRegStr HKLM "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\\${APP_NAME}" "DisplayName" "\${APP_NAME}"
+  WriteRegStr HKLM "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\\${APP_NAME}" "UninstallString" "\$INSTDIR\\uninstall.exe"
+SectionEnd
+
+Section "Uninstall"
+  Delete "\$INSTDIR\\uninstall.exe"
+  Delete "\$SMPROGRAMS\\\${APP_NAME}\\\${APP_NAME}.lnk"
+  Delete "\$DESKTOP\\\${APP_NAME}.lnk"
+  RMDir /r "\$SMPROGRAMS\\\${APP_NAME}"
+  RMDir /r "\$INSTDIR"
+  DeleteRegKey HKLM "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\\${APP_NAME}"
+SectionEnd
+"@
         
-        SetCompressor lzma
-        
-        Name "$${APP_NAME}"
-        Caption "$${APP_NAME} $${VERSION} 安装程序"
-        OutFile "$${INSTALLER_NAME}"
-        InstallDir "\$PROGRAMFILES\$${APP_NAME}"
-        InstallDirRegKey HKLM "Software\$${APP_NAME}" "Install_Dir"
-        
-        Section "主程序"
-          SetOutPath "\$INSTDIR"
-          File /r "${{github.workspace}}\FishGame\*"
-          
-          CreateDirectory "\$SMPROGRAMS\$${APP_NAME}"
-          CreateShortCut "\$SMPROGRAMS\$${APP_NAME}\$${APP_NAME}.lnk" "\$INSTDIR\${{ matrix.exe_name }}" "" "\$INSTDIR\${{ matrix.exe_name }}" 0
-          CreateShortCut "\$DESKTOP\$${APP_NAME}.lnk" "\$INSTDIR\${{ matrix.exe_name }}" "" "\$INSTDIR\${{ matrix.exe_name }}" 0
-        SectionEnd
-        
-        Section "卸载程序"
-          WriteUninstaller "\$INSTDIR\uninstall.exe"
-          WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$${APP_NAME}" "DisplayName" "$${APP_NAME}"
-          WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$${APP_NAME}" "UninstallString" "\$INSTDIR\uninstall.exe"
-        SectionEnd
-        
-        Section "Uninstall"
-          Delete "\$INSTDIR\uninstall.exe"
-          Delete "\$SMPROGRAMS\$${APP_NAME}\$${APP_NAME}.lnk"
-          Delete "\$DESKTOP\$${APP_NAME}.lnk"
-          RMDir /r "\$SMPROGRAMS\$${APP_NAME}"
-          RMDir /r "\$INSTDIR"
-          DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$${APP_NAME}"
-        SectionEnd
-        "@ | Out-File -FilePath "${{github.workspace}}\installer.nsi" -Encoding UTF8
+        # 保存 NSIS 脚本到文件
+        $nsiScript | Out-File -FilePath "installer.nsi" -Encoding UTF8
         
         # 显示 NSIS 脚本内容
         Write-Host "NSIS 脚本内容:"
-        Get-Content -Path "${{github.workspace}}\installer.nsi"
+        Get-Content -Path "installer.nsi"
         
         # 编译 NSIS 脚本
         Write-Host "开始编译 NSIS 脚本..."
-        & 'C:\Program Files (x86)\NSIS\makensis.exe' "${{github.workspace}}\installer.nsi"
+        & 'C:\Program Files (x86)\NSIS\makensis.exe' "installer.nsi"
         Write-Host "NSIS 编译完成"
         
         # 列出当前目录文件，确认安装包是否生成
         Write-Host "当前目录文件列表:"
-        Get-ChildItem -Path "${{github.workspace}}" | Format-Table Name, Length
+        Get-ChildItem -Path $PWD | Format-Table Name, Length
         
         # 确保安装包文件存在
-        if (Test-Path $installerPath) {
-            Write-Host "安装包成功创建: $installerPath"
-            # 复制安装包到当前目录，以确保 artifact 上传步骤能找到它
-            Copy-Item -Path $installerPath -Destination "${{ matrix.artifact_name }}" -Force
-            Get-ChildItem -Path "${{ matrix.artifact_name }}"
+        if (Test-Path $installerName) {
+            Write-Host "安装包成功创建: $installerName ($(Get-Item $installerName).Length 字节)"
         } else {
-            Write-Error "安装包创建失败: $installerPath"
+            Write-Error "安装包创建失败: $installerName"
             exit 1
         }
 
