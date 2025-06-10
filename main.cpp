@@ -6,6 +6,7 @@
  * 3. 分数系统和全屏显示功能
  * 4. 碰撞检测和游戏结束判定
  */
+
 #include <lx_api.h>
 #include <lyt_api.h>
 #include <random>
@@ -40,10 +41,12 @@ int main(int argc, char* argv[])
     // 创建背景图像对象
     lyt::Image background;
     lyt::Image loginBackground;
+    lyt::Image scoreBoard;  // 计分板背景
     lyt::Text  scoreText;
     int        windowW = 0, windowH = 0;  // 游戏窗口尺寸
     int        mouseX = 0, mouseY = 0;  // 鼠标坐标
     int        loginUiW = 0, loginUiH = 0;  // 登录窗口尺寸
+  
 
     // 加载字体
     font = TTF_OpenFont("asset/fonts/MSYH.ttf", 1080);
@@ -61,6 +64,7 @@ int main(int argc, char* argv[])
 
     game.getWindow()->getSize(windowW, windowH);
     loginUi.getWindow()->getSize(loginUiW, loginUiH);
+
     // 设置按钮和背景图片
     login.setButtonwithImage("asset/images/3.png", loginUi.getRenderer(),
                              {loginUiW / 3 - 100, loginUiH / 2 + 70, 230, 230}, SDL_BLENDMODE_BLEND, 255);
@@ -71,13 +75,16 @@ int main(int argc, char* argv[])
 
     background.setImage("asset/images/background.png", game.getRenderer(), {0, 0, windowW, windowH},
                         SDL_BLENDMODE_BLEND, 255);
-    loginBackground.setImage("asset/images/background.png", loginUi.getRenderer(), {0, 0, loginUiW, loginUiH},
+    loginBackground.setImage("asset/images/background.png", loginUi.getRenderer(),
+                             {0, 0, loginUiW, loginUiH},
                              SDL_BLENDMODE_BLEND, 255);
+    scoreBoard.setImage("asset/images/bar.png", game.getRenderer(), {0, 0, 1280, 120},
+                        SDL_BLENDMODE_BLEND, 255); 
 
     // 分数管理器和分数文本
     lx::ScoreManager scoreManager;
     SDL_Color        textColor = {255, 0, 0, 255};
-    scoreText.setAll(game.getRenderer(), {200, 200, 400, 60}, textColor, font, SDL_BLENDMODE_BLEND,
+    scoreText.setAll(game.getRenderer(), {windowW / 2 - 180, 50, 360, 40}, textColor, font, SDL_BLENDMODE_BLEND,
                      "Score: 0  High: 0");
 
     // 玩家鱼初始化
@@ -126,6 +133,7 @@ int main(int argc, char* argv[])
         exit.setButtonwithImage({loginUiW / 3 * 2 - 115, loginUiH / 2 + 70, 230, 230});
         fullscreenBtn.setButtonwithImage({0, 0, 300, 100});
 
+
         // 事件处理
         SDL_Event event;
         while (SDL_PollEvent(&event))
@@ -152,7 +160,7 @@ int main(int argc, char* argv[])
                 // playerFish.update(windowW, windowH);
             }
 
-            if (login.isButtonReleased())
+            if (login.isButtonReleased())//登录按钮
             {
                 loginUi.getWindow()->hide(true);
                 game.getWindow()->setSize(loginUiW, loginUiH);
@@ -160,7 +168,7 @@ int main(int argc, char* argv[])
                 paused = false;
                 SDL_Log("Login button clicked");
             }
-            if (exit.isButtonReleased())
+            if (exit.isButtonReleased())//退出
             {
                 scoreManager.saveHighScore();
                 if (font) TTF_CloseFont(font);
@@ -168,7 +176,7 @@ int main(int argc, char* argv[])
                 loginUi.clean();
                 return 0;
             }
-            if (fullscreenBtn.isButtonReleased())
+            if (fullscreenBtn.isButtonReleased())//全屏
             {
                 fullscreenFlag = !fullscreenFlag;
                 game.getWindow()->fullscreen(fullscreenFlag);
@@ -193,7 +201,7 @@ int main(int argc, char* argv[])
 
                 if (!playerFish.isAlive())
                 {
-                    SDL_Log("玩家死亡，游戏结束");
+                    //SDL_Log("玩家死亡，游戏结束");
                     scoreManager.saveHighScore();
                     if (font) TTF_CloseFont(font);
                     loginUi.clean();
@@ -257,7 +265,8 @@ int main(int argc, char* argv[])
 
         std::string scoreStr = "Score: " + std::to_string(scoreManager.getScore()) +
                                "  High: " + std::to_string(scoreManager.getHighScore());
-        scoreText.setAll(game.getRenderer(), {10, 10, 400, 60}, textColor, font, SDL_BLENDMODE_BLEND, scoreStr);
+        scoreText.setAll(game.getRenderer(), {windowW / 2 - 180, 50, 360, 40}, textColor, font, SDL_BLENDMODE_BLEND,
+                         scoreStr);
 
         // 渲染游戏画面
         loginUi.getRenderer()->clear();
@@ -269,8 +278,10 @@ int main(int argc, char* argv[])
         // 渲染游戏界面元素
         background.draw();
         fullscreenBtn.drawwithImage();
-        playerFish.render();
+        scoreBoard.draw();
         scoreText.draw();
+        playerFish.render();
+       
         for (auto& aiFish: aiFishes) aiFish.render();
         // 显示渲染结果
         loginUi.getRenderer()->present();
