@@ -31,10 +31,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bcc9e56-ae7f-4772-83b2-5a4237ae3734" name="更改" comment="FIX">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-    </list>
+    <list default="true" id="0bcc9e56-ae7f-4772-83b2-5a4237ae3734" name="更改" comment="FIX" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,6 +101,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\asset\images" />
       <recent name="D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\.github\workflows" />
       <recent name="D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api" />
       <recent name="D:\C_C++Package\CLionProject\DLNU_CPP_CourseDesign\api\lx\src" />
@@ -167,23 +165,7 @@
       <workItem from="1749537109929" duration="2982000" />
       <workItem from="1749540219896" duration="3000" />
       <workItem from="1749540324182" duration="292000" />
-      <workItem from="1749540655362" duration="413000" />
-    </task>
-    <task id="LOCAL-00015" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749014624079</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1749014624079</updated>
-    </task>
-    <task id="LOCAL-00016" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749014759640</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1749014759640</updated>
+      <workItem from="1749540655362" duration="828000" />
     </task>
     <task id="LOCAL-00017" summary="FIX">
       <option name="closed" value="true" />
@@ -561,7 +543,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749539758834</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749541195733</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1749541195733</updated>
+    </task>
+    <task id="LOCAL-00065" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749541212135</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1749541212135</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
