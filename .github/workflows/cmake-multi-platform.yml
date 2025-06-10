@@ -81,7 +81,9 @@ jobs:
           mkdir FishGame
           copy "build\Release\${{ matrix.exe_name }}" "FishGame\"
           for /r %%i in (SDL2*.dll) do copy "%%i" "FishGame\"
+          for /r %%i in (libogg*.dll libopus*.dll libopusfile*.dll libwebp*.dll) do copy "%%i" "FishGame\"
           xcopy /E /I /Y "asset" "FishGame\asset\"
+          type NUL > "FishGame\highscore.txt"
       - name: Prepare Release Package (Linux/macOS)
         if: matrix.platform != 'windows'
         run: |
