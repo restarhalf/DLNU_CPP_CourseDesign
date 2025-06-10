@@ -2,10 +2,22 @@
 #define AIFISH_H
 
 #pragma once
+#include <random>
+#include <vector>
+
 #include "Fish.h"
 
 namespace lx
 {
+    /**
+     * @brief 鱼类类型定义，描述不同体积范围对应的纹理
+     */
+    struct FishType
+    {
+        int                      minSize;  ///< 最小体积
+        int                      maxSize;  ///< 最大体积
+        std::vector<std::string> textures;  ///< 向左游的纹理路径集合
+    };
 
     /**
      * @brief AI鱼类，继承自Fish，具备自动移动和成长等行为
@@ -24,6 +36,11 @@ namespace lx
          */
         AIFish(lyt::Renderer* renderer, const std::string& imagePath, int x, int y, int w, int h);
 
+
+        static AIFish createRandomFish(lyt::Renderer* renderer, const std::vector<FishType>& fishTypes, int windowW,
+                                       int windowH, std::mt19937& gen,
+                                       int playerSize  // 玩家鱼体积参考
+        );
         /**
          * @brief 更新AI鱼的位置和状态
          * @param windowW 窗口宽度
@@ -52,10 +69,12 @@ namespace lx
          * @return 特殊分值
          */
         int getspecialValue() const;
+        // static std::vector<FishType> FishTypes;  //实现依据体积随机赋予纹理
+
 
     private:
         int speed;  ///< 移动速度
-        int direction;  ///< 移动方向，-1为左，1为右
+        // int direction;  ///< 移动方向，-1为左，1为右
         int scoreValue;  ///< 分值
         int specialValue;  ///< 特殊分值
     };

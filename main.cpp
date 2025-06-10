@@ -9,7 +9,6 @@
 
 #include <lx_api.h>
 #include <lyt_api.h>
-#include <random>
 
 int main(int argc, char* argv[])
 {
@@ -50,7 +49,7 @@ int main(int argc, char* argv[])
 
 
     // 加载字体
-    font = TTF_OpenFont("asset/fonts/Aa龙砚体.ttf", 1080);
+    font = TTF_OpenFont("asset/fonts/AaLongyan_font.ttf", 1080);
     if (!font)
     {
         SDL_Log("Failed to load font: %s", TTF_GetError());
@@ -76,46 +75,55 @@ int main(int argc, char* argv[])
 
     background.setImage("asset/images/background.png", game.getRenderer(), {0, 0, windowW, windowH},
                         SDL_BLENDMODE_BLEND, 255);
-    loginBackground.setImage("asset/images/background.png", loginUi.getRenderer(),
-                             {0, 0, loginUiW, loginUiH},
+    loginBackground.setImage("asset/images/background.png", loginUi.getRenderer(), {0, 0, loginUiW, loginUiH},
                              SDL_BLENDMODE_BLEND, 255);
-    scoreBoard.setImage("asset/images/bar.png", game.getRenderer(), {0, 0, 1280, 120},
-                        SDL_BLENDMODE_BLEND, 255);
+    scoreBoard.setImage("asset/images/bar.png", game.getRenderer(), {0, 0, 1280, 120}, SDL_BLENDMODE_BLEND, 255);
 
     // 分数管理器和分数文本
     lx::ScoreManager scoreManager;
     SDL_Color        textColor = {255, 0, 0, 255};
+    std::string      scoreStr  = "Score: " + std::to_string(scoreManager.getScore()) +
+                           "  High: " + std::to_string(scoreManager.getHighScore());
     scoreText.setAll(game.getRenderer(), {windowW / 2 - 180, 50, 360, 40}, textColor, font, SDL_BLENDMODE_BLEND,
-                     "Score: 0  High: 0");
+                     scoreStr);
+    /* scoreText.setAll(game.getRenderer(), {windowW / 2 - 180, 50, 360, 40}, textColor, font, SDL_BLENDMODE_BLEND,
+                     "Score: 0  High: 0");*/
     loginText.setAll(loginUi.getRenderer(), {loginUiW / 2 - 350, loginUiH / 2 - 400, 700, 200}, textColor, font,
                      SDL_BLENDMODE_BLEND, "爱素真王朝了我说");
 
     // 玩家鱼初始化
-    lx::PlayerFish playerFish(game.getRenderer(), "asset/images/fish8_left_0.png", windowW / 2, windowH / 2, 120, 60);
+    lx::PlayerFish playerFish(game.getRenderer(), "asset/images/fish8_left_0.png", windowW / 4, windowH / 2, 60, 30);
+
+    std::vector<lx::FishType> fishTypes = {
+            // 不同范围对应纹理
+            {20,
+             40,
+             {"asset/images/fish0_left_0.png", "asset/images/fish1_left_0.png", "asset/images/fish2_left_0.png"}},
+            {41,
+             80,
+             {"asset/images/fish2_left_0.png", "asset/images/fish3_left_0.png", "asset/images/fish4_left_0.png",
+              "asset/images/fish5_left_0.png"}},
+            {81,
+             120,
+             {"asset/images/fish3_left_0.png", "asset/images/fish4_left_0.png", "asset/images/fish5_left_0.png",
+              "asset/images/fish9_left_0.png"}},
+            {121,
+             500,  // 满足体积最大值
+             {"asset/images/fish6_left_0.png", "asset/images/fish7_left_0.png", "asset/images/fish8_left_0.png"}}
+
+    };
 
     // AI鱼初始化
     std::vector<lx::AIFish> aiFishes;
 
     for (int i = 0; i < 10; ++i)
     {
-        std::uniform_int_distribution<int> disSize(20, 60);
-        int                                size = disSize(gen);  // 根据随机大小设置生成地位置坐标
+        // 获取玩家鱼体积（例如取宽高的平均值）
+        int playerSize = (playerFish.getRect().w + playerFish.getRect().h) / 2;
 
-        // 随机选择左侧或右侧边缘
-        int side = rand() % 2 == 0 ? 0 : 1;
-        int x    = 0;
-        if (side == 1)
-        {
-            x = windowW - size;  // 右侧边缘
-        }
-
-        // 随机y坐标
-        std::uniform_int_distribution<int> disY(0, windowH - size);
-        int                                y = disY(gen);
-        if (side == 0)
-            aiFishes.emplace_back(game.getRenderer(), "asset/images/player_1_right_0.png", x, y, size, size);
-        else
-            aiFishes.emplace_back(game.getRenderer(), "asset/images/player_1_left_0.png", x, y, size, size);
+        // 初始化或补充AI鱼时传入玩家体积
+        aiFishes.push_back(
+                lx::AIFish::createRandomFish(game.getRenderer(), fishTypes, windowW, windowH, gen, playerSize));
     }
     // 暂停状态变量,初始就是静止状态（游戏未开始前）
     bool paused = true;
@@ -130,6 +138,7 @@ int main(int argc, char* argv[])
         loginUi.getWindow()->getSize(loginUiW, loginUiH);
         background.setRect({0, 0, windowW, windowH});
         loginBackground.setRect({0, 0, loginUiW, loginUiH});
+        scoreBoard.setRect({0, 0, windowW, 120});  // 更新计分板尺寸
 
         // 按钮位置自适应窗口
         login.setButtonwithImage({loginUiW / 3 - 115, loginUiH / 2 + 70, 230, 230});
@@ -163,7 +172,7 @@ int main(int argc, char* argv[])
                 // playerFish.update(windowW, windowH);
             }
 
-            if (login.isButtonReleased())//登录按钮
+            if (login.isButtonReleased())  // 登录按钮
             {
                 loginUi.getWindow()->hide(true);
                 game.getWindow()->setSize(loginUiW, loginUiH);
@@ -171,7 +180,7 @@ int main(int argc, char* argv[])
                 paused = false;
                 SDL_Log("Login button clicked");
             }
-            if (exit.isButtonReleased())//退出
+            if (exit.isButtonReleased())  // 退出
             {
                 scoreManager.saveHighScore();
                 if (font) TTF_CloseFont(font);
@@ -179,7 +188,7 @@ int main(int argc, char* argv[])
                 loginUi.clean();
                 return 0;
             }
-            if (fullscreenBtn.isButtonReleased())//全屏
+            if (fullscreenBtn.isButtonReleased())  // 全屏
             {
                 fullscreenFlag = !fullscreenFlag;
                 game.getWindow()->fullscreen(fullscreenFlag);
@@ -204,7 +213,7 @@ int main(int argc, char* argv[])
 
                 if (!playerFish.isAlive())
                 {
-                    //SDL_Log("玩家死亡，游戏结束");
+                    // SDL_Log("玩家死亡，游戏结束");
                     scoreManager.saveHighScore();
                     if (font) TTF_CloseFont(font);
                     loginUi.clean();
@@ -226,42 +235,12 @@ int main(int argc, char* argv[])
         constexpr int MAX_AI_FISH = 10;
         while (static_cast<int>(aiFishes.size()) < MAX_AI_FISH)
         {
-            // 先随机生成体积
-            int                                playerSize = (playerFish.getRect().w + playerFish.getRect().h) / 2;
-            std::uniform_int_distribution<int> disMinSize(20, static_cast<int>(playerSize * 0.8));
-            std::uniform_int_distribution<int> disMaxSize(static_cast<int>(playerSize * 1.1),
-                                                          static_cast<int>(playerSize * 1.5));
-            int                                minSize = disMinSize(gen);
-            int                                maxSize = disMaxSize(gen);
-            // 确保minSize<=maxSize
-            if (minSize > maxSize)
-            {
-                std::swap(minSize, maxSize);
-            }
-            std::uniform_int_distribution<int> disSize(minSize, maxSize);
-            int                                size = disSize(gen);
+            // 获取玩家鱼体积（例如取宽高的平均值）
+            int playerSize = (playerFish.getRect().w + playerFish.getRect().h) / 2;
 
-            // 随机选择左侧或右侧边缘
-            int side = rand() % 2 == 0 ? 0 : 1;
-            int x    = 0;
-            if (side == 1)
-            {
-                x = windowW - size;  // 右侧边缘
-            }
-
-            // 随机y坐标
-            std::uniform_int_distribution<int> disY(0, windowH - size);
-            int                                y = disY(gen);
-            y                                    = disY(gen);
-
-            // 创建AI鱼
-            if (side == 0)
-                aiFishes.emplace_back(game.getRenderer(), "asset/images/player_1_right_0.png", x, y, size, size);
-            else
-                aiFishes.emplace_back(game.getRenderer(), "asset/images/player_1_left_0.png", x, y, size, size);
-            // 设置方向：左侧的鱼向右游，右侧的鱼向左游
-            int dir = (side == 0) ? 1 : -1;
-            aiFishes.back().setDirection(dir);
+            // 初始化或补充AI鱼时传入玩家体积
+            aiFishes.push_back(
+                    lx::AIFish::createRandomFish(game.getRenderer(), fishTypes, windowW, windowH, gen, playerSize));
         }
 
         // 更新分数显示
@@ -285,7 +264,7 @@ int main(int argc, char* argv[])
         scoreBoard.draw();
         scoreText.draw();
         playerFish.render();
-       loginText.draw();
+        loginText.draw();
         for (auto& aiFish: aiFishes) aiFish.render();
         // 显示渲染结果
         loginUi.getRenderer()->present();

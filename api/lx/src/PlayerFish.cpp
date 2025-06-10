@@ -9,12 +9,12 @@ namespace lx
 
     // 玩家鱼构造函数
     PlayerFish::PlayerFish(lyt::Renderer* renderer, const std::string& imagePath, int x, int y, int w, int h) :
-        Fish(renderer, imagePath, x, y, w, h) 
-        
+        Fish(renderer, imagePath, x, y, w, h)
+
     {
     }
 
-  void PlayerFish::handleInput(const lyt::Controller* controller)
+    void PlayerFish::handleInput(const lyt::Controller* controller)
     {
         velocityX = velocityY = 0;
         if (controller->isKeyPressed(SDL_SCANCODE_W)) velocityY = -speed;
@@ -22,12 +22,12 @@ namespace lx
         if (controller->isKeyPressed(SDL_SCANCODE_A))
         {
             velocityX = -speed;
-            setDirection(1); 
+            setDirection(-1);
         }
         if (controller->isKeyPressed(SDL_SCANCODE_D))
         {
             velocityX = speed;
-            setDirection(-1); 
+            setDirection(1);
         }
     }
 
@@ -47,7 +47,7 @@ namespace lx
 
     bool PlayerFish::tryEat(AIFish& aiFish, ScoreManager& scoreManager)
     {
-        //if (!aiFish.isAlive() || !alive) return false;//写到fish类的函数，改到gamestate里面
+        // if (!aiFish.isAlive() || !alive) return false;//写到fish类的函数，改到gamestate里面
         SDL_Rect other = aiFish.getRect();
         if (SDL_HasIntersection(&rect, &other))
         {
@@ -70,7 +70,7 @@ namespace lx
                 int value = aiFish.getScoreValue();
                 if (aiFish.getspecialValue() > 4)  // 六分之一的概率
                 {
-                    value += value / 2;//奖励部分
+                    value += value / 2;  // 奖励部分
                     scoreManager.add(value);
                     SDL_Log("吃掉奖励鱼，得分 +%d，当前体型 %.2f", value, getSize());
                 }
@@ -85,12 +85,12 @@ namespace lx
             {
                 // 玩家比 AI 鱼小 20% 以上，被吃掉
                 alive = false;
-                //SDL_Log("被更大的AI鱼吃掉，游戏结束！");
+                // SDL_Log("被更大的AI鱼吃掉游戏结束");
             }
             else
             {
                 // 大小相近，不处理
-                //SDL_Log("碰撞但大小相近，无操作");
+                // SDL_Log("碰撞但大小相近，无操作");
             }
         }
 
@@ -106,9 +106,9 @@ namespace lx
         rect.w = rect.h = 60;
         alive           = true;
     }
-    //控制玩家鱼的体积增长
-    void PlayerFish::resize() 
-    { 
+    // 控制玩家鱼的体积增长
+    void PlayerFish::resize()
+    {
         rect.w = wMax;
         rect.h = wMax;
     }
