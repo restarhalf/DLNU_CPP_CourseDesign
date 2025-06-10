@@ -32,5 +32,9 @@ namespace lx
         std::ofstream file(filename);
         if (file.is_open()) file << highScore;
     }
+    void ScoreManager::reset()
+    {
+        score = 0;
+    }
 
 }  // namespace lx

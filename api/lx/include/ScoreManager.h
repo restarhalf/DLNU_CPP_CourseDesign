@@ -14,6 +14,7 @@ namespace lx
         int  getScore() const;  // 获取当前分数
         int  getHighScore() const;  // 获取最高分
         void saveHighScore();  // 保存最高分到文件
+        void reset();  // 重置当前分数
 
     private:
         int               score;  // 当前分数

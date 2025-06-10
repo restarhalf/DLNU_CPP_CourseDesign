@@ -43,13 +43,14 @@ int main(int argc, char* argv[])
     lyt::Image loginBackground;
     lyt::Image scoreBoard;  // 计分板背景
     lyt::Text  scoreText;
+    lyt::Text  loginText;
     int        windowW = 0, windowH = 0;  // 游戏窗口尺寸
     int        mouseX = 0, mouseY = 0;  // 鼠标坐标
     int        loginUiW = 0, loginUiH = 0;  // 登录窗口尺寸
-  
+
 
     // 加载字体
-    font = TTF_OpenFont("asset/fonts/McDonaldsFries.ttf", 1080);
+    font = TTF_OpenFont("asset/fonts/Aa龙砚体.ttf", 1080);
     if (!font)
     {
         SDL_Log("Failed to load font: %s", TTF_GetError());
@@ -79,13 +80,15 @@ int main(int argc, char* argv[])
                              {0, 0, loginUiW, loginUiH},
                              SDL_BLENDMODE_BLEND, 255);
     scoreBoard.setImage("asset/images/bar.png", game.getRenderer(), {0, 0, 1280, 120},
-                        SDL_BLENDMODE_BLEND, 255); 
+                        SDL_BLENDMODE_BLEND, 255);
 
     // 分数管理器和分数文本
     lx::ScoreManager scoreManager;
     SDL_Color        textColor = {255, 0, 0, 255};
     scoreText.setAll(game.getRenderer(), {windowW / 2 - 180, 50, 360, 40}, textColor, font, SDL_BLENDMODE_BLEND,
                      "Score: 0  High: 0");
+    loginText.setAll(loginUi.getRenderer(), {loginUiW / 2 - 350, loginUiH / 2 - 400, 700, 200}, textColor, font,
+                     SDL_BLENDMODE_BLEND, "爱素真王朝了我说");
 
     // 玩家鱼初始化
     lx::PlayerFish playerFish(game.getRenderer(), "asset/images/fish8_left_0.png", windowW / 2, windowH / 2, 120, 60);
@@ -269,6 +272,7 @@ int main(int argc, char* argv[])
                          scoreStr);
 
         // 渲染游戏画面
+
         loginUi.getRenderer()->clear();
         game.getRenderer()->clear();
         // 渲染登录界面元素
@@ -281,7 +285,7 @@ int main(int argc, char* argv[])
         scoreBoard.draw();
         scoreText.draw();
         playerFish.render();
-       
+       loginText.draw();
         for (auto& aiFish: aiFishes) aiFish.render();
         // 显示渲染结果
         loginUi.getRenderer()->present();
