@@ -6,6 +6,15 @@ set(CMAKE_CXX_STANDARD 20)
 # Windows下添加应用程序图标
 if(WIN32)
     set(APP_ICON_RESOURCE_WINDOWS "${CMAKE_CURRENT_SOURCE_DIR}/res/app.rc")
+
+    # Windows平台下SDL2的路径设置
+    set(SDL2_PATH "${CMAKE_CURRENT_SOURCE_DIR}/lib/dep/plugins/SDL2")
+    set(SDL2_INCLUDE_DIR "${SDL2_PATH}/include")
+    set(SDL2_LIB_DIR "${SDL2_PATH}/lib/x64")
+
+    # 确保DLL文件可以被找到
+    file(GLOB SDL2_DLLS "${SDL2_LIB_DIR}/*.dll")
+    file(COPY ${SDL2_DLLS} DESTINATION "${CMAKE_BINARY_DIR}")
 endif()
 
 # macOS 平台配置
