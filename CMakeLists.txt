@@ -40,7 +40,7 @@ endif()
 
 # 添加可执行文件，包括资源文件
 if(WIN32)
-    add_executable(${PROJECT_NAME} main.cpp ${APP_ICON_RESOURCE_WINDOWS})
+    add_executable(${PROJECT_NAME} WIN32 main.cpp ${APP_ICON_RESOURCE_WINDOWS})
 else()
     add_executable(${PROJECT_NAME} main.cpp)
 endif()
