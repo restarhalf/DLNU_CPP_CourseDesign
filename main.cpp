@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
     TTF_Font*   font = nullptr;
 
     // 初始化游戏窗口和登录窗口，设置分辨率和flags
-    if (!game.init("Game", 1230, 540, 0) || !loginUi.init("Login", 1230, 540, 0))
+    if (!game.init("Game", 2460, 1080, 0) || !loginUi.init("Login", 2460, 1080, 0))
     {
         SDL_Log("Failed to initialize game");
         return -1;
@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
     int        loginUiW = 0, loginUiH = 0;  // 登录窗口尺寸
 
     // 加载字体
-    font = TTF_OpenFont("asset/fonts/MSYH.ttf", 20);
+    font = TTF_OpenFont("asset/fonts/MSYH.ttf", 1080);
     if (!font)
     {
         SDL_Log("Failed to load font: %s", TTF_GetError());
@@ -149,7 +149,7 @@ int main(int argc, char* argv[])
             {
                 // 处理玩家输入
                 playerFish.handleInput(game.getController());
-                //playerFish.update(windowW, windowH);
+                // playerFish.update(windowW, windowH);
             }
 
             if (login.isButtonReleased())

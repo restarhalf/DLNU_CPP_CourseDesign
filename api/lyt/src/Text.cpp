@@ -37,7 +37,7 @@ namespace lyt
         if (this->text != text)
         {
             this->text = text;
-            //flush();
+            // flush();
         }
     }
 
@@ -45,6 +45,7 @@ namespace lyt
     void Text::setAll(Renderer *render, SDL_Rect rect, SDL_Color color, TTF_Font *font, SDL_BlendMode blendMode,
                       const std::string &text)
     {
+        if (text==this->text) return;
         // 设置基本属性
         this->rect      = rect;
         this->color     = color;
