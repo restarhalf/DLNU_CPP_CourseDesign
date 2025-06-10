@@ -31,7 +31,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bcc9e56-ae7f-4772-83b2-5a4237ae3734" name="更改" comment="FIX" />
+    <list default="true" id="0bcc9e56-ae7f-4772-83b2-5a4237ae3734" name="更改" comment="FIX">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,6 +111,11 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DLNU_CPP_CourseDesign" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="DLNU_CPP_CourseDesign" TARGET_NAME="DLNU_CPP_CourseDesign" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="DLNU_CPP_CourseDesign" RUN_TARGET_NAME="DLNU_CPP_CourseDesign">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -156,55 +164,10 @@
       <workItem from="1749371734635" duration="6901000" />
       <workItem from="1749475702819" duration="667000" />
       <workItem from="1749535332746" duration="1579000" />
-      <workItem from="1749537109929" duration="326000" />
-    </task>
-    <task id="LOCAL-00009" summary="GUI">
-      <option name="closed" value="true" />
-      <created>1748953921719</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1748953921719</updated>
-    </task>
-    <task id="LOCAL-00010" summary="GUI">
-      <option name="closed" value="true" />
-      <created>1748967139622</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1748967139622</updated>
-    </task>
-    <task id="LOCAL-00011" summary="GUI">
-      <option name="closed" value="true" />
-      <created>1748995663655</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1748995663655</updated>
-    </task>
-    <task id="LOCAL-00012" summary="GUI">
-      <option name="closed" value="true" />
-      <created>1749012688762</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1749012688762</updated>
-    </task>
-    <task id="LOCAL-00013" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749014272181</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1749014272181</updated>
-    </task>
-    <task id="LOCAL-00014" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749014450426</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1749014450426</updated>
+      <workItem from="1749537109929" duration="2982000" />
+      <workItem from="1749540219896" duration="3000" />
+      <workItem from="1749540324182" duration="292000" />
+      <workItem from="1749540655362" duration="413000" />
     </task>
     <task id="LOCAL-00015" summary="FIX">
       <option name="closed" value="true" />
@@ -550,7 +513,55 @@
       <option name="project" value="LOCAL" />
       <updated>1749537293581</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749537495171</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1749537495171</updated>
+    </task>
+    <task id="LOCAL-00059" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749537694614</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1749537694614</updated>
+    </task>
+    <task id="LOCAL-00060" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749538006262</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1749538006262</updated>
+    </task>
+    <task id="LOCAL-00061" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749538210195</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1749538210195</updated>
+    </task>
+    <task id="LOCAL-00062" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749539342800</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1749539342800</updated>
+    </task>
+    <task id="LOCAL-00063" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749539758834</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1749539758834</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

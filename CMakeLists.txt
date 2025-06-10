@@ -3,6 +3,11 @@ project("DLNU_CPP_CourseDesign")
 
 set(CMAKE_CXX_STANDARD 20)
 
+# Windows下添加应用程序图标
+if(WIN32)
+    set(APP_ICON_RESOURCE_WINDOWS "${CMAKE_CURRENT_SOURCE_DIR}/res/app.rc")
+endif()
+
 # macOS 平台配置
 if(APPLE)
     # 设置 SDL2 查找路径
@@ -33,7 +38,12 @@ elseif(UNIX AND NOT APPLE)
     message(STATUS "SDL2 Libraries: ${SDL2_LIBRARIES}")
 endif()
 
-add_executable(${PROJECT_NAME} main.cpp)
+# 添加可执行文件，包括资源文件
+if(WIN32)
+    add_executable(${PROJECT_NAME} main.cpp ${APP_ICON_RESOURCE_WINDOWS})
+else()
+    add_executable(${PROJECT_NAME} main.cpp)
+endif()
 
 # 平台特定的包含目录和链接配置
 if(APPLE)
