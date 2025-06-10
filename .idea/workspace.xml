@@ -31,16 +31,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bcc9e56-ae7f-4772-83b2-5a4237ae3734" name="更改" comment="FIX">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/cmake-multi-platform.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/cmake-multi-platform.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-    </list>
+    <list default="true" id="0bcc9e56-ae7f-4772-83b2-5a4237ae3734" name="更改" comment="FIX" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Release" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
@@ -172,22 +169,8 @@
       <workItem from="1749352685800" duration="3226000" />
       <workItem from="1749371421020" duration="284000" />
       <workItem from="1749371734635" duration="6901000" />
-    </task>
-    <task id="LOCAL-00004" summary="GUI">
-      <option name="closed" value="true" />
-      <created>1748869093136</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1748869093136</updated>
-    </task>
-    <task id="LOCAL-00005" summary="GUI">
-      <option name="closed" value="true" />
-      <created>1748871838015</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1748871838015</updated>
+      <workItem from="1749475702819" duration="667000" />
+      <workItem from="1749535332746" duration="308000" />
     </task>
     <task id="LOCAL-00006" summary="GUI">
       <option name="closed" value="true" />
@@ -565,7 +548,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749389326797</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749476192987</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1749476192987</updated>
+    </task>
+    <task id="LOCAL-00054" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749535409988</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1749535409989</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
