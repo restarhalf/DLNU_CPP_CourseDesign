@@ -80,8 +80,18 @@ jobs:
         run: |
           mkdir FishGame
           copy "build\Release\${{ matrix.exe_name }}" "FishGame\"
-          for /r %%i in (SDL2*.dll) do copy "%%i" "FishGame\"
-          for /r %%i in (libogg*.dll libopus*.dll libopusfile*.dll libwebp*.dll) do copy "%%i" "FishGame\"
+          
+          :: 复制SDL2相关DLL文件
+          copy "SDL2-2.28.5\lib\x64\SDL2.dll" "FishGame\"
+          copy "SDL2_image-2.6.3\lib\x64\SDL2_image.dll" "FishGame\"
+          copy "SDL2_ttf-2.20.2\lib\x64\SDL2_ttf.dll" "FishGame\"
+          copy "SDL2_mixer-2.6.3\lib\x64\SDL2_mixer.dll" "FishGame\"
+          
+          :: 复制其他依赖DLL文件
+          for /r "SDL2_image-2.6.3\lib\x64" %%i in (libogg*.dll libopus*.dll libopusfile*.dll libwebp*.dll zlib*.dll) do copy "%%i" "FishGame\"
+          for /r "SDL2_mixer-2.6.3\lib\x64" %%i in (libogg*.dll libopus*.dll libopusfile*.dll libmpg123*.dll libFLAC*.dll) do copy "%%i" "FishGame\"
+          
+          :: 复制资源文件和创建成绩文件
           xcopy /E /I /Y "asset" "FishGame\asset\"
           type NUL > "FishGame\highscore.txt"
       - name: Prepare Release Package (Linux/macOS)
