@@ -22,7 +22,7 @@ namespace lyt
         }
 
         // 设置默认绘图颜色为白色
-        SDL_SetRenderDrawColor(renderer_, 255, 255, 255, 255);
+        SDL_SetRenderDrawColor(renderer_, 1000, 1000, 1000, 255);
     }
 
     // 析构函数，清理渲染器资源
@@ -42,7 +42,7 @@ namespace lyt
     void Renderer::present() const { SDL_RenderPresent(renderer_); }
 
     // 将纹理复制到渲染目标
-    int Renderer::copy(SDL_Texture* texture, const SDL_Rect* src, const SDL_Rect* dst, double angle,
+     int Renderer::copy(SDL_Texture* texture, const SDL_Rect* src, const SDL_Rect* dst, double angle,
                        const SDL_Point* center, SDL_RendererFlip flip) const
     {
         return SDL_RenderCopyEx(renderer_, texture, src, dst, angle, center, flip);

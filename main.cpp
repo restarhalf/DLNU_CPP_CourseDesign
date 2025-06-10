@@ -9,9 +9,8 @@
 #include <lx_api.h>
 #include <lyt_api.h>
 #include <random>
-#include <SDL_main.h>
-#undef main
-extern "C" int main(int argc, char* argv[])
+
+int main(int argc, char* argv[])
 {
     // 随机数生成器初始化
     std::random_device rd;
@@ -150,7 +149,7 @@ extern "C" int main(int argc, char* argv[])
             {
                 // 处理玩家输入
                 playerFish.handleInput(game.getController());
-                // playerFish.update(windowW, windowH);
+                //playerFish.update(windowW, windowH);
             }
 
             if (login.isButtonReleased())
@@ -254,7 +253,7 @@ extern "C" int main(int argc, char* argv[])
             aiFishes.back().setDirection(dir);
         }
 
-        // ��新分数显示
+        // 更新分数显示
 
         std::string scoreStr = "Score: " + std::to_string(scoreManager.getScore()) +
                                "  High: " + std::to_string(scoreManager.getHighScore());

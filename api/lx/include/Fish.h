@@ -1,20 +1,17 @@
 #ifndef FISH_H
 #define FISH_H
 #pragma once
-#include <SDL.h>
-#include <cmath>
-#include <string>
-#include <unordered_map>
-#include <vector>
-
 #include "Renderer.h"
+#include <SDL.h>
+#include <string>
+#include <cmath>
+#include<vector>
+#include <unordered_map>
 
-namespace lx
-{
+namespace lx {
 
     // 鱼类基类，定义鱼的基本属性和接口
-    class Fish
-    {
+    class Fish {
     public:
         // 构造函数，初始化鱼的位置、大小和纹理
         Fish(lyt::Renderer* renderer, const std::string& imagePath, int x, int y, int w, int h);
@@ -39,15 +36,15 @@ namespace lx
         static void clearTextureCache();  // 清理所有缓存的纹理
 
     protected:
-        lyt::Renderer*                                       renderer;  // 渲染器指针
-        SDL_Texture*                                         texture;  // 鱼的纹理
-        int                                                  direction = 1;  // 方向，-1为左，1为右
-        SDL_Rect                                             rect;  // 鱼的位置和大小
-        bool                                                 alive = true;  // 鱼是否存活
+        lyt::Renderer* renderer; // 渲染器指针
+        SDL_Texture* texture;    // 鱼的纹理
+        int direction = 1;  // 方向，-1为左，1为右
+        SDL_Rect rect;           // 鱼的位置和大小
+        bool alive = true;       // 鱼是否存活
         static std::unordered_map<std::string, SDL_Texture*> textureCache;
-        SDL_Texture*                                         getOrLoadTexture(const std::string& imagePath);
+        SDL_Texture* getOrLoadTexture(const std::string& imagePath);
     };
 
-}  // namespace lx
+} // namespace lx
 
 #endif

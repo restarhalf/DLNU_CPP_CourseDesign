@@ -29,12 +29,6 @@ jobs:
             platform: macos
             artifact_name: FishGame-macOS.zip
             exe_name: DLNU_CPP_CourseDesign
-          - os: ubuntu-latest # 安卓构建通常在 Linux runner 上进行
-            platform: android
-            artifact_name: FishGame-Android.apk
-            exe_name: DLNU_CPP_CourseDesign # 项目名，用于APK内部
-            android_abi: arm64-v8a #  可以扩展为多个 e.g., armeabi-v7a, x86_64
-            android_api_level: 21  # 最低支持的安卓 API 级别
 
     runs-on: ${{ matrix.os }}
 
@@ -42,7 +36,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Install SDL2 Dependencies (Windows)
-      if: matrix.platform == 'windows'
+      if: runner.os == 'Windows'
       shell: pwsh
       run: |
         curl -L -o SDL2.zip https://github.com/libsdl-org/SDL/releases/download/release-2.28.5/SDL2-devel-2.28.5-VC.zip
@@ -54,264 +48,66 @@ jobs:
         7z x SDL2_ttf.zip
         7z x SDL2_mixer.zip
 
-    - name: Install SDL2 Dependencies (Ubuntu for Desktop Linux)
-      if: matrix.platform == 'linux'
+    - name: Install SDL2 Dependencies (Ubuntu)
+      if: runner.os == 'Linux' && matrix.platform == 'linux'
       run: |
         sudo apt-get update
         sudo apt-get install -y libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev
 
     - name: Install SDL2 Dependencies (macOS)
-      if: matrix.platform == 'macos'
+      if: runner.os == 'macOS'
       run: |
         brew install sdl2 sdl2_image sdl2_ttf sdl2_mixer
 
-    # 安卓环境设置
-    - name: Set up JDK for Android
-      if: matrix.platform == 'android'
-      uses: actions/setup-java@v4
-      with:
-        distribution: 'temurin'
-        java-version: '17' # 安卓构建通常需要 JDK 17
-
-    - name: Set up Android SDK/NDK
-      if: matrix.platform == 'android'
-      uses: android-actions/setup-android@v3 # 使用 v3 版本
-      # 默认会安装最新的 NDK 和 CMake。可以通过 ndk-version, cmake-version 指定版本
-
-    - name: Build SDL2 and dependencies for Android
-      if: matrix.platform == 'android'
-      shell: bash
-      env:
-        SDL2_ANDROID_LIBS_DIR: ${{ github.workspace }}/sdl2_android_libs_install
-      run: |
-        echo "INFO: Building SDL2, SDL2_image, SDL2_ttf, SDL2_mixer for Android (${{ matrix.android_abi }})"
-        echo "SDL2_ANDROID_INSTALL_PREFIX=${SDL2_ANDROID_LIBS_DIR}" >> $GITHUB_ENV
-        mkdir -p $SDL2_ANDROID_LIBS_DIR
-
-        # Build and install libjpeg-turbo
-        echo "INFO: Building libjpeg-turbo for Android (${{ matrix.android_abi }})"
-        LIBJPEG_TURBO_VERSION="3.0.2" # Using a recent version of libjpeg-turbo
-        wget https://github.com/libjpeg-turbo/libjpeg-turbo/archive/refs/tags/${LIBJPEG_TURBO_VERSION}.tar.gz -O libjpeg-turbo.tar.gz
-        tar xzf libjpeg-turbo.tar.gz
-        cd libjpeg-turbo-${LIBJPEG_TURBO_VERSION}
-        cmake -B build-android -S . -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake -DANDROID_ABI=${{ matrix.android_abi }} -DANDROID_PLATFORM=android-21 -DCMAKE_INSTALL_PREFIX=$SDL2_ANDROID_LIBS_DIR -DWITH_JPEG8=1 -DENABLE_SHARED=OFF -DENABLE_STATIC=ON -DWITH_SIMD=OFF
-        cmake --build build-android --target install -j$(nproc)
-        cd ..
-        echo "INFO: Finished building libjpeg-turbo for Android (${{ matrix.android_abi }})"
-
-        # Build and install libpng
-        echo "INFO: Building libpng for Android (${{ matrix.android_abi }})"
-        LIBPNG_VERSION="1.6.40" # Using a recent version of libpng
-        wget https://download.sourceforge.net/libpng/libpng-${LIBPNG_VERSION}.tar.gz -O libpng.tar.gz
-        tar xzf libpng.tar.gz
-        cd libpng-${LIBPNG_VERSION}
-        cmake -B build-android -S . -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake -DANDROID_ABI=${{ matrix.android_abi }} -DANDROID_PLATFORM=android-21 -DCMAKE_INSTALL_PREFIX=$SDL2_ANDROID_LIBS_DIR -DPNG_SHARED=OFF -DPNG_STATIC=ON -DPNG_TESTS=OFF
-        cmake --build build-android --target install -j$(nproc)
-        cd ..
-        echo "INFO: Finished building libpng for Android (${{ matrix.android_abi }})"
-
-        # 定义一个函数来简化编译过程
-        build_sdl_library() {
-          local LIB_NAME=$1
-          local GIT_URL=$2
-          local GIT_TAG=$3
-          local EXTRA_CMAKE_DEFS=$4
-          echo "---- Building $LIB_NAME ----"
-          
-          if [ "$LIB_NAME" == "SDL2_ttf" ] || [ "$LIB_NAME" == "SDL2_mixer" ]; then
-            echo "Performing full clone for $LIB_NAME to aid submodule fetching."
-            git clone -b $GIT_TAG $GIT_URL ${LIB_NAME}_src # No --depth 1
-          else
-            git clone --depth 1 -b $GIT_TAG $GIT_URL ${LIB_NAME}_src
-          fi
-          
-          if [ "$LIB_NAME" == "SDL2_ttf" ] || [ "$LIB_NAME" == "SDL2_mixer" ]; then
-            echo "DEBUG: Attempting to initialize submodules for $LIB_NAME"
-            (cd ${LIB_NAME}_src && git submodule update --init --recursive)
-            echo "DEBUG: Listing contents of ${LIB_NAME}_src directory ($LIB_NAME) after submodule update attempt:"
-            ls -AlR ${LIB_NAME}_src # This can be very verbose, consider reducing if needed later
-            if [ "$LIB_NAME" == "SDL2_ttf" ]; then
-              echo "DEBUG: Specifically checking for ${LIB_NAME}_src/external/freetype/CMakeLists.txt"
-              if [ -f "${LIB_NAME}_src/external/freetype/CMakeLists.txt" ]; then
-                echo "DEBUG: FOUND ${LIB_NAME}_src/external/freetype/CMakeLists.txt via shell check."
-              else
-                echo "DEBUG: NOT FOUND ${LIB_NAME}_src/external/freetype/CMakeLists.txt via shell check."
-              fi
-            elif [ "$LIB_NAME" == "SDL2_mixer" ]; then
-              echo "DEBUG: Specifically checking for ${LIB_NAME}_src/external/libxmp/CMakeLists.txt"
-              if [ -f "${LIB_NAME}_src/external/libxmp/CMakeLists.txt" ]; then
-                echo "DEBUG: FOUND ${LIB_NAME}_src/external/libxmp/CMakeLists.txt via shell check."
-              else
-                echo "DEBUG: NOT FOUND ${LIB_NAME}_src/external/libxmp/CMakeLists.txt via shell check."
-                echo "DEBUG: Listing contents of ${LIB_NAME}_src/external/libxmp/ :"
-                ls -Al ${LIB_NAME}_src/external/libxmp || echo "DEBUG: Failed to list ${LIB_NAME}_src/external/libxmp/"
-              fi
-            fi
-          fi
-          
-          cmake -S ${LIB_NAME}_src -B ${LIB_NAME}_src/build-android -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake -DANDROID_ABI=${{ matrix.android_abi }} -DANDROID_NATIVE_API_LEVEL=${{ matrix.android_api_level }} -DCMAKE_INSTALL_PREFIX=$SDL2_ANDROID_LIBS_DIR -DCMAKE_BUILD_TYPE=Release -DSDL_STATIC=OFF -DSDL_SHARED=ON -DSDL_SENSOR=OFF $EXTRA_CMAKE_DEFS
-          cmake --build ${LIB_NAME}_src/build-android --target install --config Release --verbose
-          echo "---- Finished $LIB_NAME ----"
-        }
-
-        # 编译 SDL2
-        build_sdl_library "SDL2" "https://github.com/libsdl-org/SDL.git" "release-2.30.0" "-DSDL_SENSOR=OFF"
-        
-        # 定义 SDL2 库和头文件路径变量，供依赖库使用
-        SDL2_LIB_PATH="${SDL2_ANDROID_LIBS_DIR}/lib/libSDL2.so"
-        SDL2_INCLUDE_PATH="${SDL2_ANDROID_LIBS_DIR}/include/SDL2"
-        SDL2_CMAKE_CONFIG_PATH="${SDL2_ANDROID_LIBS_DIR}/lib/cmake/SDL2"
-
-        # ���译 SDL2_image (依赖 SDL2)
-        build_sdl_library "SDL2_image" "https://github.com/libsdl-org/SDL_image.git" "release-2.8.2" "-DSDL2_CMAKE_PATH=${SDL2_CMAKE_CONFIG_PATH} -DSDL2_LIBRARY=${SDL2_LIB_PATH} -DSDL2_INCLUDE_DIR=${SDL2_INCLUDE_PATH} -DSDL2IMAGE_SAMPLES=OFF"
-        # 编译 SDL2_ttf (依赖 SDL2)
-        build_sdl_library "SDL2_ttf" "https://github.com/libsdl-org/SDL_ttf.git" "release-2.22.0" "-DSDL2_CMAKE_PATH=${SDL2_CMAKE_CONFIG_PATH} -DSDL2_LIBRARY=${SDL2_LIB_PATH} -DSDL2_INCLUDE_DIR=${SDL2_INCLUDE_PATH} -DSDL2TTF_SAMPLES=OFF -DSDL2TTF_FREETYPE=vendored"
-        # 编译 SDL2_mixer (依赖 SDL2)
-        build_sdl_library "SDL2_mixer" "https://github.com/libsdl-org/SDL_mixer.git" "release-2.8.0" "-DSDL2_CMAKE_PATH=${SDL2_CMAKE_CONFIG_PATH} -DSDL2_LIBRARY=${SDL2_LIB_PATH} -DSDL2_INCLUDE_DIR=${SDL2_INCLUDE_PATH} -DSDL2MIXER_SAMPLES=OFF -DSDL2MIXER_OPUS=OFF -DSDL2MIXER_MP3_MINIMP3=ON"
-
-        echo "SDL2 and dependencies for Android built and installed to $SDL2_ANDROID_LIBS_DIR"
-        echo "Listing installed CMake files:"
-        find $SDL2_ANDROID_LIBS_DIR -name "*Config.cmake"
-
     - name: Configure CMake (Desktop Windows)
-      if: matrix.platform == 'windows'
+      if: runner.os == 'Windows'
       shell: cmd
       run: |
-        cmake -B ${{github.workspace}}\\build ^
+        cmake -B ${{github.workspace}}/build ^
         -DCMAKE_BUILD_TYPE=Release ^
         -DCMAKE_VERBOSE_MAKEFILE=ON ^
-        -DCMAKE_PREFIX_PATH=${{github.workspace}}/SDL2-devel-2.28.5-VC/SDL2-2.28.5/cmake;${{github.workspace}}/SDL2_image-devel-2.6.3-VC/SDL2_image-2.6.3/cmake;${{github.workspace}}/SDL2_ttf-devel-2.20.2-VC/SDL2_ttf-2.20.2/cmake;${{github.workspace}}/SDL2_mixer-devel-2.6.3-VC/SDL2_mixer-2.6.3/cmake
-        REM 确保上面的路径与解压��的实际路径一致
+        -DCMAKE_PREFIX_PATH=${{github.workspace}}/lib/dep/plugins/SDL2/cmake
 
-    - name: Configure CMake (Desktop Unix - Linux/macOS)
-      if: (matrix.platform == 'linux' || matrix.platform == 'macos')
+    - name: Configure CMake (Desktop Unix)
+      if: runner.os != 'Windows'
       shell: bash
       run: |
-        EXTRA_CMAKE_ARGS=""
-        if [ "${{ matrix.platform }}" == "macos" ]; then
-          # 对于macOS, Homebrew通常会处理好路径，find_package应该能直接工作
-          # 如果不行，可以���试指定路径：
-          EXTRA_CMAKE_ARGS="-DSDL2_DIR=$(brew --prefix sdl2)/lib/cmake/SDL2 \
-                            -DSDL2_image_DIR=$(brew --prefix sdl2_image)/lib/cmake/SDL2_image \
-                            -DSDL2_ttf_DIR=$(brew --prefix sdl2_ttf)/lib/cmake/SDL2_ttf \
-                            -DSDL2_mixer_DIR=$(brew --prefix sdl2_mixer)/lib/cmake/SDL2_mixer"
-        fi
         cmake -B ${{github.workspace}}/build \
               -DCMAKE_BUILD_TYPE=Release \
-              -DCMAKE_VERBOSE_MAKEFILE=ON \
-              $EXTRA_CMAKE_ARGS
+              -DCMAKE_VERBOSE_MAKEFILE=ON
 
-    - name: Configure CMake (Android)
-      if: matrix.platform == 'android'
-      shell: bash
-      run: |
-        # 检查SDL2库安装情况
-        echo "SDL2库安装路径内容："
-        find ${{ env.SDL2_ANDROID_INSTALL_PREFIX }} -type f | grep -E 'SDL2.*Config\.cmake|libSDL2'
-
-        cmake -B ${{github.workspace}}/build \
-          -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \
-          -DANDROID_ABI=${{ matrix.android_abi }} \
-          -DANDROID_NATIVE_API_LEVEL=${{ matrix.android_api_level }} \
-          -DCMAKE_BUILD_TYPE=Release \
-          -DCMAKE_VERBOSE_MAKEFILE=ON \
-          -DSDL2_DIR=${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/lib/cmake/SDL2 \
-          -DSDL2_image_DIR=${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/lib/cmake/SDL2_image \
-          -DSDL2_ttf_DIR=${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/lib/cmake/SDL2_ttf \
-          -DSDL2_mixer_DIR=${{ env.SDL2_ANDROID_INSTALL_PREFIX }}/lib/cmake/SDL2_mixer \
-          -DSDL_ASSETS_DIR=${{ github.workspace }}/asset \
-          -DCMAKE_FIND_ROOT_PATH=${{ env.SDL2_ANDROID_INSTALL_PREFIX }} \
-          -DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=BOTH \
-          -DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=BOTH
-
-    - name: Build Project (Windows)
-      if: matrix.platform == 'windows'
-      shell: cmd
-      run: cmake --build ${{github.workspace}}\\build --config Release --verbose
-
-    - name: Build Project (non-Windows)
-      if: matrix.platform != 'windows'
-      shell: bash # Keep bash for Linux, macOS, Android
+    - name: Build
       run: cmake --build ${{github.workspace}}/build --config Release --verbose
 
     - name: Prepare Release Package (Windows)
-      if: matrix.platform == 'windows'
+      if: runner.os == 'Windows' && matrix.platform == 'windows'
       shell: cmd
       run: |
         mkdir FishGame
-        copy "build\\Release\\${{ matrix.exe_name }}" "FishGame\\"
-        REM 复制DLLs, 确保路径正确
-        copy "SDL2-devel-2.28.5-VC\\SDL2-2.28.5\\lib\\x64\\SDL2.dll" "FishGame\\"
-        copy "SDL2_image-devel-2.6.3-VC\\SDL2_image-2.6.3\\lib\\x64\\SDL2_image.dll" "FishGame\\"
-        copy "SDL2_ttf-devel-2.20.2-VC\\SDL2_ttf-2.20.2\\lib\\x64\\SDL2_ttf.dll" "FishGame\\"
-        copy "SDL2_mixer-devel-2.6.3-VC\\SDL2_mixer-2.6.3\\lib\\x64\\SDL2_mixer.dll" "FishGame\\"
-        REM 可能还有其他DLLs如 libpng, libjpeg, freetype等，根据SDL_image/ttf/mixer的依赖
-        xcopy /E /I /Y "asset" "FishGame\\asset\\"
+        copy "build\Release\${{ matrix.exe_name }}" "FishGame\"
+        for /r %%i in (SDL2*.dll) do copy "%%i" "FishGame\"
+        xcopy /E /I /Y "asset" "FishGame\asset\"
 
     - name: Prepare Release Package (Linux/macOS)
-      if: (matrix.platform == 'linux' || matrix.platform == 'macos')
+      if: matrix.platform != 'windows'
       run: |
         mkdir -p FishGame
         cp "build/${{ matrix.exe_name }}" "FishGame/"
-        # 对于macOS, 可能需要使用 macdeployqt �����类似工具来捆绑依赖项到 .app 包
-        # 对于Linux, 共享库��常由系统处理或与可执行文件放在一起
         cp -r asset FishGame/
 
-    - name: Create Archive (Desktop and Android)
-      shell: bash
+    - name: Create ZIP Archive (Desktop)
       run: |
-        if [ "${{ matrix.platform }}" == "android" ]; then
-          # For Android, the artifact is the APK.
-          # The APK is typically generated in the build directory.
-          # Common names are <project_name>.apk or <project_name>-release.apk.
-          APK_CANDIDATE_1="${{github.workspace}}/build/${{ matrix.exe_name }}.apk"
-          APK_CANDIDATE_2="${{github.workspace}}/build/${{ matrix.exe_name }}-release.apk"
-          # Add more candidates here if necessary, e.g., specific subdirectories like build/outputs/apk/release/
-
-          TARGET_APK_NAME="${{ matrix.artifact_name }}" # This is the name the artifact should have for upload.
-
-          FOUND_APK_PATH=""
-          if [ -f "$APK_CANDIDATE_1" ]; then
-            FOUND_APK_PATH="$APK_CANDIDATE_1"
-          elif [ -f "$APK_CANDIDATE_2" ]; then
-            FOUND_APK_PATH="$APK_CANDIDATE_2"
-          fi
-
-          if [ -n "$FOUND_APK_PATH" ]; then
-            echo "Found APK at $FOUND_APK_PATH"
-            # Move the found APK to the root of the workspace with the target artifact name
-            mv "$FOUND_APK_PATH" "./$TARGET_APK_NAME"
-            echo "Moved APK to ./$TARGET_APK_NAME for upload."
-          else
-            echo "Error: APK not found. Searched for:"
-            echo "  $APK_CANDIDATE_1"
-            echo "  $APK_CANDIDATE_2"
-            echo "Listing contents of ${{github.workspace}}/build/ (recursive):"
-            ls -lAR "${{github.workspace}}/build/"
-            exit 1
-          fi
-        else
-          # Desktop platforms create a ZIP from the ./FishGame directory
-          # Ensure the FishGame directory and its contents are prepared by previous steps
-          if [ ! -d "./FishGame" ]; then
-            echo "Error: ./FishGame directory not found for desktop packaging."
-            # Attempt to create it if it was missed by a previous step for some reason, though this indicates a flaw elsewhere.
-            # mkdir -p FishGame # This line is commented out as it might hide earlier issues.
-            exit 1
-          fi
-          7z a -tzip "${{ matrix.artifact_name }}" ./FishGame/*
-          echo "Created ZIP archive: ./${{ matrix.artifact_name }}"
-        fi
+        7z a -tzip ${{ matrix.artifact_name }} ./FishGame/*
 
     - name: Upload Build Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ matrix.platform }}-${{ matrix.android_abi }}-build # 为安卓添加ABI
-        path: ${{ matrix.artifact_name }} # 上传 .zip 或 .apk
+        name: ${{ matrix.platform }}-build
+        path: ${{ matrix.artifact_name }}
 
     - name: Create Release
       if: startsWith(github.ref, 'refs/tags/')
-      uses: softprops/action-gh-release@v2 # 使用 v2
+      uses: softprops/action-gh-release@v1
       with:
-        files: ${{ matrix.artifact_name }} # 上传 .zip 或 .apk
-        # token: ${{ secrets.GITHUB_TOKEN }} # GITHUB_TOKEN 默认可用
+        files: ${{ matrix.artifact_name }}
+        token: ${{ secrets.GITHUB_TOKEN }}

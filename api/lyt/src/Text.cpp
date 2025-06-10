@@ -37,7 +37,7 @@ namespace lyt
         if (this->text != text)
         {
             this->text = text;
-            // flush();
+            //flush();
         }
     }
 
@@ -51,6 +51,7 @@ namespace lyt
         this->font      = font;
         this->blendMode = blendMode;
         this->text      = text;
+        this->alpha     = alpha;
         this->renderer  = render;
 
         // 清理旧的纹理（如果存在）

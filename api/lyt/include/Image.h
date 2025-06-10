@@ -6,9 +6,8 @@
 #define IMAGE_H
 #include <SDL.h>
 #include <SDL_image.h>
-#include <stdexcept>
 #include <string>
-
+#include <stdexcept>
 #include "Renderer.h"
 
 namespace lyt

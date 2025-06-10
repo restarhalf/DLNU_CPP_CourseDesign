@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BackendCodeEditorMiscSettings">
-    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="3" type="long" />
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="5" type="long" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/OptionsDialog/SelectedPageId/@EntryValue" value="CppCodeGeneration" type="string" />
@@ -31,7 +31,219 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bcc9e56-ae7f-4772-83b2-5a4237ae3734" name="更改" comment="格式化" />
+    <list default="true" id="0bcc9e56-ae7f-4772-83b2-5a4237ae3734" name="更改" comment="FIX">
+      <change beforePath="$PROJECT_DIR$/.clang-format" beforeDir="false" afterPath="$PROJECT_DIR$/.clang-format" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/cmake-multi-platform.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/cmake-multi-platform.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/DLNU_CPP_CourseDesign.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DLNU_CPP_CourseDesign.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/MarsCodeWorkspaceAppSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MarsCodeWorkspaceAppSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/_25-6-1_10_34____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_25-6-1_10_34____.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/_25-6-3_9_28____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_25-6-3_9_28____.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_25-6-3_下午9_28_取消提交了更改_[更改]/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_25-6-3_下午9_28_取消提交了更改_[更改]/shelved.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行签出之前于_25-6-1_下午10_34_取消提交了更改_[更改]/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/在进行签出之前于_25-6-1_下午10_34_取消提交了更改_[更改]/shelved.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README_plan.md" beforeDir="false" afterPath="$PROJECT_DIR$/README_plan.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/api/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/include/AIFish.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/AIFish.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/include/Fish.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/Fish.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/include/PlayerFish.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/PlayerFish.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/include/lx_api.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/lx_api.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/src/AIFish.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/AIFish.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/src/Fish.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/Fish.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/src/PlayerFish.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/PlayerFish.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Button.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Button.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Controller.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Controller.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Game.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Game.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Image.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Image.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Music.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Music.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Renderer.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Renderer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Text.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Text.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Window.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Window.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/lyt_api.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/lyt_api.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Button.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Button.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Controller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Controller.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Game.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Image.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Image.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Music.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Music.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Renderer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Renderer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Text.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Text.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Window.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Window.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/.git-hash" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/.git-hash" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/BUGS.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/BUGS.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/CHANGES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/CHANGES.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/README-SDL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/README-SDL.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/README.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/WhatsNew.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/WhatsNew.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2-config-version.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2-config-version.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2-config.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2-config.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_image-config-version.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_image-config-version.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_image-config.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_image-config.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_mixer-config-version.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_mixer-config-version.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_mixer-config.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_mixer-config.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_ttf-config-version.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_ttf-config-version.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_ttf-config.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/cmake/sdl2_ttf-config.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/CONTRIBUTING.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-android.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-android.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-cmake.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-cmake.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-directfb.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-directfb.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-dynapi.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-dynapi.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-emscripten.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-emscripten.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-gdk.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-gdk.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-gesture.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-gesture.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-git.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-git.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-hg.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-hg.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-ios.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-ios.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-kmsbsd.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-kmsbsd.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-linux.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-linux.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-macos.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-macos.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-n3ds.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-n3ds.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-nacl.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-nacl.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-ngage.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-ngage.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-os2.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-os2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-pandora.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-pandora.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-platforms.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-platforms.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-porting.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-porting.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-ps2.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-ps2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-psp.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-psp.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-raspberrypi.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-raspberrypi.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-riscos.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-riscos.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-touch.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-touch.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-versions.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-versions.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-visualc.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-visualc.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-vita.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-vita.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-wince.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-wince.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-windows.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-windows.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-winrt.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README-winrt.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/doxyfile" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/doxyfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/release_checklist.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/docs/release_checklist.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_assert.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_assert.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_atomic.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_atomic.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_audio.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_audio.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_bits.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_bits.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_blendmode.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_blendmode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_clipboard.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_clipboard.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_android.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_android.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_emscripten.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_emscripten.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_iphoneos.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_iphoneos.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_macosx.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_macosx.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_minimal.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_minimal.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_ngage.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_ngage.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_os2.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_os2.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_pandora.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_pandora.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_windows.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_windows.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_wingdk.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_wingdk.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_winrt.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_winrt.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_xbox.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_config_xbox.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_copying.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_copying.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_cpuinfo.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_cpuinfo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_egl.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_egl.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_endian.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_endian.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_error.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_error.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_events.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_events.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_filesystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_filesystem.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_gamecontroller.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_gamecontroller.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_gesture.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_gesture.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_guid.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_guid.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_haptic.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_haptic.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_hidapi.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_hidapi.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_hints.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_hints.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_image.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_image.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_joystick.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_joystick.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_keyboard.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_keyboard.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_keycode.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_keycode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_loadso.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_loadso.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_locale.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_locale.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_log.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_log.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_main.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_main.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_messagebox.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_messagebox.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_metal.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_metal.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_misc.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_misc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_mixer.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_mixer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_mouse.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_mouse.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_mutex.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_mutex.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_name.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_name.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengl.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengl.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengl_glext.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengl_glext.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles2.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles2.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles2_gl2.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles2_gl2.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles2_gl2ext.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles2_gl2ext.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles2_gl2platform.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles2_gl2platform.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles2_khrplatform.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_opengles2_khrplatform.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_pixels.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_pixels.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_platform.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_platform.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_power.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_power.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_quit.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_quit.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_rect.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_rect.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_render.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_render.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_revision.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_revision.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_rwops.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_rwops.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_scancode.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_scancode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_sensor.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_sensor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_shape.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_shape.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_stdinc.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_stdinc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_surface.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_surface.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_system.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_system.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_syswm.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_syswm.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_assert.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_assert.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_common.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_common.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_compare.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_compare.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_crc32.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_crc32.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_font.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_font.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_fuzzer.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_fuzzer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_harness.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_harness.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_images.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_images.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_log.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_log.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_md5.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_md5.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_memory.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_memory.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_random.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_test_random.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_thread.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_thread.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_timer.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_timer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_touch.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_touch.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_ttf.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_ttf.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_types.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_types.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_version.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_version.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_video.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_video.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_vulkan.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/SDL_vulkan.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/begin_code.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/begin_code.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/close_code.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/include/close_code.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.avif.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.avif.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.dav1d.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.dav1d.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.gme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.gme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.ogg-vorbis.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.ogg-vorbis.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.opus.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.opus.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.opusfile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.opusfile.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.tiff.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.tiff.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.wavpack.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.wavpack.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.webp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.webp.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.xmp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x64/optional/LICENSE.xmp.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.avif.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.avif.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.dav1d.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.dav1d.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.gme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.gme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.ogg-vorbis.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.ogg-vorbis.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.opus.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.opus.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.opusfile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.opusfile.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.tiff.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.tiff.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.wavpack.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.wavpack.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.webp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.webp.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.xmp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dep/plugins/SDL2/lib/x86/optional/LICENSE.xmp.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,9 +330,9 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
     <configuration name="DLNU_CPP_CourseDesign" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="DLNU_CPP_CourseDesign" TARGET_NAME="DLNU_CPP_CourseDesign" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="DLNU_CPP_CourseDesign" RUN_TARGET_NAME="DLNU_CPP_CourseDesign">
@@ -169,7 +381,192 @@
       <workItem from="1749352685800" duration="3226000" />
       <workItem from="1749371421020" duration="284000" />
       <workItem from="1749371734635" duration="6901000" />
-      <workItem from="1749475702819" duration="9930000" />
+      <workItem from="1749475702819" duration="667000" />
+      <workItem from="1749535332746" duration="8000" />
+    </task>
+    <task id="LOCAL-00005" summary="GUI">
+      <option name="closed" value="true" />
+      <created>1748871838015</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1748871838015</updated>
+    </task>
+    <task id="LOCAL-00006" summary="GUI">
+      <option name="closed" value="true" />
+      <created>1748871928351</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1748871928351</updated>
+    </task>
+    <task id="LOCAL-00007" summary="GUI">
+      <option name="closed" value="true" />
+      <created>1748881581633</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1748881581633</updated>
+    </task>
+    <task id="LOCAL-00008" summary="GUI">
+      <option name="closed" value="true" />
+      <created>1748951539944</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1748951539944</updated>
+    </task>
+    <task id="LOCAL-00009" summary="GUI">
+      <option name="closed" value="true" />
+      <created>1748953921719</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1748953921719</updated>
+    </task>
+    <task id="LOCAL-00010" summary="GUI">
+      <option name="closed" value="true" />
+      <created>1748967139622</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1748967139622</updated>
+    </task>
+    <task id="LOCAL-00011" summary="GUI">
+      <option name="closed" value="true" />
+      <created>1748995663655</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1748995663655</updated>
+    </task>
+    <task id="LOCAL-00012" summary="GUI">
+      <option name="closed" value="true" />
+      <created>1749012688762</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1749012688762</updated>
+    </task>
+    <task id="LOCAL-00013" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749014272181</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1749014272181</updated>
+    </task>
+    <task id="LOCAL-00014" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749014450426</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1749014450426</updated>
+    </task>
+    <task id="LOCAL-00015" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749014624079</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1749014624079</updated>
+    </task>
+    <task id="LOCAL-00016" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749014759640</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1749014759640</updated>
+    </task>
+    <task id="LOCAL-00017" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749019776476</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1749019776476</updated>
+    </task>
+    <task id="LOCAL-00018" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749304051708</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1749304051708</updated>
+    </task>
+    <task id="LOCAL-00019" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749304342431</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1749304342431</updated>
+    </task>
+    <task id="LOCAL-00020" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749310373318</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1749310373318</updated>
+    </task>
+    <task id="LOCAL-00021" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749352748908</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1749352748908</updated>
+    </task>
+    <task id="LOCAL-00022" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749352773300</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1749352773300</updated>
+    </task>
+    <task id="LOCAL-00023" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749353195054</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1749353195054</updated>
+    </task>
+    <task id="LOCAL-00024" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749353500339</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1749353500339</updated>
+    </task>
+    <task id="LOCAL-00025" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749353798807</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1749353798807</updated>
+    </task>
+    <task id="LOCAL-00026" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749354129570</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1749354129570</updated>
+    </task>
+    <task id="LOCAL-00027" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749354516105</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1749354516105</updated>
     </task>
     <task id="LOCAL-00028" summary="FIX">
       <option name="closed" value="true" />
@@ -379,191 +776,7 @@
       <option name="project" value="LOCAL" />
       <updated>1749476192987</updated>
     </task>
-    <task id="LOCAL-00054" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749476397392</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1749476397392</updated>
-    </task>
-    <task id="LOCAL-00055" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749476625529</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1749476625529</updated>
-    </task>
-    <task id="LOCAL-00056" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749477459281</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1749477459281</updated>
-    </task>
-    <task id="LOCAL-00057" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749477691085</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1749477691085</updated>
-    </task>
-    <task id="LOCAL-00058" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749477916262</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1749477916262</updated>
-    </task>
-    <task id="LOCAL-00059" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749478205674</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1749478205674</updated>
-    </task>
-    <task id="LOCAL-00060" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749478664689</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1749478664689</updated>
-    </task>
-    <task id="LOCAL-00061" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749479043585</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1749479043585</updated>
-    </task>
-    <task id="LOCAL-00062" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749479317371</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1749479317371</updated>
-    </task>
-    <task id="LOCAL-00063" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749479700119</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1749479700119</updated>
-    </task>
-    <task id="LOCAL-00064" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749480166439</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1749480166439</updated>
-    </task>
-    <task id="LOCAL-00065" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749480452843</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1749480452843</updated>
-    </task>
-    <task id="LOCAL-00066" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749481477242</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1749481477242</updated>
-    </task>
-    <task id="LOCAL-00067" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749481842980</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1749481842980</updated>
-    </task>
-    <task id="LOCAL-00068" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749482599763</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1749482599763</updated>
-    </task>
-    <task id="LOCAL-00069" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749482897971</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1749482897971</updated>
-    </task>
-    <task id="LOCAL-00070" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749483095211</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1749483095211</updated>
-    </task>
-    <task id="LOCAL-00071" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749483585940</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1749483585940</updated>
-    </task>
-    <task id="LOCAL-00072" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749483929558</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1749483929558</updated>
-    </task>
-    <task id="LOCAL-00073" summary="格式化">
-      <option name="closed" value="true" />
-      <created>1749484344906</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1749484344906</updated>
-    </task>
-    <task id="LOCAL-00074" summary="格式化">
-      <option name="closed" value="true" />
-      <created>1749484630878</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1749484630878</updated>
-    </task>
-    <task id="LOCAL-00075" summary="格式化">
-      <option name="closed" value="true" />
-      <created>1749485087838</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1749485087838</updated>
-    </task>
-    <task id="LOCAL-00076" summary="格式化">
-      <option name="closed" value="true" />
-      <created>1749485503506</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1749485503506</updated>
-    </task>
-    <option name="localTasksCounter" value="77" />
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -588,8 +801,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="GUI" />
     <MESSAGE value="FIX" />
-    <MESSAGE value="格式化" />
-    <option name="LAST_COMMIT_MESSAGE" value="格式化" />
+    <option name="LAST_COMMIT_MESSAGE" value="FIX" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

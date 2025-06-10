@@ -49,7 +49,7 @@ void Music::playMusic(const std::string& filePath)
     }
 
     this->filePath = filePath;
-    isPlaying      = true;
+    isPlaying = true;
 }
 
 /**
@@ -61,7 +61,8 @@ void Music::stopMusic()
     {
         Mix_HaltMusic();
         Mix_FreeMusic(music);
-        music     = nullptr;
+        music = nullptr;
         isPlaying = false;
     }
 }
+

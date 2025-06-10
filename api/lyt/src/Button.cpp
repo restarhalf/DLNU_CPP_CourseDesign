@@ -94,7 +94,7 @@ namespace lyt
     // 处理按钮事件
     void Button::handleEvent(const SDL_Event &event)
     {
-        int mouseX, mouseY;
+        int  mouseX, mouseY;
 
         // 重置released状态（应该只持续一帧）
         isReleased = false;
@@ -135,10 +135,10 @@ namespace lyt
                 }
                 break;
             case SDL_MOUSEMOTION:
-                mouseX   = event.motion.x;
-                mouseY   = event.motion.y;
-                isInside = (mouseX >= rect.x && mouseX <= rect.x + rect.w && mouseY >= rect.y &&
-                            mouseY <= rect.y + rect.h);
+                mouseX = event.motion.x;
+                mouseY = event.motion.y;
+                isInside = (mouseX >= rect.x && mouseX <= rect.x + rect.w &&
+                             mouseY >= rect.y && mouseY <= rect.y + rect.h);
                 break;
             default:
                 break;
@@ -160,7 +160,7 @@ namespace lyt
     // 设置按钮属性（使用SDL_Rect）
     void Button::setButton(SDL_Rect rect, SDL_Color color)
     {
-        this->rect  = rect;
+        this->rect = rect;
         buttonColor = color;  // 设置按钮颜色
         isClicked   = false;  // 重置点击状态
     }
@@ -211,7 +211,7 @@ namespace lyt
         this->renderer  = renderer;
         try
         {
-            image.setImage(this->filePath, this->renderer, this->rect, this->blendMode, this->alpha);
+            image.setImage(this->filePath,this-> renderer, this->rect, this->blendMode, this->alpha);
         }
         catch (const std::exception &e)
         {
