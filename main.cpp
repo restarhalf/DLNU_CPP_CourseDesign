@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
   
 
     // 加载字体
-    font = TTF_OpenFont("asset/fonts/MSYH.ttf", 1080);
+    font = TTF_OpenFont("asset/fonts/McDonaldsFries.ttf", 1080);
     if (!font)
     {
         SDL_Log("Failed to load font: %s", TTF_GetError());
