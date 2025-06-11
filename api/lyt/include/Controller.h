@@ -1,4 +1,9 @@
-﻿#pragma once
+﻿/**
+ * @file Controller.h
+ * @brief 控制器类，负责处理键盘和鼠标的输入控制
+ * @author restarhalf
+ * @date 2025-6-1
+ */
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 #include <SDL.h>

@@ -1,16 +1,28 @@
-﻿//
-// Created by restarhalf on 2025/5/28.
-//
+﻿/**
+ * @file Controller.cpp
+ * @brief 控制器类实现，负责处理键盘和鼠标的输入
+ */
 
 #include "Controller.h"
 
 namespace lyt
 {
-    // 默认构造和析构函数实现
+    /**
+     * @brief 默认构造函数
+     */
     Controller::Controller()  = default;
+
+    /**
+     * @brief 析构函数
+     */
     Controller::~Controller() = default;
 
-    // 处理所有输入事件
+    /**
+     * @brief 处理所有输入事件
+     * @param event SDL事件对象
+     * @param x 鼠标X坐标引用
+     * @param y 鼠标Y坐标引用
+     */
     void Controller::event(SDL_Event& event, int& x, int& y)
     {
         switch (event.type)
@@ -42,7 +54,12 @@ namespace lyt
         }
     }
 
-    // 处理键盘按下事件，更新坐标位置
+    /**
+     * @brief 处理键盘按下事件，更新坐标位置
+     * @param event SDL事件对象
+     * @param x 鼠标X坐标引用
+     * @param y 鼠标Y坐标引用
+     */
     void Controller::KeyboardPress(const SDL_Event& event, int& x, int& y)
     {
         keyStates[event.key.keysym.scancode] = true;
@@ -83,7 +100,12 @@ namespace lyt
         }
     }
 
-    // 处理键盘释放事件
+    /**
+     * @brief 处理键盘释放事件
+     * @param event SDL事件对象
+     * @param x 鼠标X坐标引用
+     * @param y 鼠标Y坐标引用
+     */
     void Controller::KeyboardRelease(const SDL_Event& event, int& x, int& y)
     {
         keyStates[event.key.keysym.scancode] = false;
@@ -120,7 +142,10 @@ namespace lyt
         }
     }
 
-    // 处理鼠标按键事件
+    /**
+     * @brief 处理鼠标按键事件
+     * @param event SDL事件对象
+     */
     void Controller::MousePress(const SDL_Event& event)
     {
         switch (event.button.button)
@@ -136,7 +161,10 @@ namespace lyt
         }
     }
 
-    // 处理鼠标释放事件
+    /**
+     * @brief 处理鼠标释放事件
+     * @param event SDL事件对象
+     */
     void Controller::MouseRelease(const SDL_Event& event)
     {
         switch (event.button.button)
@@ -152,13 +180,23 @@ namespace lyt
         }
     }
 
-    // 处理鼠标移动事件，更新鼠标坐标
+    /**
+     * @brief 处理鼠标移动事件，更新鼠标坐标
+     * @param event SDL事件对象
+     * @param x 鼠标X坐标引用
+     * @param y 鼠标Y坐标引用
+     */
     void Controller::MouseMove(const SDL_Event& event, int& x, int& y)
     {
         x = event.motion.x;
         y = event.motion.y;
     }
-    // 检查指定扫描码对应的按键是否被按下
+
+    /**
+     * @brief 检查指定扫描码对应的按键是否被按下
+     * @param scancode SDL键盘扫描码
+     * @return 如果按下则返回true
+     */
     bool Controller::isKeyPressed(SDL_Scancode scancode) const
     {
         auto it = keyStates.find(scancode);

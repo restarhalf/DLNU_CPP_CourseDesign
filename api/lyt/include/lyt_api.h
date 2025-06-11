@@ -1,6 +1,9 @@
-//
-// Created by restarhalf on 25-6-1.
-//
+/**
+ * @file lyt_api.h
+ * @brief 游戏引擎API的主要头文件，包含所有游戏引擎相关的类
+ * @author 李岳烔
+ * @date 2025-6-1
+ */
 
 #ifndef LYT_API_H
 #define LYT_API_H

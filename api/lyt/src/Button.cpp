@@ -1,20 +1,32 @@
-//
-// Created by restarhalf on 25-5-31.
-//
+/**
+ * @file Button.cpp
+ * @brief 按钮类实现，负责处理交互式按钮的显示和事件响应
+ */
 
 #include "Button.h"
 namespace lyt
 {
-    // 检查按钮是否被点击
+    /**
+     * @brief 检查按钮是否被点击
+     * @return 如果按钮被点击则返回true
+     */
     bool Button::isButtonClicked() const { return isClicked; }
 
-    // 检查按钮是否被释放
+    /**
+     * @brief 检查按钮是否被释放
+     * @return 如果按钮被释放则返回true
+     */
     bool Button::isButtonReleased() const { return isReleased; }
 
-    // 检查按钮是否被按下
+    /**
+     * @brief 检查按钮是否被按下
+     * @return 如果按钮被按下则返回true
+     */
     bool Button::isButtonPressed() const { return isPressed; }
 
-    // 绘制纯色按钮
+    /**
+     * @brief 绘制纯色按钮
+     */
     void Button::draw()
     {
         // 保存当前渲染器状态
@@ -70,7 +82,9 @@ namespace lyt
         SDL_SetRenderDrawBlendMode(renderer->get(), currentBlendMode);
     }
 
-    // 绘制带图片的按钮
+    /**
+     * @brief 绘制带图片的按钮
+     */
     void Button::drawwithImage()
     {
         if (isClicked || isPressed)
@@ -81,7 +95,7 @@ namespace lyt
         else if (isInside)
         {
             // 鼠标悬停时降低图片的透明度
-            image.setAlpha(static_cast<Uint8>(alpha * 0.9));
+            image.setAlpha(static_cast<Uint8>(alpha * 0.8));
         }
         else
         {
@@ -91,7 +105,10 @@ namespace lyt
         image.draw();
     }
 
-    // 处理按钮事件
+    /**
+     * @brief 处理按钮事件
+     * @param event SDL事件对象
+     */
     void Button::handleEvent(const SDL_Event &event)
     {
         int  mouseX, mouseY;
@@ -145,7 +162,14 @@ namespace lyt
         }
     }
 
-    // 设置按钮属性（使用坐标和尺寸）
+    /**
+     * @brief 设置按钮属性（使用坐标和尺寸）
+     * @param x 按钮左上角X坐标
+     * @param y 按钮左上角Y坐标
+     * @param w 按钮宽度
+     * @param h 按钮高度
+     * @param color 按钮颜色
+     */
     void Button::setButton(int x, int y, int w, int h, SDL_Color color)
     {
         rect.x = x;
@@ -157,20 +181,37 @@ namespace lyt
         isClicked   = false;  // 重置点击状态
     }
 
-    // 设置按钮属性（使用SDL_Rect）
+    /**
+     * @brief 设置按钮属性（使用SDL_Rect）
+     * @param rect 按钮的矩形区域
+     * @param color 按钮颜色
+     */
     void Button::setButton(SDL_Rect rect, SDL_Color color)
     {
         this->rect = rect;
         buttonColor = color;  // 设置按钮颜色
         isClicked   = false;  // 重置点击状态
     }
+
+    /**
+     * @brief 设置按钮区域（用于图像按钮）
+     * @param rect 按钮的矩形区域
+     */
     void Button::setButtonwithImage(SDL_Rect rect)
     {
         this->rect = rect;
         image.setRect(this->rect);
     }
 
-    // 设置按钮文本
+    /**
+     * @brief 设置按钮文本
+     * @param text 文本内容
+     * @param font 字体指针
+     * @param color 文本颜色
+     * @param renderer 渲染器指针
+     * @param blendMode 混合模式，默认为SDL_BLENDMODE_BLEND
+     * @param alpha 透明度，默认为255
+     */
     void Button::setText(const std::string &text, TTF_Font *font, SDL_Color color, Renderer *renderer,
                          SDL_BlendMode blendMode, Uint8 alpha)
     {
@@ -200,7 +241,14 @@ namespace lyt
         this->text.setAll(renderer, centeredRect, color, font, blendMode, text);
     }
 
-    // 设置带图片的按钮
+    /**
+     * @brief 设置带图片的按钮
+     * @param filePath 图片文件路径
+     * @param renderer 渲染器指针
+     * @param rect 按钮的矩形区域
+     * @param blendMode 混合模式，默认为SDL_BLENDMODE_BLEND
+     * @param alpha 透明度，默认为255
+     */
     void Button::setButtonwithImage(const std::string &filePath, Renderer *renderer, SDL_Rect rect,
                                     SDL_BlendMode blendMode, Uint8 alpha)
     {

@@ -1,7 +1,11 @@
+/**
+ * @file Renderer.h
+ * @brief 渲染器类头文件，负责处理SDL渲染相关操作
+ * @author restarhalf
+ * @date 2025/5/29
+ */
+
 #pragma once
-//
-// Created by restarhalf on 2025/5/29.
-//
 
 #ifndef RENDERER_H
 #define RENDERER_H

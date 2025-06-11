@@ -1,6 +1,9 @@
-//
-// Created by restarhalf on 2025/5/29.
-//
+/**
+ * @file Text.h
+ * @brief 文本类头文件，负责处理文字的渲染和显示
+ * @author restarhalf
+ * @date 2025/5/29
+ */
 
 #ifndef TEXT_H
 #define TEXT_H

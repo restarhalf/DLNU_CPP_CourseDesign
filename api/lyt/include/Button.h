@@ -1,6 +1,9 @@
-   //
-// Created by restarhalf on 2025/5/30.
-//
+/**
+ * @file Button.h
+ * @brief 按钮类头文件，负责处理交互式按钮的显示和事件响应
+ * @author restarhalf
+ * @date 2025/5/30
+ */
 
 #ifndef BUTTON_H
 #define BUTTON_H

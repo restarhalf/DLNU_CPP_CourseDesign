@@ -1,6 +1,9 @@
-//
-// Created by restarhalf on 2025/5/28.
-//
+/**
+ * @file Game.h
+ * @brief 游戏类的头文件，定义了游戏的主要功能和生命周期管理
+ * @author restarhalf
+ * @date 2025/5/28
+ */
 #ifndef GAME_H
 #define GAME_H
 #include <SDL.h>

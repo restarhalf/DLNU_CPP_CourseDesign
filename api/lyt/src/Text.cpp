@@ -1,12 +1,15 @@
-﻿//
-// Created by restarhalf on 2025/5/29.
-//
+﻿/**
+ * @file Text.cpp
+ * @brief 文本类实现，负责处理文字的渲染和显示
+ */
 
 #include "Text.h"
 
 namespace lyt
 {
-    // 析构函数，清理资源
+    /**
+     * @brief 析构函数，按顺序清理资源
+     */
     Text::~Text()
     {
         // 按顺序释放资源：纹理、表面、字体
@@ -19,20 +22,89 @@ namespace lyt
     }
 
     // Getters and setters 实现
-    SDL_Texture  *Text::getTexture() const { return texture; }
-    void          Text::setTexture(SDL_Texture *const texture) { this->texture = texture; }
-    SDL_Rect      Text::getRect() const { return rect; }
-    void          Text::setRect(const SDL_Rect &rect) { this->rect = rect; }
-    SDL_Color     Text::getColor() const { return color; }
-    void          Text::setColor(const SDL_Color &color) { this->color = color; }
-    TTF_Font     *Text::getFont() const { return font; }
-    void          Text::setFont(TTF_Font *const font) { this->font = font; }
-    SDL_Surface  *Text::getSurface() const { return surface; }
-    void          Text::setSurface(SDL_Surface *const surface) { this->surface = surface; }
+    /**
+     * @brief 获取文本纹理
+     * @return SDL_Texture* 纹理指针
+     */
+    SDL_Texture* Text::getTexture() const { return texture; }
+
+    /**
+     * @brief 设置文本纹理
+     * @param texture 新的纹理指针
+     */
+    void Text::setTexture(SDL_Texture* const texture) { this->texture = texture; }
+
+    /**
+     * @brief 获取文本矩形区域
+     * @return SDL_Rect 矩形区域
+     */
+    SDL_Rect Text::getRect() const { return rect; }
+
+    /**
+     * @brief 设置文本矩形区域
+     * @param rect 新的矩形区域
+     */
+    void Text::setRect(const SDL_Rect &rect) { this->rect = rect; }
+
+    /**
+     * @brief 获取文本颜色
+     * @return SDL_Color 文本颜色
+     */
+    SDL_Color Text::getColor() const { return color; }
+
+    /**
+     * @brief 设置文本颜色
+     * @param color 新的文本颜色
+     */
+    void Text::setColor(const SDL_Color &color) { this->color = color; }
+
+    /**
+     * @brief 获取文本使用的字体
+     * @return TTF_Font* 字体指针
+     */
+    TTF_Font* Text::getFont() const { return font; }
+
+    /**
+     * @brief 设置文本使用的字体
+     * @param font 新的字体指针
+     */
+    void Text::setFont(TTF_Font* const font) { this->font = font; }
+
+    /**
+     * @brief 获取文本表面
+     * @return SDL_Surface* 表面指针
+     */
+    SDL_Surface* Text::getSurface() const { return surface; }
+
+    /**
+     * @brief 设置文本表面
+     * @param surface 新的表面指针
+     */
+    void Text::setSurface(SDL_Surface* const surface) { this->surface = surface; }
+
+    /**
+     * @brief 获取文本混合模式
+     * @return SDL_BlendMode 混合模式
+     */
     SDL_BlendMode Text::getBlendmode() const { return blendMode; }
-    void          Text::setBlendmode(const SDL_BlendMode blend_mode) { blendMode = blend_mode; }
-    std::string   Text::getText() const { return text; }
-    void          Text::setText(const std::string &text)
+
+    /**
+     * @brief 设置文本混合模式
+     * @param blend_mode 新的混合模式
+     */
+    void Text::setBlendmode(const SDL_BlendMode blend_mode) { blendMode = blend_mode; }
+
+    /**
+     * @brief 获取文本内容
+     * @return std::string 文本内容
+     */
+    std::string Text::getText() const { return text; }
+
+    /**
+     * @brief 设置文本内容
+     * @param text 新的文本内容
+     */
+    void Text::setText(const std::string &text)
     {
         if (this->text != text)
         {
@@ -41,7 +113,15 @@ namespace lyt
         }
     }
 
-    // 设置文本的所有属性并创建纹理
+    /**
+     * @brief 设置文本的所有属性并创建纹理
+     * @param render 渲染器指针
+     * @param rect 文本显示区域
+     * @param color 文本颜色
+     * @param font 字体指针
+     * @param blendMode 混合模式
+     * @param text 文本内容
+     */
     void Text::setAll(Renderer *render, SDL_Rect rect, SDL_Color color, TTF_Font *font, SDL_BlendMode blendMode,
                       const std::string &text)
     {
@@ -52,7 +132,6 @@ namespace lyt
         this->font      = font;
         this->blendMode = blendMode;
         this->text      = text;
-        this->alpha     = alpha;
         this->renderer  = render;
 
         // 清理旧的纹理（如果存在）
@@ -76,7 +155,9 @@ namespace lyt
         }
     }
 
-    // 刷新文本纹理
+    /**
+     * @brief 刷新文本纹理，重新渲染当前文本
+     */
     void Text::flush()
     {
         // 清理并重新创建纹理
@@ -100,6 +181,8 @@ namespace lyt
         }
     }
 
-    // 绘制文本
+    /**
+     * @brief 绘制文本到屏幕
+     */
     void Text::draw() { renderer->copy(texture, nullptr, &rect); }
 }  // namespace lyt

@@ -1,6 +1,7 @@
-//
-// Created by restarhalf on 25-6-1.
-//
+/**
+ * @file Music.cpp
+ * @brief 音乐类的实现，负责处理背景音乐的播放和控制
+ */
 
 #include "Music.h"
 
@@ -65,4 +66,3 @@ void Music::stopMusic()
         isPlaying = false;
     }
 }
-

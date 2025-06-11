@@ -1,3 +1,8 @@
+/**
+ * @file PlayerFish.cpp
+ * @brief 玩家控制的鱼类实现
+ */
+
 #include "PlayerFish.h"
 
 #include <SDL.h>
@@ -7,13 +12,24 @@
 namespace lx
 {
 
-    // 玩家鱼构造函数
+    /**
+     * @brief 玩家鱼构造函数
+     * @param renderer 渲染器指针
+     * @param imagePath 图片路径
+     * @param x 初始x坐标
+     * @param y 初始y坐标
+     * @param w 宽度
+     * @param h 高度
+     */
     PlayerFish::PlayerFish(lyt::Renderer* renderer, const std::string& imagePath, int x, int y, int w, int h) :
         Fish(renderer, imagePath, x, y, w, h)
-
     {
     }
 
+    /**
+     * @brief 处理玩家输入控制
+     * @param controller 控制器指针
+     */
     void PlayerFish::handleInput(const lyt::Controller* controller)
     {
         velocityX = velocityY = 0;
@@ -32,7 +48,11 @@ namespace lx
     }
 
 
-    // 更新玩家鱼的位置，并进行边界检测
+    /**
+     * @brief 更新玩家鱼的位置，并进行边界检测
+     * @param windowW 窗口宽度
+     * @param windowH 窗口高度
+     */
     void PlayerFish::update(int windowW, int windowH)
     {
         rect.x += velocityX;
@@ -45,9 +65,14 @@ namespace lx
         if (rect.y + rect.h > windowH) rect.y = windowH - rect.h;
     }
 
+    /**
+     * @brief 尝试吃掉AI鱼，成功则加分
+     * @param aiFish AI鱼对象引用
+     * @param scoreManager 分数管理器引用
+     * @return 是否成功吃掉AI鱼
+     */
     bool PlayerFish::tryEat(AIFish& aiFish, ScoreManager& scoreManager)
     {
-        // if (!aiFish.isAlive() || !alive) return false;//写到fish类的函数，改到gamestate里面
         SDL_Rect other = aiFish.getRect();
         if (SDL_HasIntersection(&rect, &other))
         {
@@ -85,12 +110,6 @@ namespace lx
             {
                 // 玩家比 AI 鱼小 20% 以上，被吃掉
                 alive = false;
-                // SDL_Log("被更大的AI鱼吃掉游戏结束");
-            }
-            else
-            {
-                // 大小相近，不处理
-                // SDL_Log("碰撞但大小相近，无操作");
             }
         }
 
@@ -98,7 +117,11 @@ namespace lx
     }
 
 
-    // 重置玩家鱼的位置和状态
+    /**
+     * @brief 重置玩家鱼的位置和状态
+     * @param startX 起始X坐标
+     * @param startY 起始Y坐标
+     */
     void PlayerFish::reset(int startX, int startY)
     {
         rect.x = startX;
@@ -106,7 +129,10 @@ namespace lx
         rect.w = rect.h = 60;
         alive           = true;
     }
-    // 控制玩家鱼的体积增长
+
+    /**
+     * @brief 调整玩家鱼大小至最大值
+     */
     void PlayerFish::resize()
     {
         rect.w = wMax;

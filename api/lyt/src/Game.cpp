@@ -1,17 +1,30 @@
-//
-// Created by restarhalf on 2025/5/28.
-//
+/**
+ * @file Game.cpp
+ * @brief 游戏类的实现，负责管理游戏的主要功能和生命周期
+ */
 #include "Game.h"
 namespace lyt
 {
     int Game::num = 0;
-    // 默认构造函数，初始化基本属性
+
+    /**
+     * @brief 默认构造函数，初始化基本属性
+     */
     Game::Game() : window(nullptr), renderer(nullptr), isRunning(false) {}
 
-    // 析构函数，清理游戏资源
+    /**
+     * @brief 析构函数，清理游戏资源
+     */
     Game::~Game() {}
 
-    // 初始化游戏环境和事件
+    /**
+     * @brief 初始化游戏环境和事件
+     * @param title 窗口标题
+     * @param width 窗口宽度
+     * @param height 窗口高度
+     * @param flags SDL初始化标志
+     * @return 初始化是否成功
+     */
     bool Game::init(const std::string &title, int width, int height, int flags)
     {
         num++;
@@ -85,7 +98,12 @@ namespace lyt
         return isRunning;
     }
 
-    // 处理游戏事件
+    /**
+     * @brief 处理游戏事件
+     * @param event SDL事件对象
+     * @param x 鼠标x坐标引用
+     * @param y 鼠标y坐标引用
+     */
     void Game::handleEvent(SDL_Event &event, int &x, int &y)
     {
         // 检查退出事件（窗口关闭或ESC键）
@@ -100,7 +118,9 @@ namespace lyt
         window->handleEvents(event);
     }
 
-    // 清理游戏资源
+    /**
+     * @brief 清理游戏资源
+     */
     void Game::clean()
     {
         num--;
@@ -115,7 +135,9 @@ namespace lyt
         if (num == 0) exit(0);
     }
 
-    // 更新游戏状态
+    /**
+     * @brief 更新游戏状态
+     */
     void Game::update()
     {
         if (renderer)
@@ -125,7 +147,9 @@ namespace lyt
         }
     }
 
-    // 渲染游戏画面
+    /**
+     * @brief 渲染游戏画面
+     */
     void Game::render() const
     {
         if (renderer)
@@ -135,13 +159,20 @@ namespace lyt
         }
     }
 
-    // 检查游戏是否正在运行
+    /**
+     * @brief 检查游戏是否正在运行
+     * @return 游戏是否运行中
+     */
     bool Game::running() const { return isRunning; }
 
-    // 开始帧计时
+    /**
+     * @brief 开始帧计时
+     */
     void Game::frameStart() { Start = SDL_GetTicks(); }
 
-    // 结束帧计时并控制帧率
+    /**
+     * @brief 结束帧计时并控制帧率
+     */
     void Game::frameEnd()
     {
         Time = SDL_GetTicks() - Start;
@@ -151,12 +182,33 @@ namespace lyt
         }
     }
 
-    // 设置游戏帧率
+    /**
+     * @brief 设置游戏帧率
+     * @param fps 目标帧率
+     */
     void Game::setFps(const float fps) { FPS = 1000.f / fps; }
 
-    // Getters and setters
+    /**
+     * @brief 获取渲染器指针
+     * @return 渲染器指针
+     */
     Renderer *Game::getRenderer() const { return renderer; }
+
+    /**
+     * @brief 获取窗口指针
+     * @return 窗口指针
+     */
     Window   *Game::getWindow() const { return window; }
+
+    /**
+     * @brief 设置渲染器
+     * @param renderer 渲染器指针
+     */
     void      Game::setRenderer(Renderer *renderer) { this->renderer = renderer; }
+
+    /**
+     * @brief 设置窗口
+     * @param window 窗口指针
+     */
     void      Game::setWindow(Window *window) { this->window = window; }
 }  // namespace lyt

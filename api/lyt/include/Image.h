@@ -1,6 +1,9 @@
-//
-// Created by restarhalf on 2025/5/29.
-//
+/**
+ * @file Image.h
+ * @brief 图像类头文件，负责处理图片资源的加载、显示和管理
+ * @author restarhalf
+ * @date 2025/5/29
+ */
 
 #ifndef IMAGE_H
 #define IMAGE_H

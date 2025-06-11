@@ -5,14 +5,20 @@ namespace lx
 
     std::unordered_map<std::string, SDL_Texture*> Fish::textureCache;
 
-    // 构造函数，加载鱼的纹理并初始化位置和尺寸
+    /**
+     * @brief 构造函数，加载鱼的纹理并初始化位置和尺寸
+     */
     Fish::Fish(lyt::Renderer* renderer, const std::string& imagePath, int x, int y, int w, int h) :
         renderer(renderer), rect{x, y, w, h}
     {
         texture = getOrLoadTexture(imagePath);
     }
 
-    // 纹理缓存机制
+    /**
+     * @brief 加载或从缓存获取纹理
+     * @param imagePath 图片路径
+     * @return 纹理指针
+     */
     SDL_Texture* Fish::getOrLoadTexture(const std::string& imagePath)
     {
         auto it = textureCache.find(imagePath);
@@ -33,7 +39,9 @@ namespace lx
         return newTexture;
     }
 
-    // 清除纹理缓存
+    /**
+     * @brief 清除纹理缓存
+     */
     void Fish::clearTextureCache()
     {
         for (auto& [path, texture]: textureCache)
@@ -46,21 +54,26 @@ namespace lx
         textureCache.clear();
     }
 
-    // 析构函数，释放纹理资源
+    /**
+     * @brief 析构函数，释放纹理资源
+     */
     Fish::~Fish()
     {
         // 不在这里释放texture，因为它现在由缓存管理
     }
 
-    // 渲染鱼到屏幕
+    /**
+     * @brief 渲染鱼到屏幕
+     */
     void Fish::render() const
     {
-        SDL_RendererFlip flip = (direction == -1) ? SDL_FLIP_NONE : SDL_FLIP_HORIZONTAL;  //
+        SDL_RendererFlip flip = (direction == -1) ? SDL_FLIP_NONE : SDL_FLIP_HORIZONTAL;
         renderer->copy(texture, nullptr, &rect, 0.0, nullptr, flip);
-        // SDL_Log("Fish direction: %d", direction);
     }
 
-    // 让鱼变大，按比例缩放宽高
+    /**
+     * @brief 让鱼变大，按比例缩放宽高
+     */
     void Fish::grow(float scale)
     {
         rect.w = static_cast<int>(rect.w * scale);

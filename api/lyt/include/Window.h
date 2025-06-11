@@ -1,6 +1,9 @@
-//
-// Created by restarhalf on 2025/5/29.
-//
+/**
+ * @file Window.h
+ * @brief 窗口类头文件，负责管理SDL窗口的创建、销毁和事件处理
+ * @author restarhalf
+ * @date 2025/5/29
+ */
 
 #ifndef WINDOW_H
 #define WINDOW_H

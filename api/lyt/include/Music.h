@@ -1,6 +1,9 @@
-//
-// Created by restarhalf on 25-6-1.
-//
+/**
+ * @file Music.h
+ * @brief 音乐类头文件，负责处理背景音乐的播放和控制
+ * @author restarhalf
+ * @date 2025/6/1
+ */
 
 #ifndef MUSIC_H
 #define MUSIC_H
