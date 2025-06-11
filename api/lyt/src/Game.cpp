@@ -109,7 +109,6 @@ namespace lyt
         // 检查退出事件（窗口关闭或ESC键）
         if (event.type == SDL_QUIT || (event.key.keysym.sym == SDLK_ESCAPE && event.type == SDL_KEYDOWN))
         {
-            clean();
             isRunning = false;
             return;
         }
