@@ -95,8 +95,8 @@ int main(int argc, char* argv[])
                              {loginUiW / 3 - 100, loginUiH / 2 + 70, 230, 230}, SDL_BLENDMODE_BLEND, 255);
     exit.setButtonwithImage("asset/images/2.png", loginUi.getRenderer(),
                             {loginUiW / 3 * 2 - 100, loginUiH / 2 + 70, 230, 230}, SDL_BLENDMODE_BLEND, 255);
-    restart.setButtonwithImage("asset/images/Menu_restart.png", game.getRenderer(),{windowW/4+100, windowH/4, 205, 33}, SDL_BLENDMODE_BLEND, 255);
-    gameExit.setButtonwithImage("asset/images/Menu_quit.png", game.getRenderer(),{windowW/4*3-100, windowH/4, 106, 33}, SDL_BLENDMODE_BLEND, 255);
+    restart.setButtonwithImage("asset/images/Menu_restart.png", game.getRenderer(),{windowW/8*3-102, windowH/8*6+150, 205, 33}, SDL_BLENDMODE_BLEND, 255);
+    gameExit.setButtonwithImage("asset/images/Menu_quit.png", game.getRenderer(),{windowW/8*5-53, windowH/8*6+150, 106, 33}, SDL_BLENDMODE_BLEND, 255);
     fullscreenBtn.setButtonwithImage("asset/images/Menu_quit.png", game.getRenderer(), {0, 0, 100, 100}, SDL_BLENDMODE_BLEND,
                                      255);
     pauseButton.setButtonwithImage("asset/images/pause.png", game.getRenderer(),
