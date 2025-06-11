@@ -96,9 +96,9 @@ int main(int argc, char* argv[])
     fullscreenBtn.setButtonwithImage("asset/images/0.png", game.getRenderer(), {0, 0, 100, 100}, SDL_BLENDMODE_BLEND,
                                      255);
 
-    background.setImage("asset/images/background.png", game.getRenderer(), {0, 0, windowW, windowH},
+    background.setImage("asset/images/background_1.png", game.getRenderer(), {0, 0, windowW, windowH},
                         SDL_BLENDMODE_BLEND, 255);
-    loginBackground.setImage("asset/images/background.png", loginUi.getRenderer(), {0, 0, loginUiW, loginUiH},
+    loginBackground.setImage("asset/images/background_1.png", loginUi.getRenderer(), {0, 0, loginUiW, loginUiH},
                              SDL_BLENDMODE_BLEND, 255);
     // 计分板背景，用固定高度比例，宽度铺满
     SDL_Rect scoreBoardRect = {0, 0, windowW, static_cast<int>(windowH * 0.1f)};
@@ -132,7 +132,7 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
     //loginText.setAll(loginUi.getRenderer(), loginTextRect, textColor, font, SDL_BLENDMODE_BLEND, "1111111111111111");
 
     // 玩家鱼初始化
-    lx::PlayerFish playerFish(game.getRenderer(), "asset/images/fish8_left_0.png", windowW / 4, windowH / 2, 60, 30);
+    lx::PlayerFish playerFish(game.getRenderer(), "asset/images/player_1_left_0.png", windowW / 4, windowH / 2, 45, 34);
 
     std::vector<lx::FishType> fishTypes = {
             // 不同范围对应纹理
@@ -142,7 +142,7 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
             {41,
              80,
              {"asset/images/fish2_left_0.png", "asset/images/fish3_left_0.png", "asset/images/fish4_left_0.png",
-              "asset/images/fish5_left_0.png"}},
+              "asset/images/fish5_left_0.png", "asset/images/player_2_left_0.png"}},
             {81,
              120,
              {"asset/images/fish3_left_0.png", "asset/images/fish4_left_0.png", "asset/images/fish5_left_0.png",
