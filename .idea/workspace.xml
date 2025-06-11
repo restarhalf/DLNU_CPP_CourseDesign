@@ -33,13 +33,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0bcc9e56-ae7f-4772-83b2-5a4237ae3734" name="更改" comment="FIX">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/lyt/src/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Game.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/images/0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/images/1 - 副本.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/images/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/images/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/images/5 - 副本.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/images/bar.png" beforeDir="false" afterPath="$PROJECT_DIR$/asset/images/bar.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +100,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon": "",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "settings.sync",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -190,15 +183,7 @@
       <workItem from="1749632398731" duration="2147000" />
       <workItem from="1749635587282" duration="689000" />
       <workItem from="1749638860785" duration="1157000" />
-      <workItem from="1749649784068" duration="5794000" />
-    </task>
-    <task id="LOCAL-00031" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749355396396</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1749355396396</updated>
+      <workItem from="1749649784068" duration="9650000" />
     </task>
     <task id="LOCAL-00032" summary="FIX">
       <option name="closed" value="true" />
@@ -584,7 +569,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749636109791</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749656036345</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1749656036345</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

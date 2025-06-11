@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
     lyt::Game   game;
     lyt::Game   loginUi;
     bool        fullscreenFlag = false;
-    lyt::Button login, exit, fullscreenBtn,pauseButton;  // 创建按钮对象：登录、退出、全屏
+    lyt::Button login, exit, fullscreenBtn,pauseButton,restart,gameExit;  // 创建按钮对象：登录、退出、全屏
     TTF_Font*   font = nullptr;
 
     // 初始化游戏窗口和登录窗口，设置分辨率和flags
@@ -67,6 +67,7 @@ int main(int argc, char* argv[])
     lyt::Image scoreBoard;  // 计分板背景
     lyt::Text  scoreText;
     lyt::Text  loginText;
+    lyt::Image gameOverImage;
     int        windowW = 0, windowH = 0;  // 游戏窗口尺寸
     int        mouseX = 0, mouseY = 0;  // 鼠标坐标
     int        loginUiW = 0, loginUiH = 0;  // 登录窗口尺寸
@@ -94,13 +95,17 @@ int main(int argc, char* argv[])
                              {loginUiW / 3 - 100, loginUiH / 2 + 70, 230, 230}, SDL_BLENDMODE_BLEND, 255);
     exit.setButtonwithImage("asset/images/2.png", loginUi.getRenderer(),
                             {loginUiW / 3 * 2 - 100, loginUiH / 2 + 70, 230, 230}, SDL_BLENDMODE_BLEND, 255);
-    fullscreenBtn.setButtonwithImage("asset/images/2.png", game.getRenderer(), {0, 0, 100, 100}, SDL_BLENDMODE_BLEND,
+    restart.setButtonwithImage("asset/images/Menu_restart.png", game.getRenderer(),{windowW/4+100, windowH/4, 205, 33}, SDL_BLENDMODE_BLEND, 255);
+    gameExit.setButtonwithImage("asset/images/Menu_quit.png", game.getRenderer(),{windowW/4*3-100, windowH/4, 106, 33}, SDL_BLENDMODE_BLEND, 255);
+    fullscreenBtn.setButtonwithImage("asset/images/Menu_quit.png", game.getRenderer(), {0, 0, 100, 100}, SDL_BLENDMODE_BLEND,
                                      255);
     pauseButton.setButtonwithImage("asset/images/pause.png", game.getRenderer(),
                             {static_cast<int>(windowW * 0.884), 0, static_cast<int>(windowW * 0.116), static_cast<int>(windowW * 0.116)}, SDL_BLENDMODE_BLEND, 255);
     background.setImage("asset/images/background.png", game.getRenderer(), {0, 0, windowW, windowH},
                         SDL_BLENDMODE_BLEND, 255);
     loginBackground.setImage("asset/images/loginbackground.png", loginUi.getRenderer(), {0, 0, loginUiW, loginUiH},
+                             SDL_BLENDMODE_BLEND, 255);
+    gameOverImage.setImage("asset/images/gamelose.png", game.getRenderer(), {windowW/4, windowH/2, static_cast<int>(windowW*0.5), static_cast<int>(windowH*0.5)},
                              SDL_BLENDMODE_BLEND, 255);
     // 计分板背景，用固定高度比例，宽度铺满
     SDL_Rect scoreBoardRect = {0, 0, windowW, static_cast<int>(windowW*0.07)};
@@ -147,10 +152,11 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
              {"asset/images/fish6_left_0.png", "asset/images/fish7_left_0.png", "asset/images/fish8_left_0.png"}}
 
     };
+    bool paused = true;
 
     // AI鱼初始化
     std::vector<lx::AIFish> aiFishes;
-
+    resartLabel:
     for (int i = 0; i < 10; ++i)
     {
         // 获取玩家鱼体积（例如取宽高的平均值）
@@ -161,8 +167,9 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
                 lx::AIFish::createRandomFish(game.getRenderer(), fishTypes, windowW, windowH, gen, playerSize));
     }
     // 暂停状态变量,初始就是静止状态（游戏未开始前）
-    bool paused = true;
+
     // 游戏主循环
+
     while (game.running())
     {
         // 开始新的帧
@@ -210,8 +217,8 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
                     loginUi.getWindow()->hide(true);
                     game.getWindow()->setSize(loginUiW, loginUiH);
                     game.getWindow()->hide(false);
-                    paused = false;
                     isLogin = true;
+                    paused = false;
                     SDL_Log("Login button clicked");
                 }
                 if (exit.isButtonReleased())  // 退出
@@ -223,7 +230,7 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
                     return 0;
                 }
             }
-            else
+            else if (playerFish.isAlive())// 游戏界面事件处理
             {
                 game.handleEvent(event, mouseX, mouseY);
 
@@ -247,9 +254,6 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
             {
                 paused = !paused;
             }
-
-
-
             if (fullscreenBtn.isButtonReleased())  // 全屏
             {
                 fullscreenFlag = !fullscreenFlag;
@@ -261,6 +265,27 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
                     SDL_SetWindowPosition(game.getWindow()->get(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
                 }
             }
+            }
+            if (!playerFish.isAlive())
+            {
+                restart.handleEvent(event);
+                gameExit.handleEvent(event);
+                if (restart.isButtonReleased())
+                {
+                    paused = false;
+                    playerFish.reset(windowW / 4, windowH / 2);
+                    aiFishes.clear();
+                    scoreManager.reset();
+                    goto resartLabel;
+                }
+                if (gameExit.isButtonReleased())
+                {
+                    scoreManager.saveHighScore();
+                    if (font) TTF_CloseFont(font);
+                    game.clean();
+                    loginUi.clean();
+                    return 0;
+                }
             }
 
         }
@@ -279,10 +304,11 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
                 {
                     // SDL_Log("玩家死亡，游戏结束");
                     scoreManager.saveHighScore();
-                    if (font) TTF_CloseFont(font);
-                    loginUi.clean();
-                    game.clean();
-                    return 0;
+                    paused = true;
+                    gameOverImage.draw();
+                    restart.drawwithImage();
+                    gameExit.drawwithImage();
+                    game.getRenderer()->present();
                 }
 
                 playerFish.tryEat(*it, scoreManager);  // 循环判断
@@ -325,10 +351,8 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
             loginText.draw();
             loginUi.getRenderer()->present();
         }
-
-
         // 渲染游戏界面元素
-        if (isLogin)
+        if (isLogin && playerFish.isAlive())
         {
 
         game.getRenderer()->clear();
