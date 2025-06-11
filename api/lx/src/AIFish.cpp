@@ -83,7 +83,7 @@ namespace lx
         // 确定生成位置和方向
         int side = gen() % 2;
         int x    = (side == 0) ? 0 : windowW - size;
-        int minY = static_cast<int>(windowH * 0.1f);
+        int minY = static_cast<int>(windowW*0.07);
         int maxY = windowH - size;
         if (maxY < minY) maxY = minY;  // 处理窗口过小的情况
         std::uniform_int_distribution<int> disY(minY, maxY);  // 计分板处不生成鱼

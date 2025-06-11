@@ -72,12 +72,12 @@ int main(int argc, char* argv[])
 
 
     // 加载字体
-    font = TTF_OpenFont("asset/fonts/AaLongyan_font.ttf", 80);
+    font = TTF_OpenFont("asset/fonts/AaLongyan_font.ttf", 1080);
     if (!font)
     {
         SDL_Log("Failed to load font: %s", TTF_GetError());
         // 尝试备用字体
-        font = TTF_OpenFont("arial.ttf", 80);
+        font = TTF_OpenFont("arial.ttf", 1080);
         if (!font)
         {
             SDL_Log("Failed to load fallback font: %s", TTF_GetError());
@@ -96,12 +96,12 @@ int main(int argc, char* argv[])
     fullscreenBtn.setButtonwithImage("asset/images/0.png", game.getRenderer(), {0, 0, 100, 100}, SDL_BLENDMODE_BLEND,
                                      255);
 
-    background.setImage("asset/images/background_1.png", game.getRenderer(), {0, 0, windowW, windowH},
+    background.setImage("asset/images/background.png", game.getRenderer(), {0, 0, windowW, windowH},
                         SDL_BLENDMODE_BLEND, 255);
-    loginBackground.setImage("asset/images/background_1.png", loginUi.getRenderer(), {0, 0, loginUiW, loginUiH},
+    loginBackground.setImage("asset/images/background.png", loginUi.getRenderer(), {0, 0, loginUiW, loginUiH},
                              SDL_BLENDMODE_BLEND, 255);
     // 计分板背景，用固定高度比例，宽度铺满
-    SDL_Rect scoreBoardRect = {0, 0, windowW, static_cast<int>(windowH * 0.1f)};
+    SDL_Rect scoreBoardRect = {0, 0, windowW, static_cast<int>(windowW*0.16)};
     scoreBoard.setImage("asset/images/bar.png", game.getRenderer(), scoreBoardRect, SDL_BLENDMODE_BLEND, 255);
 
     // 分数管理器和分数文本
@@ -117,15 +117,22 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
     // 登录界面文本区域，宽占登录窗口宽度的70%，高占20%，距离顶部50%，水平居中
     SDL_Rect loginTextRect = computeRect(loginUiW, loginUiH, 0.7f, 0.2f, 0.5f, 0.2f);
     // 登录界面文本区域，宽占登录窗口宽度的70%，高占20%，距离顶部50%，水平居中
+    // 时间获取
+    Uint32 ticks = SDL_GetTicks();
 
-    // 初始化（仅调用一次）
-    loginText.setAll(loginUi.getRenderer(), loginTextRect, {30, 144, 255, 255}, font, SDL_BLENDMODE_BLEND,
-                     "FISH EAT FISH");
+    // ----- 渐变颜色 -----
+    float     colorT    = (ticks % 2000) / 2000.0f;
+    Uint8     r         = static_cast<Uint8>(30 + (255 - 30) * colorT);
+    Uint8     g         = static_cast<Uint8>(144 + (255 - 144) * colorT);
+    Uint8     b         = 255;
+    SDL_Color fadeColor = {r, g, b, 255};
+    loginText.setColor(fadeColor);  
 
+    loginText.setAll(loginUi.getRenderer(), loginTextRect, {30, 144, 255, 255},font, SDL_BLENDMODE_BLEND, "FISH EAT FISH");
     //loginText.setAll(loginUi.getRenderer(), loginTextRect, textColor, font, SDL_BLENDMODE_BLEND, "1111111111111111");
 
     // 玩家鱼初始化
-    lx::PlayerFish playerFish(game.getRenderer(), "asset/images/player_1_left_0.png", windowW / 4, windowH / 2, 45, 34);
+    lx::PlayerFish playerFish(game.getRenderer(), "asset/images/fish8_left_0.png", windowW / 4, windowH / 2, 60, 30);
 
     std::vector<lx::FishType> fishTypes = {
             // 不同范围对应纹理
@@ -135,7 +142,7 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
             {41,
              80,
              {"asset/images/fish2_left_0.png", "asset/images/fish3_left_0.png", "asset/images/fish4_left_0.png",
-              "asset/images/fish5_left_0.png", "asset/images/player_2_left_0.png"}},
+              "asset/images/fish5_left_0.png"}},
             {81,
              120,
              {"asset/images/fish3_left_0.png", "asset/images/fish4_left_0.png", "asset/images/fish5_left_0.png",
@@ -178,18 +185,6 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
         exit.setButtonwithImage({loginUiW / 3 * 2 - 115, loginUiH / 2 + 70, 230, 230});
         fullscreenBtn.setButtonwithImage({0, 0, 300, 100});
 
-        // 渐变逻辑
-        // 使用余弦函数的平滑渐变
-        Uint32 ticks  = SDL_GetTicks();
-        float  colorT = (ticks % 2000) / 2000.0f * 2.0f * M_PI;  // 0到2π
-
-        // 使用余弦波创建平滑的颜色变化
-        Uint8 r = static_cast<Uint8>(100 + 80 * (0.5f + 0.5f * cos(colorT)));
-        Uint8 g = static_cast<Uint8>(150 + 80 * (0.5f + 0.5f * cos(colorT + 2.0f * M_PI / 3.0f)));
-        Uint8 b = static_cast<Uint8>(200 + 55 * (0.5f + 0.5f * cos(colorT + 4.0f * M_PI / 3.0f)));
-
-        SDL_Color fadeColor = {r, g, b, 255};
-        loginText.setColor(fadeColor);
 
         // 事件处理
         SDL_Event event;

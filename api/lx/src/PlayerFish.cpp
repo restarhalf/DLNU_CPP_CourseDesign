@@ -60,7 +60,7 @@ namespace lx
 
         // 边界检测，防止鱼游出窗口
         if (rect.x < 0) rect.x = 0;
-        if (rect.y < 0) rect.y = 0;
+        if (rect.y < windowW*0.07) rect.y = windowW*0.07;
         if (rect.x + rect.w > windowW) rect.x = windowW - rect.w;
         if (rect.y + rect.h > windowH) rect.y = windowH - rect.h;
     }
