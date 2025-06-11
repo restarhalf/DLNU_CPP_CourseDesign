@@ -43,7 +43,7 @@ int main(int argc, char* argv[])
     lyt::Game   game;
     lyt::Game   loginUi;
     bool        fullscreenFlag = false;
-    lyt::Button login, exit, fullscreenBtn;  // 创建按钮对象：登录、退出、全屏
+    lyt::Button login, exit, fullscreenBtn,pauseButton;  // 创建按钮对象：登录、退出、全屏
     TTF_Font*   font = nullptr;
 
     // 初始化游戏窗口和登录窗口，设置分辨率和flags
@@ -95,10 +95,11 @@ int main(int argc, char* argv[])
                             {loginUiW / 3 * 2 - 100, loginUiH / 2 + 70, 230, 230}, SDL_BLENDMODE_BLEND, 255);
     fullscreenBtn.setButtonwithImage("asset/images/0.png", game.getRenderer(), {0, 0, 100, 100}, SDL_BLENDMODE_BLEND,
                                      255);
-
-    background.setImage("asset/images/background.png", game.getRenderer(), {0, 0, windowW, windowH},
+    pauseButton.setButtonwithImage("asset/images/pause.png", game.getRenderer(),
+                            {static_cast<int>(windowW * 0.95), 0, static_cast<int>(windowW * 0.05), static_cast<int>(windowW * 0.05)}, SDL_BLENDMODE_BLEND, 255);
+    background.setImage("asset/images/5 - 1.png", game.getRenderer(), {0, 0, windowW, windowH},
                         SDL_BLENDMODE_BLEND, 255);
-    loginBackground.setImage("asset/images/background.png", loginUi.getRenderer(), {0, 0, loginUiW, loginUiH},
+    loginBackground.setImage("asset/images/5 - 1.png", loginUi.getRenderer(), {0, 0, loginUiW, loginUiH},
                              SDL_BLENDMODE_BLEND, 255);
     // 计分板背景，用固定高度比例，宽度铺满
     SDL_Rect scoreBoardRect = {0, 0, windowW, static_cast<int>(windowW*0.16)};
@@ -120,14 +121,7 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
     // 时间获取
     Uint32 ticks = SDL_GetTicks();
 
-    // ----- 渐变颜色 -----
-    float     colorT    = (ticks % 2000) / 2000.0f;
-    Uint8     r         = static_cast<Uint8>(30 + (255 - 30) * colorT);
-    Uint8     g         = static_cast<Uint8>(144 + (255 - 144) * colorT);
-    Uint8     b         = 255;
-    SDL_Color fadeColor = {r, g, b, 255};
-    loginText.setColor(fadeColor);  
-
+  
     loginText.setAll(loginUi.getRenderer(), loginTextRect, {30, 144, 255, 255},font, SDL_BLENDMODE_BLEND, "FISH EAT FISH");
     //loginText.setAll(loginUi.getRenderer(), loginTextRect, textColor, font, SDL_BLENDMODE_BLEND, "1111111111111111");
 
@@ -184,7 +178,18 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
         login.setButtonwithImage({loginUiW / 3 - 115, loginUiH / 2 + 70, 230, 230});
         exit.setButtonwithImage({loginUiW / 3 * 2 - 115, loginUiH / 2 + 70, 230, 230});
         fullscreenBtn.setButtonwithImage({0, 0, 300, 100});
+        pauseButton.setButtonwithImage({static_cast<int>(windowW * 0.95), 0, static_cast<int>(windowW * 0.05), static_cast<int>(windowW * 0.05)});
+        // 使用余弦函数的平滑渐变
+        Uint32 ticks  = SDL_GetTicks();
+        float  colorT = (ticks % 2000) / 2000.0f * 2.0f * M_PI;  // 0到2π
 
+        // 蓝紫渐变（R: 较小变化，G: 中值变化，B: 大幅变化）
+        Uint8 r = static_cast<Uint8>(100 + 30 * cos(colorT));  // 红: 100~130
+        Uint8 g = static_cast<Uint8>(50 + 50 * cos(colorT + M_PI / 2.0f));  // 绿: 0~100（紫色需要较少绿色）
+        Uint8 b = static_cast<Uint8>(150 + 50 * cos(colorT));  // 蓝: 50~250
+
+        SDL_Color fadeColor = {r, g, b, 255};
+        loginText.setColor(fadeColor);
 
         // 事件处理
         SDL_Event event;
@@ -194,8 +199,10 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
             loginUi.handleEvent(event, mouseX, mouseY);
             login.handleEvent(event);
             exit.handleEvent(event);
+            pauseButton.handleEvent(event);
             fullscreenBtn.handleEvent(event);
 
+            
 
             // 检测暂停键（p键）
             if (event.type == SDL_KEYDOWN)  // 还需加上点击开始/继续图标的条件语句！！！！！
@@ -211,6 +218,11 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
                 playerFish.handleInput(game.getController());
                 // playerFish.update(windowW, windowH);
             }
+            if (pauseButton.isButtonReleased())
+            {
+                paused = !paused;
+            }
+
 
             if (login.isButtonReleased())  // 登录按钮
             {
@@ -298,13 +310,16 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
         loginBackground.draw();
         login.drawwithImage();
         exit.drawwithImage();
+
         // 渲染游戏界面元素
         background.draw();
-        fullscreenBtn.drawwithImage();
+
         scoreBoard.draw();
         scoreText.draw();
         playerFish.render();
         loginText.draw();
+        fullscreenBtn.drawwithImage();
+        pauseButton.drawwithImage();
         for (auto& aiFish: aiFishes) aiFish.render();
         // 显示渲染结果
         loginUi.getRenderer()->present();
