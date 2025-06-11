@@ -4,7 +4,7 @@
 #pragma once
 #include <random>
 #include <vector>
-
+#include <algorithm>
 #include "Fish.h"
 
 namespace lx
