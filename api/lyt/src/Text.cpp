@@ -25,8 +25,6 @@ namespace lyt
         surface = nullptr;
         font    = nullptr;
     }
-
-    // Getters and setters 实现
     /**
      * @brief 获取文本纹理
      * @return SDL_Texture* 纹理指针
@@ -142,6 +140,7 @@ namespace lyt
         this->color     = color;
         this->font      = font;
         this->blendMode = blendMode;
+        this->alpha     = color.a;
         this->text      = text;
         this->renderer  = render;
 

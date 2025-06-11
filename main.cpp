@@ -179,68 +179,17 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
         fullscreenBtn.setButtonwithImage({0, 0, 300, 100});
 
         // 渐变逻辑
-        // 更协调的渐变逻辑
+        // 使用余弦函数的平滑渐变
         Uint32 ticks  = SDL_GetTicks();
-        float  colorT = (ticks % 2000) / 2000.0f;  // 0.0到1.0的循环
+        float  colorT = (ticks % 2000) / 2000.0f * 2.0f * M_PI;  // 0到2π
 
-        // 使用HSL到RGB的转换（保持蓝色调，只改变亮度）
-        float hue        = 220.0f;  // 蓝色色调保持不变
-        float saturation = 0.85f;  // 高饱和度保持不变
-        float lightness  = 0.35f + 0.3f * colorT;  // 在0.35-0.65之间变化
+        // 使用余弦波创建平滑的颜色变化
+        Uint8 r = static_cast<Uint8>(100 + 80 * (0.5f + 0.5f * cos(colorT)));
+        Uint8 g = static_cast<Uint8>(150 + 80 * (0.5f + 0.5f * cos(colorT + 2.0f * M_PI / 3.0f)));
+        Uint8 b = static_cast<Uint8>(200 + 55 * (0.5f + 0.5f * cos(colorT + 4.0f * M_PI / 3.0f)));
 
-        // HSL转RGB的辅助函数
-        auto hslToRgb = [](float h, float s, float l) -> SDL_Color
-        {
-            h       = fmodf(h, 360.0f);
-            float c = (1.0f - fabsf(2.0f * l - 1.0f)) * s;
-            float x = c * (1.0f - fabsf(fmodf(h / 60.0f, 2.0f) - 1.0f));
-            float m = l - c / 2.0f;
-
-            float r, g, b;
-            if (h < 60)
-            {
-                r = c;
-                g = x;
-                b = 0;
-            }
-            else if (h < 120)
-            {
-                r = x;
-                g = c;
-                b = 0;
-            }
-            else if (h < 180)
-            {
-                r = 0;
-                g = c;
-                b = x;
-            }
-            else if (h < 240)
-            {
-                r = 0;
-                g = x;
-                b = c;
-            }
-            else if (h < 300)
-            {
-                r = x;
-                g = 0;
-                b = c;
-            }
-            else
-            {
-                r = c;
-                g = 0;
-                b = x;
-            }
-
-            return {static_cast<Uint8>((r + m) * 255), static_cast<Uint8>((g + m) * 255),
-                    static_cast<Uint8>((b + m) * 255), 255};
-        };
-
-        SDL_Color fadeColor = hslToRgb(hue, saturation, lightness);
+        SDL_Color fadeColor = {r, g, b, 255};
         loginText.setColor(fadeColor);
-
 
         // 事件处理
         SDL_Event event;
