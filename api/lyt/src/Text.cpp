@@ -25,8 +25,6 @@ namespace lyt
         surface = nullptr;
         font    = nullptr;
     }
-
-    // Getters and setters 实现
     /**
      * @brief 获取文本纹理
      * @return SDL_Texture* 纹理指针
@@ -63,8 +61,10 @@ namespace lyt
      */
     void Text::setColor(const SDL_Color& color)
     {
-        this->color = color;
-        flush();
+        if (this->color.a == color.a && this->color.r == color.r && this->color.g == color.g && this->color.b == color.b) return;
+            this->color = color;
+            this->alpha = color.a;
+            flush();
     }
 
     /**
@@ -141,6 +141,7 @@ namespace lyt
         this->color     = color;
         this->font      = font;
         this->blendMode = blendMode;
+        this->alpha     = color.a;
         this->text      = text;
         this->renderer  = render;
 
