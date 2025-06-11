@@ -117,18 +117,11 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
     // 登录界面文本区域，宽占登录窗口宽度的70%，高占20%，距离顶部50%，水平居中
     SDL_Rect loginTextRect = computeRect(loginUiW, loginUiH, 0.7f, 0.2f, 0.5f, 0.2f);
     // 登录界面文本区域，宽占登录窗口宽度的70%，高占20%，距离顶部50%，水平居中
-    // 时间获取
-    Uint32 ticks = SDL_GetTicks();
 
-    // ----- 渐变颜色 -----
-    float     colorT    = (ticks % 2000) / 2000.0f;
-    Uint8     r         = static_cast<Uint8>(30 + (255 - 30) * colorT);
-    Uint8     g         = static_cast<Uint8>(144 + (255 - 144) * colorT);
-    Uint8     b         = 255;
-    SDL_Color fadeColor = {r, g, b, 255};
-    loginText.setColor(fadeColor);  
+    // 初始化（仅调用一次）
+    loginText.setAll(loginUi.getRenderer(), loginTextRect, {30, 144, 255, 255}, font, SDL_BLENDMODE_BLEND,
+                     "FISH EAT FISH");
 
-    loginText.setAll(loginUi.getRenderer(), loginTextRect, {30, 144, 255, 255},font, SDL_BLENDMODE_BLEND, "FISH EAT FISH");
     //loginText.setAll(loginUi.getRenderer(), loginTextRect, textColor, font, SDL_BLENDMODE_BLEND, "1111111111111111");
 
     // 玩家鱼初始化
@@ -185,6 +178,18 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
         exit.setButtonwithImage({loginUiW / 3 * 2 - 115, loginUiH / 2 + 70, 230, 230});
         fullscreenBtn.setButtonwithImage({0, 0, 300, 100});
 
+        // 渐变逻辑
+        // 使用余弦函数的平滑渐变
+        Uint32 ticks  = SDL_GetTicks();
+        float  colorT = (ticks % 2000) / 2000.0f * 2.0f * M_PI;  // 0到2π
+
+        // 使用余弦波创建平滑的颜色变化
+        Uint8 r = static_cast<Uint8>(100 + 80 * (0.5f + 0.5f * cos(colorT)));
+        Uint8 g = static_cast<Uint8>(150 + 80 * (0.5f + 0.5f * cos(colorT + 2.0f * M_PI / 3.0f)));
+        Uint8 b = static_cast<Uint8>(200 + 55 * (0.5f + 0.5f * cos(colorT + 4.0f * M_PI / 3.0f)));
+
+        SDL_Color fadeColor = {r, g, b, 255};
+        loginText.setColor(fadeColor);
 
         // 事件处理
         SDL_Event event;
