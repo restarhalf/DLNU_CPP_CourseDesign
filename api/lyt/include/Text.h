@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file Text.h
  * @brief 文本类头文件，负责处理文字的渲染和显示
  * @author restarhalf
@@ -35,7 +35,8 @@ namespace lyt
         /**
          * @brief 默认构造函数
          */
-        Text() = default;
+        // 构造函数建议初始化所有成员变量，避免未定义行为
+        Text();
 
         /**
          * @brief 析构函数，负责清理文本资源
@@ -79,6 +80,11 @@ namespace lyt
          * @brief 绘制文本
          */
         void draw();
+        void setAlpha(Uint8 a)
+        {
+            if (texture) SDL_SetTextureAlphaMod(texture, a);
+        }
+        
     };
 }  // namespace lyt
 

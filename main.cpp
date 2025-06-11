@@ -1,4 +1,4 @@
-/*
+﻿/*
  * 大鱼吃小鱼游戏主程序
  * 功能：
  * 1. 实现游戏登录界面和主游戏界面
@@ -9,6 +9,29 @@
 
 #include <lx_api.h>
 #include <lyt_api.h>
+
+// 自适应函数
+// 该Lambda函数用于根据窗口尺寸和比例参数计算出一个SDL_Rect矩形，常用于UI元素的自适应布局
+// 参数说明：
+//   windowW, windowH: 当前窗口的宽度和高度
+//   widthRatio, heightRatio: 矩形宽度和高度相对于窗口的比例（0~1之间的小数）
+//   xRatio, yRatio: 矩形中心点（x）和左上角（y）相对于窗口的比例（xRatio默认0.5表示水平居中，yRatio默认0.02表示顶部偏移）
+// 返回值：
+//   SDL_Rect结构体，表示计算得到的矩形区域
+inline auto computeRect = [](int windowW, int windowH, float widthRatio, float heightRatio, float xRatio = 0.5f,
+                             float yRatio = 0.02f) -> SDL_Rect
+{
+    // 计算矩形的宽度和高度
+    int width  = static_cast<int>(windowW * widthRatio);
+    int height = static_cast<int>(windowH * heightRatio);
+    // 计算矩形左上角x坐标，使其中心点位于xRatio指定的位置
+    int x      = static_cast<int>(windowW * xRatio - width / 2);  // xRatio表示中心点的相对位置，默认0.5居中
+    // 计算矩形左上角y坐标
+    int y      = static_cast<int>(windowH * yRatio);
+    // 返回SDL_Rect结构体
+    return {x, y, width, height};
+};
+
 
 int main(int argc, char* argv[])
 {
@@ -49,12 +72,12 @@ int main(int argc, char* argv[])
 
 
     // 加载字体
-    font = TTF_OpenFont("asset/fonts/AaLongyan_font.ttf", 1080);
+    font = TTF_OpenFont("asset/fonts/AaLongyan_font.ttf", 80);
     if (!font)
     {
         SDL_Log("Failed to load font: %s", TTF_GetError());
         // 尝试备用字体
-        font = TTF_OpenFont("arial.ttf", 1080);
+        font = TTF_OpenFont("arial.ttf", 80);
         if (!font)
         {
             SDL_Log("Failed to load fallback font: %s", TTF_GetError());
@@ -77,19 +100,36 @@ int main(int argc, char* argv[])
                         SDL_BLENDMODE_BLEND, 255);
     loginBackground.setImage("asset/images/background.png", loginUi.getRenderer(), {0, 0, loginUiW, loginUiH},
                              SDL_BLENDMODE_BLEND, 255);
-    scoreBoard.setImage("asset/images/bar.png", game.getRenderer(), {0, 0, 1280, 120}, SDL_BLENDMODE_BLEND, 255);
+    // 计分板背景，用固定高度比例，宽度铺满
+    SDL_Rect scoreBoardRect = {0, 0, windowW, static_cast<int>(windowH * 0.1f)};
+    scoreBoard.setImage("asset/images/bar.png", game.getRenderer(), scoreBoardRect, SDL_BLENDMODE_BLEND, 255);
 
     // 分数管理器和分数文本
     lx::ScoreManager scoreManager;
-    SDL_Color        textColor = {255, 0, 0, 255};
-    std::string      scoreStr  = "Score: " + std::to_string(scoreManager.getScore()) +
+    SDL_Color        textColor = {255, 255, 255, 255};
+
+SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f);
+    std::string scoreStr = "Score: " + std::to_string(scoreManager.getScore()) +
                            "  High: " + std::to_string(scoreManager.getHighScore());
-    scoreText.setAll(game.getRenderer(), {windowW / 2 - 180, 50, 360, 40}, textColor, font, SDL_BLENDMODE_BLEND,
-                     scoreStr);
-    /* scoreText.setAll(game.getRenderer(), {windowW / 2 - 180, 50, 360, 40}, textColor, font, SDL_BLENDMODE_BLEND,
-                     "Score: 0  High: 0");*/
-    loginText.setAll(loginUi.getRenderer(), {loginUiW / 2 - 350, loginUiH / 2 - 400, 700, 200}, textColor, font,
-                     SDL_BLENDMODE_BLEND, "爱素真王朝了我说");
+
+    scoreText.setAll(game.getRenderer(), scoreRect, textColor, font, SDL_BLENDMODE_BLEND, scoreStr);
+
+    // 登录界面文本区域，宽占登录窗口宽度的70%，高占20%，距离顶部50%，水平居中
+    SDL_Rect loginTextRect = computeRect(loginUiW, loginUiH, 0.7f, 0.2f, 0.5f, 0.2f);
+    // 登录界面文本区域，宽占登录窗口宽度的70%，高占20%，距离顶部50%，水平居中
+    // 时间获取
+    Uint32 ticks = SDL_GetTicks();
+
+    // ----- 渐变颜色 -----
+    float     colorT    = (ticks % 2000) / 2000.0f;
+    Uint8     r         = static_cast<Uint8>(30 + (255 - 30) * colorT);
+    Uint8     g         = static_cast<Uint8>(144 + (255 - 144) * colorT);
+    Uint8     b         = 255;
+    SDL_Color fadeColor = {r, g, b, 255};
+    loginText.setColor(fadeColor);  
+
+    loginText.setAll(loginUi.getRenderer(), loginTextRect, {30, 144, 255, 255},font, SDL_BLENDMODE_BLEND, "FISH EAT FISH");
+    //loginText.setAll(loginUi.getRenderer(), loginTextRect, textColor, font, SDL_BLENDMODE_BLEND, "1111111111111111");
 
     // 玩家鱼初始化
     lx::PlayerFish playerFish(game.getRenderer(), "asset/images/fish8_left_0.png", windowW / 4, windowH / 2, 60, 30);
@@ -247,10 +287,10 @@ int main(int argc, char* argv[])
 
         std::string scoreStr = "Score: " + std::to_string(scoreManager.getScore()) +
                                "  High: " + std::to_string(scoreManager.getHighScore());
-        scoreText.setAll(game.getRenderer(), {windowW / 2 - 180, 50, 360, 40}, textColor, font, SDL_BLENDMODE_BLEND,
-                         scoreStr);
-
-        // 渲染游戏画面
+        //scoreText.setAll(game.getRenderer(), {windowW / 2 - 180, 50, 360, 40}, textColor, font, SDL_BLENDMODE_BLEND,scoreStr);
+        scoreText.setRect({windowW / 2 - 180, 50, 360, 40});
+        scoreText.setText(scoreStr);  // 更新分数文本内容
+      
 
         loginUi.getRenderer()->clear();
         game.getRenderer()->clear();
@@ -269,7 +309,10 @@ int main(int argc, char* argv[])
         // 显示渲染结果
         loginUi.getRenderer()->present();
         game.getRenderer()->present();
+       
 
+
+       
 
         // 结束当前帧
         game.frameEnd();

@@ -7,6 +7,11 @@
 
 namespace lyt
 {
+    Text::Text() :
+        texture(nullptr), rect{0, 0, 0, 0}, color{0, 0, 0, 255}, font(nullptr), surface(nullptr),
+        blendMode(SDL_BLENDMODE_BLEND), alpha(255), text(""), renderer(nullptr)
+    {}
+    
     /**
      * @brief 析构函数，按顺序清理资源
      */
@@ -56,7 +61,11 @@ namespace lyt
      * @brief 设置文本颜色
      * @param color 新的文本颜色
      */
-    void Text::setColor(const SDL_Color &color) { this->color = color; }
+    void Text::setColor(const SDL_Color& color)
+    {
+        this->color = color;
+        flush();
+    }
 
     /**
      * @brief 获取文本使用的字体
@@ -109,9 +118,10 @@ namespace lyt
         if (this->text != text)
         {
             this->text = text;
-            // flush();
+             flush();
         }
     }
+    
 
     /**
      * @brief 设置文本的所有属性并创建纹理
@@ -160,29 +170,65 @@ namespace lyt
      */
     void Text::flush()
     {
-        // 清理并重新创建纹理
-        if (texture) SDL_DestroyTexture(texture);
-        if (surface) SDL_FreeSurface(surface);
-        surface = TTF_RenderUTF8_Blended(font, text.c_str(), color);
-        if (!surface)
+        // 检查 renderer 和 font 是否有效
+        if (!renderer || !renderer->get())
         {
-            SDL_Log("Failed to create surface: %s", SDL_GetError());
+            SDL_Log("flush() failed: renderer is null");
+            return;
+        }
+        if (!font)
+        {
+            SDL_Log("flush() failed: font is null");
             return;
         }
 
-        // 从表面创建新的纹理
+        // 清理旧资源
+        if (texture)
+        {
+            SDL_DestroyTexture(texture);
+            texture = nullptr;
+        }
+        if (surface)
+        {
+            SDL_FreeSurface(surface);
+            surface = nullptr;
+        }
+
+        // 创建新 surface
+        surface = TTF_RenderUTF8_Blended(font, text.c_str(), color);
+        if (!surface)
+        {
+            SDL_Log("flush() failed: TTF_RenderUTF8_Blended: %s", TTF_GetError());
+            return;
+        }
+
+        // 创建新 texture
         texture = SDL_CreateTextureFromSurface(renderer->get(), surface);
-        SDL_SetTextureBlendMode(texture, this->blendMode);
-        SDL_SetTextureAlphaMod(texture, this->alpha);
         if (!texture)
         {
-            SDL_Log("Failed to create texture: %s", SDL_GetError());
+            SDL_Log("flush() failed: SDL_CreateTextureFromSurface: %s", SDL_GetError());
             SDL_FreeSurface(surface);
+            surface = nullptr;
+            return;
         }
+
+        // 设置混合模式和透明度
+        SDL_SetTextureBlendMode(texture, blendMode);
+        SDL_SetTextureAlphaMod(texture, alpha);
+
+        //SDL_Log("flush() success: text='%s'", text.c_str());
     }
+
+    
+
 
     /**
      * @brief 绘制文本到屏幕
      */
-    void Text::draw() { renderer->copy(texture, nullptr, &rect); }
+    void Text::draw()
+    {
+        renderer->copy(texture, nullptr, &rect);
+        //SDL_Log("flush alpha = %d", alpha);
+    }
+
 }  // namespace lyt
