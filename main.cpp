@@ -124,7 +124,7 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.4f, 0.035f
 
     // 登录界面文本区域，宽占登录窗口宽度的70%，高占20%，距离顶部50%，水平居中
     SDL_Rect loginTextRect = computeRect(loginUiW, loginUiH, 0.5f, 0.2f, 0.5f, 0.2f);
-    loginText.setAll(loginUi.getRenderer(), loginTextRect, {30, 144, 255, 255},font, SDL_BLENDMODE_BLEND, "大鱼吃小鱼");
+    loginText.setAll(loginUi.getRenderer(), loginTextRect, {30, 144, 255, 255},font, SDL_BLENDMODE_BLEND, "FISH EAT FISH");
     //loginText.setAll(loginUi.getRenderer(), loginTextRect, textColor, font, SDL_BLENDMODE_BLEND, "1111111111111111");
 
     // 玩家鱼初始化
@@ -342,8 +342,8 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.4f, 0.035f
 
         // 更新分数显示
 
-        scoreStr = "当前分数: " + std::to_string(scoreManager.getScore()) +
-                               "  历史最高分: " + std::to_string(scoreManager.getHighScore());
+        scoreStr = "Score: " + std::to_string(scoreManager.getScore()) +
+                           "  High: " + std::to_string(scoreManager.getHighScore());
         //scoreText.setAll(game.getRenderer(), {windowW / 2 - 180, 50, 360, 40}, textColor, font, SDL_BLENDMODE_BLEND,scoreStr);
         scoreText.setRect(scoreRect);
         scoreText.setText(scoreStr);  // 更新分数文本内容
@@ -376,7 +376,7 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.4f, 0.035f
         {
             std::string str=std::to_string(scoreManager.getScore());
             scoreText.setRect({windowW/2-200, windowH/2-100, 400, 100});
-            scoreText.setText("你的分数为："+str);
+            scoreText.setText("Your Score:"+str);
             gameOverImage.draw();
             restart.drawwithImage();
             gameExit.drawwithImage();
@@ -387,7 +387,7 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.4f, 0.035f
         {
         std::string str=std::to_string(scoreManager.getScore());
             scoreText.setRect({windowW/2-200, windowH/2-100, 400, 100});
-            scoreText.setText("当前分数为："+str);
+            scoreText.setText("Current Score:"+str);
             gamePauseImage.draw();
             gameContinue.drawwithImage();
             restart.drawwithImage();
