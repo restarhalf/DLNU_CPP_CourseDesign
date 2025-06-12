@@ -181,12 +181,16 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
         background.setRect({0, 0, windowW, windowH});
         loginBackground.setRect({0, 0, loginUiW, loginUiH});
         scoreBoard.setRect({0, 0, windowW, static_cast<int>(windowW*0.07)});  // 更新计分板尺寸
+        gameOverImage.setRect({windowW/4, windowH/4, static_cast<int>(windowW*0.5), static_cast<int>(windowH*0.5)});
+
 
         // 按钮位置自适应窗口
         login.setButtonwithImage({loginUiW / 2 - 103, loginUiH / 2 + 100, 206, 70});
         exit.setButtonwithImage({loginUiW / 2-103, loginUiH / 2 + 300, 206, 70});
         fullscreenBtn.setButtonwithImage({0, 0, 300, 100});
         pauseButton.setButtonwithImage({static_cast<int>(windowW * 0.93), 0, static_cast<int>(windowW * 0.07), static_cast<int>(windowW * 0.07)});
+        restart.setButtonwithImage({windowW/8*3-102, windowH/8*5, 205, 33});
+        gameExit.setButtonwithImage({windowW/8*5-53, windowH/8*5, 106, 33});
         // 使用余弦函数的平滑渐变
         if (!isLogin)
         {
@@ -305,6 +309,11 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
                     // SDL_Log("玩家死亡，游戏结束");
                     scoreManager.saveHighScore();
                     paused = true;
+                    SDL_SetRenderDrawBlendMode(game.getRenderer()->get()
+                        , SDL_BLENDMODE_BLEND);
+                    SDL_SetRenderDrawColor(game.getRenderer()->get(), 255, 255, 255, 40);
+                    SDL_Rect overlay = {0, 0, windowW, windowH};
+                    SDL_RenderFillRect(game.getRenderer()->get(), &overlay);
                     gameOverImage.draw();
                     restart.drawwithImage();
                     gameExit.drawwithImage();

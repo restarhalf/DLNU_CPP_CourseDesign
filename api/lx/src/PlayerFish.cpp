@@ -126,7 +126,9 @@ namespace lx
     {
         rect.x = startX;
         rect.y = startY;
-        rect.w = rect.h = 60;
+        rect.w = 60;
+        rect.h = 30;
+        velocityX = velocityY = 0;
         alive           = true;
     }
 
