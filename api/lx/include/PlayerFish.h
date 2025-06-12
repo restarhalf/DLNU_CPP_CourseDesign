@@ -51,7 +51,7 @@ namespace lx
          * @param startX 起始X坐标
          * @param startY 起始Y坐标
          */
-        void reset(int startX, int startY);
+        void reset(int startX, int startY,lyt::Controller* controller);
 
         /**
          * @brief 调整玩家鱼大小至最大值

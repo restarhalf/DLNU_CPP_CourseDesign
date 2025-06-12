@@ -202,4 +202,8 @@ namespace lyt
         auto it = keyStates.find(scancode);
         return it != keyStates.end() && it->second;
     }
+    void Controller::reset()
+    {
+        keyStates.clear();
+    }
 }  // namespace lyt

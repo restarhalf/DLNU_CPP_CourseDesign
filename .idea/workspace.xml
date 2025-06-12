@@ -32,8 +32,79 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bcc9e56-ae7f-4772-83b2-5a4237ae3734" name="更改" comment="FIX">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lx/include/PlayerFish.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/include/PlayerFish.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/lx/src/PlayerFish.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lx/src/PlayerFish.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/include/Controller.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/include/Controller.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/lyt/src/Controller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/lyt/src/Controller.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/0Bar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/100Shark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/10Angler.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/110Bluetiger.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/120Tiger.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/150Killer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/15Sea.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/1Bar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/1Bee.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/1Gold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/1Salmon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/1Sky.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/200Shark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/20Honey.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/2Bar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/2Bee.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/2Gold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/2Salmon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/2Sky.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/30Mustard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/35Ketchup.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/3Bee.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/3Gold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/3Salmon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/3Sky.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/40Bluetiger.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/50Tiger.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/5Plane.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/5Sea.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/65Killer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/7Honey.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/80Ketchup.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/90Mustard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/Menu_Paused.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/Menu_options.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/Menu_play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/Menu_quit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/Menu_restart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/Options_back.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/Options_fullScreen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/Options_minusMusic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/Options_minusSFX.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/Options_music.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/Options_off.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/Options_on.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/Options_options.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/Options_plusMusic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/Options_plusSFX.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/Options_sfx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/btnStart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/exit.png" beforeDir="false" afterPath="$PROJECT_DIR$/asset/images/exit.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/fisheatfish1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/gamelose.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/highscore.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/highscore2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/markBoard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/mute.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/mute2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/newgame.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/pause.png" beforeDir="false" afterPath="$PROJECT_DIR$/asset/images/pause.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/images/volume.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -184,15 +255,13 @@
       <workItem from="1749693301448" duration="637000" />
       <workItem from="1749695026497" duration="534000" />
       <workItem from="1749695703532" duration="67000" />
-      <workItem from="1749695886996" duration="301000" />
-    </task>
-    <task id="LOCAL-00036" summary="FIX">
-      <option name="closed" value="true" />
-      <created>1749372663897</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1749372663897</updated>
+      <workItem from="1749695886996" duration="361000" />
+      <workItem from="1749696576382" duration="18000" />
+      <workItem from="1749697239490" duration="21000" />
+      <workItem from="1749697277412" duration="12000" />
+      <workItem from="1749697490261" duration="785000" />
+      <workItem from="1749699597908" duration="82000" />
+      <workItem from="1749700010024" duration="375000" />
     </task>
     <task id="LOCAL-00037" summary="FIX">
       <option name="closed" value="true" />
@@ -578,7 +647,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749693916772</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="FIX">
+      <option name="closed" value="true" />
+      <created>1749696235288</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1749696235288</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

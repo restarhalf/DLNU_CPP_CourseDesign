@@ -122,13 +122,15 @@ namespace lx
      * @param startX 起始X坐标
      * @param startY 起始Y坐标
      */
-    void PlayerFish::reset(int startX, int startY)
+    void PlayerFish::reset(int startX, int startY,lyt::Controller* controller)
     {
         rect.x = startX;
         rect.y = startY;
         rect.w = 60;
         rect.h = 30;
+        direction = 1;  // 默认向右
         velocityX = velocityY = 0;
+        controller->reset();
         alive           = true;
     }
 

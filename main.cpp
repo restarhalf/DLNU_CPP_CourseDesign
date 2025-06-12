@@ -22,12 +22,12 @@ inline auto computeRect = [](int windowW, int windowH, float widthRatio, float h
                              float yRatio = 0.02f) -> SDL_Rect
 {
     // 计算矩形的宽度和高度
-    int width  = static_cast<int>(windowW * widthRatio);
-    int height = static_cast<int>(windowH * heightRatio);
+    int width  = static_cast<int>(static_cast<float>(windowW) * widthRatio);
+    int height = static_cast<int>(static_cast<float>(windowH) * heightRatio);
     // 计算矩形左上角x坐标，使其中心点位于xRatio指定的位置
-    int x = static_cast<int>(windowW * xRatio - width / 2);  // xRatio表示中心点的相对位置，默认0.5居中
+    int x = static_cast<int>(static_cast<float>(windowW) * xRatio - static_cast<float>(width) / 2);  // xRatio表示中心点的相对位置，默认0.5居中
     // 计算矩形左上角y坐标
-    int y = static_cast<int>(windowH * yRatio);
+    int y = static_cast<int>(static_cast<float>(windowH) * yRatio);
     // 返回SDL_Rect结构体
     return {x, y, width, height};
 };
@@ -91,13 +91,13 @@ int main(int argc, char* argv[])
     loginUi.getWindow()->getSize(loginUiW, loginUiH);
 
     // 设置按钮和背景图片
-    login.setButtonwithImage("asset/images/login.png", loginUi.getRenderer(),
+    login.setButtonwithImage("asset/images/start.png", loginUi.getRenderer(),
                              {loginUiW / 3 - 100, loginUiH / 2 + 70, 206, 70}, SDL_BLENDMODE_BLEND, 255);
     exit.setButtonwithImage("asset/images/exit.png", loginUi.getRenderer(),
                             {loginUiW / 3 * 2 - 100, loginUiH / 2 + 70, 206, 70}, SDL_BLENDMODE_BLEND, 255);
-    restart.setButtonwithImage("asset/images/Menu_restart.png", game.getRenderer(),{windowW/8*3-102, windowH/8*6+150, 205, 33}, SDL_BLENDMODE_BLEND, 255);
-    gameExit.setButtonwithImage("asset/images/Menu_quit.png", game.getRenderer(),{windowW/8*5-53, windowH/8*6+150, 106, 33}, SDL_BLENDMODE_BLEND, 255);
-    fullscreenBtn.setButtonwithImage("asset/images/Menu_quit.png", game.getRenderer(), {0, 0, 100, 100}, SDL_BLENDMODE_BLEND,
+    restart.setButtonwithImage("asset/images/restart.png", game.getRenderer(),{windowW/8*3-102, windowH/8*6+150, 205, 33}, SDL_BLENDMODE_BLEND, 255);
+    gameExit.setButtonwithImage("asset/images/restart.png", game.getRenderer(),{windowW/8*5-53, windowH/8*6+150, 106, 33}, SDL_BLENDMODE_BLEND, 255);
+    fullscreenBtn.setButtonwithImage("asset/images/restart.png", game.getRenderer(), {0, 0, 100, 100}, SDL_BLENDMODE_BLEND,
                                      255);
     pauseButton.setButtonwithImage("asset/images/pause.png", game.getRenderer(),
                             {static_cast<int>(windowW * 0.884), 0, static_cast<int>(windowW * 0.116), static_cast<int>(windowW * 0.116)}, SDL_BLENDMODE_BLEND, 255);
@@ -105,7 +105,7 @@ int main(int argc, char* argv[])
                         SDL_BLENDMODE_BLEND, 255);
     loginBackground.setImage("asset/images/loginbackground.png", loginUi.getRenderer(), {0, 0, loginUiW, loginUiH},
                              SDL_BLENDMODE_BLEND, 255);
-    gameOverImage.setImage("asset/images/gamelose.png", game.getRenderer(), {windowW/4, windowH/2, static_cast<int>(windowW*0.5), static_cast<int>(windowH*0.5)},
+    gameOverImage.setImage("asset/images/gameover.png", game.getRenderer(), {windowW/4, windowH/2, static_cast<int>(windowW*0.5), static_cast<int>(windowH*0.5)},
                              SDL_BLENDMODE_BLEND, 255);
     // 计分板背景，用固定高度比例，宽度铺满
     SDL_Rect scoreBoardRect = {0, 0, windowW, static_cast<int>(windowW*0.07)};
@@ -123,11 +123,6 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
 
     // 登录界面文本区域，宽占登录窗口宽度的70%，高占20%，距离顶部50%，水平居中
     SDL_Rect loginTextRect = computeRect(loginUiW, loginUiH, 0.7f, 0.2f, 0.5f, 0.2f);
-    // 登录界面文本区域，宽占登录窗口宽度的70%，高占20%，距离顶部50%，水平居中
-    // 时间获取
-    Uint32 ticks = SDL_GetTicks();
-
-  
     loginText.setAll(loginUi.getRenderer(), loginTextRect, {30, 144, 255, 255},font, SDL_BLENDMODE_BLEND, "FISH EAT FISH");
     //loginText.setAll(loginUi.getRenderer(), loginTextRect, textColor, font, SDL_BLENDMODE_BLEND, "1111111111111111");
 
@@ -189,18 +184,18 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
         exit.setButtonwithImage({loginUiW / 2-103, loginUiH / 2 + 300, 206, 70});
         fullscreenBtn.setButtonwithImage({0, 0, 300, 100});
         pauseButton.setButtonwithImage({static_cast<int>(windowW * 0.93), 0, static_cast<int>(windowW * 0.07), static_cast<int>(windowW * 0.07)});
-        restart.setButtonwithImage({windowW/8*3-102, windowH/8*5, 205, 33});
-        gameExit.setButtonwithImage({windowW/8*5-53, windowH/8*5, 106, 33});
+        restart.setButtonwithImage({windowW/8*3-43, windowH/8*5, 86, 75});
+        gameExit.setButtonwithImage({windowW/8*5-43, windowH/8*5, 86, 75});
         // 使用余弦函数的平滑渐变
         if (!isLogin)
         {
             Uint32 ticks  = SDL_GetTicks();
-        float  colorT = (ticks % 2000) / 2000.0f * 2.0f * M_PI;  // 0到2π
+        double  colorT = (ticks % 2000) / 2000.0 * 2.0 * M_PI;  // 0到2π
 
         // 蓝紫渐变（R: 较小变化，G: 中值变化，B: 大幅变化）
-        Uint8 r = static_cast<Uint8>(100 + 30 * cos(colorT));  // 红: 100~130
-        Uint8 g = static_cast<Uint8>(50 + 50 * cos(colorT + M_PI / 2.0f));  // 绿: 0~100（紫色需要较少绿色）
-        Uint8 b = static_cast<Uint8>(150 + 50 * cos(colorT));  // 蓝: 50~250
+        auto  r = static_cast<Uint8>(100 + 30 * cos(colorT));  // 红: 100~130
+        auto  g = static_cast<Uint8>(50 + 50 * cos(colorT + M_PI / 2.0f));  // 绿: 0~100（紫色需要较少绿色）
+        auto  b = static_cast<Uint8>(150 + 50 * cos(colorT));  // 蓝: 50~250
 
         SDL_Color fadeColor = {r, g, b, 255};
         loginText.setColor(fadeColor);
@@ -228,7 +223,7 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
                 if (exit.isButtonReleased())  // 退出
                 {
                     scoreManager.saveHighScore();
-                    if (font) TTF_CloseFont(font);
+                    TTF_CloseFont(font);
                     game.clean();
                     loginUi.clean();
                     return 0;
@@ -277,7 +272,7 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
                 if (restart.isButtonReleased())
                 {
                     paused = false;
-                    playerFish.reset(windowW / 4, windowH / 2);
+                    playerFish.reset(windowW / 4, windowH / 2,game.getController());
                     aiFishes.clear();
                     scoreManager.reset();
                     goto resartLabel;
@@ -285,7 +280,7 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
                 if (gameExit.isButtonReleased())
                 {
                     scoreManager.saveHighScore();
-                    if (font) TTF_CloseFont(font);
+                    TTF_CloseFont(font);
                     game.clean();
                     loginUi.clean();
                     return 0;
@@ -344,7 +339,7 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
 
         // 更新分数显示
 
-        std::string scoreStr = "Score: " + std::to_string(scoreManager.getScore()) +
+        scoreStr = "Score: " + std::to_string(scoreManager.getScore()) +
                                "  High: " + std::to_string(scoreManager.getHighScore());
         //scoreText.setAll(game.getRenderer(), {windowW / 2 - 180, 50, 360, 40}, textColor, font, SDL_BLENDMODE_BLEND,scoreStr);
         // scoreText.setRect({windowW / 2 - 180, 50, 360, 40});
@@ -381,7 +376,7 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
 
     // 游戏结束处理：保存分数和清理资源
     scoreManager.saveHighScore();
-    if (font) TTF_CloseFont(font);
+    TTF_CloseFont(font);
     game.clean();
     loginUi.clean();
     return 0;

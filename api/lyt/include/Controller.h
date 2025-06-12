@@ -79,6 +79,10 @@ namespace lyt
          * @return 如果按下则返回true
          */
         [[nodiscard]] bool isKeyPressed(SDL_Scancode scancode) const;
+        /**
+         * @brief 重置
+         */
+        void reset();
 
     private:
         bool isMousetoMove = false;  ///< 是否启用鼠标移动控制
