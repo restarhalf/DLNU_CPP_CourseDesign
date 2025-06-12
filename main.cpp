@@ -96,8 +96,8 @@ int main(int argc, char* argv[])
                              {loginUiW / 3 - 100, loginUiH / 2 + 70, 154, 74}, SDL_BLENDMODE_BLEND, 255);
     exit.setButtonwithImage("asset/images/exit.png", loginUi.getRenderer(),
                             {loginUiW / 3 * 2 - 100, loginUiH / 2 + 70, 154, 74}, SDL_BLENDMODE_BLEND, 255);
-    restart.setButtonwithImage("asset/images/restart.png", game.getRenderer(),{windowW/8*3-102, windowH/8*6+150, 205, 33}, SDL_BLENDMODE_BLEND, 255);
-    gameExit.setButtonwithImage("asset/images/gameExit.png", game.getRenderer(),{windowW/8*5-53, windowH/8*6+150, 106, 33}, SDL_BLENDMODE_BLEND, 255);
+    restart.setButtonwithImage("asset/images/restart.png", game.getRenderer(),{windowW/8*3-102, windowH/8*7, 205, 33}, SDL_BLENDMODE_BLEND, 255);
+    gameExit.setButtonwithImage("asset/images/gameExit.png", game.getRenderer(),{windowW/8*5-53, windowH/8*7, 106, 33}, SDL_BLENDMODE_BLEND, 255);
     pauseButton.setButtonwithImage("asset/images/pause.png", game.getRenderer(),
                             {static_cast<int>(windowW * 0.884), 0, static_cast<int>(windowW * 0.116), static_cast<int>(windowW * 0.116)}, SDL_BLENDMODE_BLEND, 255);
     gameContinue.setButtonwithImage("asset/images/continue.png", game.getRenderer(),{0,0,0,0}, SDL_BLENDMODE_BLEND, 255);
@@ -178,12 +178,12 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.4f, 0.035f
         gameOverImage.setRect({windowW/4, windowH/4, static_cast<int>(windowW*0.5), static_cast<int>(windowH*0.5)});
         gamePauseImage.setRect({windowW/4, windowH/4, static_cast<int>(windowW*0.5), static_cast<int>(windowH*0.5)});
         // 按钮位置自适应窗口
-        login.setButtonwithImage({loginUiW / 2-115, loginUiH / 2 + 70, 231, 111});
-        exit.setButtonwithImage({loginUiW / 2-115, loginUiH / 2 + 300, 231, 111});
+        login.setButtonwithImage({loginUiW / 2-115, static_cast<int>(loginUiH / 2), 231, 111});
+        exit.setButtonwithImage({loginUiW / 2-115, static_cast<int>(loginUiH / 1.5), 231, 111});
         pauseButton.setButtonwithImage({static_cast<int>(windowW * 0.93), 0, static_cast<int>(windowW * 0.07), static_cast<int>(windowW * 0.07)});
-        restart.setButtonwithImage({windowW/8*3-43, windowH/8*5-20, 86, 75});
-        gameExit.setButtonwithImage({windowW/8*5-43, windowH/8*5-20, 86, 75});
-        gameContinue.setButtonwithImage({windowW/2-43, windowH/8*5-20, 86, 75});
+        restart.setButtonwithImage({windowW/8*3-43, static_cast<int>(windowH/8*4.8), 86, 75});
+        gameExit.setButtonwithImage({windowW/8*5-43, static_cast<int>(windowH/8*4.8), 86, 75});
+        gameContinue.setButtonwithImage({windowW/2-43, static_cast<int>(windowH/8*4.8), 86, 75});
         // 使用余弦函数的平滑渐变
         if (!isLogin)
         {
@@ -375,7 +375,7 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.4f, 0.035f
         if (!playerFish.isAlive())
         {
             std::string str=std::to_string(scoreManager.getScore());
-            scoreText.setRect({windowW/2-200, windowH/2-100, 400, 100});
+            scoreText.setRect({windowW/2-200, static_cast<int>(windowH/2.2), 400, 100});
             scoreText.setText("Your Score:"+str);
             gameOverImage.draw();
             restart.drawwithImage();
@@ -386,7 +386,7 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.4f, 0.035f
         if (playerFish.isAlive() && paused )
         {
         std::string str=std::to_string(scoreManager.getScore());
-            scoreText.setRect({windowW/2-200, windowH/2-100, 400, 100});
+            scoreText.setRect({windowW/2-200, static_cast<int>(windowH/2.2), 400, 100});
             scoreText.setText("Current Score:"+str);
             gamePauseImage.draw();
             gameContinue.drawwithImage();
