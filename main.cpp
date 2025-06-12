@@ -172,6 +172,7 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.2f, 0.05f, 0.35f, 0.03f)
         // 获取并更新窗口尺寸
         game.getWindow()->getSize(windowW, windowH);
         loginUi.getWindow()->getSize(loginUiW, loginUiH);
+        scoreRect=computeRect(windowW, windowH, 0.3f, 0.07f, 0.5f, 0.025f);
         background.setRect({0, 0, windowW, windowH});
         loginBackground.setRect({0, 0, loginUiW, loginUiH});
         scoreBoard.setRect({0, 0, windowW, static_cast<int>(windowW*0.07)});  // 更新计分板尺寸
@@ -374,20 +375,20 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.2f, 0.05f, 0.35f, 0.03f)
         }
         if (!playerFish.isAlive())
         {
-            std::string str=std::to_string(scoreManager.getScore());
-            scoreText.setRect({windowW/2-200, static_cast<int>(windowH/2.2), 400, 100});
-            scoreText.setText("Your Score:"+str);
+            std::string str = std::to_string(scoreManager.getScore());
+            scoreText.setRect(computeRect(windowW, windowH, 0.4f, 0.1f, 0.5f, 0.45f));
+            scoreText.setText("Your Score:" + str);
             gameOverImage.draw();
             restart.drawwithImage();
             gameExit.drawwithImage();
             scoreText.draw();
             game.getRenderer()->present();
         }
-        if (playerFish.isAlive() && paused )
+        if (playerFish.isAlive() && paused)
         {
-        std::string str=std::to_string(scoreManager.getScore());
-            scoreText.setRect({windowW/2-200, static_cast<int>(windowH/2.2), 400, 100});
-            scoreText.setText("Current Score:"+str);
+            std::string str = std::to_string(scoreManager.getScore());
+            scoreText.setRect(computeRect(windowW, windowH, 0.4f, 0.1f, 0.5f, 0.45f));
+            scoreText.setText("Current Score:" + str);
             gamePauseImage.draw();
             gameContinue.drawwithImage();
             restart.drawwithImage();
