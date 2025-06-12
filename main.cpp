@@ -116,7 +116,7 @@ int main(int argc, char* argv[])
     lx::ScoreManager scoreManager;
     SDL_Color        textColor = {255, 255, 255, 255};
 
-SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.4f, 0.035f);
+SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.2f, 0.05f, 0.35f, 0.03f);
     std::string scoreStr = "Score: " + std::to_string(scoreManager.getScore()) +
                            "  High: " + std::to_string(scoreManager.getHighScore());
 
