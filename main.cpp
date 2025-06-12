@@ -91,10 +91,10 @@ int main(int argc, char* argv[])
     loginUi.getWindow()->getSize(loginUiW, loginUiH);
 
     // 设置按钮和背景图片
-    login.setButtonwithImage("asset/images/3.png", loginUi.getRenderer(),
-                             {loginUiW / 3 - 100, loginUiH / 2 + 70, 230, 230}, SDL_BLENDMODE_BLEND, 255);
-    exit.setButtonwithImage("asset/images/2.png", loginUi.getRenderer(),
-                            {loginUiW / 3 * 2 - 100, loginUiH / 2 + 70, 230, 230}, SDL_BLENDMODE_BLEND, 255);
+    login.setButtonwithImage("asset/images/login.png", loginUi.getRenderer(),
+                             {loginUiW / 3 - 100, loginUiH / 2 + 70, 206, 70}, SDL_BLENDMODE_BLEND, 255);
+    exit.setButtonwithImage("asset/images/exit.png", loginUi.getRenderer(),
+                            {loginUiW / 3 * 2 - 100, loginUiH / 2 + 70, 206, 70}, SDL_BLENDMODE_BLEND, 255);
     restart.setButtonwithImage("asset/images/Menu_restart.png", game.getRenderer(),{windowW/8*3-102, windowH/8*6+150, 205, 33}, SDL_BLENDMODE_BLEND, 255);
     gameExit.setButtonwithImage("asset/images/Menu_quit.png", game.getRenderer(),{windowW/8*5-53, windowH/8*6+150, 106, 33}, SDL_BLENDMODE_BLEND, 255);
     fullscreenBtn.setButtonwithImage("asset/images/Menu_quit.png", game.getRenderer(), {0, 0, 100, 100}, SDL_BLENDMODE_BLEND,
@@ -183,8 +183,8 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.02f)
         scoreBoard.setRect({0, 0, windowW, static_cast<int>(windowW*0.07)});  // 更新计分板尺寸
 
         // 按钮位置自适应窗口
-        login.setButtonwithImage({loginUiW / 3 - 115, loginUiH / 2 + 70, 230, 230});
-        exit.setButtonwithImage({loginUiW / 3 * 2 - 115, loginUiH / 2 + 70, 230, 230});
+        login.setButtonwithImage({loginUiW / 2 - 103, loginUiH / 2 + 100, 206, 70});
+        exit.setButtonwithImage({loginUiW / 2-103, loginUiH / 2 + 300, 206, 70});
         fullscreenBtn.setButtonwithImage({0, 0, 300, 100});
         pauseButton.setButtonwithImage({static_cast<int>(windowW * 0.93), 0, static_cast<int>(windowW * 0.07), static_cast<int>(windowW * 0.07)});
         // 使用余弦函数的平滑渐变
