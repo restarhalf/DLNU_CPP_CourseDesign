@@ -36,6 +36,7 @@ inline auto computeRect = [](int windowW, int windowH, float widthRatio, float h
 
 int main(int argc, char* argv[])
 {
+    int ind=0;
     // 随机数生成器初始化
     std::random_device rd;
     std::mt19937       gen(rd());
@@ -242,6 +243,10 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.05f)
                 if (event.key.keysym.sym == SDLK_p)
                 {
                     paused = !paused;  // 暂停状态转化
+                    if (paused)
+                        ind = 0;
+                    else
+                        ind = 0;
                 }
             }
             if (!paused)  // 暂停状态变化，若未暂停，更新移动
@@ -252,7 +257,7 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.05f)
             }
             if (pauseButton.isButtonReleased())
             {
-                paused = !paused;
+                paused = true;
             }
             if (fullscreenBtn.isButtonReleased())  // 全屏
             {
@@ -294,6 +299,7 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.05f)
                 gameContinue.handleEvent(event);
                 if (gameContinue.isButtonReleased())
                 {
+                    ind--;
                     paused = false;
                 }
                 if (restart.isButtonReleased())
@@ -378,7 +384,7 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.05f)
             loginUi.getRenderer()->present();
         }
         // 渲染游戏界面元素
-        if (isLogin && playerFish.isAlive())
+        if (isLogin && playerFish.isAlive() && !paused)
         {
 
         game.getRenderer()->clear();
@@ -394,6 +400,7 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.05f)
         }
         if (!playerFish.isAlive())
         {
+
             std::string str=std::to_string(scoreManager.getScore());
             scoreText.setRect({windowW/2-200, windowH/2-100, 400, 100});
             scoreText.setText("你的分数为："+str);
@@ -403,13 +410,17 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.05f)
             scoreText.draw();
             game.getRenderer()->present();
         }
-        if (playerFish.isAlive() && paused)
+        if (playerFish.isAlive() && paused )
         {
-            // SDL_SetRenderDrawBlendMode(game.getRenderer()->get()
-            //             , SDL_BLENDMODE_BLEND);
-            // SDL_SetRenderDrawColor(game.getRenderer()->get(), 255, 255, 255, 40);
-            // SDL_Rect overlay = {0, 0, windowW, windowH};
-            // SDL_RenderFillRect(game.getRenderer()->get(), &overlay);
+            if (ind==0)
+            {
+                SDL_SetRenderDrawBlendMode(game.getRenderer()->get()
+                        , SDL_BLENDMODE_BLEND);
+                SDL_SetRenderDrawColor(game.getRenderer()->get(), 255, 255, 255, 40);
+                SDL_Rect overlay = {0, 0, windowW, windowH};
+                SDL_RenderFillRect(game.getRenderer()->get(), &overlay);
+                ind++;
+            }
             std::string str=std::to_string(scoreManager.getScore());
             scoreText.setRect({windowW/2-200, windowH/2-100, 400, 100});
             scoreText.setText("当前分数为："+str);
