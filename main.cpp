@@ -238,10 +238,6 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.4f, 0.035f
                 if (event.key.keysym.sym == SDLK_p)
                 {
                     paused = !paused;  // 暂停状态转化
-                    if (paused)
-                        ind = 0;
-                    else
-                        ind = 0;
                 }
             }
             if (!paused)  // 暂停状态变化，若未暂停，更新移动
@@ -283,7 +279,6 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.4f, 0.035f
                 gameContinue.handleEvent(event);
                 if (gameContinue.isButtonReleased())
                 {
-                    ind--;
                     paused = false;
                 }
                 if (restart.isButtonReleased())
