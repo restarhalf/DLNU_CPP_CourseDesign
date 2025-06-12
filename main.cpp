@@ -178,8 +178,8 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.4f, 0.035f
         gameOverImage.setRect({windowW/4, windowH/4, static_cast<int>(windowW*0.5), static_cast<int>(windowH*0.5)});
         gamePauseImage.setRect({windowW/4, windowH/4, static_cast<int>(windowW*0.5), static_cast<int>(windowH*0.5)});
         // 按钮位置自适应窗口
-        login.setButtonwithImage({loginUiW / 2-77, loginUiH / 2 + 70, 154, 74});
-        exit.setButtonwithImage({loginUiW / 2-77, loginUiH / 2 + 300, 154, 74});
+        login.setButtonwithImage({loginUiW / 2-115, loginUiH / 2 + 70, 231, 111});
+        exit.setButtonwithImage({loginUiW / 2-115, loginUiH / 2 + 300, 231, 111});
         pauseButton.setButtonwithImage({static_cast<int>(windowW * 0.93), 0, static_cast<int>(windowW * 0.07), static_cast<int>(windowW * 0.07)});
         restart.setButtonwithImage({windowW/8*3-43, windowH/8*5-20, 86, 75});
         gameExit.setButtonwithImage({windowW/8*5-43, windowH/8*5-20, 86, 75});
