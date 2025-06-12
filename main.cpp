@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
     lyt::Game   game;
     lyt::Game   loginUi;
     bool        fullscreenFlag = false;
-    lyt::Button login, exit, fullscreenBtn,pauseButton,restart,gameExit,gameContinue;  // 创建按钮对象：登录、退出、全屏
+    lyt::Button login, exit,pauseButton,restart,gameExit,gameContinue;  // 创建按钮对象：登录、退出、全屏
     TTF_Font*   font = nullptr;
 
     // 初始化游戏窗口和登录窗口，设置分辨率和flags
@@ -99,8 +99,6 @@ int main(int argc, char* argv[])
                             {loginUiW / 3 * 2 - 100, loginUiH / 2 + 70, 154, 74}, SDL_BLENDMODE_BLEND, 255);
     restart.setButtonwithImage("asset/images/restart.png", game.getRenderer(),{windowW/8*3-102, windowH/8*6+150, 205, 33}, SDL_BLENDMODE_BLEND, 255);
     gameExit.setButtonwithImage("asset/images/gameExit.png", game.getRenderer(),{windowW/8*5-53, windowH/8*6+150, 106, 33}, SDL_BLENDMODE_BLEND, 255);
-    fullscreenBtn.setButtonwithImage("asset/images/restart.png", game.getRenderer(), {0, 0, 100, 100}, SDL_BLENDMODE_BLEND,
-                                     255);
     pauseButton.setButtonwithImage("asset/images/pause.png", game.getRenderer(),
                             {static_cast<int>(windowW * 0.884), 0, static_cast<int>(windowW * 0.116), static_cast<int>(windowW * 0.116)}, SDL_BLENDMODE_BLEND, 255);
     gameContinue.setButtonwithImage("asset/images/continue.png", game.getRenderer(),{0,0,0,0}, SDL_BLENDMODE_BLEND, 255);
@@ -183,7 +181,6 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.05f)
         // 按钮位置自适应窗口
         login.setButtonwithImage({loginUiW / 2 - 154, loginUiH / 2 + 70, 308, 148});
         exit.setButtonwithImage({loginUiW / 2-154, loginUiH / 2 + 300, 308, 148});
-        fullscreenBtn.setButtonwithImage({0, 0, 300, 100});
         pauseButton.setButtonwithImage({static_cast<int>(windowW * 0.93), 0, static_cast<int>(windowW * 0.07), static_cast<int>(windowW * 0.07)});
         restart.setButtonwithImage({windowW/8*3-86, windowH/8*5, 172, 150});
         gameExit.setButtonwithImage({windowW/8*5-86, windowH/8*5, 172, 150});
@@ -236,7 +233,6 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.05f)
                 game.handleEvent(event, mouseX, mouseY);
 
             pauseButton.handleEvent(event);
-            fullscreenBtn.handleEvent(event);
             // 检测暂停键（p键）
             if (event.type == SDL_KEYDOWN)  // 还需加上点击开始/继续图标的条件语句！！！！！
             {
@@ -258,17 +254,6 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.05f)
             if (pauseButton.isButtonReleased())
             {
                 paused = true;
-            }
-            if (fullscreenBtn.isButtonReleased())  // 全屏
-            {
-                fullscreenFlag = !fullscreenFlag;
-                game.getWindow()->fullscreen(fullscreenFlag);
-                loginUi.getWindow()->fullscreen(fullscreenFlag);
-                if (!fullscreenFlag)
-                {
-                    game.getWindow()->setSize(windowW - 100, windowH - 100);
-                    SDL_SetWindowPosition(game.getWindow()->get(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
-                }
             }
             }
             if (!playerFish.isAlive())
@@ -392,7 +377,6 @@ SDL_Rect    scoreRect = computeRect(windowW, windowH, 0.25f, 0.07f, 0.5f, 0.05f)
         scoreBoard.draw();
         scoreText.draw();
         playerFish.render();
-        fullscreenBtn.drawwithImage();
         pauseButton.drawwithImage();
         for (auto& aiFish: aiFishes) aiFish.render();
         // 显示渲染结果
